@@ -104,7 +104,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'camdocdoc'
+htmlhelp_basename = 'camdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -132,7 +132,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'camdoc.tex', u'camdoc Documentation',
-     u'ian Eaton, Steve Goldhaber', 'manual'),
+     u'Brian Eaton, Steve Goldhaber', 'manual'),
 ]
 
 
