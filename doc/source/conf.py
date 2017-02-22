@@ -50,8 +50,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'camdoc'
-copyright = u'2017, ian Eaton, Steve Goldhaber'
-author = u'ian Eaton, Steve Goldhaber'
+copyright = u'2017 UCAR'
+author = u'Brian Eaton, Steve Goldhaber'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
