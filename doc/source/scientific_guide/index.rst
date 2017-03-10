@@ -13,9 +13,12 @@ CAM Scientific Guide
    :maxdepth: 3
    :numbered:
 
+   chap1.rst
    chap2.rst
    chap3.rst
    chap4.rst
+   chap5_chem.rst
+   chap5_waccm.rst
 
 
 
