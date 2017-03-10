@@ -311,36 +311,32 @@ To complete the construction of the 2D algorithm on the sphere, we
 introduce the following short hand notations:
 
 .. math::
+   :label: def-1
 
-   \label{def-1}
    (\, )^{\theta }=(\, )^{n}+\frac{1}{2}g[ v^{*},\Delta t,\, (\,
    )^{n}] ,
 
 .. math::
+   :label: def-2
 
-   \label{def-2}
-   (\, )^{\lambda }=(\, )^{n}+\frac{1}{2}f[ u^{*},\Delta t,\, (\,
-   )^{n}] .
+   (\, )^{\lambda }=(\, )^{n}+\frac{1}{2}f[ u^{*},\Delta t,\, (\,)^{n}] .
 
-The 2D transport algorithm (*cf*, Eq. 2.24 in LR96) can then be written
-as
+The 2D transport algorithm (*cf*, Eq. 2.24 in LR96) can then be written as
 
 .. math::
+   :label: den-gf
 
-   \label{den-gf}
-   \widetilde{\pi }^{n+1}=\widetilde{\pi }^{n}+F[ u^{*},\Delta
-   t,\widetilde{\pi }^{\theta }] +G[ v^{*},\Delta
-   t,\widetilde{\pi }^{\lambda }] .
+   \widetilde{\pi }^{n+1}=\widetilde{\pi }^{n}+F[ u^{\*},\Delta
+   t,\widetilde{\pi }^{\theta }] +G[ v^{\*},\Delta t,\widetilde{\pi }^{\lambda }] .
 
-Using explicitly the mass fluxes :math:`( \chi ,Y)`,
-([den-gf]) is rewritten as
+Using explicitly the mass fluxes :math:`( \chi ,Y)`, ([den-gf]) is rewritten as
 
 .. math::
+   :label: air
 
-   \label{air}
    \widetilde{\pi }^{n+1}=\widetilde{\pi }^{n}-\frac{\Delta t}{Acos\theta
    }\{ \frac{1}{\Delta \lambda }\delta _{\lambda }[ \chi
-   (u^{*},\Delta t;\widetilde{\pi }^{\theta })] +\frac{1}{\Delta
+   (u^{\*},\Delta t;\widetilde{\pi }^{\theta })] +\frac{1}{\Delta
    \theta }\delta _{\theta }[ cos\theta \, Y(v^{*},\Delta
    t;\widetilde{\pi }^{\lambda })] \} ,
 
@@ -352,10 +348,10 @@ representation of the *incompressibility condition* of the “time mean”
 wind field :math:`(u^{*},v^{*})`, *i.e*.,
 
 .. math::
+   :label: div=0
 
-   \label{div=0}
-   \frac{1}{\Delta \lambda }\delta _{\lambda }u^{*}+\frac{1}{\Delta
-   \theta }\delta _{\theta }( v^{*}cos\theta ) =0 .
+   \frac{1}{\Delta \lambda }\delta _{\lambda }u^{\*}+\frac{1}{\Delta
+   \theta }\delta _{\theta }( v^{\*}cos\theta ) =0 .
 
 The fulfillment of the above *incompressibility condition* for constant
 density flows is crucial to the accuracy of the 2D flux-form
@@ -546,14 +542,13 @@ and applying directly ([air]), the update of “pressure thickness”
 t/m`, can be written as
 
 .. math::
+   :label: mass
 
-   \label{mass}
    \delta p^{n+\frac{i}{m}}=\delta p^{n+\frac{i-1}{m}}-\frac{\Delta \tau
    }{Acos\theta }\{ \frac{1}{\Delta \lambda }\delta _{\lambda
    }[ x_{i}^{*}(u_{i}^{*},\Delta \tau ;\delta p_{i}^{\theta
    })] +\frac{1}{\Delta \theta }\delta _{\theta }[ cos\theta
-   \, y_{i}^{*}(v_{i}^{*},\Delta \tau ;\delta p_{i}^{\lambda })]
-   \}
+   \, y_{i}^{*}(v_{i}^{*},\Delta \tau ;\delta p_{i}^{\lambda })] \}
 
 .. math:: (for\, i=1,...,m),
 
@@ -615,7 +610,7 @@ computed as follows:
    \widehat{P_{\theta }}=\frac{\oint _{\Pi leftharpoons \theta
    }\phi d\Pi }{A\, \oint _{\Pi leftharpoons \theta }\Pi d\theta } ,
 
- where :math:`\Pi =p^{\kappa }\, (\kappa =R/C_{p})`, and the symbols
+where :math:`\Pi =p^{\kappa }\, (\kappa =R/C_{p})`, and the symbols
 “:math:`\Pi leftharpoons \lambda`” and “:math:`\Pi` :math:`leftharpoons \theta`” 
 indicate that the contour integrations are
 to be carried out, using the finite-volume algorithm described in L97,
@@ -763,10 +758,9 @@ mapping procedure as follows.
   :math:`\phi`, internal energy :math:`(C_{v}T)`, and the kinetic energy (:math:`K`) as follows:
 
   .. math::
-
+     
      \label{int-t}
-     \Gamma =\frac{1}{\delta p}\int [ C_{v}T+\phi +\frac{1}{2}(
-     u^{2}+v^{2}) ] dp .
+     \Gamma =\frac{1}{\delta p}\int [ C_{v}T+\phi +\frac{1}{2}(u^{2}+v^{2}) ] dp .
      
   Applying integration by parts and the ideal gas law, the above
   integral can be rewritten as
@@ -774,8 +768,7 @@ mapping procedure as follows.
   .. math::
 
      \label{TE_fv}
-     \Gamma =C_{p}\overline{T}+\frac{1}{\delta p}\delta ( p\phi
-     ) +K ,
+     \Gamma =C_{p}\overline{T}+\frac{1}{\delta p}\delta ( p\phi ) +K ,
 
   where :math:`\overline{T}` is the layer mean temperature,
   :math:`K` is the kinetic energy, :math:`p` is the pressure at layer edges,
@@ -818,7 +811,7 @@ two equivalent forms of the hydrostatic relation for :math:`\Theta` and :math:`\
    \label{hydro-T}
    \delta \phi =-R\overline{T}\, \delta ln\, \Pi ,
 
- where :math:`\Pi =p^{\kappa }`. The conversion formula between layer
+where :math:`\Pi =p^{\kappa }`. The conversion formula between layer
 mean temperature and layer mean potential temperature is obtained as
 follows:
 
@@ -1064,9 +1057,9 @@ variable-of-convenience :math:`c^*_p` are defined as in [eul:terrain].
 The diagnostic equations for the geopotential height field :math:`\Phi` is
 
 .. math::
+   :label: E:hydrostatic
 
    \Phi = \Phi_s + \int_{\eta}^{1} \frac{R T_v }{p} {\frac{\partial {p}}{\partial \eta}}\, d\eta
-   \label{E:hydrostatic}
 
 where :math:`\Phi_s` is the prescribed surface geopotential height
 (given at :math:`\eta=1`). To complete the system, we need diagnostic
@@ -1077,9 +1070,10 @@ diagnostic equation for
 prognostic equation for surface pressure :math:`p_s`
 
 .. math::
+   :label: E:PEcont2a
 
-   & {{\frac{\partial {}}{\partial t}}}p_s +  \int_{\eta_\text{top}}^{1} {\nabla\cdot}( {\frac{\partial {p}}{\partial \eta}}{{{\smash[t]{\vec{u}}}}}) \, d\eta = 0    \label{E:PEcont2a} \\
-   & {{\dot\eta}}{\frac{\partial {p}}{\partial \eta}}= - {{\frac{\partial {p}}{\partial t}}} - \int_{\eta_\text{top}}^\eta {\nabla\cdot}( {\frac{\partial {p}}{\partial \eta'}}{{{\smash[t]{\vec{u}}}}}) \, d\eta', \label{E:PEcont2c}
+   & {{\frac{\partial {}}{\partial t}}}p_s +  \int_{\eta_\text{top}}^{1} {\nabla\cdot}( {\frac{\partial {p}}{\partial \eta}}{{{\smash[t]{\vec{u}}}}}) \, d\eta = 0     \\
+   & {{\dot\eta}}{\frac{\partial {p}}{\partial \eta}}= - {{\frac{\partial {p}}{\partial t}}} - \int_{\eta_\text{top}}^\eta {\nabla\cdot}( {\frac{\partial {p}}{\partial \eta'}}{{{\smash[t]{\vec{u}}}}}) \, d\eta', 
 
 where is evaluated at the model bottom (:math:`\eta=1`) after using that
 :math:`\partial p / \partial t = B(\eta) \partial p_s / \partial t` and
@@ -1095,10 +1089,10 @@ a diagnostic equation for the pressure vertical velocity
 Finally, we rewrite as
 
 .. math::
+   :label: E:PEcont2
 
    {{\dot\eta}}{\frac{\partial {p}}{\partial \eta}}= B(\eta) \int_{\eta_\text{top}}^{1} {\nabla\cdot}( {\frac{\partial {p}}{\partial \eta}}{{{\smash[t]{\vec{u}}}}}) \, d\eta
    - \int_{\eta_\text{top}}^\eta {\nabla\cdot}( {\frac{\partial {p}}{\partial \eta'}}{{{\smash[t]{\vec{u}}}}}) \, d\eta',
-   \label{E:PEcont2b}
 
 Conserved Quantities
 ~~~~~~~~~~~~~~~~~~~~
@@ -1184,9 +1178,9 @@ from the spherical elements to the reference element
 :math:`{{[-1,1]^2}}`. We denote this map and its inverse by
 
 .. math::
+   :label: e-map
 
    {{\smash[t]{\vec{r}}}}= {{\smash[t]{\vec{r}}}}({{\smash[t]{\vec{x}}}};m), \qquad  {{\smash[t]{\vec{x}}}}= {{\smash[t]{\vec{x}}}}({{\smash[t]{\vec{r}}}};m).
-   \label{e:map}
 
 [f:sphere4] Tiling the surface of the sphere with
 quadrilaterals. An inscribed cube is projected to the surface of the
@@ -1213,20 +1207,20 @@ Fig. [f:GLLnodes]. The cardinal-function expansion coefficients of a
 function :math:`g` are its GLL nodal values, so we have
 
 .. math::
+   :label: e:cfvec
 
    g({{\smash[t]{\vec{x}}}})= \sum_{{\smash[t]{\vec{\imath}}}\in\mathbb{I}} g({{\smash[t]{\vec{\xi}}}}_{{\smash[t]{\vec{\imath}}}})  \phi_{{\smash[t]{\vec{\imath}}}}({{\smash[t]{\vec{x}}}}).
-   \label{e:cfvec}
 
 We can now define the piecewise-polynomial SEM spaces
 :math:`{\cal V^{0}_{}}` and :math:`{\cal V^{1}_{}}` as
 
 .. math::
+   :label: e:Hzero
 
    {\cal V^{0}_{}}& =  \{f \in{\cal L^2}(\Omega) :  f({{\smash[t]{\vec{r}}}}(\cdot;m)) \in {\cal P_d}, \forall m\}
-   ={\mathop{\mathrm{span}}}_{m=1}^M\{\phi_{{\smash[t]{\vec{\imath}}}}({{\smash[t]{\vec{x}}}}(\cdot;m))\}_{{\smash[t]{\vec{\imath}}}\in\mathbb{I}}
-   \label{e:Hzero}\\
-   \text{and}\qquad{\cal V^{1}_{}}& = {\cal C^{0}}(\Omega)\cap{\cal V^{0}_{}}.
-   \notag
+   = {\mathop{\mathrm{span}}}_{m=1}^M\{\phi_{{\smash[t]{\vec{\imath}}}}({{\smash[t]{\vec{x}}}}(\cdot;m))\}_{{\smash[t]{\vec{\imath}}}\in\mathbb{I}} \\
+    \text{and}\qquad{\cal V^{1}_{}}& = {\cal C^{0}}(\Omega)\cap{\cal V^{0}_{}}.
+    \notag
 
 Functions in :math:`{\cal V^{0}_{}}` are polynomial within each
 element but may be discontinuous at element boundaries and
@@ -1260,9 +1254,8 @@ polynomial, respectively.
 
 .. math::
 
-   {{\cal V^{0}_{\rm con}}}& =  \{{{{\smash[t]{\vec{u}}}}}\in{\cal L^2}(\Omega)^2 :  u^\alpha \in {\cal V^{0}_{}},\;\alpha=1,2\}
-   \\
-   \text{and}\qquad{{\cal V^{1}_{\rm con}}}& = {\cal C^{0}}(\Omega)^2\cap{{\cal V^{0}_{\rm con}}},
+   {{\cal V^{0}_{\rm con}}} & =  \{{{{\smash[t]{\vec{u}}}}}\in{\cal L^2}(\Omega)^2 :  u^\alpha \in {\cal V^{0}_{}},\;\alpha=1,2\} \\
+   \text{and}\qquad{{\cal V^{1}_{\rm con}}} & = {\cal C^{0}}(\Omega)^2\cap{{\cal V^{0}_{\rm con}}},
 
 where :math:`u^1, u^2` are the contravariant components of
 :math:`{{{\smash[t]{\vec{u}}}}}` defined below. Vectors in
@@ -1459,7 +1452,7 @@ quadrature,
    f({{\smash[t]{\vec{r}}}}({{\smash[t]{\vec{\xi}}}}_{{\smash[t]{\vec{\imath}}}};m))g({{\smash[t]{\vec{r}}}}({{\smash[t]{\vec{\xi}}}}_{{\smash[t]{\vec{\imath}}}};m))
    \label{E:intomega}
 
- The SEM approximation to the global integral is then naturally defined
+The SEM approximation to the global integral is then naturally defined
 as
 
 .. math::
@@ -1638,27 +1631,23 @@ We discretize the equations exactly in the form shown in , , and ,
 obtaining
 
 .. math::
+   :label: E:PEmomD
 
    {{P}}^{-1}
    {{\frac{\partial {{{{\smash[t]{\vec{u}}}}}}}{\partial t}}} & = 
    -
    ( {{\mathbf{\zeta}}}+ f ) {\hat{k}}{{\times}}{{{\smash[t]{\vec{u}}}}}+ {\nabla_{\rm h}}( \frac12 {{{\smash[t]{\vec{u}}}}}^2 + \Phi )
-     - { \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}({{{\smash[t]{\vec{u}}}}})  - \frac{RT_v}{p} {\nabla_{\rm h}}( p )
-   \label{E:PEmomD} \\
+     - { \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}({{{\smash[t]{\vec{u}}}}})  - \frac{RT_v}{p} {\nabla_{\rm h}}( p )  \\
    {{P}}^{-1}
    {{\frac{\partial {T}}{\partial t}}} & = 
-   - {{{\smash[t]{\vec{u}}}}}\cdot {\nabla_{\rm h}}( T  )  - { \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}(T)  + \frac{RT_v}{c^*_p p} \omega
-   \label{E:PEtempD} \\
+   - {{{\smash[t]{\vec{u}}}}}\cdot {\nabla_{\rm h}}( T  )  - { \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}(T)  + \frac{RT_v}{c^*_p p} \omega  \\
    {{P}}^{-1}
    {{\frac{\partial {p_s}}{\partial t}}} & = 
-   -  \sum_{j = 1}^{K} {\nabla_{\rm h} \cdot }( {\pi}{{{\smash[t]{\vec{u}}}}})_{j} \Delta\eta_{j}
-   \label{E:PEcont2aD} 
-   \\
+   -  \sum_{j = 1}^{K} {\nabla_{\rm h} \cdot }( {\pi}{{{\smash[t]{\vec{u}}}}})_{j} \Delta\eta_{j}   \\
    ( {{\dot\eta}}{\pi})_{i+1/2} & =
    B(\eta_{i+1/2}) 
     \sum_{j = 1}^{K} {\nabla_{\rm h} \cdot }( {\pi}{{{\smash[t]{\vec{u}}}}})_{j} \Delta\eta_{j}
    - \sum_{j=1}^i {\nabla_{\rm h} \cdot }( {\pi}{{{\smash[t]{\vec{u}}}}})_{j} \Delta\eta_{j}.
-   \label{E:PEcont2bD}
 
 We consider :math:`({{\dot\eta}}{\pi})` a single quantity given at layer
 interfaces and defined by . The no-flux boundary condition is
@@ -1676,14 +1665,12 @@ mid-point rule as used to derive , and then add an additional term
 representing the integral from :math:`i-\tfrac12` to :math:`i`:
 
 .. math::
+   :label: E:omegaD1
 
    \omega_i & =   ({{{\smash[t]{\vec{u}}}}}\cdot {\nabla_{\rm h}}p)_i  - 
    \sum_{j=1}^{i-1} {\nabla_{\rm h} \cdot }( {\pi}{{{\smash[t]{\vec{u}}}}})_j \Delta\eta_j
-   +  {\nabla_{\rm h} \cdot }( {\pi}{{{\smash[t]{\vec{u}}}}})_i \frac{\Delta\eta_i}{2}
-   \label{E:omegaD1}
-   \\
+   +  {\nabla_{\rm h} \cdot }( {\pi}{{{\smash[t]{\vec{u}}}}})_i \frac{\Delta\eta_i}{2}   \\
    & =   ({{{\smash[t]{\vec{u}}}}}\cdot {\nabla_{\rm h}}p)_i  - \sum_{j=1}^{K} C_{ij} {\nabla_{\rm h} \cdot }( {\pi}{{{\smash[t]{\vec{u}}}}})_j
-   \label{E:omegaD}
 
 where
 
@@ -1807,29 +1794,28 @@ a mixed finite element formulation (following ) which writes the
 equation as a system of equations involving only first derivatives. We
 start by introduced an auxiliary vector :math:`{{\smash[t]{\vec{f}}}}`
 and using the identity
-:math:`\Delta {{{\smash[t]{\vec{u}}}}}= {\nabla}( {\nabla\cdot}{{{\smash[t]{\vec{u}}}}}) - {{{\nabla}\times}}( {{{\nabla}\times}}{{{\smash[t]{\vec{u}}}}})`,
+
+:math:
+   \Delta {{{\smash[t]{\vec{u}}}}}= {\nabla}( {\nabla\cdot}{{{\smash[t]{\vec{u}}}}}) - {{{\nabla}\times}}( {{{\nabla}\times}}{{{\smash[t]{\vec{u}}}}}),
 
 .. math::
+   :label: E:HV
 
-   {{\frac{\partial {{{{\smash[t]{\vec{u}}}}}}}{\partial t}}} & = -\nu ( {\nabla}( {\nabla\cdot}{{\smash[t]{\vec{f}}}}) - {{{\nabla}\times}}{\hat{k}}({{{\nabla}\times}}{{\smash[t]{\vec{f}}}}) )
-   \label{E:HV1} \\
+   {{\frac{\partial {{{{\smash[t]{\vec{u}}}}}}}{\partial t}}} & = -\nu ( {\nabla}( {\nabla\cdot}{{\smash[t]{\vec{f}}}}) - {{{\nabla}\times}}{\hat{k}}({{{\nabla}\times}}{{\smash[t]{\vec{f}}}}) )  \\
    {{\smash[t]{\vec{f}}}}& =   {\nabla}({\nabla\cdot}{{{\smash[t]{\vec{u}}}}}) - {{{\nabla}\times}}({{{\nabla}\times}}{{{\smash[t]{\vec{u}}}}}) {\hat{k}}.
-   \label{E:HV2} 
 
 Integrating the gradient and curl operators by parts gives
 
 .. math::
+   :label: E:weakHV1
 
-   \iint {{\smash[t]{\vec{\phi}}}}\cdot {{\frac{\partial {{{{\smash[t]{\vec{u}}}}}}}{\partial t}}} \,{d\cal{A}}& = \nu \iint 
-   [ 
+   \iint {{\smash[t]{\vec{\phi}}}}\cdot {{\frac{\partial {{{{\smash[t]{\vec{u}}}}}}}{\partial t}}} \,{d\cal{A}}& = \nu \iint [ 
    ({\nabla\cdot}{{\smash[t]{\vec{\phi}}}}) ( {\nabla\cdot}{{\smash[t]{\vec{f}}}}) 
-   + ({{{\nabla}\times}}{{\smash[t]{\vec{\phi}}}}) \cdot   {\hat{k}}( {{{\nabla}\times}}{{\smash[t]{\vec{f}}}}) 
-   ]
-   \,{d\cal{A}}\label{E:weakHV1} \\
-   \iint {{\smash[t]{\vec{\phi}}}}\cdot {{\smash[t]{\vec{f}}}}\,{d\cal{A}}& =  
-   - \iint [ ({\nabla\cdot}{{\smash[t]{\vec{\phi}}}}) ({\nabla\cdot}{{{\smash[t]{\vec{u}}}}}) + ({{{\nabla}\times}}{{\smash[t]{\vec{\phi}}}})\cdot {\hat{k}}({{{\nabla}\times}}{{{\smash[t]{\vec{u}}}}})
-   ] \, {d\cal{A}}.
-   \label{E:weakHV2} \\
+   + ({{{\nabla}\times}}{{\smash[t]{\vec{\phi}}}}) \cdot   {\hat{k}}( {{{\nabla}\times}}{{\smash[t]{\vec{f}}}}) ]
+   \,{d\cal{A}} \\
+   \iint {{\smash[t]{\vec{\phi}}}}\cdot {{\smash[t]{\vec{f}}}}\,{d\cal{A}} & =  
+   - \iint [ ({\nabla\cdot}{{\smash[t]{\vec{\phi}}}}) ({\nabla\cdot}{{{\smash[t]{\vec{u}}}}}) 
+   + ({{{\nabla}\times}}{{\smash[t]{\vec{\phi}}}})\cdot {\hat{k}}({{{\nabla}\times}}{{{\smash[t]{\vec{u}}}}}) ] \, {d\cal{A}}.
 
 The SEM Galerkin solution of this integral equation is most naturally
 written in terms of an inverse mass matrix instead of the projection
@@ -1963,12 +1949,10 @@ adjoint property (compatibility) for :math:`{ \mathop{\delta_\eta}}` and
 :math:`{\pi}`,
 
 .. math::
+   :label: E:IBPDN1
 
-   \sum_{i=1}^K \Delta \eta_i\,   {\pi}_i { \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}(f)  
-   + 
-   \sum_{i=1}^K \Delta \eta_i\,  f_i { \mathop{\delta_\eta}}( {{\dot\eta}}{\pi})
-   =0
-   \label{E:IBPDN1}
+   \sum_{i=1}^K \Delta \eta_i\,   {\pi}_i { \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}(f) + 
+   \sum_{i=1}^K \Delta \eta_i\,  f_i { \mathop{\delta_\eta}}( {{\dot\eta}}{\pi}) = 0
 
 which follows directly from the definition of the
 :math:`{ \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}` difference
@@ -2077,7 +2061,7 @@ equations can be written following and . The prognostic equations are:
    \frac{\partial\zeta}{\partial t}  & = \mathbf{k}\cdot\nabla\times ({\mathbf{n}}/\cos\phi) +  F_{\zeta_H} \,  \\ 
    \frac{\partial\delta}{\partial t} & = \nabla\cdot ({\mathbf{n}}/\cos\phi) -\nabla^2(E+\Phi ) + F_{\delta_H} \,  \\
    \frac{\partial T}{\partial t}     & = \frac{-1}{a\cos^2\phi} [\frac{\partial}{\partial\lambda} (UT) + \cos\phi \frac{\partial}{\partial\phi} (VT) ] + T\delta - \dot\eta  \frac{\partial T}{\partial\eta} + \frac{R}{c_p^*}{T_v}  \frac{\omega}{p} \nonumber \\ 
-                                     &   \phantom{=} + Q + F_{T_H} + F_{F_H} , \label{3.a.5} \\ 
+                                     &   \phantom{=} + Q + F_{T_H} + F_{F_H} ,  \\ 
    \frac{\partial q}{\partial t}     & =  \frac{-1}{a\cos^2\phi} [ \frac{\partial}{\partial\lambda} (Uq) + \cos\phi \frac{\partial}{\partial\phi } (Vq) ] + q\delta - \dot\eta \frac{\partial q}{\partial\eta} + S  \\
    \frac{\partial \pi}{\partial t}   & = \int_1^{\eta_t} {\mathbf{\nabla}\cdot} ( \frac{\partial p}{\partial\eta} {\mathbf{V}} ) d\eta . 
 
@@ -2178,7 +2162,7 @@ to:
         \nabla(\frac{\partial\pi}{\partial\eta})\,
         . \label{3.a.20}
 
- The second term in ([3.a.20]) vanishes because
+The second term in ([3.a.20]) vanishes because
 :math:`\partial\pi/\partial\eta=0`, while the first term is easily
 treated once :math:`\eta(p,\pi)` is specified. Substituting ([3.a.20])
 into ([3.a.19]), one obtains:
@@ -2463,10 +2447,7 @@ points will be denoted by underbars, the matrices will be denoted by
 bold-faced capital letters, and superscript :math:`T` will denote the
 vector transpose.
 
-.. figure:: figures/figure3-1
-   :alt: [figure:1]Vertical level structure of
-
-   [figure:1]Vertical level structure of 
+.. todo:: put in figure3-1 Vertical level structure of
 
 The finite difference forms of ([3.a.52])-([3.a.54]) may then be written
 down as:
@@ -2570,6 +2551,7 @@ in order to conserve kinetic energy under vertical advection in
 advection terms are of the form:
 
 .. math::
+   :label: 3.a.61-2
 
    ( \dot\eta \frac{\partial p}{\partial\eta} \frac{\partial
          \psi}{\partial p} )_{k}
@@ -2578,9 +2560,9 @@ advection terms are of the form:
            )_{k+1/2} ( \psi_{k+1} - \psi_k )
          + ( \dot\eta \frac{\partial p}{\partial\eta}
            )_{k-1/2} ( \psi_k - \psi_{k-1} )
-      ] , \label{3.a.61} \\ 
+      ] , \ \\ 
       \Delta p_k & = p_{k+1/2} - p_{k-1/2}
-   . \label{3.a.62}
+   .
 
 The choice of definitions for the vertical velocity at interfaces is not
 crucial to the energy conservation (although not completely arbitrary),
@@ -2700,10 +2682,11 @@ The inner integral on the left-hand side of ([3.a.68]) is derived from
 the hydrostatic equation ([3.a.40]), which we shall approximate as
 
 .. math::
+   :label: 3.a.69-70
 
    \Phi_k           & = \Phi_s + R\sum_{\ell=k}^K H_{k\ell}{T_v}_\ell , \nonumber \\ 
-                    & = \Phi_s + R\sum_{\ell=1}^K H_{k\ell}{T_v}_\ell , \label{3.a.69} \\ 
-   \underline{\Phi} & = \Phi_s \underline{1} + R {\mathbf{H}} \underline {T_v} , \label{3.a.70}
+                    & = \Phi_s + R\sum_{\ell=1}^K H_{k\ell}{T_v}_\ell ,  \\ 
+   \underline{\Phi} & = \Phi_s \underline{1} + R {\mathbf{H}} \underline {T_v} , 
 
 where :math:`H_{k\ell}=0` for :math:`\ell<k`. The quantity
 :math:`\underline{1}` is defined to be the unit vector. The inner
@@ -2809,10 +2792,11 @@ In the top three model levels, the :math:`\nabla^2` form of the
 horizontal diffusion is given by
 
 .. math::
+   :label: 3.a.75-77 
 
-   F_{\zeta_H}   & = K^{(2)} [ \nabla^2 (\zeta + f ) +   2(\zeta + f )/a^2 ] , \label{3.a.75} \\ 
-   F_{\delta_H}  & = K^{(2)} [ \nabla^2 \delta + 2(\delta/a^2)] ,  \label{3.a.76} \\
-   F_{T_H}       & = K^{(2)} \nabla^2T . \label{3.a.77}
+   F_{\zeta_H}   & = K^{(2)} [ \nabla^2 (\zeta + f ) +   2(\zeta + f )/a^2 ] , \\ 
+   F_{\delta_H}  & = K^{(2)} [ \nabla^2 \delta + 2(\delta/a^2)] ,  \\
+   F_{T_H}       & = K^{(2)} \nabla^2T . 
 
 Since these terms are linear, they are easily calculated in spectral
 space. The undifferentiated correction term is added to the vorticity
@@ -2923,10 +2907,11 @@ further subdivided into time split components:
 for :math:`( \zeta + f )` and :math:`\delta`, and
 
 .. math::
+   :label:
 
-   T^{n+1}      & = T^{n-1} + 2\Delta t \ {\rm Dyn} ( T^{n+1}, T^n,  T^{n-1} ) \, \label{3.a.89} \\ 
-   T^*          & = T^{n+1} - 2\Delta t \ ( -1 )^i K^{(2i)} \nabla^{2i}\eta ( T^* ) \ ,  \label{3.a.90} \\ 
-   \hat T^{n+1} & = T^* + 2\Delta t \ ( -1 )^i K^{(2i)} \pi \, \frac{\partial T^*}{\partial p} \,  \frac{\partial p}{\partial \pi} \, \nabla^{2i} \, \Pi \ ,   \label{3.a.91}
+   T^{n+1}      & = T^{n-1} + 2\Delta t \ {\rm Dyn} ( T^{n+1}, T^n,  T^{n-1} ) \,  \\ 
+   T^*          & = T^{n+1} - 2\Delta t \ ( -1 )^i K^{(2i)} \nabla^{2i}\eta ( T^* ) \ ,   \\ 
+   \hat T^{n+1} & = T^* + 2\Delta t \ ( -1 )^i K^{(2i)} \pi \, \frac{\partial T^*}{\partial p} \,  \frac{\partial p}{\partial \pi} \, \nabla^{2i} \, \Pi \ , 
 
 for :math:`T`, where in the standard model :math:`i` only takes the
 value 2 in ([3.a.91]). The first step from
@@ -2971,18 +2956,15 @@ The finite difference forms of the Dyn operator ([3.a.33])-([3.a.42]),
 including semi-implicit time integration are:
 
 .. math::
+   :label:
 
    \underline{\zeta}^{n+1}
    & =  \underline{\zeta}^{n-1} + 2\Delta t
-    {\mathbf{k}\cdot\nabla\times}(\underline{\mathbf{n}}^n/\cos\phi)
-   , \label{3.a.94} \\
-   \underline{\delta}^{n+1}
-   & =  \underline{\delta}^{n-1}
-    + 2\Delta t [ {\nabla\cdot
-          (\underline{\mathbf{n}}^n/\cos\phi)}
-        - \nabla^2 ( \underline{E}^n + \Phi_s \underline{1} +
-              R{\mathbf{H}}^n (\underline{T_v}^{'})^n )
-      ] \nonumber \\
+    {\mathbf{k}\cdot\nabla\times}(\underline{\mathbf{n}}^n/\cos\phi) ,  \\
+   \underline{\delta}^{n+1} 
+   & =  \underline{\delta}^{n-1} + 2\Delta t [ {\nabla\cdot
+          (\underline{\mathbf{n}}^n/\cos\phi)} - \nabla^2 ( \underline{E}^n + \Phi_s \underline{1} +
+          R{\mathbf{H}}^n (\underline{T_v}^{'})^n ) ] \nonumber \\
    & \phantom{=} - 2\Delta t R{\mathbf{H}}^r \nabla^2 (
         \frac{(\underline{T}^\prime)^{n-1} +
         (\underline{T}^\prime)^{n+1}}{2}
@@ -2990,7 +2972,7 @@ including semi-implicit time integration are:
    & \phantom{=} - 2\Delta t R( \underline{b}^r + \underline{h}^r
          ) \nabla^2
          ( \frac{\Pi^{n-1} + \Pi^{n+1}}{2} - \Pi^{n}
-         ) , \label{3.a.95} \\
+         ) ,  \\
    (\underline{T}^{'})^{n+1} & =  (\underline{T}^{'})^{n-1}
     - 2 \Delta t [ \frac{1}{a\cos^2\phi}
            \frac{\partial}{\partial\lambda} ( \underline{UT}^\prime
@@ -2998,9 +2980,10 @@ including semi-implicit time integration are:
          + \frac{1}{a\cos\phi} \frac{\partial}{\partial\phi} (
            \underline{VT}^\prime )^n
          - \underline{\Gamma}^n ] \\ 
-	   \nonumber & \phantom{=} - 2\Delta t {\mathbf{D}}^r (
+	   
+    \nonumber & \phantom{=} - 2\Delta t {\mathbf{D}}^r (
           \frac{\underline{\delta}^{n-1} + \underline{\delta}^{n+1}}{2}
-               - \underline{\delta}^n ) \, \label{3.a.96} \\
+               - \underline{\delta}^n ) \,  \\
    \Pi^{n+1} & =  \Pi^{n-1}
     - 2\Delta t \frac{1}{\pi^n} ( (\underline{\delta}^n
          )^T \underline{\Delta p}^n
@@ -3011,7 +2994,7 @@ including semi-implicit time integration are:
           \underline{\delta}^{n+1}}{2}
              - \underline{\delta}^n )^T \frac{1}{\pi^r}
       \underline{\Delta p}^r
-   , \label{3.a.97} \\
+   , \\
    ( n_U )_k & =  ( \zeta_k + f ) V_k
     - R{T_v}_k ( \frac{1}{p} \frac{\partial p}{\partial\pi}
       )_k \pi \frac{1}{a} \frac{\partial \Pi}{\partial\lambda}
@@ -3022,7 +3005,7 @@ including semi-implicit time integration are:
           + ( \dot\eta \frac{\partial p}{\partial\eta}
             )_{k-1/2} ( U_k - U_{k-1} )
       ] \nonumber \\ & \phantom{=} + ( F_U )_k \ ,
-   \label{3.a.98} \\
+    \\
    ( n_V )_k & =  - ( \zeta_k + f ) U_k
     - R{T_v}_k ( \frac{1}{p} \frac{\partial p}{\partial\pi}
       )_k \pi \frac{\cos \phi}{a} \frac{\partial \Pi}{\partial\phi}
@@ -3033,7 +3016,7 @@ including semi-implicit time integration are:
          + ( \dot\eta \frac{\partial p}{\partial\eta}
            )_{k-1/2} ( V_k - V_{k-1} )
       ]\nonumber \\ 
-      & \phantom{=} + ( F_V )_k \ , \label{3.a.99} \\
+      & \phantom{=} + ( F_V )_k \ ,  \\
    \Gamma_k  & =  T^{\prime}_k \delta_k + \frac{R{T_v}_k}{(c_p^*)_k} (
     \frac{\omega}{p} )_k - Q \nonumber \\
    & \phantom{=} - \frac{1}{2\Delta p_k}
@@ -3041,50 +3024,31 @@ including semi-implicit time integration are:
            )_{k+1/2} ( T_{k+1} - T_k )
          + ( \dot\eta \frac{\partial p}{\partial\eta}
            )_{k-1/2} ( T_k - T_{k-1} )
-      ] , \label{3.a.100}
+      ] , 
 
 .. math::
+   :label:
 
-   E_k & = (u_k )^2 + (v_k )^2 , \label{3.a.101} \\
+   E_k & = (u_k )^2 + (v_k )^2 ,  \\
    \frac{R {T_v}_{k}}{(c^*_p)_k}
-   & = \frac{R}{c_p}
-      ( \frac{T^r_k + {T_v}_k^\prime} {1 + (
-           \frac{c_{p_v}}{c_p}- 1 ) q_k}
-      ) , \label{3.a.102} \\
-   ( \dot\eta \frac{\partial p}{\partial\eta} )_{k+1/2}
+   & = \frac{R}{c_p} ( \frac{T^r_k + {T_v}_k^\prime} {1 + (\frac{c_{p_v}}{c_p}- 1 ) q_k}) ,  \\
+       ( \dot\eta \frac{\partial p}{\partial\eta} )_{k+1/2}
    & = B_{k+1/2} \sum^K_{\ell=1}
-         [ \delta_\ell \Delta p_\ell
-            + {\mathbf{V}}_\ell \cdot \pi \nabla \Pi \Delta B_\ell
-         ] \nonumber \\
-   & \phantom{=} - \sum^k_{\ell=1}
-         [ \delta_\ell \Delta p_\ell
-            + {\mathbf{V}}_\ell \cdot \pi \nabla \Pi \Delta B_\ell
-         ] , \label{3.a.103} \\
+       [ \delta_\ell \Delta p_\ell + {\mathbf{V}}_\ell \cdot \pi \nabla \Pi \Delta B_\ell ] \nonumber \\
+   & \phantom{=} - \sum^k_{\ell=1} [ \delta_\ell \Delta p_\ell + {\mathbf{V}}_\ell \cdot \pi \nabla \Pi \Delta B_\ell] ,  \\
    ( \frac{\omega}{p} )_k
-   & = ( \frac{1}{p} \frac{\partial p}{\partial\pi} )_k
-            {\mathbf{V}}_k \cdot \pi \nabla\Pi
-   - \sum^k_{\ell=1} C_{k\ell}
-         [ \delta_\ell \Delta p_\ell
-            + {\mathbf{V}}_\ell \cdot \pi \nabla \Pi \Delta B_\ell
-         ] , \label{3.a.104} \\
+   & = ( \frac{1}{p} \frac{\partial p}{\partial\pi} )_k {\mathbf{V}}_k \cdot \pi \nabla\Pi - \sum^k_{\ell=1} C_{k\ell}
+         [ \delta_\ell \Delta p_\ell + {\mathbf{V}}_\ell \cdot \pi \nabla \Pi \Delta B_\ell ]  \\
    C_{k\ell}
-   & = \{ \begin{array}{ll} \frac{1}{p_k}, & \ell < k \\[6pt]
-       \frac{1}{2 p_k}, & \ell = k ,
-       \end{array} .
-   \label{3.a.105} \\
-   H_{k\ell} & = C_{\ell k}\Delta p_\ell,
-    \label{3.a.106} \\
-   D^r_{k\ell} & = {\Delta p^r_\ell} \frac{R}{c_p } T^r_k C^r_{\ell k}
-   + \frac{\Delta p^r_\ell}{2\Delta p^r_k}
-          ( T^r_k - T^r_{k-1} )
-                (\epsilon_{k\ell+1}-B_{k-1/2}) \nonumber \\
-   & \phantom{=} + \frac{\Delta p^r_\ell}{2\Delta p^r_k}
-          ( T^r_{k+1} - T^r_k )
-                (\epsilon_{k\ell}-B_{k+1/2})
-   , \label{3.a.107} \\
+   & = \{ \begin{array}{ll} \frac{1}{p_k}, \ell < k \\[6pt]
+       \frac{1}{2 p_k}, & \ell = k , \end{array} .   \\
+   H_{k\ell}   & = C_{\ell k}\Delta p_\ell, \\
+   D^r_{k\ell} & = {\Delta p^r_\ell} \frac{R}{c_p } T^r_k C^r_{\ell k} + \frac{\Delta p^r_\ell}{2\Delta p^r_k}
+                   ( T^r_k - T^r_{k-1} ) (\epsilon_{k\ell+1}-B_{k-1/2}) \nonumber \\
+               &  \phantom{=} + \frac{\Delta p^r_\ell}{2\Delta p^r_k} ( T^r_{k+1} - T^r_k ) (\epsilon_{k\ell}-B_{k+1/2}) , } \\
    \frac{ \epsilon_{k\ell}}{R}
-   & = \{\begin{array}{ll} 1, & \ell \leq k \\
-       0, & \ell > k, \end{array} .  \label{3.a.108}
+               & = \{\begin{array}{ll} 1, \ell \leq k \\
+                   0, \ell > k, \end{array} .  
 
 where notation such as :math:`( \underline{UT}^\prime )^n`
 denotes a column vector with components :math:`( U_k T_k^\prime
@@ -3096,13 +3060,12 @@ terms and also appears in the semi-implicit reference vector
 :math:`\underline{b}^r`:
 
 .. math::
+   :label: 
 
-   ( \frac{1}{p} \frac{\partial p}{\partial\pi} )_k
-   & =( \frac{1}{p} )_k ( \frac{\partial p}{\partial\pi}
-    )_k = \frac{B_k}{p_k}
-   , \label{3.a.109} \\
-   \underline{b}^r & = \underline{T}^r , \label{3.a.110}\\
-   \underline{h}^r & = 0 . \label{3.a.111}
+   ( \frac{1}{p} \frac{\partial p}{\partial\pi} )_k  
+                   & = ( \frac{1}{p} )_k ( \frac{\partial p}{\partial\pi} )_k = \frac{B_k}{p_k} ,  \\
+   \underline{b}^r & = \underline{T}^r , \\
+   \underline{h}^r & = 0 . 
 
 The matrices :math:`{\mathbf{C}}^n` and
 :math:`{\mathbf{H}}^n` ( with components :math:`C_{k\ell}` and
@@ -3161,9 +3124,9 @@ Spectral algorithm overview
   consists of a truncated series of spherical harmonic functions,
 
   .. math::
+     :label:
 
-     \psi(\lambda, \mu) = \sum^M_{m=-M} \; \; \sum^{{\cal N} ( m
-     )}_{n=|m|} \psi^m_n P^m_n (\mu) e^{im \lambda} , \label{3.b.1}
+     \psi(\lambda, \mu) = \sum^M_{m=-M} \; \; \sum^{{\cal N} ( m )}_{n=|m|} \psi^m_n P^m_n (\mu) e^{im \lambda} , 
 
   where :math:`\mu = \sin \phi, \ M` is the highest Fourier wavenumber
   included in the east–west representation, and :math:`{\cal N}( m
@@ -3179,20 +3142,18 @@ Spectral algorithm overview
   this pentagonal case:
 
   .. math::
+     :label:
 
-     \mathrm{Triangular:} \; &M = N = K , \nonumber \\ \mathrm{Rhomboidal:}
-     \; &K = N + M , \label{3.b.2} \\ \mathrm{Trapezoidal:} \; &N = K > M
-     . \nonumber
+     \mathrm{Triangular:}  \; & M = N = K , \nonumber \\ 
+     \mathrm{Rhomboidal:}  \; & K = N + M ,  \\ 
+     \mathrm{Trapezoidal:} \; & N = K > M . \nonumber
 
 The quantity :math:`{\cal N} ( m )` in ([3.b.1])
 represents an arbitrary limit on the two-dimensional wavenumber
 :math:`n`, and for the pentagonal truncation described above is
 simply given by :math:`{\cal N} ( m ) = \min(N + \vert m \vert , K )`.
 
-.. figure:: figures/figure3-2
-   :alt: [figure:2]Pentagonal truncation parameters
-
-   [figure:2]Pentagonal truncation parameters
+.. todo:: put in figure3-2 Pentagonal truncation parameters
 
 The associated Legendre polynomials used in the model are normalized
 such that
@@ -3248,20 +3209,18 @@ chosen to allow un-aliased computations of quadratic terms only. In this
 case, the number of Gaussian latitudes :math:`J` must satisfy
 
 .. math::
+   :label: 3.b.11
 
-   {2}
-   J & \geq (2N + K + M + 1)/2 & \quad \hbox{for}\> M & \leq 2(K - N)\>,
-   \label{3.b.10} \\ J & \geq (3K + 1)/2 & \quad \hbox{for}\> M & \geq 2(K
-   - N)\> . \label{3.b.11}
+   J & \geq (2N + K + M + 1)/2  \quad \hbox{for}\> M  \leq 2(K - N)\>, \\ 
+   J & \geq (3K + 1)/2  \quad \hbox{for}\> M  \geq 2(K - N)\> . 
 
 For the common truncations, these become
 
 .. math::
+   :label: 3.b.13
 
-   {2}
-   J & \geq (3K + 1)/2 & \quad & \mathrm{for \; triangular \; and \;
-   trapezoidal} , \label{3.b.12} \\ J & \geq (3N + 2M + 1)/2 & \quad
-   & \mathrm{for \; rhomboidal} . \label{3.b.13}
+   J & \geq (3K + 1)/2  \quad  \mathrm{for \; triangular \; and \;  trapezoidal} ,  \\ 
+   J & \geq (3N + 2M + 1)/2  \quad \mathrm{for \; rhomboidal} . 
 
 In order to allow exact Fourier transform of quadratic terms, the
 number of points :math:`P` in the east–west direction must satisfy
@@ -3357,10 +3316,11 @@ where the explicit forms of the vectors
 :math:`\underline{{\hbox{\sffamily\slshape V}}}_\mu` are given as
 
 .. math::
+   :label: A.1-3
 
-   \underline{{\hbox{\sffamily\slshape V}}} & = \underline{(\zeta+f)}^{n-1} , \label{A.1} \\
-   \underline{{\hbox{\sffamily\slshape V}}}_\lambda & = 2 \Delta t\, \underline{n}^{n}_{V} , \label{A.2} \\
-   \underline{{\hbox{\sffamily\slshape V}}}_{\mu} & = 2 \Delta t\,\underline{n}^{n}_{U}. \label{A.3}
+   \underline{{\hbox{\sffamily\slshape V}}} & = \underline{(\zeta+f)}^{n-1} ,  \\
+   \underline{{\hbox{\sffamily\slshape V}}}_\lambda & = 2 \Delta t\, \underline{n}^{n}_{V} ,  \\
+   \underline{{\hbox{\sffamily\slshape V}}}_{\mu} & = 2 \Delta t\,\underline{n}^{n}_{U}. 
 
 The divergence equation ([3.a.95]) is
 
@@ -3400,10 +3360,11 @@ The grouped explicit terms in ([3.b.19])–([3.b.21]) are given as
 follows. The terms of ([3.b.19]) are
 
 .. math::
+   :label: A.4-6
 
-   \underline{{\hbox{\sffamily\slshape D}}} & = \underline{\delta}^{n-1} , \label{A.4} \\
-   \underline{{\hbox{\sffamily\slshape D}}}_\lambda & = 2 \Delta t \, \underline{n}^{n}_{U} , \label{A.5} \\
-   \underline{{\hbox{\sffamily\slshape D}}}_\mu & = 2 \Delta t \, \underline{n}^{n}_{V} , \label{A.6}
+   \underline{{\hbox{\sffamily\slshape D}}} & = \underline{\delta}^{n-1} ,  \\
+   \underline{{\hbox{\sffamily\slshape D}}}_\lambda & = 2 \Delta t \, \underline{n}^{n}_{U} ,  \\
+   \underline{{\hbox{\sffamily\slshape D}}}_\mu & = 2 \Delta t \, \underline{n}^{n}_{V} , 
 
 .. math::
 
@@ -3489,7 +3450,7 @@ spherical harmonic space then follows ([3.b.25]):
    \underline{{\hbox{\sffamily\slshape V}}}_\lambda^m (\mu_j) \frac{P^m_n(\mu_j)}{a(1 -
    \mu^2_j)} w_j , \label{3.b.24}
 
- where
+where
 :math:`\underline{{\hbox{\sffamily\slshape V}}}_\lambda^m (\mu_j)` is
 the Fourier coefficient of
 :math:`\underline{{\hbox{\sffamily\slshape V}}}_\lambda` with wavenumber
@@ -3954,7 +3915,7 @@ In the semi-Lagrangian form used here, the general form is
    \label{3.c.5} \\ q^{n+1} & = {\rm L}_\eta ( q^* ) .
    \label{3.c.6}
 
- Equation ([3.c.5]) represents the horizontal interpolation of
+Equation ([3.c.5]) represents the horizontal interpolation of
 :math:`q^{n-1}` at the departure point calculated assuming
 :math:`\dot\eta = 0`. Equation ([3.c.6]) represents the vertical
 interpolation of :math:`q^*` at the departure point, assuming
@@ -4256,7 +4217,7 @@ the definition of the vertical coordinate,
 
 .. math:: \Delta p = p_0 \Delta A + \pi \Delta B, \label{3.d.3}
 
- and the integral :math:`\int\limits_2` denotes the normal Gaussian
+and the integral :math:`\int\limits_2` denotes the normal Gaussian
 quadrature while :math:`\int\limits_3` includes a vertical sum followed
 by Gaussian quadrature. The actual fixers are chosen to have the form
 
@@ -4296,7 +4257,7 @@ Satisfying ([3.d.1]) and ([3.d.2]) gives
    {\mathbf{M}} = ({\mathbf{P}} + \int\limits_3 \, q^- \Delta p^-
    ) \Bigg/ \int\limits_2 \, \hat \pi^+ \ . \label{3.d.7}
 
- Note that water vapor and dry mass are corrected simultaneously.
+Note that water vapor and dry mass are corrected simultaneously.
 Additional advected constituents are treated as mixing ratios normalized
 by the mass of dry air. This choice was made so that as the water vapor
 of a parcel changed, the constituent mixing ratios would not change.
@@ -4312,7 +4273,7 @@ conservation:
    (1-q^-)\Delta p^- \ .
    \label{3.d.8}
 
- The term :math:`(1-q)\Delta p` defines the dry air mass in a layer.
+The term :math:`(1-q)\Delta p` defines the dry air mass in a layer.
 Following the change made by the fixer has the same form as ([3.d.5])
 
 .. math::
@@ -4321,7 +4282,7 @@ Following the change made by the fixer has the same form as ([3.d.5])
    \alpha_\chi \eta \hat \chi^+ \vert \hat \chi^+ - \chi^- \vert
    \label{3.d.9} \ .
 
- Substituting ([3.d.9]) into ([3.d.8]) and using ([3.d.4]) through
+Substituting ([3.d.9]) into ([3.d.8]) and using ([3.d.4]) through
 ([3.d.7]) gives
 
 .. math::
@@ -4452,7 +4413,7 @@ where recall that
 
 .. math:: \sum^J_{j=1} w_j = 2 . \label{8.a.3}
 
- The quantities monitored are:
+The quantities monitored are:
 
 .. math::
 
@@ -5121,7 +5082,7 @@ Define :math:`\underline{h}_n^m` by
    n(n+1)} \\ {{{\cal B}}^+}_n^m & = \alpha({n\over n+1})
    D_{n+1}^m \\ {{{\cal B}}^-}_n^m & = \alpha({n+1\over n}) D_{n}^m
 
- Then the vorticity and divergence equations are
+Then the vorticity and divergence equations are
 
 .. math::
 
@@ -5134,7 +5095,7 @@ Define :math:`\underline{h}_n^m` by
       a^2} g\underline{h}_n^m
    & = \underline{{\hbox{\sffamily\slshape D}}{\hbox{\sffamily\slshape S}}}_n^m
 
- Note that these equations are uncoupled in the vertical, i.e. each
+Note that these equations are uncoupled in the vertical, i.e. each
 vertical level involves variables at that level only. The equation for
 :math:`\underline{h}_n^m` however couples all levels.
 
@@ -5263,11 +5224,10 @@ At the end of the system, the boundary conditions are
 
 .. math::
 
-   {2}n & = m, & \quad{{{\cal B}}^-}_n & = {{{\cal B}}^-}_m^m = 0 \\ n & = m+1,& \quad
-   {{{\cal B}}^-}_{n-1} & = {{{\cal B}}^-}_m^m = {{{\cal B}}^-}_{(m+1)-1}^m = 0 \nonumber
+   {2}n & = m,   \quad {{{\cal B}}^-}_n     = {{{\cal B}}^-}_m^m = 0 \\ 
+      n & = m+1, \quad {{{\cal B}}^-}_{n-1} = {{{\cal B}}^-}_m^m = {{{\cal B}}^-}_{(m+1)-1}^m = 0 \nonumber
 
-the :math:`{\tilde\delta}_{n-2}` term is not present, and from the
-underlying truncation
+the :math:`{\tilde\delta}_{n-2}` term is not present, and from the underlying truncation
 
 .. math:: \tilde\delta_{N+1}^m = \tilde\delta_{N+2}^m = 0
 
@@ -5371,7 +5331,7 @@ which can be approximated in general by
    {\mathbf{R}}_D^n = {\mathbf{R}}_A^{n+1} - \Delta t
    {\mathbf{V}}_M^{n+{1 \over 2}}
 
- Hortal’s method is based on a Taylor’s series expansion
+Hortal’s method is based on a Taylor’s series expansion
 
 .. math::
 
@@ -5394,7 +5354,7 @@ Approximate
    ( {d {\mathbf{V}} \over d t} )_D^{n} \approx {{\mathbf{V}}_A^n - {\mathbf{V}}_D^{n-1} \over \Delta t}\\[-1.0em] \intertext{giving}\nonumber\\[-2.0em] {\mathbf{V}}_M^{n+{1 \over 2}} 
    = {1 \over 2}[(2{\mathbf{V}}^n-{\mathbf{V}}^{n-1})_D + {\mathbf{V}}_A^n]
 
- for the trajectory equation.
+for the trajectory equation.
 
 Mass and energy fixers and statistics calculations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
