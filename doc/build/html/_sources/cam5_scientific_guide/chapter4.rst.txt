@@ -189,7 +189,7 @@ convective transports :math:`F(\chi)` might correspond to
 principle one should adjust :math:`M_u` to reflect the fact that it may
 be moving a mass of dry air or a mass of moist air. We assume these
 differences are small, and well below the errors required to produce
-equation [wetdry1] in the first place. The same is true for the
+equation :eq:`wetdry1` in the first place. The same is true for the
 diffusion coefficients involved in turbulent transport. All processes
 using equations of such a form still satisfy a conservation relationship
 
@@ -220,7 +220,7 @@ the reader we will review some aspects of the formulation, but refer
 the interested reader to :cite:`zhang95` for additional detail,
 including behavioral characteristics of the parameterization scheme.
 Evaporation of convective precipitation is computed following the
-procedure described in section :ref:`conv_evap`.
+procedure described in section `conv_evap`_.
 
 The large-scale budget equations distinguish between a cloud and
 sub-cloud layer where temperature and moisture response to convection in
@@ -236,7 +236,6 @@ the cloud layer is written in terms of bulk convective fluxes as
 .. math::
    :label: 4.g.2
 
-   [1ex]
    \left( \frac{\partial q}{\partial t} \right)_{cu} =
    - \frac{1}{\rho} \frac{\partial}{\partial z} \left(
    M_u q_u + M_d q_d - M_c q \right) + E - C 
@@ -256,8 +255,7 @@ sub-cloud layer response is written as
 .. math::
    :label: 4.g.4
 
-   [1ex] {\left(
-   \rho \frac{\partial q}{\partial t} \right)}_{m}  =
+   {\left(\rho \frac{\partial q}{\partial t} \right)}_{m}  =
    - \frac{1}{z_b-z_s} \left( M_b [q(z_b) - q_u (z_b)]
    + M_d [q(z_b) - q_d (z_b)] \right) 
    ~,
@@ -403,7 +401,7 @@ following Lord, Chao, and Arakawa (1982), with
 :math:`c_0 = 2 \times 10^{-3}\ {\rm m}^{-1}`.
 
 Since :math:`M_u`, :math:`E_u` and :math:`D_u` are given by
-:eq:`4.g.5` [4.g.6c]), and :math:`h` and :math:`h^*` are environmental
+:eq:`4.g.5` - :eq:`4.g.6c`, and :math:`h` and :math:`h^*` are environmental
 profiles, :eq:`4.g.8b`  can be solved for :math:`h_u`, given a lower
 boundary condition. The lower boundary condition is obtained by adding a
 :math:`0.5` K temperature perturbation to the dry (and moist) static
@@ -565,7 +563,7 @@ determined, as a function of the rate at which the cumulus consume
 convective available potential energy (CAPE). Since the large-scale
 temperature and moisture changes in both the cloud and sub-cloud layer
 are linearly proportional to the cloud base updraft mass flux (see eq.
-[4.g.1] – [4.g.4]), the CAPE change due to convective activity can be
+:eq:`4.g.1` – :eq:`4.g.4`), the CAPE change due to convective activity can be
 written as
 
 .. math::
@@ -578,7 +576,7 @@ written as
 where :math:`F` is the CAPE consumption rate per unit cloud base mass
 flux. The closure condition is that the CAPE is consumed at an
 exponential rate by cumulus convection with characteristic adjustment
-time scale :math:`\tau = 7200` s:
+time scale :math:`\tau = 7200 s`:
 
 .. math::
    :label: 4.g.13
@@ -593,7 +591,7 @@ The quantities :math:`M_{u,d}`, :math:`\ell`, :math:`S_{u,d}`,
 :math:`q_{u,d}`, :math:`h_{u,d}` are defined on layer interfaces, while
 :math:`D_u`, :math:`C_u`, :math:`R_u` are defined on layer midpoints.
 :math:`S`, :math:`q`, :math:`h`, :math:`\gamma` are required on both
-midpoints and interfaces and the interface values :math:`\psi^{k\pm}`
+midpoints and interfaces and the interface values :math:`\psi^{k\pm}` 
 are determined from the midpoint values :math:`\psi^k` as
 
 .. math::
@@ -648,9 +646,9 @@ The environmental profiles at midpoints are
 
 The environmental profiles at interfaces of :math:`S`, :math:`q`,
 :math:`q^*`, and :math:`\gamma` are determined using :eq:`zm_int1` 
-if :math:`|\psi^{k-1}-\psi^{k}|` is large enough. **However, there are
-inconsistencies in what happens if :math:`|\psi^{k-1}-\psi^{k}|` is not
-large enough**. For :math:`S` and :math:`q` the condition is
+if :math:`|\psi^{k-1}-\psi^{k}|` is large enough. 
+**However, there are inconsistencies in what happens if** :math:`|\psi^{k-1}-\psi^{k}|` 
+**is not large enough**. For :math:`S` and :math:`q` the condition is
 
 .. math::
 
@@ -874,7 +872,7 @@ up- and down-drafts. Updrafts are allowed to entrain or detrain in any
 layer. Downdrafts are assumed to entrain only, and all of the mass is
 assumed to be deposited into the surface layer.
 
-Equation [eq:updraft] is first solved for up and downdraft mixing ratios
+Equation :eq:`eq:updraft` is first solved for up and downdraft mixing ratios
 :math:`q_u` and :math:`q_d`, assuming the environmental mixing ratio
 :math:`q_e` is the same as the gridbox averaged mixing ratio
 :math:`\bar q`.
@@ -897,7 +895,7 @@ well.
    geometric mean of the layer mean values.
 
 -  simple first order upstream biased finite differences are used to
-   solve [eq:updraft] and [eq:masscon].
+   solve :eq:`eq:updraft` and :eq:`eq:masscon`.
 
 -  fluxes calculated at the interfaces are constrained so that the
    resulting mixing ratios are positive definite. *This means that this
@@ -1144,15 +1142,15 @@ specified :math:`\mu`:
     
    N_0 = \frac{N^{\prime\prime}\lambda^{\mu + 1}}{\Gamma(\mu +1)}
 
-where :math:`\Gamma` is the Euler gamma function. Note that [eq:MG3] and
-[eq:MG4] assume spherical cloud particles with bulk density :math:`\rho`
+where :math:`\Gamma` is the Euler gamma function. Note that :eq:`eq:MG3` and
+:eq:`eq:MG4` assume spherical cloud particles with bulk density :math:`\rho`
 = 1000 kg m\ :math:`^{-3}` for droplets and :math:`\rho`\ = 500 kg
 m\ :math:`^{-3}` for cloud ice following Reisner, Rasmussen, and
 Bruintjes (1998).
 
 The effective size for cloud ice needed by the radiative transfer scheme
 is obtained directly by dividing the third and second moments of the
-size distribution given by [eq:MG1] and accounting for differenceds in
+size distribution given by :eq:`eq:MG1` and accounting for differenceds in
 cloud ice density and that of pure ice. After rearranging terms, this
 yields
 
@@ -1191,11 +1189,11 @@ processes:
 
 where t is time, :math:`\mathbf{u}` is the 3D wind vector, :math:`\rho`
 is the air density, and D is the turbulent diffusion operator. The
-symbolic terms on the right hand side of [eq:MG6] and [eq:MG7] represent
+symbolic terms on the right hand side of :eq:`eq:MG6` and :eq:`eq:MG7` represent
 the grid-average microphysical source/sink terms for N and q. Note that
 the source/sink terms for q and N are considered separately for cloud
 water and ice (giving a total of four rate equations), but are
-generalized here using [eq:MG6] and [eq:MG7] for conciseness. These
+generalized here using :eq:`eq:MG6` and :eq:`eq:MG7` for conciseness. These
 terms include activation of cloud condensation nuclei or
 deposition/condensation-freezing nucleation on ice nuclei to form
 droplets or cloud ice (subscript nuc; N only); ice multiplication via
@@ -1370,7 +1368,7 @@ shape parameter :math:`\mu` = 0, resulting in Marshall-Palmer
 (exponential) size distributions. The size distribution parameters
 :math:`\lambda` and :math:`N_0` are similarly given by :eq:`eq:MG3` and
 :eq:`eq:MG4` with :math:`\mu` = 0. The bulk particle density (parameter
-:math:`\rho` in [eq:MG3]) is :math:`\rho` = 1000 kg m\ :math:`^{-3}` for
+:math:`\rho` in :eq:`eq:MG3`) is :math:`\rho` = 1000 kg m\ :math:`^{-3}` for
 rain and :math:`\rho` = 100 kg m\ :math:`^{-3}` for snow following
 Reisner, Rasmussen, and Bruintjes (1998).
 
@@ -1404,7 +1402,7 @@ m/s for rain and 1.2 m/s for snow. The a and b coefficients for each
 hydrometeor species are given in Table 2. Note that for cloud water
 fallspeeds, sub-grid variability of q is considered by appropriately
 multiplying the :math:`V_N` and :math:`V_q` by the factor :math:`E`
-given by [eq:MG10].
+given by :eq:`eq:MG10`.
 
 Ice Cloud Fraction
 ^^^^^^^^^^^^^^^^^^
@@ -1506,8 +1504,8 @@ Energy (TKE) following Morrison and Pinto (2005):
    
    w_{sub} = \sqrt{\frac{2}{3} TKE}
 
-where TKE is defined using a steady state energy balance (eqn [17] and
-[28] in Bretherton and Park (2009))
+where TKE is defined using a steady state energy balance eqn :eq:`eq:MG17` and
+:eq:`eq:MG28` in Bretherton and Park (2009))
 
 In regions with weak turbulent diffusion, a minimum sub-grid vertical
 velocity of 10 cm/s is assumed. Some models use the value of wÕ at cloud
@@ -1574,7 +1572,7 @@ model experiments. A threshold :math:`RH_w` for homogeneous nucleation
 was fitted as a function of temperature and updraft velocity (see Liu et
 al. (2007), equation 6). For driving the parameterization, the sub-grid
 velocity for ice (:math:`w_{sub}`) is derived following
-ewuation [eq:wsub]. A minimum of 0.2 m s\ :math:`^{-1}` is set for ice
+ewuation :eq:`eq:wsub`. A minimum of 0.2 m s\ :math:`^{-1}` is set for ice
 nucleation.
 
 It is also implicitly assumed that there is some variation in humidity
@@ -1630,7 +1628,7 @@ psychrometric correction to account for the release of latent heat,
 specific heat at constant pressure, :math:`\frac{dq_{vi}}{dT}` is the
 change of ice saturation vapor pressure with temperature, and
 :math:`\tau` is the supersaturation relaxation timescale associated with
-ice deposition given by eq. [22] in MG08 (a function of ice crystal
+ice deposition given by eq. :eq:`22` in MG08 (a function of ice crystal
 surface area and the diffusivity of water vapor in air). The assumption
 for pure ice clouds is that the in-cloud vapor mixing ratio for
 deposition is equal to the grid-mean value. The same assumption is used
@@ -1638,11 +1636,11 @@ in Liu et al. (2007), and while it is uncertain, it is the most
 straightforward. Thus we do not consider sub-grid variability of water
 vapor for calculating vapor deposition in pure ice-clouds.
 
-The form of the deposition rate in equation [eq:dep] differs from that
+The form of the deposition rate in equation :eq:`eq:dep` differs from that
 used by Rotstayn, Ryan, and Katzfey (2000) and Liu et al. (2007) because
 they considered the increase in ice mixing ratio :math:`q_i` due to
 vapor deposition during the time step, and formulated an implicit
-solution based on this consideration (see eq. [6] in Rotstayn, Ryan, and
+solution based on this consideration (see eq. :eq:`6` in Rotstayn, Ryan, and
 Katzfey (2000)). However, these studies did not consider sinks for the
 ice due to processes such as sedimentation and conversion to
 precipitation when formulating their implicit solution; these sink terms
@@ -1692,7 +1690,7 @@ the sublimation rate of ice is given by:
    
    \left(\frac{\partial q_i}{\partial t}\right)_{sub}=\frac{( q_v-q_{vi}*)}{\Gamma_p \tau}, q_v < q_{vi}*
 
-Again, the use of grid-mean vapor mixing ratio in equation [eq:sub]
+Again, the use of grid-mean vapor mixing ratio in equation :eq:`eq:sub`
 follows the assumption of Liu et al. (2007) that the in-cloud
 :math:`q_v` is equal to the grid box mean in pure ice clouds. Grid-mean
 deposition and sublimation rates are given by the in-cloud values for
@@ -1719,7 +1717,7 @@ stratiform cloud types.
 
 The grid-mean autoconversion and accretion rates are found by replacing
 the qc in Eqs. (29) and (33) of Khairoutdinov and Kogan (2000) with
-:math:`P(q_c^{\prime\prime})` given by equation [eq:MG8] here,
+:math:`P(q_c^{\prime\prime})` given by equation :eq:`eq:MG8` here,
 integrating the resulting expressions over the cloud water PDF, and
 multiplying by the cloud fraction. This yields
 
@@ -2122,7 +2120,7 @@ of the physics buffer.
 The size distributions of each mode are assumed to be log-normal, with
 the mode dry or wet radius varying as number and total dry or wet volume
 change, and standard deviation prescribed as given in
-[aero:sub:`s`\ pecies\ :sub:`m`\ am7]. The total number of transported
+:ref:`aero_species_mam7`. The total number of transported
 aerosol species is 31 for MAM-7. The transported gas species are
 :math:`\mathrm{SO_{2}}`, :math:`\mathrm{H_{2}O_{2}}`, DMS,
 :math:`\mathrm{H_{2}SO_{4}}`, :math:`\mathrm{NH_{3}}`, and SOA (gas).
@@ -2255,7 +2253,7 @@ corresponding AEROCOM profiles, which vary spatially and temporally.
 Mass emission fluxes for sulfate, POM and BC are converted to number
 emission fluxes for Aitken and accumulation mode at surface or at higher
 elevations based on AEROCOM prescribed lognormal size distributions as
-summarized in Table [table:sub:`a`\ erocom\ :sub:`e`\ mis].
+summarized in Table :ref:`table_aerocom_emis`.
 
 The IPCC AR5 data set also does not provide emissions of natural
 aerosols and precursor gases: volcanic sulfur, DMS,
@@ -2363,7 +2361,7 @@ aerosol particles. MAM adds one additional step of complexity by
 simulating a single lumped gas-phase SOA (gas) species. Fixed mass
 yields for five VOC categories of the MOZART-4 gas-phase chemical
 mechanism are assumed, as shown in Table
-[table:sub:`s`\ oa\ :sub:`y`\ ields]. These yields have been increased
+:ref:`table_soa_yields`. These yields have been increased
 by an additional 50% for the purpose of reducing aerosol indirect
 forcing by increasing natural aerosols. The total yielded mass is
 emitted as the SOA (gas) species. MAM then calculates
@@ -2472,7 +2470,7 @@ Water uptake is based on the equilibrium Kohler theory (Ghan and Zaveri
 2007) using the relative humidity and the volume mean hygroscopicity for
 each mode to diagnose the wet volume mean radius of the mode from the
 dry volume mean radius. The hygroscopity of each component is listed in
-Table [table:sub:`h`\ groscopicity]. The hygroscopicities here are
+Table :ref:`table_hgroscopicity`. The hygroscopicities here are
 equivalent to the :math:`\kappa` parameters of (**???**). Note that the
 measured solubility of dust varies widely, from 0.03 to 0.26 (**???**).
 
@@ -2530,7 +2528,7 @@ l
 
 | Continuous volcano, 50% in accum. mode & 1.8 & 0.080 & 0.134
 
-[table:sub:`a`\ erocom\ :sub:`e`\ mis]
+.. _table_aerocom_emis:
 
 +----------------+--------------+-------------+
 | Species        | Mass yield   | Reference   |
@@ -2548,7 +2546,7 @@ l
 
 Table: Assumed SOA (gas) yields
 
-[table:sub:`s`\ oa\ :sub:`y`\ ields]
+.. _table_soa_yields:
 
 +----------------+-----------------+-----------------+-----------------+----------------+----------------+--------------------+-----------------+
 | Seasalt        | sulfate         | nitrate         | ammonium        | SOA            | POM            | BC                 | dust            |
@@ -2558,7 +2556,7 @@ Table: Assumed SOA (gas) yields
 
 Table: Hygroscopicity of aerosol components
 
-[table:sub:`h`\ groscopicity]
+.. _table_hgroscopicity:
 
 Subgrid Vertical Transport and Activation/Resuspension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2647,8 +2645,8 @@ applied to the dust and sea salt of the coarse mode (0.4 and 0.8
 respectively), and a weighted average is applied to the coarse mode
 sulfate and number.
 
-For below-cloud scavenging, the first-order removal rate is equal to [
-(solubility factor) :math:`\times` (scavenging coefficient)
+For below-cloud scavenging, the first-order removal rate is equal to 
+[(solubility factor) :math:`\times` (scavenging coefficient)
 :math:`\times` (precipitation rate) ]. Again, the solubility factor can
 be viewed as a tuning factor. In CAM3.5, a solubility factor of 0.3 and
 a scavenging coefficient of 0.1 :math:`\mathrm{mm^{-1}}` are used for
@@ -2729,7 +2727,9 @@ Refractive indices for water and for most aerosol components are taken
 from OPAC (Koepke and Schult 1998), but for black carbon the value
 (1.95,0.79i) from (Bond and Bergstrom 2006) is used for solar
 wavelengths. Densities for each component are listed in
-Table [table:aerdensity].
+Table :ref:`table_aerdensity`.
+
+.. _table_aerdensity: 
 
 +-------------+-----------+-----------+------------+--------+--------+--------+--------+
 | Sea salt    | Sulfate   | Nitrate   | Ammonium   | SOA    | POA    | BC     | Dust   |
@@ -2737,7 +2737,7 @@ Table [table:aerdensity].
 | 1900        | 1770      | 1770      | 1770       | 1000   | 1000   | 1700   | 2600   |
 +-------------+-----------+-----------+------------+--------+--------+--------+--------+
 
-Table: [table:aerdensity]Density (kg/m:math:`^3`) of aerosol material.
+Table Density (kg/m:math:`^3`) of aerosol material.
 
 The wet volume mean radius for each mode is calculated from the dry
 volume mean radius using equilibrium Kohler theory (Ghan and Zaveri
@@ -2750,13 +2750,15 @@ distribution with the same geometric standard deviation as the dry size
 distribution. The geometric standard deviation is assumed to be constant
 for each mode.
 
+.. _table_aerohygro:
+
 +-------------+-----------+-----------+------------+--------+----------+----------+---------+
 | Sea salt    | Sulfate   | Nitrate   | Ammonium   | SOA    | POA      | BC       | Dust    |
 +=============+===========+===========+============+========+==========+==========+=========+
 | 1.16        | 0.507     | 0.507     | 0.507      | 0.14   | 1.e-10   | 1.e-10   | 0.068   |
 +-------------+-----------+-----------+------------+--------+----------+----------+---------+
 
-Table: [table:aerhygro]Hygroscopicity of aerosol components.
+Table: Hygroscopicity of aerosol components.
 
 Stratospheric Volcanic Aerosol Optics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3164,6 +3166,8 @@ Shortwave radiation is only calculated by RRTMG when the cosine of the
 zenith angle is larger than zero, that is, when the sun is above the
 horizon.
 
+.. _table_SWBands:
+
 +---------+--------------------+--------------------+---------------------+---------------------+-------------------+
 | Band    | Band               | Band               | Band                | Band                | Solar             |
 +---------+--------------------+--------------------+---------------------+---------------------+-------------------+
@@ -3200,8 +3204,7 @@ horizon.
 | 14      | 3.846              | 12.195             | 820                 | 2600                | 12.89             |
 +---------+--------------------+--------------------+---------------------+---------------------+-------------------+
 
-Table: [table:SWBands]RRTMG\_SW spectral band boundaries and the solar
-irradiance in each band.
+Table: RRTMG_SW spectral band boundaries and the solar irradiance in each band.
 
 Longwave Radiative Transfer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3326,15 +3329,17 @@ In |cam|, the diurnal cycle and earth orbit is computed using the method of
 for any time within :math:`10^6` years of 1950 AD. The insolation at the
 top of the model atmosphere is given by
 
-.. math:: S_I = {S_0\,{\rho^{-2}}\,\cos\mu} , 
-	  :label: 4.b.1
+.. math:: 
+   :label: 4.b.1
+
+   S_I = {S_0\,{\rho^{-2}}\,\cos\mu} , 
 
 where :math:`S_0` is the solar constant, :math:`\mu` is the solar zenith
 angle, and :math:`\rho^{-2}` is the distance factor (square of the ratio
 of mean to actual distance that depends on the time of year). A time
 series of the solar spectral irradiance at 1 a.u. for 1870-2100 based
 upon (Wang, Lean, and Sheeley 2005) is included with the standard model
-and is in section [sec:lean].
+and is in section :ref:`sec-lean`.
 
 We represent the annual and diurnal cycle of solar insolation with a
 repeatable solar year of exactly 365 days and with a mean solar day of
@@ -3479,7 +3484,9 @@ figure [fig:kurucz]. The Lean data seen in figure [fig:lean] is
 time-varying and the graphed values are an average over one solar cycle.
 These two spectra postulate different values of the total solar
 irradiance. A graph of the relative difference between them can be seen
-in figure [fig:rel_sol].
+in figure `fig_rel_sol`_.
+
+.. _fig_rel_sol:
 
 +------------------------+-----------+-----------+
 | Solar Irradiance       | Kurucz    | Lean      |
@@ -3554,7 +3561,7 @@ solar cycle
 The heating in each band :math:`b` is scaled by the ratio,
 :math:`\frac{{\tt Lean}(t)_b}{{\tt Kurucz}_b}`, where
 :math:`{\tt Kurucz}_b` is assumed by RRTMG as specified in
-table [tbl:flux\ :sub:`d`\ iff] , and :math:`{\tt Lean}(t)_b` is the
+table `tbl_flux_diff`, and :math:`{\tt Lean}(t)_b` is the
 solar irradiance specified by the time-dependent solar spectral
 irradiance file. :math:`{\tt Lean}(t)_{14}` includes the Lean irradiance
 longward of 12195 nm to capture irradiance in the very far infrared.
@@ -3844,7 +3851,7 @@ for :math:`\varsigma < 0` are
 Note that the CLM code contains extra terms involving :math:`z_{0m}
 /\varsigma`, :math:`z_{0h} /\varsigma`, and :math:`z_{0q} /\varsigma`
 for completeness. These terms are very small most of the time and hence
-are omitted in Eqs. [eq:windprof] and [eq:ptprof].
+are omitted in Eqs. :eq:`eq:windprof` and :eq:`eq:ptprof`.
 
 In addition to the momentum, sensible heat, and latent heat fluxes, land
 surface albedos and upward longwave radiation are needed for the

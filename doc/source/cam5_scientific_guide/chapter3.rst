@@ -4415,7 +4415,7 @@ follows. The terms of :eq:`3.b.19`  are
 
    \begin{aligned}
    \nonumber\lefteqn{\underline{{\hbox{\sffamily\slshape D}}}_\nabla = 2 \Delta t \left[ \underline{E}^n +
-   \Phi_s \underline{1} + R {\boldsymbol{H}}^{r} \underline{{\mathcal T}}^{'n} \right]} \\[1ex]
+   \Phi_s \underline{1} + R {\boldsymbol{H}}^{r} \underline{{\mathcal T}}^{'n} \right]} \\
    & & \mbox{} + \Delta t \left[ R {\boldsymbol{H}}^{r} \left( {( \underline{T}^{'} )}^{n-1} 
    - 2 {(\underline{T}^\prime)}^n \right)
    + R \left( \underline{b}^{r} + \underline{h}^{r}
