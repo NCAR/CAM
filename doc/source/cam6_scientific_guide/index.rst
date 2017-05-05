@@ -13,6 +13,15 @@ CAM5 Scientific Guide
    :maxdepth: 4
    :numbered:
 
-   description.rst
+   cover.rst
+   chapter1.rst
+   chapter2.rst
+   chapter3.rst
+   chapter4.rst
+   chapter5.rst
+   chapter6.rst
+   chapter7.rst
+   chapter8.rst
+   acronyms.rst
 
 
