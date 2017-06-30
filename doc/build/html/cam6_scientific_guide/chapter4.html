@@ -964,8 +964,9 @@ sections.</p>
 <div class="section" id="cloud-microphysics">
 <h2>5.5. Cloud Microphysics<a class="headerlink" href="#cloud-microphysics" title="Permalink to this headline">¶</a></h2>
 <p>The base parameterization of stratiform cloud microphysics is described
-by Morrison and Gettelman (2008). Details of the CAM implementation are
-described by Gettelman, Morrison, and Ghan (2008). Modifications to
+by Gettelman and Morrison (2015), and is version 2 of the scheme
+described by Morrison and Gettelman (2008). Details of the CAM implementation are
+described by Gettelman et al (2015) and <a class="reference internal" href="chapter8.html#gettelman2008" id="id11">[GMG08]</a>. Modifications to
 handle ice nucleation and ice supersaturation are described by Gettelman
 and others (2010).</p>
 <p>The scheme seeks the following:</p>
@@ -2388,13 +2389,13 @@ cloud-borne aerosols are calculated based on droplet sizes. Aerosol
 mixing ratio changes and fluxes from dry deposition and sedimentation
 throughout a vertical column are then calculated using the CAM5 dust
 deposition/sedimentation routine.</p>
-<div class="figure align-center" id="id11">
+<div class="figure align-center" id="id12">
 <span id="aero-species-mam7"></span><img alt="cam6_scientific_guide/figures/cam5_aero_fig1.jpg" src="cam6_scientific_guide/figures/cam5_aero_fig1.jpg" />
 <p class="caption"><span class="caption-text">Predicted species for interstitial and cloud-borne component of each aerosol mode in MAM-7.
 Standard deviation for each mode is 1.6 (Aitken), 1.8 (accumulation), 1.6 (primary carbon), 1.8 (fine and coarse soil dust),
 and 2.0 (fine and coarse sea salt)</span></p>
 </div>
-<div class="figure align-center" id="id12">
+<div class="figure align-center" id="id13">
 <span id="aero-species-mam3"></span><img alt="../_images/cam5_aero_fig2.jpg" src="../_images/cam5_aero_fig2.jpg" />
 <p class="caption"><span class="caption-text">Predicted species for interstitial and cloud-borne component of each aerosol mode in MAM-3.
 Standard deviation for each mode is 1.6 (Aitken), 1.8 (accumulation) and 1.8 (coarse mode)</span></p>
@@ -2876,7 +2877,7 @@ horizon.</p>
 <td>Max</td>
 <td>Irradiance</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-odd"><td>&#160;</td>
 <td>(<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m)</td>
 <td>(<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m)</td>
 <td>(cm:math:<cite>^{-1}</cite>)</td>
@@ -3050,7 +3051,7 @@ of total column water vapor.</p>
 <td>Min</td>
 <td>Max</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-odd"><td>&#160;</td>
 <td>(<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m)</td>
 <td>(<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m)</td>
 <td>(cm:math:<cite>^{-1}</cite>)</td>
@@ -3524,16 +3525,16 @@ in figure <a class="reference internal" href="#fig-rel-sol">fig_rel_sol</a>.</p>
 </table>
 <p>Table: Band-level ratio of Solar Irradiances, based on average of one
 solar cycle</p>
-<div class="figure align-center" id="id13">
+<div class="figure align-center" id="id14">
 <img alt="cam6_scientific_guide/figures/kurucz.jpg" src="cam6_scientific_guide/figures/kurucz.jpg" />
 <p class="caption"><span class="caption-text">Kurucz spectrum. ssf in W/m<img class="math" src="../_images/math/81d4e21093a294aaab4f441ff172923d688c9b7e.png" alt="^2"/>/nm. Source Data: AER. Range from [20, 20000] nm.</span></p>
 </div>
-<div class="figure align-center" id="id14">
+<div class="figure align-center" id="id15">
 <img alt="cam6_scientific_guide/figures/lean.jpg" src="cam6_scientific_guide/figures/lean.jpg" />
 <p class="caption"><span class="caption-text">Lean spectrum. Average over 1 solar cycle, May 1, 1996 to Dec 31, 2006.
 Source Data: Marsh. ssf in W/m<img class="math" src="../_images/math/81d4e21093a294aaab4f441ff172923d688c9b7e.png" alt="^2"/>/nm. Range from [120, 99975] nm.</span></p>
 </div>
-<div class="figure align-center" id="id15">
+<div class="figure align-center" id="id16">
 <img alt="cam6_scientific_guide/figures/relative_ssf.jpg" src="cam6_scientific_guide/figures/relative_ssf.jpg" />
 <p class="caption"><span class="caption-text">Relative difference, <img class="math" src="../_images/math/0153fca3602dbeb98a8b7c305067e8686859e507.png" alt="\frac{\tt{Lean} - \tt{Kurucz}}{.5(\tt{Lean} + \tt{Kurucz}) }"/>
 between spectra. RRTMG band boundaries are marked with vertical lines.</span></p>
@@ -4022,7 +4023,7 @@ the main features of the CH<img class="math" src="../_images/math/284796e299f67d
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
     </div>
   </body>
 </html>

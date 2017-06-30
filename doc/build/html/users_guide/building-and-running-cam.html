@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3. Building and Running CAM &#8212; camdoc  documentation</title>
+    <title>3. Building and Running CAM within CESM &#8212; camdoc  documentation</title>
     
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -54,6 +54,20 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Building and Running CAM within CESM</a><ul>
+<li><a class="reference internal" href="#cam-compsets">3.1. CAM compsets</a></li>
+<li><a class="reference internal" href="#modifying-cam-s-configuration">3.2. Modifying CAM&#8217;s configuration</a></li>
+<li><a class="reference internal" href="#modifying-namelist-settings-in-cam-run">3.3. Modifying namelist settings in CAM run</a><ul>
+<li><a class="reference internal" href="#example-using-cmip5-emissions">3.3.1. Example:  Using CMIP5 emissions</a></li>
+<li><a class="reference internal" href="#example-setting-up-a-new-single-column-scam-run">3.3.2. Example:  Setting up a new Single Column (SCAM) run</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="getting-help.html"
                         title="previous chapter">2. Getting Help</a></p>
@@ -85,37 +99,125 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="building-and-running-cam">
-<span id="id1"></span><h1>3. Building and Running CAM<a class="headerlink" href="#building-and-running-cam" title="Permalink to this headline">¶</a></h1>
-<p>The following describes how to build and run CAM in its standalone configuration.
-We do not provide scripts that are setup to work out of the box on a particular set of platforms.
-If you would like this level of support then consider running CAM from the CESM scripts (see <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/...">CESM-1.2 User&#8217;s Guide</a>). We do however provide some examples of simple run scripts which should provide a useful starting point for writing your own scripts (see <a class="reference external" href="CAM-2.2-Sample-Run-Scripts">Section 2.2, “Sample Run Scripts”</a>).</p>
-<p>In order to build and run CAM the following are required:</p>
+  <div class="section" id="building-and-running-cam-within-cesm">
+<span id="building-and-running-cam"></span><h1>3. Building and Running CAM within CESM<a class="headerlink" href="#building-and-running-cam-within-cesm" title="Permalink to this headline">¶</a></h1>
+<p>If you need to install CESM, please refer to <a class="reference external" href="http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html">downloading CESM</a>.</p>
+<p>CAM runs are setup, built and submitted via the cime scripts.  A simple session to build an FHIST_DEV, 1 degree case and call it test_FHIST is illustrated as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_FHIST</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST_DEV</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
+<p>In the example above, the directory test_FHIST is called the <strong>CASEROOT</strong>.  The job will be run in <strong>RUNDIR</strong>.  The values of these (and all the other xml variables set by cime) can be seen by using xmlquery.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="n">test_FHIST</span>
+<span class="o">%./</span><span class="n">xmlquery</span> <span class="n">CASEROOT</span>
+<span class="o">%./</span><span class="n">xmlquery</span> <span class="n">RUNDIR</span>
+</pre></div>
+</div>
+<p>A summary description of the setup/build/submit process can be found at the <a class="reference external" href="http://cesm-development.github.io/cime/doc/build/html/quickstart.html">CESM quick start</a>.</p>
+<p>Further, detailed information for each of the above steps can be found at:</p>
 <ul class="simple">
-<li>The source tree. CAM-5.3 is distributed with CESM-1.2. To obtain the source code go to the section &#8220;Acquiring the Code&#8221; on the <a class="reference external" href="http://www.cesm.ucar.edu/">CESM Home Page</a>. When we refer to the root of the CAM source tree, this is the same directory as the root of the CESM source tree. This directory is referred to throughout this document as <code class="docutils literal"><span class="pre">$CAM_ROOT</span></code>.</li>
-<li>Perl (version 5.4 or later).</li>
-<li>A GNU version of the <code class="docutils literal"><span class="pre">make</span></code> utility.</li>
-<li>Fortran and C compilers. The Fortran compiler needs to support at least the Fortran95 standard.</li>
-<li>A NetCDF library (version 4.1.3 or later) that has the Fortran APIs built using the same Fortran compiler that is used to build the rest of the CAM code. This library is used extensively by CAM both to read input datasets and to write the output datasets. The NetCDF source code is available <a class="reference external" href="http://www.unidata.ucar.edu/downloads/netcdf/">here</a>. We have updated the required NetCDF library version from 3.6 to 4.1.3 due to a recently discovered bug which affects all previous versions of the NetCDF library. The bug only occurs in special circumstances that are not that easy to replicate, however the result is that corrupt files are silently created. A more complete description of the bug is here.</li>
+<li><a class="reference external" href="http://esmci.github.io/cime/users_guide/create-a-case.html">create_newcase</a></li>
+<li><a class="reference external" href="http://esmci.github.io/cime/users_guide/setting-up-a-case.html">case.setup</a></li>
+<li><a class="reference external" href="http://esmci.github.io/cime/users_guide/building-a-case.html">case.build</a></li>
+<li><a class="reference external" href="http://esmci.github.io/cime/users_guide/running-a-case.html">case.submit</a></li>
 </ul>
-<p>Input datasets.
-The required datasets depend on the CAM configuration. Determining which datasets are required for any configuration is discussed in <a class="reference external" href="CAM-2.1-Sample-Interactive-Session#216-building-the-namelist">Section 2.1.6, “Building the Namelist”</a>. Acquiring those datasets is discussed in <a class="reference external" href="CAM-2.1-Sample-Interactive-Session#217-acquiring-input-datasets">Section 2.1.7, “Acquiring Input Datasets”</a>.</p>
-<p>To build CAM for SPMD execution it will also be necessary to have an MPI library (version 1 or later). As with the NetCDF library, the Fortran API should be build using the same Fortran compiler that is used to build the rest of CAM. Otherwise linking to the library may encounter difficulties, usually due to inconsistencies in Fortran name mangling.</p>
-<p>Building and running CAM takes place in the following steps:</p>
-<ol class="arabic simple">
-<li>Configure model</li>
-<li>Build model</li>
-<li>Build namelist</li>
-<li>Execute model</li>
-</ol>
-<p><strong>Configure model.</strong>  This step is accomplished by running the <code class="docutils literal"><span class="pre">configure</span></code> utility to set the compile-time parameters such as the dynamical core (Eulerian Spectral, Semi-Lagrangian Spectral, Finite Volume, or Spectral Element), horizontal grid resolution, and the type of parallelism to employ (shared-memory and/or distributed memory).
-The <code class="docutils literal"><span class="pre">configure</span></code> utility is discussed in <a class="reference external" href="CAM-6.1-The-configure-utility">Appendix A, The configure utility</a>.</p>
-<p><strong>Build model.</strong>  This step includes compiling and linking the executable using the GNU make command (<code class="docutils literal"><span class="pre">gmake</span></code>).
-<code class="docutils literal"><span class="pre">configure</span></code> creates a <code class="docutils literal"><span class="pre">Makefile</span></code> in the directory where the build is to take place. The user then need only change to this directory and execute the <code class="docutils literal"><span class="pre">gmake</span></code> command.</p>
-<p><strong>Build namelist.</strong>  This step is accomplished by running the <code class="docutils literal"><span class="pre">build-namelist</span></code> utility, which supports a variety of options to control the run-time behavior of the model.
-Any namelist variable recognized by CAM can be changed by the user via the <code class="docutils literal"><span class="pre">build-namelist</span></code> interface. There is also a high level &#8220;use case&#8221; functionality which makes it easy for the user to specify a consistent set of namelist variable settings for running particular types of experiments. The <code class="docutils literal"><span class="pre">build-namelist</span></code> utility is discussed in <a class="reference external" href="CAM-6.2-The-build-namelist-utility">Appendix B, The build-namelist utility</a>.</p>
-<p><strong>Execute model.</strong>  This step includes the actual invocation of the executable.
-When running using distributed memory parallelism this step requires knowledge of how your machine invokes (or &#8220;launches&#8221;) MPI executables. When running with shared-memory parallelism (using OpenMP) you may also set the number of OpenMP threads. On most HPC platforms access to the compute resource is through a batch queue system. The sample run scripts discussed in <a class="reference external" href="CAM-2.2-Sample-Run-Scripts">Section 2.2, “Sample Run Scripts”</a> show how to set the batch queue resources on several HPC platforms.</p>
+<p>In addtion, there is information for <a class="reference external" href="http://esmci.github.io/cime/users_guide/customizing-a-case.html">customizing a case</a>.</p>
+<p>It is encouraged for users to review these sections as they go into much more detail than is contained here.</p>
+<div class="section" id="cam-compsets">
+<h2>3.1. CAM compsets<a class="headerlink" href="#cam-compsets" title="Permalink to this headline">¶</a></h2>
+<p>CAM compsets include the F, PORT and Q compsets.</p>
+<ul class="simple">
+<li><strong>F</strong>: CAM standalone runs, using an active Land and everything else is prognostic</li>
+<li><strong>PORT</strong>: Parallel offline radiation tool</li>
+<li><strong>Q</strong>: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)</li>
+</ul>
+<p>CAM has a number of predefined compsets with different levels of support.</p>
+<ul class="simple">
+<li><strong>Scientifically supported</strong>:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.</li>
+<li><strong>Tested</strong>: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.</li>
+<li><strong>Unsupported</strong>:  These compsets are setup as a &#8220;convenience&#8221; for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the &#8211;run-unsupported flag to create_newcase.</li>
+</ul>
+<p><strong>Scientifically supported CAM compsets</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="64%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Compset Name</th>
+<th class="head">Description</th>
+<th class="head">Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FHIST_DEV</td>
+<td>Historical current developer
+setup (CAM6)</td>
+<td>1850</td>
+</tr>
+<tr class="row-odd"><td>F2000climo</td>
+<td>Climatological 21st century</td>
+<td>2000 to
+2015</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tested CAM compsets</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="64%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Compset Name</th>
+<th class="head">Description</th>
+<th class="head">Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="modifying-cam-s-configuration">
+<h2>3.2. Modifying CAM&#8217;s configuration<a class="headerlink" href="#modifying-cam-s-configuration" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>CAM_CONFIG_OPTS</strong>:  The settings in this variable are passed directly to CAM&#8217;s configure command.  The list of possible options are detailed at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  It is important to note that CAM compsets already have this variable set and that a user will most likely want to oppend flags as opposed to replacing them.  If the append flag is not used, this variable is reset to only include the values specified and all preset values are removed.</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
+<span class="o">%</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">append</span> <span class="n">CAM_CONFIG_OPTS</span><span class="o">=</span><span class="s1">&#39;-nthreads 3&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modifying-namelist-settings-in-cam-run">
+<h2>3.3. Modifying namelist settings in CAM run<a class="headerlink" href="#modifying-namelist-settings-in-cam-run" title="Permalink to this headline">¶</a></h2>
+<p>To modify CAM namelist settings, add the appropriate keyword/value pair at the end of the $CASEROOT/user_nl_cam file.  If the run needs to change namelist settings in other components, then modify the appropriate $CASEROOT/user_nl_XXX file.</p>
+<p>For example, to change the CO2 constant to 400, modify <strong>user_nl_cam</strong> and add the following line at the end:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2_ppmv</span><span class="o">=</span><span class="mf">400.</span>
+</pre></div>
+</div>
+<p>To see the result, call <strong>preview_namelists</strong> and verify that the new value appears in <strong>CaseDocs/atm_in</strong>.</p>
+<p>A complete listing of all of CAM&#8217;s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html">CAM&#8217;s namelist variables</a></p>
+<div class="section" id="example-using-cmip5-emissions">
+<h3>3.3.1. Example:  Using CMIP5 emissions<a class="headerlink" href="#example-using-cmip5-emissions" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="example-setting-up-a-new-single-column-scam-run">
+<h3>3.3.2. Example:  Setting up a new Single Column (SCAM) run<a class="headerlink" href="#example-setting-up-a-new-single-column-scam-run" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 </div>
 
 
@@ -142,7 +244,7 @@ When running using distributed memory parallelism this step requires knowledge o
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
     </div>
   </body>
 </html>
