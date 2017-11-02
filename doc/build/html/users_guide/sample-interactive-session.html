@@ -2,16 +2,12 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>4. Sample Interactive Session &#8212; camdoc  documentation</title>
-    
+    <title>5. Sample Interactive Session &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -28,14 +24,14 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Input Datasets" href="input-datasets.html" />
-    <link rel="prev" title="3. Building and Running CAM within CESM" href="building-and-running-cam.html" />
+    <link rel="next" title="6. Input Datasets" href="input-datasets.html" />
+    <link rel="prev" title="4. Special CAM configurations" href="special-cam-runs.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -43,44 +39,44 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="input-datasets.html" title="5. Input Datasets"
+          <a href="input-datasets.html" title="6. Input Datasets"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="building-and-running-cam.html" title="3. Building and Running CAM within CESM"
+          <a href="special-cam-runs.html" title="4. Special CAM configurations"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User&#8217;s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User’s Guide</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">4. Sample Interactive Session</a><ul>
-<li><a class="reference internal" href="#configuring-cam-for-serial-execution">4.1. Configuring CAM for serial execution</a></li>
-<li><a class="reference internal" href="#specifying-the-fortran-compiler">4.2. Specifying the Fortran compiler</a></li>
-<li><a class="reference internal" href="#dealing-with-compiler-wrappers">4.3. Dealing with compiler wrappers</a></li>
-<li><a class="reference internal" href="#configuring-cam-for-parallel-execution">4.4. Configuring CAM for parallel execution</a></li>
-<li><a class="reference internal" href="#building-cam">4.5. Building CAM</a></li>
-<li><a class="reference internal" href="#building-the-namelist">4.6. Building the Namelist</a><ul>
-<li><a class="reference internal" href="#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">4.6.1. Example: Use build-namelist to specify a dataset in a non-default location.</a></li>
+<li><a class="reference internal" href="#">5. Sample Interactive Session</a><ul>
+<li><a class="reference internal" href="#configuring-cam-for-serial-execution">5.1. Configuring CAM for serial execution</a></li>
+<li><a class="reference internal" href="#specifying-the-fortran-compiler">5.2. Specifying the Fortran compiler</a></li>
+<li><a class="reference internal" href="#dealing-with-compiler-wrappers">5.3. Dealing with compiler wrappers</a></li>
+<li><a class="reference internal" href="#configuring-cam-for-parallel-execution">5.4. Configuring CAM for parallel execution</a></li>
+<li><a class="reference internal" href="#building-cam">5.5. Building CAM</a></li>
+<li><a class="reference internal" href="#building-the-namelist">5.6. Building the Namelist</a><ul>
+<li><a class="reference internal" href="#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">5.6.1. Example: Use build-namelist to specify a dataset in a non-default location.</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#acquiring-input-datasets">4.7. Acquiring Input Datasets</a><ul>
-<li><a class="reference internal" href="#acquire-missing-dataset">4.7.1. Acquire missing dataset</a></li>
+<li><a class="reference internal" href="#acquiring-input-datasets">5.7. Acquiring Input Datasets</a><ul>
+<li><a class="reference internal" href="#acquire-missing-dataset">5.7.1. Acquire missing dataset</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-cam">4.8. Running CAM</a></li>
+<li><a class="reference internal" href="#running-cam">5.8. Running CAM</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="building-and-running-cam.html"
-                        title="previous chapter">3. Building and Running CAM within CESM</a></p>
+  <p class="topless"><a href="special-cam-runs.html"
+                        title="previous chapter">4. Special CAM configurations</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="input-datasets.html"
-                        title="next chapter">5. Input Datasets</a></p>
+                        title="next chapter">6. Input Datasets</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -107,11 +103,11 @@
           <div class="body" role="main">
             
   <div class="section" id="sample-interactive-session">
-<span id="id1"></span><h1>4. Sample Interactive Session<a class="headerlink" href="#sample-interactive-session" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>5. Sample Interactive Session<a class="headerlink" href="#sample-interactive-session" title="Permalink to this headline">¶</a></h1>
 <p>The following sections present an interactive C shell session to build
 and run a default version of CAM. Most often these steps will be
 encapsulated in shell scripts. An important advantage of using a
-script is that it acts to document the run you&#8217;ve done. Knowing the
+script is that it acts to document the run you’ve done. Knowing the
 source code tree, and the <code class="docutils literal"><span class="pre">configure</span></code> and <code class="docutils literal"><span class="pre">build-namelist</span></code>
 commands provides all the information needed to replicate a run.</p>
 <p>For the interactive session the shell variable <code class="docutils literal"><span class="pre">camcfg</span></code> is set to
@@ -128,7 +124,7 @@ which is contained within it.
 </pre></div>
 </div>
 <div class="section" id="configuring-cam-for-serial-execution">
-<h2>4.1. Configuring CAM for serial execution<a class="headerlink" href="#configuring-cam-for-serial-execution" title="Permalink to this headline">¶</a></h2>
+<h2>5.1. Configuring CAM for serial execution<a class="headerlink" href="#configuring-cam-for-serial-execution" title="Permalink to this headline">¶</a></h2>
 <p>We start by changing into the directory in which the CAM executable
 will be built, and then setting the environment variables INC_NETCDF
 and LIB_NETCDF which specify the locations of the NetCDF include files
@@ -141,7 +137,7 @@ alternatively be provided via the commandline arguments <code class="docutils li
 and <code class="docutils literal"><span class="pre">-nc_lib</span></code>.</p>
 <p><strong>NOTE:</strong> A common problem is to encounter build failures due to
 specifying a NetCDF library which was built with a different Fortran
-compiler than the one used to build CAM. Consult your system&#8217;s
+compiler than the one used to build CAM. Consult your system’s
 documentation (or some other knowledgeable source) to find the
 location of the NetCDF library which was built with the Fortran
 compiler you intend to use.</p>
@@ -163,7 +159,7 @@ so that the Fortran compiler works and can successfully link to the
 NetCDF and MPI (if SPMD is enabled) libraries. Furthermore, if the
 configuration is for serial execution, then the tests will include
 both build and run phases which may be useful in exposing run time
-problems that don&#8217;t show up during the build, for example when shared
+problems that don’t show up during the build, for example when shared
 libraries are linked dynamically. If any tests fail then it is useful
 to rerun the <code class="docutils literal"><span class="pre">configure</span></code> command and add the <code class="docutils literal"><span class="pre">-v</span></code> option which
 will produce verbose output of all aspects of the configuration
@@ -191,8 +187,8 @@ CAM configure done.
 </pre></div>
 </div>
 <p>The first line of output from the <code class="docutils literal"><span class="pre">configure</span></code> command is an echo of
-the system command that CAM&#8217;s <code class="docutils literal"><span class="pre">configure</span></code> issues to invoke the CICE
-<code class="docutils literal"><span class="pre">configure</span></code> utility. CICE&#8217;s <code class="docutils literal"><span class="pre">configure</span></code> is responsible for setting
+the system command that CAM’s <code class="docutils literal"><span class="pre">configure</span></code> issues to invoke the CICE
+<code class="docutils literal"><span class="pre">configure</span></code> utility. CICE’s <code class="docutils literal"><span class="pre">configure</span></code> is responsible for setting
 the values of the CPP macros that are needed to build the CICE code.</p>
 <p>After the CICE <code class="docutils literal"><span class="pre">configure</span></code> is complete the MCT <code class="docutils literal"><span class="pre">configure</span></code> script
 is executed to create the Makefile for building MCT as a separate
@@ -211,12 +207,12 @@ the default compilers are specified. On Linux systems the default is
 linking to the MPI library was done.</p>
 </div>
 <div class="section" id="specifying-the-fortran-compiler">
-<h2>4.2. Specifying the Fortran compiler<a class="headerlink" href="#specifying-the-fortran-compiler" title="Permalink to this headline">¶</a></h2>
+<h2>5.2. Specifying the Fortran compiler<a class="headerlink" href="#specifying-the-fortran-compiler" title="Permalink to this headline">¶</a></h2>
 <p>In the previous section the <code class="docutils literal"><span class="pre">configure</span></code> command was issued without
 specifying which Fortran compiler to use. For that to work we were
 depending on the CAM <code class="docutils literal"><span class="pre">configure</span></code> script to select a default
 compiler. One of the differences between the CAM standalone build and
-a build using the CESM scripts is that CAM&#8217;s <code class="docutils literal"><span class="pre">configure</span></code> provides
+a build using the CESM scripts is that CAM’s <code class="docutils literal"><span class="pre">configure</span></code> provides
 defaults based on the operating system name (as determined by the Perl
 internal variable <code class="docutils literal"><span class="pre">$OSNAME</span></code>), while the CESM scripts require the
 user to specify a specific machine (and compiler if the machine
@@ -255,14 +251,14 @@ this information to <code class="docutils literal"><span class="pre">configure</
 with the values of either <code class="docutils literal"><span class="pre">bgl</span></code> or <code class="docutils literal"><span class="pre">bgp</span></code>.</p>
 <p>On a Linux platform several compilers are recognized with the default
 being <code class="docutils literal"><span class="pre">pgf95</span></code>. It is assumed that the compiler to be used is in the
-user&#8217;s path (i.e., in one of the directories in the PATH environment
-variable). If it isn&#8217;t then the <code class="docutils literal"><span class="pre">-test</span></code> option will issue an error
+user’s path (i.e., in one of the directories in the PATH environment
+variable). If it isn’t then the <code class="docutils literal"><span class="pre">-test</span></code> option will issue an error
 indicating that the compiler was not found.</p>
 <p>Suppose for example that one would like to use the Intel compiler on a
 local Linux system. The CAM makefile recognizes <code class="docutils literal"><span class="pre">ifort</span></code> as the name
 of the Intel compiler. To invoke this compiler use the <code class="docutils literal"><span class="pre">-fc</span></code>
 argument to <code class="docutils literal"><span class="pre">configure</span></code>. The following example illustrates the
-output you get when the compiler you ask for isn&#8217;t in your PATH:</p>
+output you get when the compiler you ask for isn’t in your PATH:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>% $camcfg/configure -fc ifort -dyn fv -hgrid 10x15 -nospmd -nosmp -test
 Issuing command to the CICE configure utility:
 $CAM_ROOT/models/ice/cice/bld/configure -hgrid 10x15 -cice_mode prescribed \
@@ -273,7 +269,7 @@ FAILURE: MCT configure
 </pre></div>
 </div>
 <p>In previous CAM versions this problem would be caught by the <code class="docutils literal"><span class="pre">-test</span></code>
-option, but with the addition of MCT&#8217;s configure the problem is now
+option, but with the addition of MCT’s configure the problem is now
 detected there. By default MCT will be build in a subdirectory of the
 build directory named <code class="docutils literal"><span class="pre">mct</span></code>. That directory will contain a file,
 <code class="docutils literal"><span class="pre">config.log</span></code>, which should be examined to track down the cause of
@@ -288,7 +284,7 @@ environment variable.</p>
 <p><strong>NOTE:</strong>  We have made progress porting CAM to the <code class="docutils literal"><span class="pre">gfortran</span></code> compiler, but it is still not regularly tested or used for production work.</p>
 </div>
 <div class="section" id="dealing-with-compiler-wrappers">
-<h2>4.3. Dealing with compiler wrappers<a class="headerlink" href="#dealing-with-compiler-wrappers" title="Permalink to this headline">¶</a></h2>
+<h2>5.3. Dealing with compiler wrappers<a class="headerlink" href="#dealing-with-compiler-wrappers" title="Permalink to this headline">¶</a></h2>
 <p>Another instance where the user needs to supply information about the
 Fortran compiler type to configure is when the compiler is being
 invoked by a wrapper script. A common example of this is using the
@@ -307,27 +303,27 @@ catch this problem). The way to specify which Fortran compiler is
 being invoked by a wrapper script is via the <code class="docutils literal"><span class="pre">-fc_type</span></code> argument to
 configure. This argument takes one of the values <code class="docutils literal"><span class="pre">pgi</span></code>, <code class="docutils literal"><span class="pre">lahey</span></code>,
 <code class="docutils literal"><span class="pre">intel</span></code>, <code class="docutils literal"><span class="pre">pathscale</span></code>, <code class="docutils literal"><span class="pre">gnu</span></code>, or <code class="docutils literal"><span class="pre">xlf</span></code>.</p>
-<p>CAM&#8217;s <code class="docutils literal"><span class="pre">configure</span></code> script attempts to determine the compiler type
+<p>CAM’s <code class="docutils literal"><span class="pre">configure</span></code> script attempts to determine the compiler type
 when a compiler specific name is used. It does so by a regular
 expression match against the unique part of specific compiler names
-(e.g., any compiler name matching &#8216;pgf&#8217; will be given the default type
+(e.g., any compiler name matching ‘pgf’ will be given the default type
 of pgi). If the default is wrong then the user will need to manually
 override the default via setting the <code class="docutils literal"><span class="pre">-fc_type</span></code> argument.</p>
 </div>
 <div class="section" id="configuring-cam-for-parallel-execution">
-<h2>4.4. Configuring CAM for parallel execution<a class="headerlink" href="#configuring-cam-for-parallel-execution" title="Permalink to this headline">¶</a></h2>
+<h2>5.4. Configuring CAM for parallel execution<a class="headerlink" href="#configuring-cam-for-parallel-execution" title="Permalink to this headline">¶</a></h2>
 <p>Before moving on to building CAM we address configuring the executable
 for parallel execution. But before talking about configuration
-specifics let&#8217;s briefly discuss the parallel execution capabilities of
+specifics let’s briefly discuss the parallel execution capabilities of
 CAM.</p>
 <p>CAM makes use of both distributed memory parallelism implemented using
 MPI (referred to throughout this document as <a class="reference external" href="http://en.wikipedia.org/wiki/SPMD">SPMD</a>), and shared memory parallelism
 implemented using OpenMP (referred to as <a class="reference external" href="http://en.wikipedia.org/wiki/Symmetric_multiprocessing">SMP</a>). Each of
 these parallel modes may be used independently of the other, or they
-may be used at the same time which we refer to as &#8220;hybrid mode&#8221;. When
+may be used at the same time which we refer to as “hybrid mode”. When
 talking about the SPMD mode we usually refer to the MPI processes as
-&#8220;tasks&#8221;, and when talking about the SMP mode we usually refer to the
-OpenMP processes as &#8220;threads&#8221;. A feature of CAM which is very helpful
+“tasks”, and when talking about the SMP mode we usually refer to the
+OpenMP processes as “threads”. A feature of CAM which is very helpful
 in code development work is that the simulation results are
 independent of the number of tasks and threads used.</p>
 <p>Now consider configuring CAM to run in pure SPMD mode. Prior to the
@@ -340,9 +336,9 @@ introduction of CICE as the sea ice model SPMD was turned on using the
 </pre></div>
 </div>
 <p>A requirement of the CICE model is that its grid decomposition (which
-is independent of CAM&#8217;s decomposition even when the two models are
+is independent of CAM’s decomposition even when the two models are
 using the same horizontal grid) must be specified at build time. In
-order for CICE&#8217;s <code class="docutils literal"><span class="pre">configure</span></code> to set the decomposition it needs to
+order for CICE’s <code class="docutils literal"><span class="pre">configure</span></code> to set the decomposition it needs to
 know how much parallelism is going to be used. This information is
 provided by specifying the number of MPI tasks that the job will use
 via setting the <code class="docutils literal"><span class="pre">-ntasks</span></code> argument.</p>
@@ -376,7 +372,7 @@ Test linking to MPI library... ok
 CAM configure done.
 </pre></div>
 </div>
-<p>Notice that the number of tasks specified to CAM&#8217;s <code class="docutils literal"><span class="pre">configure</span></code> is
+<p>Notice that the number of tasks specified to CAM’s <code class="docutils literal"><span class="pre">configure</span></code> is
 passed through to the commandline that invokes the CICE
 <code class="docutils literal"><span class="pre">configure</span></code>. Generally any number of tasks that is appropriate for
 CAM to use for a particular horizontal grid will also work for
@@ -391,7 +387,7 @@ required. Hence, the specification <code class="docutils literal"><span class="p
 building for serial execution which is done via the <code class="docutils literal"><span class="pre">-nospmd</span></code>
 option and does not require a full MPI library. (Implementation
 detail: when building for serial mode a special serial MPI library
-is used which basically provides a complete MPI API, but doesn&#8217;t do
+is used which basically provides a complete MPI API, but doesn’t do
 any message passing.)</dd>
 </dl>
 <p>Next consider configuring CAM to run in pure SMP mode. Similarly to
@@ -423,7 +419,7 @@ option and does not require a compiler that supports OpenMP.</dd>
 <p>Finally, to configure CAM for hybrid mode, simply specify both the <code class="docutils literal"><span class="pre">-ntasks</span></code> and <code class="docutils literal"><span class="pre">-nthreads</span></code> arguments to configure.</p>
 </div>
 <div class="section" id="building-cam">
-<h2>4.5. Building CAM<a class="headerlink" href="#building-cam" title="Permalink to this headline">¶</a></h2>
+<h2>5.5. Building CAM<a class="headerlink" href="#building-cam" title="Permalink to this headline">¶</a></h2>
 <p>Once <code class="docutils literal"><span class="pre">configure</span></code> is successful, build CAM by issuing the make command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>% gmake -j2  &gt;&amp;! make.out
 </pre></div>
@@ -444,7 +440,7 @@ executable file. Relevant information from this file should be
 included when posting a bug report concerning a build failure.</p>
 </div>
 <div class="section" id="building-the-namelist">
-<h2>4.6. Building the Namelist<a class="headerlink" href="#building-the-namelist" title="Permalink to this headline">¶</a></h2>
+<h2>5.6. Building the Namelist<a class="headerlink" href="#building-the-namelist" title="Permalink to this headline">¶</a></h2>
 <p>The first step in the run procedure is to generate the namelist
 files. The safest way to generate consistent namelist settings is via
 the <code class="docutils literal"><span class="pre">build-namelist</span></code> utility. Even in the case where only a slight
@@ -483,17 +479,17 @@ build directory. Possibly a number of different runs will be done that
 each need to have a separate run directory for the output files, but
 will all use the same executable file from a common build
 directory. It is, of course, possible to execute <code class="docutils literal"><span class="pre">build-namelist</span></code> in
-the build directory since that&#8217;s where the cache file is and so you
-don&#8217;t need to specify to <code class="docutils literal"><span class="pre">build-namelist</span></code> where to find that file
+the build directory since that’s where the cache file is and so you
+don’t need to specify to <code class="docutils literal"><span class="pre">build-namelist</span></code> where to find that file
 (it looks in the current working directory by default). But then,
 assuming you plan to run CAM in a different directory, all the files
 produced by <code class="docutils literal"><span class="pre">build-namelist</span></code> need to be copied to the run
-directly. If you&#8217;re running <code class="docutils literal"><span class="pre">configure</span></code> and <code class="docutils literal"><span class="pre">build-namelist</span></code> from
+directly. If you’re running <code class="docutils literal"><span class="pre">configure</span></code> and <code class="docutils literal"><span class="pre">build-namelist</span></code> from
 a script, then you need to know how to specify the filenames for the
-files that need to be copied. For this reason it&#8217;s more robust to
+files that need to be copied. For this reason it’s more robust to
 change to the run directory and execute <code class="docutils literal"><span class="pre">build-namelist</span></code> there. That
-way if there&#8217;s a change to the files that are produced, your script
-doesn&#8217;t break due to the files not all getting copied to the run
+way if there’s a change to the files that are produced, your script
+doesn’t break due to the files not all getting copied to the run
 directory.</p>
 <p>Next we set the <code class="docutils literal"><span class="pre">CSMDATA</span></code> environment variable to point to the root
 directory of the tree containing the input data files. Note that this
@@ -588,7 +584,7 @@ the ice component (<code class="docutils literal"><span class="pre">ice_in</span
 component (<code class="docutils literal"><span class="pre">docn_in</span></code>, <code class="docutils literal"><span class="pre">docn_ocn_in</span></code>), the atmosphere component
 (<code class="docutils literal"><span class="pre">atm_in</span></code>), the driver (<code class="docutils literal"><span class="pre">drv_in</span></code>), and a file that is read by both
 the atmosphere and land components (<code class="docutils literal"><span class="pre">drv_flds_in</span></code>). There is also a
-&#8220;stream file&#8221; (<code class="docutils literal"><span class="pre">docn.stream.txt</span></code>) which is read by the data ocean
+“stream file” (<code class="docutils literal"><span class="pre">docn.stream.txt</span></code>) which is read by the data ocean
 component. Note that these filenames are hardcoded in the components
 and cannot be changed without source code modifications.</p>
 <p>The next section of output is the result of using the <code class="docutils literal"><span class="pre">-test</span></code>
@@ -603,19 +599,19 @@ possible. The following is a list of possible actions:</p>
 <ul class="simple">
 <li>Acquire the missing file. If this is a default file supplied by the
 CESM project then you will be able to download the file from the
-project&#8217;s svn data repository (see <a class="reference external" href="CAM-2.1-Sample-Interactive-Session#217-acquiring-input-datasets">Section 2.1.7, “Acquiring Input Datasets”</a>).</li>
+project’s svn data repository (see <a class="reference external" href="CAM-2.1-Sample-Interactive-Session#217-acquiring-input-datasets">Section 2.1.7, “Acquiring Input Datasets”</a>).</li>
 <li>If you have write permissions in the directory under <code class="docutils literal"><span class="pre">$CSMDATA</span></code>
 then add the missing file to the appropriate location there.  If you
-don&#8217;t have write permissions under <code class="docutils literal"><span class="pre">$CSMDATA</span></code> then put the file in
+don’t have write permissions under <code class="docutils literal"><span class="pre">$CSMDATA</span></code> then put the file in
 a place where you can (for example, your run directory) and rerun
 <code class="docutils literal"><span class="pre">build-namelist</span></code> with an explicit setting for the file using your
 specific filepath.</li>
 </ul>
 <div class="section" id="example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">
-<h3>4.6.1. Example: Use build-namelist to specify a dataset in a non-default location.<a class="headerlink" href="#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location" title="Permalink to this headline">¶</a></h3>
+<h3>5.6.1. Example: Use build-namelist to specify a dataset in a non-default location.<a class="headerlink" href="#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that the <code class="docutils literal"><span class="pre">-test</span></code> option informed you that the ncdata file
 cami_0000-01-01_10x15_L30_c081013.nc was not found. You acquire the
-file from the data repository, but don&#8217;t have permissions to write in
+file from the data repository, but don’t have permissions to write in
 the <code class="docutils literal"><span class="pre">$CSMDATA</span></code> tree. So you put the file in your run directory and
 issue a <code class="docutils literal"><span class="pre">build-namelist</span></code> command that looks like this:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>% $camcfg/build-namelist -config /work/user/cam_test/bld/config_cache.xml \
@@ -626,7 +622,7 @@ issue a <code class="docutils literal"><span class="pre">build-namelist</span></
 </div>
 </div>
 <div class="section" id="acquiring-input-datasets">
-<h2>4.7. Acquiring Input Datasets<a class="headerlink" href="#acquiring-input-datasets" title="Permalink to this headline">¶</a></h2>
+<h2>5.7. Acquiring Input Datasets<a class="headerlink" href="#acquiring-input-datasets" title="Permalink to this headline">¶</a></h2>
 <p>If you are doing a standard production run that is supported in the
 CESM scripts, then using those scripts will automatically invoke a
 utility to acquire needed input datasets. The information in this
@@ -638,16 +634,16 @@ name and password for the input data repository will be the same as
 for the code repository (which are provided to users when they
 register to acquire access to the CESM source code repository).</p>
 <div class="section" id="acquire-missing-dataset">
-<h3>4.7.1. Acquire missing dataset<a class="headerlink" href="#acquire-missing-dataset" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.1. Acquire missing dataset<a class="headerlink" href="#acquire-missing-dataset" title="Permalink to this headline">¶</a></h3>
 <p>If you have a list of files that you need to acquire before running
 CAM, then you can either just issue commands interactively, or if your
 list is rather long then you may want to put the commands into a shell
 script. For example, suppose after running <code class="docutils literal"><span class="pre">build-namelist</span></code> with the
 <code class="docutils literal"><span class="pre">-test</span></code> option you find that you need to acquire the file
 <em>/fs/cgd/csm/inputdata/atm/cam/inic/fv/cami_0000-01-01_10x15_L26_c030918.nc</em>. And
-let&#8217;s assume that <em>/fs/cgd/csm/inputdata/</em> is the root directory of
+let’s assume that <em>/fs/cgd/csm/inputdata/</em> is the root directory of
 the inputdata tree, and that you have permissions to write there. If
-the subdirectory <em>atm/cam/inic/fv/</em> doesn&#8217;t already exist, then create
+the subdirectory <em>atm/cam/inic/fv/</em> doesn’t already exist, then create
 it. Finally, issue the following commands at an interactive C shell
 prompt:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>% set svnrepo=&#39;https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata&#39;
@@ -668,11 +664,11 @@ fingerprint to validate the certificate manually!
    Export complete.
 </pre></div>
 </div>
-<p>The messages about validating the server certificate will only occur for the first file that you export if you answer &#8220;p&#8221; to the question as in the example above.</p>
+<p>The messages about validating the server certificate will only occur for the first file that you export if you answer “p” to the question as in the example above.</p>
 </div>
 </div>
 <div class="section" id="running-cam">
-<h2>4.8. Running CAM<a class="headerlink" href="#running-cam" title="Permalink to this headline">¶</a></h2>
+<h2>5.8. Running CAM<a class="headerlink" href="#running-cam" title="Permalink to this headline">¶</a></h2>
 <p>Once the namelist files have successfully been produced, and the
 necessary input datasets are available, the model is ready to
 run. Usually CAM will be run with SPMD parallelization enabled, and
@@ -708,18 +704,18 @@ information from the logfile when submitting bug reports.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="input-datasets.html" title="5. Input Datasets"
+          <a href="input-datasets.html" title="6. Input Datasets"
              >next</a> |</li>
         <li class="right" >
-          <a href="building-and-running-cam.html" title="3. Building and Running CAM within CESM"
+          <a href="special-cam-runs.html" title="4. Special CAM configurations"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User&#8217;s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User’s Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

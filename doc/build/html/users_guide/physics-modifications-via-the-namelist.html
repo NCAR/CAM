@@ -2,16 +2,12 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>7. Physics modifications via the namelist &#8212; camdoc  documentation</title>
-    
+    <title>8. Physics modifications via the namelist &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -28,14 +24,14 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Appendices" href="appendices.html" />
-    <link rel="prev" title="6. Model Output:" href="model-output.html" />
+    <link rel="next" title="9. Appendices" href="appendices.html" />
+    <link rel="prev" title="7. Model Output:" href="model-output.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -43,39 +39,39 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="appendices.html" title="8. Appendices"
+          <a href="appendices.html" title="9. Appendices"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="model-output.html" title="6. Model Output:"
+          <a href="model-output.html" title="7. Model Output:"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User&#8217;s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User’s Guide</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">7. Physics modifications via the namelist</a><ul>
-<li><a class="reference internal" href="#radiative-constituents">7.1. Radiative Constituents</a><ul>
-<li><a class="reference internal" href="#default-rad-climate-for-cam4-physics">7.1.1. Default rad_climate for cam4 physics</a></li>
-<li><a class="reference internal" href="#default-rad-climate-for-cam5-physics">7.1.2. Default rad_climate for cam5 physics</a></li>
+<li><a class="reference internal" href="#">8. Physics modifications via the namelist</a><ul>
+<li><a class="reference internal" href="#radiative-constituents">8.1. Radiative Constituents</a><ul>
+<li><a class="reference internal" href="#default-rad-climate-for-cam4-physics">8.1.1. Default rad_climate for cam4 physics</a></li>
+<li><a class="reference internal" href="#default-rad-climate-for-cam5-physics">8.1.2. Default rad_climate for cam5 physics</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#example-modify-a-radiatively-active-gas">7.2. Example - Modify a radiatively active gas</a></li>
-<li><a class="reference internal" href="#example-diagnostic-radiative-forcing">7.3. Example - Diagnostic radiative forcing</a></li>
-<li><a class="reference internal" href="#example-aerosol-radiative-forcing">7.4. Example - Aerosol radiative forcing</a></li>
-<li><a class="reference internal" href="#example-black-carbon-radiative-forcing">7.5. Example - Black carbon radiative forcing</a></li>
+<li><a class="reference internal" href="#example-modify-a-radiatively-active-gas">8.2. Example - Modify a radiatively active gas</a></li>
+<li><a class="reference internal" href="#example-diagnostic-radiative-forcing">8.3. Example - Diagnostic radiative forcing</a></li>
+<li><a class="reference internal" href="#example-aerosol-radiative-forcing">8.4. Example - Aerosol radiative forcing</a></li>
+<li><a class="reference internal" href="#example-black-carbon-radiative-forcing">8.5. Example - Black carbon radiative forcing</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="model-output.html"
-                        title="previous chapter">6. Model Output:</a></p>
+                        title="previous chapter">7. Model Output:</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="appendices.html"
-                        title="next chapter">8. Appendices</a></p>
+                        title="next chapter">9. Appendices</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -102,15 +98,15 @@
           <div class="body" role="main">
             
   <div class="section" id="physics-modifications-via-the-namelist">
-<span id="id1"></span><h1>7. Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>8. Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Permalink to this headline">¶</a></h1>
 <p>This chapter is comprised of sections that explore how to customize
-various aspects of CAM&#8217;s run time configuration. General instructions
+various aspects of CAM’s run time configuration. General instructions
 for building namelists using the <code class="docutils literal"><span class="pre">build-namelist</span></code> utility were given
 in <a class="reference external" href="CAM-2.1-Sample-Interactive-Session#216-building-the-namelist">Section 2.1.6, “Building the Namelist”</a>, and
 details of the <code class="docutils literal"><span class="pre">build-namelist</span></code> utility are in <a class="reference external" href="CAM-6.2-The-build-namelist-utility">Appendix B, The
 build-namelist utility</a>.</p>
 <div class="section" id="radiative-constituents">
-<h2>7.1. Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Permalink to this headline">¶</a></h2>
+<h2>8.1. Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Permalink to this headline">¶</a></h2>
 <p>The atmospheric constituents which impact the calculation of radiative
 fluxes and heating rates are referred to as radiative constituents. A
 single CAM run may potentially contain multiple sources of any given
@@ -126,12 +122,12 @@ constituents that impact the radiation calculations, and</li>
 the <a class="reference external" href="https://github.com/erika72/cam/wiki/CAM-URL">Reference Manual</a>.</p>
 <p>Putting the entire specification of the radiative constituents into
 the namelist results in a certain amount of complexity which is hard
-to avoid. This sections begins with a description of what&#8217;s in the
+to avoid. This sections begins with a description of what’s in the
 default specifications for both the cam4 and cam5 physics
 packages. Following that are some examples of how to modify the
 default namelist settings.</p>
 <div class="section" id="default-rad-climate-for-cam4-physics">
-<h3>7.1.1. Default rad_climate for cam4 physics<a class="headerlink" href="#default-rad-climate-for-cam4-physics" title="Permalink to this headline">¶</a></h3>
+<h3>8.1.1. Default rad_climate for cam4 physics<a class="headerlink" href="#default-rad-climate-for-cam4-physics" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal"><span class="pre">cam4</span></code> physics package uses prescribed gases (except for water
 vapor), and prescribed bulk aerosols. <code class="docutils literal"><span class="pre">rad_climate</span></code> is the namelist
 variable which holds the specification of radiatively active
@@ -158,8 +154,8 @@ the strings has three fields separated by colons. In this example the
 first field of each string is either an <code class="docutils literal"><span class="pre">A</span></code> or an <code class="docutils literal"><span class="pre">N</span></code>. An <code class="docutils literal"><span class="pre">A</span></code>
 indicates the constituent is advected and an <code class="docutils literal"><span class="pre">N</span></code> indicates the
 constituent is not advected. Generally a non-advected constituent is
-one whose value is prescribed from a dataset but that&#8217;s not always the
-case. It&#8217;s also possible that a non-advected constituent is one that
+one whose value is prescribed from a dataset but that’s not always the
+case. It’s also possible that a non-advected constituent is one that
 has been prognosed by a chemistry scheme (e.g. the cloud borne species
 in the modal aerosol models) or diagnosed from other prognostic
 species. The second field in each string is a name that is used to
@@ -207,7 +203,7 @@ into a coarse and an accumulation mode with the names <code class="docutils lite
 <p>Each of the aerosol species has an associated file which contains physical and optical properties.</p>
 </div>
 <div class="section" id="default-rad-climate-for-cam5-physics">
-<h3>7.1.2. Default rad_climate for cam5 physics<a class="headerlink" href="#default-rad-climate-for-cam5-physics" title="Permalink to this headline">¶</a></h3>
+<h3>8.1.2. Default rad_climate for cam5 physics<a class="headerlink" href="#default-rad-climate-for-cam5-physics" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal"><span class="pre">cam5</span></code> physics package uses the same prescribed gases as the
 <code class="docutils literal"><span class="pre">cam4</span></code> package, but uses prognostic modal aerosols from the
 <code class="docutils literal"><span class="pre">trop_mam3</span></code> chemistry package. The default value of <code class="docutils literal"><span class="pre">rad_climate</span></code>
@@ -265,7 +261,7 @@ looks as follows for the default <code class="docutils literal"><span class="pre
 </div>
 <p>Similarly to the <code class="docutils literal"><span class="pre">rad_climate</span></code> variable, the <code class="docutils literal"><span class="pre">mode_defs</span></code> variable
 is an array of strings which provide a definition for all the modes
-that may be used in a single run. The modes don&#8217;t all need to appear
+that may be used in a single run. The modes don’t all need to appear
 in the <code class="docutils literal"><span class="pre">rad_climate</span></code> variable; some may only be needed for
 diagnostic radiation calculations which will be discussed in more
 detail later.</p>
@@ -273,7 +269,7 @@ detail later.</p>
 <p>The initial string in each mode specification contains three
 fields. The first is a name that identifies the mode, the second is a
 name that identifies the type of the mode, and the final is the token
-&#8220;=&#8221;.</p>
+“=”.</p>
 <p>One string in each mode specification must contain the names for the
 mode number concentrations in both the interstitial and cloud borne
 phases.</p>
@@ -305,7 +301,7 @@ the number concentration constituents are hardcoded in the
 a fixed token recognized by the parser of the <code class="docutils literal"><span class="pre">mode_defs</span></code> strings
 (in the <code class="docutils literal"><span class="pre">rad_constituents</span></code> module) as an indicator that the string
 contains the number concentration names. The final token in the
-string, a &#8220;+&#8221;, signals to the parser that the definition of the
+string, a “+”, signals to the parser that the definition of the
 current mode continues in the next string.</p>
 <p>The third through final strings in each mode definition contain
 specifications for each specie in the mode. Looking again at the
@@ -321,12 +317,12 @@ names of the mass mixing ratio constituents are hardcoded in the
 <code class="docutils literal"><span class="pre">modal_aero_initialize_data</span> <span class="pre">module</span></code>. The sixth field in the string
 is the absolute pathname of the file containing physical and optical
 properties of the specie. The last field in the string contains the
-token &#8220;+&#8221; which again indicates that the definition of the mode
+token “+” which again indicates that the definition of the mode
 continues in the next string.</p>
 </div>
 </div>
 <div class="section" id="example-modify-a-radiatively-active-gas">
-<h2>7.2. Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Permalink to this headline">¶</a></h2>
+<h2>8.2. Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Permalink to this headline">¶</a></h2>
 <p>Suppose that we wish to modify the distribution of water vapor that is
 seen by the radiation calculations. More specifically, consider
 modifying just the stratospheric part of the water vapor distribution
@@ -343,7 +339,7 @@ tropopause module to determine the vertical levels where changes need
 to be made. It could also leverage existing modules for reading and
 interpolating prescribed constituents, for example the
 <code class="docutils literal"><span class="pre">prescribed_ozone</span></code> module. Details of how to make this type of
-source code modification won&#8217;t be covered here.</p>
+source code modification won’t be covered here.</p>
 <p>Now suppose the source code modifications have been made and the new
 water vapor constituent is in the physics buffer with the name
 <code class="docutils literal"><span class="pre">Q_fixstrat</span></code>. The best way to modify the <code class="docutils literal"><span class="pre">rad_climate</span></code> variable is
@@ -358,14 +354,14 @@ namelist would be generated by the following command.</p>
 <dl class="docutils">
 <dt>::</dt>
 <dd><dl class="first last docutils">
-<dt>$camcfg/build-namelist ... </dt>
-<dd>-namelist &#8220;&amp;cam ...
+<dt>$camcfg/build-namelist … </dt>
+<dd>-namelist “&amp;cam …
 rad_climate =
-&#8216;N:Q_fixstrat:H2O&#8217;, &#8216;N:O2:O2&#8217;, &#8216;N:CO2:CO2&#8217;, &#8216;N:ozone:O3&#8217;,
-&#8216;N:N2O:N2O&#8217;, &#8216;N:CH4:CH4&#8217;, &#8216;N:CFC11:CFC11&#8217;, &#8216;N:CFC12:CFC12&#8217;,
-&#8216;M:mam3_mode1:/CSMDATA/atm/cam/physprops/mam3_mode1_rrtmg_c110318.nc&#8217;,
-&#8216;M:mam3_mode2:/CSMDATA/atm/cam/physprops/mam3_mode2_rrtmg_c110318.nc&#8217;,
-&#8216;M:mam3_mode3:/CSMDATA/atm/cam/physprops/mam3_mode3_rrtmg_c110318.nc&#8217;  /&#8221;</dd>
+‘N:Q_fixstrat:H2O’, ‘N:O2:O2’, ‘N:CO2:CO2’, ‘N:ozone:O3’,
+‘N:N2O:N2O’, ‘N:CH4:CH4’, ‘N:CFC11:CFC11’, ‘N:CFC12:CFC12’,
+‘M:mam3_mode1:/CSMDATA/atm/cam/physprops/mam3_mode1_rrtmg_c110318.nc’,
+‘M:mam3_mode2:/CSMDATA/atm/cam/physprops/mam3_mode2_rrtmg_c110318.nc’,
+‘M:mam3_mode3:/CSMDATA/atm/cam/physprops/mam3_mode3_rrtmg_c110318.nc’  /”</dd>
 </dl>
 </dd>
 </dl>
@@ -384,7 +380,7 @@ since the new constituent is not advected, even though it is derived
 in part for the constituent <code class="docutils literal"><span class="pre">Q</span></code> which is advected.</p>
 </div>
 <div class="section" id="example-diagnostic-radiative-forcing">
-<h2>7.3. Example - Diagnostic radiative forcing<a class="headerlink" href="#example-diagnostic-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+<h2>8.3. Example - Diagnostic radiative forcing<a class="headerlink" href="#example-diagnostic-radiative-forcing" title="Permalink to this headline">¶</a></h2>
 <p>There are several namelist variables available for direct radiative
 forcing calculations in the <code class="docutils literal"><span class="pre">cam5</span></code> physics package. But note that
 these online calculations are enabled for <code class="docutils literal"><span class="pre">RRTMG</span></code> only and not for
@@ -407,7 +403,7 @@ affect the climate simulation by appending the strings <code class="docutils lit
 through <code class="docutils literal"><span class="pre">rad_diag_10</span></code> respectively.</p>
 </div>
 <div class="section" id="example-aerosol-radiative-forcing">
-<h2>7.4. Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+<h2>8.4. Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Permalink to this headline">¶</a></h2>
 <p>To compute the total aerosol radiative forcing we need a diagnostic
 calculation in which all the aerosols have been removed. To do this we
 start from the default setting for the <code class="docutils literal"><span class="pre">rad_climate</span></code> variable, use
@@ -418,17 +414,17 @@ with a setting in our <code class="docutils literal"><span class="pre">build-nam
 <dl class="docutils">
 <dt>::</dt>
 <dd><dl class="first last docutils">
-<dt>$camcfg/build-namelist ... </dt>
-<dd>-namelist &#8220;&amp;cam ...
+<dt>$camcfg/build-namelist … </dt>
+<dd>-namelist “&amp;cam …
 rad_diag_1 =
-&#8216;A:Q:H2O&#8217;, &#8216;N:O2:O2&#8217;, &#8216;N:CO2:CO2&#8217;, &#8216;N:ozone:O3&#8217;,
-&#8216;N:N2O:N2O&#8217;, &#8216;N:CH4:CH4&#8217;, &#8216;N:CFC11:CFC11&#8217;, &#8216;N:CFC12:CFC12&#8217; /&#8221;</dd>
+‘A:Q:H2O’, ‘N:O2:O2’, ‘N:CO2:CO2’, ‘N:ozone:O3’,
+‘N:N2O:N2O’, ‘N:CH4:CH4’, ‘N:CFC11:CFC11’, ‘N:CFC12:CFC12’ /”</dd>
 </dl>
 </dd>
 </dl>
 </div>
 <div class="section" id="example-black-carbon-radiative-forcing">
-<h2>7.5. Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+<h2>8.5. Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Permalink to this headline">¶</a></h2>
 <p>To compute the radiative forcing of a single aerosol specie we need a
 diagnostic calculation in which that specie has been removed from all
 modes that contain it. This is a bit more complicated that the
@@ -438,7 +434,7 @@ create new mode definitions. Using black carbon as a specific example,
 we see from the default definitions of the <code class="docutils literal"><span class="pre">trop_mam3</span></code> modes
 (<a class="reference external" href="https://github.com/erika72/cam/wiki/CAM-URL">Section 5.1.2, “Default rad_climate for cam5 physics”</a>) that black carbon is
 only contained in <code class="docutils literal"><span class="pre">mam3_mode1</span></code>. The best way to create the
-definition of a new mode which doesn&#8217;t contain black carbon is to copy
+definition of a new mode which doesn’t contain black carbon is to copy
 the definition of <code class="docutils literal"><span class="pre">mam3_mode1</span></code>, change its name, and remove the
 black carbon from the definition. Then use this new mode in place of
 <code class="docutils literal"><span class="pre">mam3_mode1</span></code> in the specifier for <code class="docutils literal"><span class="pre">rad_diag_1</span></code>. Below is an
@@ -501,18 +497,18 @@ calculation, and then used that mode in place of <code class="docutils literal">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="appendices.html" title="8. Appendices"
+          <a href="appendices.html" title="9. Appendices"
              >next</a> |</li>
         <li class="right" >
-          <a href="model-output.html" title="6. Model Output:"
+          <a href="model-output.html" title="7. Model Output:"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User&#8217;s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User’s Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

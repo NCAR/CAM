@@ -2,16 +2,12 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>3. Building and Running CAM within CESM &#8212; camdoc  documentation</title>
-    
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -28,14 +24,14 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Sample Interactive Session" href="sample-interactive-session.html" />
+    <link rel="next" title="4. Special CAM configurations" href="special-cam-runs.html" />
     <link rel="prev" title="2. Getting Help" href="getting-help.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -43,13 +39,13 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="sample-interactive-session.html" title="4. Sample Interactive Session"
+          <a href="special-cam-runs.html" title="4. Special CAM configurations"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="getting-help.html" title="2. Getting Help"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User&#8217;s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User’s Guide</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -58,10 +54,9 @@
   <ul>
 <li><a class="reference internal" href="#">3. Building and Running CAM within CESM</a><ul>
 <li><a class="reference internal" href="#cam-compsets">3.1. CAM compsets</a></li>
-<li><a class="reference internal" href="#modifying-cam-s-configuration">3.2. Modifying CAM&#8217;s configuration</a></li>
+<li><a class="reference internal" href="#modifying-cam-s-configuration">3.2. Modifying CAM’s configuration</a></li>
 <li><a class="reference internal" href="#modifying-namelist-settings-in-cam-run">3.3. Modifying namelist settings in CAM run</a><ul>
-<li><a class="reference internal" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions">3.3.1. Modifying Namelist settings:  Detailed Example &#8211; Using CMIP5 emissions</a></li>
-<li><a class="reference internal" href="#example-setting-up-a-new-single-column-scam-run">3.3.2. Example:  Setting up a new Single Column (SCAM) run</a></li>
+<li><a class="reference internal" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions">3.3.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions</a></li>
 </ul>
 </li>
 </ul>
@@ -72,8 +67,8 @@
   <p class="topless"><a href="getting-help.html"
                         title="previous chapter">2. Getting Help</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="sample-interactive-session.html"
-                        title="next chapter">4. Sample Interactive Session</a></p>
+  <p class="topless"><a href="special-cam-runs.html"
+                        title="next chapter">4. Special CAM configurations</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -132,14 +127,14 @@
 <p>CAM compsets include the F, PORT and Q compsets.</p>
 <ul class="simple">
 <li><strong>F</strong>: CAM standalone runs, using an active Land and everything else is prognostic</li>
-<li><strong>PORT</strong>: Parallel offline radiation tool</li>
+<li><strong>P</strong>: Parallel offline radiation tool (PORT)</li>
 <li><strong>Q</strong>: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)</li>
 </ul>
 <p>CAM has a number of predefined compsets with different levels of support.</p>
 <ul class="simple">
 <li><strong>Scientifically supported</strong>:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.</li>
-<li><strong>Tested</strong>: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of &#8220;Tested&#8221; simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.</li>
-<li><strong>Unsupported</strong>:  These compsets are setup as a &#8220;convenience&#8221; for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the &#8211;run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.</li>
+<li><strong>Tested</strong>: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of “Tested” simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.</li>
+<li><strong>Unsupported</strong>:  These compsets are setup as a “convenience” for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the –run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.</li>
 </ul>
 <p><strong>Scientifically supported CAM compsets</strong></p>
 <table border="1" class="docutils">
@@ -160,7 +155,8 @@
 <tr class="row-even"><td>FHIST_DEV</td>
 <td>f09_f09_mg17</td>
 <td>Historical current developer
-setup (CAM6)</td>
+setup (CAM6) <em>[Note - this is similar
+to the obsolete CAM5 FAMIP compset]</em></td>
 <td>1979 to 2015</td>
 </tr>
 <tr class="row-odd"><td>F2000climo</td>
@@ -190,11 +186,12 @@ setup (CAM6)</td>
 </tr>
 </tbody>
 </table>
+<p>It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.</p>
 </div>
 <div class="section" id="modifying-cam-s-configuration">
-<h2>3.2. Modifying CAM&#8217;s configuration<a class="headerlink" href="#modifying-cam-s-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>3.2. Modifying CAM’s configuration<a class="headerlink" href="#modifying-cam-s-configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><strong>CAM_CONFIG_OPTS</strong>:  The settings in this variable are passed directly to CAM&#8217;s configure command.  The list of possible options are detailed at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  It is important to note that CAM compsets already have this variable set and that a user will most likely want to append flags as opposed to replacing them.  If the append flag is not used, this variable is reset to only include the values specified and all preset values are removed.</li>
+<li><strong>CAM_CONFIG_OPTS</strong>:  The settings in this variable are passed directly to CAM’s configure command.  The list of possible options are detailed at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  It is important to note that CAM compsets already have this variable set and that a user will most likely want to append flags as opposed to replacing them.  If the append flag is not used, this variable is reset to only include the values specified and all preset values are removed.</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
 <span class="o">%</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">append</span> <span class="n">CAM_CONFIG_OPTS</span><span class="o">=</span><span class="s1">&#39;-nthreads 2&#39;</span>
@@ -208,10 +205,10 @@ setup (CAM6)</td>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2_ppmv</span><span class="o">=</span><span class="mf">400.</span>
 </pre></div>
 </div>
-<p>To see the result, call <strong>preview_namelists</strong> and verify that the new value appears in <strong>CaseDocs/atm_in</strong>.</p>
-<p>A complete listing of all of CAM&#8217;s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html">CAM&#8217;s namelist variables</a></p>
+<p>To see the result, call <strong>preview_namelists</strong> and verify that the new value appears in <strong>CaseDocs/atm_in</strong>.  The exception to this are variables within the <strong>camexp</strong> namelist group (as listed in the link immediately below).  Variables within this group are used internally by CAM’s build-namelist utility and modify the resulting namelist. They will not be written out to the the atm_in file.</p>
+<p>A complete listing of all of CAM’s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html">CAM’s namelist variables</a></p>
 <div class="section" id="modifying-namelist-settings-detailed-example-using-cmip5-emissions">
-<h3>3.3.1. Modifying Namelist settings:  Detailed Example &#8211; Using CMIP5 emissions<a class="headerlink" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions" title="Permalink to this headline">¶</a></h3>
+<h3>3.3.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions<a class="headerlink" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions" title="Permalink to this headline">¶</a></h3>
 <p>The following steps illustrate how to change the CMIP emissions back to the CMIP5 version.  If a user desires to do this, they may cut/paste the ext_frc_specifier and srf_emis_specifier settings below and put them into their own user_nl_cam.</p>
 <p>First the user must create a case and set it up</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
@@ -253,9 +250,6 @@ setup (CAM6)</td>
 </pre></div>
 </div>
 </div>
-<div class="section" id="example-setting-up-a-new-single-column-scam-run">
-<h3>3.3.2. Example:  Setting up a new Single Column (SCAM) run<a class="headerlink" href="#example-setting-up-a-new-single-column-scam-run" title="Permalink to this headline">¶</a></h3>
-</div>
 </div>
 </div>
 
@@ -272,18 +266,18 @@ setup (CAM6)</td>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="sample-interactive-session.html" title="4. Sample Interactive Session"
+          <a href="special-cam-runs.html" title="4. Special CAM configurations"
              >next</a> |</li>
         <li class="right" >
           <a href="getting-help.html" title="2. Getting Help"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User&#8217;s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User’s Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>
