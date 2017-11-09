@@ -4,6 +4,13 @@
 Model Output:
 **************************
 
+**Brian Eaton will review this chapter for accuracy**
+
+**NOTE TO CAC -- Make sure to document where output files reside - either run or archive direcotories and how to find out where they are**
+
+**Add fincl for include and fexcl for exclude in an example**
+**Use empty_htapes=.true. to exclude everything and then fincl for what want to write out**
+
 CAM produces a series of NetCDF format history files containing atmospheric gridpoint data generated during the course of a run. It also produces a series of NetCDF format restart files necessary to continue a run once it has terminated successfully and a series of initial conditions files that may be used to initialize new simulations. The contents of these datasets are described below.
 
 ------------------------
@@ -121,6 +128,8 @@ CAM is set up by default to output a set of fields to a single monthly average h
 **NOTE:**  The master field list tables may contain some fields that are not actually available for output. The presence of a field in the master field list is a necessary, but not sufficient condition that the corresponding field in the history file will contain valid data. This is because in some instances fields are added to the master field list (this is done in the source code) even though that field may not be computed in the configuration that is built (specified via the arguments to ``configure``). When adding non-default fields to the history file it's important to check that the fields contain reasonable data before doing a long run.
 
 The following links provide tables of default and master field lists for some standard model configurations which are characterized by the values of the ``-dyn``, ``-phys``, and ``-chem`` arguments to configure. The source of the information in these tables is CAM's default log file, so you can always look there for any configuration not included in the list below.
+
+**CAC -- PUT in CAM6 science supported compset information**
 
 - `fv, cam4, none <http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam4.html>`_
 - `fv, cam4, trop_bam <http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam4_trop_bam.html>`_

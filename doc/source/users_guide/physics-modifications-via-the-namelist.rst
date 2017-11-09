@@ -4,6 +4,9 @@
 Physics modifications via the namelist
 *******************************************
 
+
+**Brian Eaton will update this entire chapter**
+
 This chapter is comprised of sections that explore how to customize
 various aspects of CAM's run time configuration. General instructions
 for building namelists using the ``build-namelist`` utility were given
