@@ -4,6 +4,8 @@
 Sample Interactive Session
 ****************************
 
+**Brian Eaton will review and amend this section**
+
 The following sections present an interactive C shell session to build
 and run a default version of CAM. Most often these steps will be
 encapsulated in shell scripts. An important advantage of using a

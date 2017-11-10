@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>8. Physics modifications via the namelist &#8212; camdoc  documentation</title>
+    <title>5. Physics modifications via the namelist &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9. Appendices" href="appendices.html" />
-    <link rel="prev" title="7. Model Output:" href="model-output.html" />
+    <link rel="next" title="6. Special CAM configurations" href="special-cam-runs.html" />
+    <link rel="prev" title="4. Model Output:" href="model-output.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -39,10 +39,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="appendices.html" title="9. Appendices"
+          <a href="special-cam-runs.html" title="6. Special CAM configurations"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="model-output.html" title="7. Model Output:"
+          <a href="model-output.html" title="4. Model Output:"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User’s Guide</a> &#187;</li> 
@@ -52,26 +52,26 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">8. Physics modifications via the namelist</a><ul>
-<li><a class="reference internal" href="#radiative-constituents">8.1. Radiative Constituents</a><ul>
-<li><a class="reference internal" href="#default-rad-climate-for-cam4-physics">8.1.1. Default rad_climate for cam4 physics</a></li>
-<li><a class="reference internal" href="#default-rad-climate-for-cam5-physics">8.1.2. Default rad_climate for cam5 physics</a></li>
+<li><a class="reference internal" href="#">5. Physics modifications via the namelist</a><ul>
+<li><a class="reference internal" href="#radiative-constituents">5.1. Radiative Constituents</a><ul>
+<li><a class="reference internal" href="#default-rad-climate-for-cam4-physics">5.1.1. Default rad_climate for cam4 physics</a></li>
+<li><a class="reference internal" href="#default-rad-climate-for-cam5-physics">5.1.2. Default rad_climate for cam5 physics</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#example-modify-a-radiatively-active-gas">8.2. Example - Modify a radiatively active gas</a></li>
-<li><a class="reference internal" href="#example-diagnostic-radiative-forcing">8.3. Example - Diagnostic radiative forcing</a></li>
-<li><a class="reference internal" href="#example-aerosol-radiative-forcing">8.4. Example - Aerosol radiative forcing</a></li>
-<li><a class="reference internal" href="#example-black-carbon-radiative-forcing">8.5. Example - Black carbon radiative forcing</a></li>
+<li><a class="reference internal" href="#example-modify-a-radiatively-active-gas">5.2. Example - Modify a radiatively active gas</a></li>
+<li><a class="reference internal" href="#example-diagnostic-radiative-forcing">5.3. Example - Diagnostic radiative forcing</a></li>
+<li><a class="reference internal" href="#example-aerosol-radiative-forcing">5.4. Example - Aerosol radiative forcing</a></li>
+<li><a class="reference internal" href="#example-black-carbon-radiative-forcing">5.5. Example - Black carbon radiative forcing</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="model-output.html"
-                        title="previous chapter">7. Model Output:</a></p>
+                        title="previous chapter">4. Model Output:</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="appendices.html"
-                        title="next chapter">9. Appendices</a></p>
+  <p class="topless"><a href="special-cam-runs.html"
+                        title="next chapter">6. Special CAM configurations</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -98,7 +98,8 @@
           <div class="body" role="main">
             
   <div class="section" id="physics-modifications-via-the-namelist">
-<span id="id1"></span><h1>8. Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>5. Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Permalink to this headline">¶</a></h1>
+<p><strong>Brian Eaton will update this entire chapter</strong></p>
 <p>This chapter is comprised of sections that explore how to customize
 various aspects of CAM’s run time configuration. General instructions
 for building namelists using the <code class="docutils literal"><span class="pre">build-namelist</span></code> utility were given
@@ -106,7 +107,7 @@ in <a class="reference external" href="CAM-2.1-Sample-Interactive-Session#216-bu
 details of the <code class="docutils literal"><span class="pre">build-namelist</span></code> utility are in <a class="reference external" href="CAM-6.2-The-build-namelist-utility">Appendix B, The
 build-namelist utility</a>.</p>
 <div class="section" id="radiative-constituents">
-<h2>8.1. Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Permalink to this headline">¶</a></h2>
+<h2>5.1. Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Permalink to this headline">¶</a></h2>
 <p>The atmospheric constituents which impact the calculation of radiative
 fluxes and heating rates are referred to as radiative constituents. A
 single CAM run may potentially contain multiple sources of any given
@@ -127,26 +128,26 @@ default specifications for both the cam4 and cam5 physics
 packages. Following that are some examples of how to modify the
 default namelist settings.</p>
 <div class="section" id="default-rad-climate-for-cam4-physics">
-<h3>8.1.1. Default rad_climate for cam4 physics<a class="headerlink" href="#default-rad-climate-for-cam4-physics" title="Permalink to this headline">¶</a></h3>
+<h3>5.1.1. Default rad_climate for cam4 physics<a class="headerlink" href="#default-rad-climate-for-cam4-physics" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal"><span class="pre">cam4</span></code> physics package uses prescribed gases (except for water
 vapor), and prescribed bulk aerosols. <code class="docutils literal"><span class="pre">rad_climate</span></code> is the namelist
 variable which holds the specification of radiatively active
 constituents. The default value of <code class="docutils literal"><span class="pre">rad_climate</span></code> generated by
 <code class="docutils literal"><span class="pre">build-namelist</span></code> is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rad_climate</span> <span class="o">=</span>
- <span class="s1">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CO2:CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC12:CFC12&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:sulf:/CSMDATA/atm/cam/physprops/sulfate_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:dust1:/CSMDATA/atm/cam/physprops/dust1_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:dust2:/CSMDATA/atm/cam/physprops/dust2_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:dust3:/CSMDATA/atm/cam/physprops/dust3_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:dust4:/CSMDATA/atm/cam/physprops/dust4_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:bcar1:/CSMDATA/atm/cam/physprops/bcpho_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:bcar2:/CSMDATA/atm/cam/physprops/bcphi_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:ocar1:/CSMDATA/atm/cam/physprops/ocpho_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:ocar2:/CSMDATA/atm/cam/physprops/ocphi_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:SSLTA:/CSMDATA/atm/cam/physprops/ssam_camrt_c080918.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:SSLTC:/CSMDATA/atm/cam/physprops/sscm_camrt_c080918.nc&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">rad_climate</span> <span class="o">=</span>
+ <span class="s">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s">&#39;N:CO2:CO2&#39;</span><span class="p">,</span> <span class="s">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:N2O:N2O&#39;</span><span class="p">,</span> <span class="s">&#39;N:CH4:CH4&#39;</span><span class="p">,</span> <span class="s">&#39;N:CFC11:CFC11&#39;</span><span class="p">,</span> <span class="s">&#39;N:CFC12:CFC12&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:sulf:/CSMDATA/atm/cam/physprops/sulfate_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:dust1:/CSMDATA/atm/cam/physprops/dust1_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:dust2:/CSMDATA/atm/cam/physprops/dust2_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:dust3:/CSMDATA/atm/cam/physprops/dust3_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:dust4:/CSMDATA/atm/cam/physprops/dust4_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:bcar1:/CSMDATA/atm/cam/physprops/bcpho_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:bcar2:/CSMDATA/atm/cam/physprops/bcphi_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:ocar1:/CSMDATA/atm/cam/physprops/ocpho_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:ocar2:/CSMDATA/atm/cam/physprops/ocphi_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:SSLTA:/CSMDATA/atm/cam/physprops/ssam_camrt_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:SSLTC:/CSMDATA/atm/cam/physprops/sscm_camrt_c080918.nc&#39;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">rad_climate</span></code> variable takes an array of string values. Each of
@@ -185,10 +186,10 @@ radiation code directly.</p>
 the <code class="docutils literal"><span class="pre">build-namelist</span></code> utility and are specified to the
 <code class="docutils literal"><span class="pre">prescribed_aero</span></code> module by the namelist variable
 <code class="docutils literal"><span class="pre">prescribed_aero_specifier</span></code> as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">prescribed_aero_specifier</span> <span class="o">=</span>
- <span class="s1">&#39;sulf:SO4&#39;</span><span class="p">,</span> <span class="s1">&#39;bcar1:CB1&#39;</span><span class="p">,</span> <span class="s1">&#39;bcar2:CB2&#39;</span><span class="p">,</span> <span class="s1">&#39;ocar1:OC1&#39;</span><span class="p">,</span> <span class="s1">&#39;ocar2:OC2&#39;</span><span class="p">,</span>
- <span class="s1">&#39;sslt1:SSLT01&#39;</span><span class="p">,</span> <span class="s1">&#39;sslt2:SSLT02&#39;</span><span class="p">,</span> <span class="s1">&#39;sslt3:SSLT03&#39;</span><span class="p">,</span> <span class="s1">&#39;sslt4:SSLT04&#39;</span><span class="p">,</span>
- <span class="s1">&#39;dust1:DST01&#39;</span><span class="p">,</span> <span class="s1">&#39;dust2:DST02&#39;</span><span class="p">,</span> <span class="s1">&#39;dust3:DST03&#39;</span><span class="p">,</span> <span class="s1">&#39;dust4:DST04&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">prescribed_aero_specifier</span> <span class="o">=</span>
+ <span class="s">&#39;sulf:SO4&#39;</span><span class="p">,</span> <span class="s">&#39;bcar1:CB1&#39;</span><span class="p">,</span> <span class="s">&#39;bcar2:CB2&#39;</span><span class="p">,</span> <span class="s">&#39;ocar1:OC1&#39;</span><span class="p">,</span> <span class="s">&#39;ocar2:OC2&#39;</span><span class="p">,</span>
+ <span class="s">&#39;sslt1:SSLT01&#39;</span><span class="p">,</span> <span class="s">&#39;sslt2:SSLT02&#39;</span><span class="p">,</span> <span class="s">&#39;sslt3:SSLT03&#39;</span><span class="p">,</span> <span class="s">&#39;sslt4:SSLT04&#39;</span><span class="p">,</span>
+ <span class="s">&#39;dust1:DST01&#39;</span><span class="p">,</span> <span class="s">&#39;dust2:DST02&#39;</span><span class="p">,</span> <span class="s">&#39;dust3:DST03&#39;</span><span class="p">,</span> <span class="s">&#39;dust4:DST04&#39;</span>
 </pre></div>
 </div>
 <p>The first name in each of these colon separated pairs is the one the
@@ -203,17 +204,17 @@ into a coarse and an accumulation mode with the names <code class="docutils lite
 <p>Each of the aerosol species has an associated file which contains physical and optical properties.</p>
 </div>
 <div class="section" id="default-rad-climate-for-cam5-physics">
-<h3>8.1.2. Default rad_climate for cam5 physics<a class="headerlink" href="#default-rad-climate-for-cam5-physics" title="Permalink to this headline">¶</a></h3>
+<h3>5.1.2. Default rad_climate for cam5 physics<a class="headerlink" href="#default-rad-climate-for-cam5-physics" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal"><span class="pre">cam5</span></code> physics package uses the same prescribed gases as the
 <code class="docutils literal"><span class="pre">cam4</span></code> package, but uses prognostic modal aerosols from the
 <code class="docutils literal"><span class="pre">trop_mam3</span></code> chemistry package. The default value of <code class="docutils literal"><span class="pre">rad_climate</span></code>
 generated by build-namelist is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rad_climate</span> <span class="o">=</span>
- <span class="s1">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CO2:CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC12:CFC12&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam3_mode1:/CSMDATA/atm/cam/physprops/mam3_mode1_rrtmg_c110318.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam3_mode2:/CSMDATA/atm/cam/physprops/mam3_mode2_rrtmg_c110318.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam3_mode3:/CSMDATA/atm/cam/physprops/mam3_mode3_rrtmg_c110318.nc&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">rad_climate</span> <span class="o">=</span>
+ <span class="s">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s">&#39;N:CO2:CO2&#39;</span><span class="p">,</span> <span class="s">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
+ <span class="s">&#39;N:N2O:N2O&#39;</span><span class="p">,</span> <span class="s">&#39;N:CH4:CH4&#39;</span><span class="p">,</span> <span class="s">&#39;N:CFC11:CFC11&#39;</span><span class="p">,</span> <span class="s">&#39;N:CFC12:CFC12&#39;</span><span class="p">,</span>
+ <span class="s">&#39;M:mam3_mode1:/CSMDATA/atm/cam/physprops/mam3_mode1_rrtmg_c110318.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;M:mam3_mode2:/CSMDATA/atm/cam/physprops/mam3_mode2_rrtmg_c110318.nc&#39;</span><span class="p">,</span>
+ <span class="s">&#39;M:mam3_mode3:/CSMDATA/atm/cam/physprops/mam3_mode3_rrtmg_c110318.nc&#39;</span>
 </pre></div>
 </div>
 <p>The gas species mass mixing ratios come from the same constituents in
@@ -238,25 +239,25 @@ are three modes identified by the names <code class="docutils literal"><span cla
 more detailed specification of the constituents that comprise it. That
 specification is given by the namelist variable <code class="docutils literal"><span class="pre">mode_defs</span></code> and
 looks as follows for the default <code class="docutils literal"><span class="pre">trop_mam3</span></code> chemistry scheme.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mode_defs</span> <span class="o">=</span>
-<span class="s1">&#39;mam3_mode1:accum:=&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:num_a1:N:num_c1:num_mr:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:so4_a1:N:so4_c1:sulfate:/CSMDATA/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:pom_a1:N:pom_c1:p-organic:/CSMDATA/atm/cam/physprops/ocpho_rrtmg_c101112.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:soa_a1:N:soa_c1:s-organic:/CSMDATA/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:bc_a1:N:bc_c1:black-c:/CSMDATA/atm/cam/physprops/bcpho_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:dst_a1:N:dst_c1:dust:/CSMDATA/atm/cam/physprops/dust4_rrtmg_c090521.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:ncl_a1:N:ncl_c1:seasalt:/CSMDATA/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
-<span class="s1">&#39;mam3_mode2:aitken:=&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:num_a2:N:num_c2:num_mr:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:so4_a2:N:so4_c2:sulfate:/CSMDATA/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:soa_a2:N:soa_c2:s-organic:/CSMDATA/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:ncl_a2:N:ncl_c2:seasalt:/CSMDATA/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
-<span class="s1">&#39;mam3_mode3:coarse:=&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:num_a3:N:num_c3:num_mr:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:dst_a3:N:dst_c3:dust:/CSMDATA/atm/cam/physprops/dust4_rrtmg_c090521.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:ncl_a3:N:ncl_c3:seasalt:/CSMDATA/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;A:so4_a3:N:so4_c3:sulfate:/CSMDATA/atm/cam/physprops/sulfate_rrtmg_c080918.nc&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">mode_defs</span> <span class="o">=</span>
+<span class="s">&#39;mam3_mode1:accum:=&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:num_a1:N:num_c1:num_mr:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:so4_a1:N:so4_c1:sulfate:/CSMDATA/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:pom_a1:N:pom_c1:p-organic:/CSMDATA/atm/cam/physprops/ocpho_rrtmg_c101112.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:soa_a1:N:soa_c1:s-organic:/CSMDATA/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:bc_a1:N:bc_c1:black-c:/CSMDATA/atm/cam/physprops/bcpho_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:dst_a1:N:dst_c1:dust:/CSMDATA/atm/cam/physprops/dust4_rrtmg_c090521.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:ncl_a1:N:ncl_c1:seasalt:/CSMDATA/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
+<span class="s">&#39;mam3_mode2:aitken:=&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:num_a2:N:num_c2:num_mr:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:so4_a2:N:so4_c2:sulfate:/CSMDATA/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:soa_a2:N:soa_c2:s-organic:/CSMDATA/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:ncl_a2:N:ncl_c2:seasalt:/CSMDATA/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
+<span class="s">&#39;mam3_mode3:coarse:=&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:num_a3:N:num_c3:num_mr:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:dst_a3:N:dst_c3:dust:/CSMDATA/atm/cam/physprops/dust4_rrtmg_c090521.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:ncl_a3:N:ncl_c3:seasalt:/CSMDATA/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s">&#39;A:so4_a3:N:so4_c3:sulfate:/CSMDATA/atm/cam/physprops/sulfate_rrtmg_c080918.nc&#39;</span>
 </pre></div>
 </div>
 <p>Similarly to the <code class="docutils literal"><span class="pre">rad_climate</span></code> variable, the <code class="docutils literal"><span class="pre">mode_defs</span></code> variable
@@ -322,7 +323,7 @@ continues in the next string.</p>
 </div>
 </div>
 <div class="section" id="example-modify-a-radiatively-active-gas">
-<h2>8.2. Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Permalink to this headline">¶</a></h2>
+<h2>5.2. Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Permalink to this headline">¶</a></h2>
 <p>Suppose that we wish to modify the distribution of water vapor that is
 seen by the radiation calculations. More specifically, consider
 modifying just the stratospheric part of the water vapor distribution
@@ -367,11 +368,11 @@ rad_climate =
 </dl>
 <p>The only difference between this version of <code class="docutils literal"><span class="pre">rad_climate</span></code> and the
 default is that the string for water vapor:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s1">&#39;A:Q:H2O&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="s">&#39;A:Q:H2O&#39;</span>
 </pre></div>
 </div>
 <p>has been replaced by</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s1">&#39;N:Q_fixstrat:H2O&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="s">&#39;N:Q_fixstrat:H2O&#39;</span>
 </pre></div>
 </div>
 <p>In addition to specifying the new name for the constituent
@@ -380,7 +381,7 @@ since the new constituent is not advected, even though it is derived
 in part for the constituent <code class="docutils literal"><span class="pre">Q</span></code> which is advected.</p>
 </div>
 <div class="section" id="example-diagnostic-radiative-forcing">
-<h2>8.3. Example - Diagnostic radiative forcing<a class="headerlink" href="#example-diagnostic-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+<h2>5.3. Example - Diagnostic radiative forcing<a class="headerlink" href="#example-diagnostic-radiative-forcing" title="Permalink to this headline">¶</a></h2>
 <p>There are several namelist variables available for direct radiative
 forcing calculations in the <code class="docutils literal"><span class="pre">cam5</span></code> physics package. But note that
 these online calculations are enabled for <code class="docutils literal"><span class="pre">RRTMG</span></code> only and not for
@@ -403,7 +404,7 @@ affect the climate simulation by appending the strings <code class="docutils lit
 through <code class="docutils literal"><span class="pre">rad_diag_10</span></code> respectively.</p>
 </div>
 <div class="section" id="example-aerosol-radiative-forcing">
-<h2>8.4. Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+<h2>5.4. Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Permalink to this headline">¶</a></h2>
 <p>To compute the total aerosol radiative forcing we need a diagnostic
 calculation in which all the aerosols have been removed. To do this we
 start from the default setting for the <code class="docutils literal"><span class="pre">rad_climate</span></code> variable, use
@@ -424,7 +425,7 @@ rad_diag_1 =
 </dl>
 </div>
 <div class="section" id="example-black-carbon-radiative-forcing">
-<h2>8.5. Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+<h2>5.5. Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Permalink to this headline">¶</a></h2>
 <p>To compute the radiative forcing of a single aerosol specie we need a
 diagnostic calculation in which that specie has been removed from all
 modes that contain it. This is a bit more complicated that the
@@ -440,7 +441,7 @@ black carbon from the definition. Then use this new mode in place of
 <code class="docutils literal"><span class="pre">mam3_mode1</span></code> in the specifier for <code class="docutils literal"><span class="pre">rad_diag_1</span></code>. Below is an
 outline of our <code class="docutils literal"><span class="pre">build-namelist</span></code> command with just the <code class="docutils literal"><span class="pre">mode_defs</span></code>
 and <code class="docutils literal"><span class="pre">rad_diag_1</span></code> variables listed.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$camcfg/build-namelist ... \
+<div class="highlight-default"><div class="highlight"><pre>$camcfg/build-namelist ... \
  -namelist &quot;&amp;cam ...
  mode_defs =
    &#39;mam3_mode1:accum:=&#39;,
@@ -497,10 +498,10 @@ calculation, and then used that mode in place of <code class="docutils literal">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="appendices.html" title="9. Appendices"
+          <a href="special-cam-runs.html" title="6. Special CAM configurations"
              >next</a> |</li>
         <li class="right" >
-          <a href="model-output.html" title="7. Model Output:"
+          <a href="model-output.html" title="4. Model Output:"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User’s Guide</a> &#187;</li> 

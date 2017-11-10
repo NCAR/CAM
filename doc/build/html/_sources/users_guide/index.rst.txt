@@ -16,11 +16,8 @@ CAM6 User's Guide
    introduction.rst
    getting-help.rst
    building-and-running-cam.rst
-   special-cam-runs.rst
-   sample-interactive-session.rst
-   input-datasets.rst
    model-output.rst
    physics-modifications-via-the-namelist.rst
+   special-cam-runs.rst
    appendices.rst
    references.rst
-   list-of-examples.rst
