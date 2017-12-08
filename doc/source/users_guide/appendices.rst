@@ -357,7 +357,7 @@ Options for building CAM via standalone scripts:
 ``-cam_bld <dir>``
   Directory where CAM will be built. This is where configure will write the output files it generates (Makefile, Filepath, etc...).
 
-  Default: ``./
+  Default: ``.``
 
 ``-cam_exe <name>``
   Name of the CAM executable. 
