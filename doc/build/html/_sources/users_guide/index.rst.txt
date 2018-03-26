@@ -22,5 +22,6 @@ CAM6 User's Guide
    model-output.rst
    physics-modifications-via-the-namelist.rst
    CAM-chem-specifics.rst
+   checking-out-cam-standalone.rst
    appendices.rst
    references.rst

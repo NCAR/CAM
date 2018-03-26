@@ -114,11 +114,15 @@
 <li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-single-column-fscam-compset">4.2.3. CAM single column (FSCAM compset)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-a-scam-run">4.2.3.1. Example:  Setting up a SCAM run</a></li>
 <li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.2.3.2. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-user-defined-iop-for-scam">4.2.3.3. Example:  Setting up User Defined IOP for SCAM</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#other-cam-compsets">4.3. Other CAM compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#other-cam-compsets">4.3. Other CAM compsets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#super-parameterized-cam-spcam">4.3.1. Super-parameterized CAM (SPCAM)</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-compsets">4.4. CAM-chem compsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-compsets">4.5. WACCM compsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">4.6. WACCM-X compsets</a></li>
@@ -189,46 +193,52 @@
 <li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#running-with-prescribed-biogenic-emissions">9.6. Running with prescribed biogenic emissions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#the-configure-utility">10.1. The configure utility</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#how-configure-is-called-from-the-cesm-scripts">10.1.1. How configure is called from the CESM scripts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#arguments-to-configure">10.1.2. Arguments to configure</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-configuration">10.1.2.1. CAM configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#scam-configuration">10.1.2.2. SCAM configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-parallelization">10.1.2.3. CAM parallelization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#general-options-to-configure">10.1.2.4. General options to configure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#surface-components-used-in-standalone-cam">10.1.2.5. Surface components used in standalone CAM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-standalone-build">10.1.2.6. CAM standalone build</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking-out-cam-standalone.html">10. Downloading CAM standalone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="checking-out-cam-standalone.html#downloading-the-cam-standalone-code">10.1. Downloading the CAM standalone code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checking-out-cam-standalone.html#checkout-out-the-externals">10.2. Checkout out the externals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checking-out-cam-standalone.html#useful-svn-commands">10.3. Useful svn commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">11. Appendices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#the-configure-utility">11.1. The configure utility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#how-configure-is-called-from-the-cesm-scripts">11.1.1. How configure is called from the CESM scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#arguments-to-configure">11.1.2. Arguments to configure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-configuration">11.1.2.1. CAM configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#scam-configuration">11.1.2.2. SCAM configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-parallelization">11.1.2.3. CAM parallelization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#general-options-to-configure">11.1.2.4. General options to configure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#surface-components-used-in-standalone-cam">11.1.2.5. Surface components used in standalone CAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-standalone-build">11.1.2.6. CAM standalone build</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#the-build-namelist-utility">10.2. The build-namelist utility</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#options-to-build-namelist">10.2.1. Options to build namelist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#environment-variables-used-by-build-namelist">10.2.2. Environment variables used by build namelist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#cam-namelist-variables">10.2.3. CAM Namelist variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#the-build-namelist-utility">11.2. The build-namelist utility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#options-to-build-namelist">11.2.1. Options to build namelist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#environment-variables-used-by-build-namelist">11.2.2. Environment variables used by build namelist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#cam-namelist-variables">11.2.3. CAM Namelist variables</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#sample-interactive-session">10.3. Sample Interactive Session</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#configuring-cam-for-serial-execution">10.3.1. Configuring CAM for serial execution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#specifying-the-fortran-compiler">10.3.2. Specifying the Fortran compiler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#dealing-with-compiler-wrappers">10.3.3. Dealing with compiler wrappers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#configuring-cam-for-parallel-execution">10.3.4. Configuring CAM for parallel execution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#building-cam">10.3.5. Building CAM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#building-the-namelist">10.3.6. Building the Namelist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#sample-interactive-session">11.3. Sample Interactive Session</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#configuring-cam-for-serial-execution">11.3.1. Configuring CAM for serial execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#specifying-the-fortran-compiler">11.3.2. Specifying the Fortran compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#dealing-with-compiler-wrappers">11.3.3. Dealing with compiler wrappers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#configuring-cam-for-parallel-execution">11.3.4. Configuring CAM for parallel execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#building-cam">11.3.5. Building CAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#building-the-namelist">11.3.6. Building the Namelist</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">10.4. Example: Use build-namelist to specify a dataset in a non-default location.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#acquiring-input-datasets">10.4.1. Acquiring Input Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">11.4. Example: Use build-namelist to specify a dataset in a non-default location.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#acquiring-input-datasets">11.4.1. Acquiring Input Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#acquire-missing-dataset">10.5. Acquire missing dataset</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#running-cam">10.5.1. Running CAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#acquire-missing-dataset">11.5. Acquire missing dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#running-cam">11.5.1. Running CAM</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">11. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">12. References</a></li>
 </ul>
 </div>
 </div>

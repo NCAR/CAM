@@ -4,7 +4,7 @@
 Getting Help
 **************************
 
-The following describes the following ways to get help with using CAM.
+This chapter describes several ways in which a user may obtain help when using CAM.
 
 -----------------------
 The CAM Web Page

@@ -4,11 +4,11 @@
 Building and Running the atmospheric model within CESM
 **********************************************************
 
-If you need to install CESM, please refer to `downloading CESM <http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html>`_.
+If you need to install CESM, you will need to download it from a git repository.  Please refer to `downloading CESM <http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html>`_.  If you have developer access to the CAM development repository, and if you are not going to run a fully coupled run and are only going to run F, Q or P compsets, you may save space by checking out a CAM standalone tag.  *This is only an option if you have developer access to the CAM development repository*  CAM is stored in a svn repository and the instructions for checking it out are in :ref:`Checking out CAM standalone <checking-out-cam-standalone>`
 
 CAM runs are setup, built and submitted via the cime scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using a named configuration known as a compset.  Compsets will be described in much more detail in :ref:`Atmospheric configurations <atmospheric-configurations>`.  For this chapter, we will be using the compset FHIST.
 
-A simple session to build the compset FHIST, 1 degree case and name the case test_FHIST is illustrated as follows:
+A simple session to build the compset FHIST, 1 degree finite volume case and name the case test_FHIST is illustrated as follows:
 ::
 
         % cd cime/scripts
@@ -33,8 +33,6 @@ Further, detailed information for each of the above steps can be found at:
 - `case.setup <http://esmci.github.io/cime/users_guide/setting-up-a-case.html>`_
 - `case.build <http://esmci.github.io/cime/users_guide/building-a-case.html>`_
 - `case.submit <http://esmci.github.io/cime/users_guide/running-a-case.html>`_
-
-In addtion, there is information for `customizing a case <http://esmci.github.io/cime/users_guide/customizing-a-case.html>`_.  
 
 It is encouraged for users to review these sections as they go into much more detail than is contained here.
 
@@ -61,4 +59,4 @@ For example, to change the CO2 constant to 400, modify **user_nl_cam** and add t
 
 To see the result, call ``preview_namelists`` and verify that the new value appears in **CaseDocs/atm_in**.  The exception to this are variables within the **camexp** namelist group (as listed in the link immediately below).  Variables within this group are used internally by CAM's build-namelist utility and modify the resulting namelist. They will not be written out to the the atm_in file.
 
-A complete listing of all of CAM's namelists is available at `CAM's namelist variables <http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html>`_  More details on changing CAM's namelist can be found at :ref:`customizing compsets<customizing-compsets>`.
+A complete listing of all of CAM's namelists is available at `CAM's namelist variables <http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html>`_  More details on changing CAM's namelist can be found at :ref:`customizing compsets<customizing-compsets>`.

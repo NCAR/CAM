@@ -75,11 +75,15 @@
 <li><a class="reference internal" href="#cam-single-column-fscam-compset">4.2.3. CAM single column (FSCAM compset)</a><ul>
 <li><a class="reference internal" href="#example-setting-up-a-scam-run">4.2.3.1. Example:  Setting up a SCAM run</a></li>
 <li><a class="reference internal" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.2.3.2. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
+<li><a class="reference internal" href="#example-setting-up-user-defined-iop-for-scam">4.2.3.3. Example:  Setting up User Defined IOP for SCAM</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-cam-compsets">4.3. Other CAM compsets</a></li>
+<li><a class="reference internal" href="#other-cam-compsets">4.3. Other CAM compsets</a><ul>
+<li><a class="reference internal" href="#super-parameterized-cam-spcam">4.3.1. Super-parameterized CAM (SPCAM)</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#cam-chem-compsets">4.4. CAM-chem compsets</a></li>
 <li><a class="reference internal" href="#waccm-compsets">4.5. WACCM compsets</a></li>
 <li><a class="reference internal" href="#waccm-x-compsets">4.6. WACCM-X compsets</a></li>
@@ -140,10 +144,10 @@
 <li><strong>P</strong>: Parallel offline radiation tool (PORT)</li>
 <li><strong>Q</strong>: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)</li>
 </ul>
-<p>This chapter will discuss some of the atmospheric compsets in more detail, but a complete listing of all compsets is found <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">here</a></p>
+<p>This chapter will discuss some of the atmospheric compsets in more detail, but a complete listing of all compsets is found at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">CESM2 Component Configurations (compsets)</a>.  The complete listing of grid resolutions can be found at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/grids.html">CESM2 Grid Resolutions</a>.</p>
 <div class="section" id="cam-scientifically-supported-compsets">
 <h2>4.1. CAM scientifically supported compsets<a class="headerlink" href="#cam-scientifically-supported-compsets" title="Permalink to this headline">¶</a></h2>
-<p>CAM has a number of compsets/resolutions which are supported scientifically.  These compsets are detailed in the following table.  A specific compset may be listed below, but unless the resolution is also listed, it is not scientifically supported.  Different resolutions exhibit different behavior and as a result require different tunings.  The scientifically supported designation is limited to the specific compset/resolution pairs listed in the following tables.</p>
+<p>CAM has a number of compsets/resolutions which are supported scientifically.  These compsets are detailed in the following table.  A specific compset may be listed below, but unless the resolution is also listed, that compset/resolution combination is not scientifically supported.  Different resolutions exhibit different behavior and as a result require different tunings.  The scientifically supported designation is limited to the specific compset/resolution pairs listed in the following tables.</p>
 <p><strong>Scientifically supported CAM compsets</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -162,15 +166,22 @@
 <tbody valign="top">
 <tr class="row-even"><td>FHIST</td>
 <td>f09_f09_mg17</td>
-<td>Historical current developer
-setup (CAM6) <em>[Note - this is similar
+<td>Historical CAM6 using 1 degree finite
+volume dycore <em>[Note - this is similar
 to the obsolete CAM5 FAMIP compset]</em></td>
 <td>1979 to 2015</td>
 </tr>
 <tr class="row-odd"><td>F2000climo</td>
 <td>f09_f09_mg17</td>
-<td>Climatological 21st century</td>
+<td>Climatological 21st century using 1
+degree fv dycore</td>
 <td>2000 to 2015</td>
+</tr>
+<tr class="row-even"><td>FKESSLER</td>
+<td>ne30_n30_mg17</td>
+<td>KESSLER model using ne30 spectral
+element dycore</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -189,14 +200,14 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 </dl>
 <div class="section" id="cam-aquaplanet-qp-and-qs-compsets">
 <h3>4.2.1. CAM aquaplanet (QP and QS compsets)<a class="headerlink" href="#cam-aquaplanet-qp-and-qs-compsets" title="Permalink to this headline">¶</a></h3>
-<p>Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set of SST profiles based on the AquaPlanet Experiment project (APE; Neale &amp; Hoskins <a class="reference internal" href="#nh" id="id1">[NH]</a>, Williamson et al. <a class="reference internal" href="#w" id="id2">[W]</a>). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. <a class="reference internal" href="#mwo" id="id3">[MWO]</a></p>
+<p>Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set of SST profiles based on the AquaPlanet Experiment project (APE; Neale &amp; Hoskins <a class="footnote-reference" href="#id6" id="id1">[2]</a>, Williamson et al. <a class="footnote-reference" href="#id7" id="id2">[3]</a>). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. <a class="footnote-reference" href="#id5" id="id3">[1]</a></p>
 <p><strong>Scientifically supported Aquaplanet compsets</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="16%" />
-<col width="24%" />
-<col width="46%" />
-<col width="14%" />
+<col width="12%" />
+<col width="19%" />
+<col width="58%" />
+<col width="11%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Compset Name</th>
@@ -208,12 +219,17 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 <tbody valign="top">
 <tr class="row-even"><td>QPC6</td>
 <td>f09_f09_mg17</td>
-<td>Prescribed SST Aquaplanet using CAM6</td>
+<td>Prescribed SST Aquaplanet using CAM6 (1 degree finite volume dycore)</td>
 <td>2000 to 2015</td>
 </tr>
-<tr class="row-odd"><td>QSC6</td>
+<tr class="row-odd"><td>QPC6</td>
+<td>ne30_ne30_mg17</td>
+<td>Prescribed SST Aquaplanet using CAM6 (ne30 spectral element dycore)</td>
+<td>2000 to 2015</td>
+</tr>
+<tr class="row-even"><td>QSC6</td>
 <td>f09_f09_mg17</td>
-<td>Slab-Ocean Aquaplanet using CAM6</td>
+<td>Slab-Ocean Aquaplanet using CAM6     (1 degree finite volume dycore)</td>
 <td>2000 to 2015</td>
 </tr>
 </tbody>
@@ -239,7 +255,7 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE “QOBS” option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="reference internal" href="#mwo" id="id4">[MWO]</a> for details.</p>
+<p>By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE “QOBS” option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="footnote-reference" href="#id5" id="id4">[1]</a> for details.</p>
 </div>
 <div class="section" id="example-2-default-aquaplanet-with-slab-ocean-model">
 <h4>4.2.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model<a class="headerlink" href="#example-2-default-aquaplanet-with-slab-ocean-model" title="Permalink to this headline">¶</a></h4>
@@ -284,22 +300,22 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 </pre></div>
 </div>
 <p>Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.</p>
-<table class="docutils citation" frame="void" id="mwo" rules="none">
+<table class="docutils footnote" frame="void" id="id5" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[MWO]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the community atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, doi: <a class="reference external" href="http://dx.doi.org/10.1002/2015MS000593">http://dx.doi.org/10.1002/2015MS000593</a></td></tr>
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the community atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, doi: <a class="reference external" href="http://dx.doi.org/10.1002/2015MS000593">http://dx.doi.org/10.1002/2015MS000593</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="nh" rules="none">
+<table class="docutils footnote" frame="void" id="id6" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[NH]</a></td><td>Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107. <a class="reference external" href="http://dx.doi.org/10.1006/asle.2000.0022">http://dx.doi.org/10.1006/asle.2000.0022</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107. <a class="reference external" href="http://dx.doi.org/10.1006/asle.2000.0022">http://dx.doi.org/10.1006/asle.2000.0022</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="w" rules="none">
+<table class="docutils footnote" frame="void" id="id7" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[W]</a></td><td>Williamson, D. L., and Coauthors, 2012: The APE atlas. NCAR Technical Note NCAR/TN-484+STR, doi:10.5065/D6FF3QBR. http://dx.doi.org/10.5065/D6FF3QBR</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[3]</a></td><td>Williamson, D. L., and Coauthors, 2012: The APE atlas. NCAR Technical Note NCAR/TN-484+STR, doi:10.5065/D6FF3QBR. http://dx.doi.org/10.5065/D6FF3QBR</td></tr>
 </tbody>
 </table>
 </div>
@@ -438,14 +454,22 @@ rad_data_fdh=.true.
 </div>
 <div class="section" id="cam-single-column-fscam-compset">
 <h3>4.2.3. CAM single column (FSCAM compset)<a class="headerlink" href="#cam-single-column-fscam-compset" title="Permalink to this headline">¶</a></h3>
-<p>SCAM cases are set up for a small set of different locations/dates, called an Intensive Observing Period (IOP) (see XXXX for more information).  Each of these IOP’s have separate preconfigured settings which are referenced by create_new_case using the –user-mods-dir flag.</p>
+<p>SCAM cases are set up for a small set of different locations/dates, called an Intensive Observing Period (IOP) (see XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX for more information).  Each of these IOP’s have separate preconfigured settings which are referenced by create_new_case using the –user-mods-dir flag.</p>
 <p>The list of the available configurations and the associated usermods_dirs directory are:</p>
 <blockquote>
 <div><ul class="simple">
 <li><strong>ARM95</strong>: scam_arm95</li>
 <li><strong>ARM97</strong>: scam_arm97 – <em>default</em></li>
+<li><strong>ATEX</strong>: scam_atex</li>
+<li><strong>BOMEX</strong>: scam_bomex</li>
+<li><strong>CGILSS11</strong>: scam_cgilsS11</li>
+<li><strong>CGILSS12</strong>: scam_cgilsS12</li>
+<li><strong>CGILSS6</strong>: scam_cgilsS6</li>
+<li><strong>DYCOMSRF01</strong>: scam_dycomsRF01</li>
+<li><strong>DYCOMSRF02</strong>: scam_dycomsRF02</li>
 <li><strong>GATEIII</strong>: scam_gateIII</li>
 <li><strong>MPACE</strong>: scam_mpace</li>
+<li><strong>RICO</strong>: scam_rico</li>
 <li><strong>SPARTICUS</strong>: scam_sparticus</li>
 <li><strong>TOGAII</strong>: scam_togaII</li>
 <li><strong>TWP06</strong>: scam_twp06</li>
@@ -465,6 +489,7 @@ rad_data_fdh=.true.
 </pre></div>
 </div>
 <p>If user neglects to specify a –use-mods-dir, then it defaults to a shortened run of ARM97.</p>
+<p>The user may modify the sample script <strong>components/cam/bld/scripts/create_scam6_iop</strong>.</p>
 </div>
 <div class="section" id="example-efficient-way-to-cycle-over-several-scam-iop-locations">
 <h4>4.2.3.2. Example:  Efficient way to cycle over several SCAM IOP locations<a class="headerlink" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations" title="Permalink to this headline">¶</a></h4>
@@ -486,12 +511,53 @@ rad_data_fdh=.true.
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
+<p>The user may modify the sample script <strong>components/cam/bld/scripts/create_scam6_iop_multi</strong>.</p>
+</div>
+<div class="section" id="example-setting-up-user-defined-iop-for-scam">
+<h4>4.2.3.3. Example:  Setting up User Defined IOP for SCAM<a class="headerlink" href="#example-setting-up-user-defined-iop-for-scam" title="Permalink to this headline">¶</a></h4>
+<p>** STILL BEING WRITTEN**</p>
+<p>If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at (305 degrees E and 62 degrees N).  It is important to note that the user needs to have the NetCDF Command Language (NCL) installed on their machine as the generation scripts utilizes this library.</p>
+<blockquote>
+<div>% ./create_newcase –case</div></blockquote>
 </div>
 </div>
 </div>
 <div class="section" id="other-cam-compsets">
 <h2>4.3. Other CAM compsets<a class="headerlink" href="#other-cam-compsets" title="Permalink to this headline">¶</a></h2>
-<p>Another set of compsets which require a brief description are SPCAM.  There are four compsets related to SPCAM</p>
+<p>There are a number of other CAM compsets which have not been described in this document. The complete listing of all compsets is found <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">here</a>.  Users are cautioned about using compsets that are not scientifically supported or tested.  These compsets are not supported and users may encounter problems or get invalid results using them.</p>
+<div class="section" id="super-parameterized-cam-spcam">
+<h3>4.3.1. Super-parameterized CAM (SPCAM)<a class="headerlink" href="#super-parameterized-cam-spcam" title="Permalink to this headline">¶</a></h3>
+<p>Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.8.2) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation. Two different sets are provided. SAM1MOM use one moment SAM microphysics, and is based on Khairoutdinov and Randall <a class="footnote-reference" href="#id14" id="id8">[5]</a>. M2005 uses two moment microphysics from Morrison et al <a class="footnote-reference" href="#id15" id="id9">[6]</a>, and its implementation is based on Wang et al. <a class="footnote-reference" href="#id16" id="id10">[7]</a>; <a class="footnote-reference" href="#id17" id="id11">[8]</a>. In M2005, Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) <a class="footnote-reference" href="#id13" id="id12">[4]</a> . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.</p>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[4]</a></td><td>Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit-Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[5]</a></td><td>Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[6]</a></td><td>Morrison, H., Curry, J. A., &amp; Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id16" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[7]</a></td><td>Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137–168, doi:10.5194/gmd-4-137-2011.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id17" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[8]</a></td><td>Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.</td></tr>
+</tbody>
+</table>
 <p><strong>SPCAM tested compsets</strong></p>
 <blockquote>
 <div><ul class="simple">
@@ -508,7 +574,7 @@ rad_data_fdh=.true.
 </dd>
 </dl>
 <p>More details about SPCAM can be found at: <strong>????????????????????</strong></p>
-<p>There are a number of other CAM compsets which have not been described. The complete listing of all compsets is found <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">here</a></p>
+</div>
 </div>
 <div class="section" id="cam-chem-compsets">
 <h2>4.4. CAM-chem compsets<a class="headerlink" href="#cam-chem-compsets" title="Permalink to this headline">¶</a></h2>

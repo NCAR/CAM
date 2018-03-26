@@ -7,10 +7,13 @@ Customizing CAM runs
 Compsets are useful for easily setting up standard runs of CAM.  Sometimes though a user wants to customize a run.  The first step in doing this is to start with a compset which is close to what a user wants to run and then applying the appropriate modifications.  Users must be mindful of using a compset which has appropriate settings for the experiment to be run.  
 
 It is important to understand that there are two main ways that CAM runs can be modified. 
- - **configure**: These variables change the way that the actual code is compiled and results in an executable which contains this code setup.  They must be set prior to running ``./case.build``.  If any modifications are made to configure after ``./case.build`` has been run, the user must cleanup the prior build using ``case.build --clean-all`` followed by another ``./case.build`` to rebuild the executable.
+ - **configuration**: These variables change the way that the actual code is compiled and results in an executable which contains this code setup.  They must be set prior to running ``./case.build``.  If any modifications are made to the configuration after ``./case.build`` has been run, the user must cleanup the prior build using ``case.build --clean-all`` followed by another ``./case.build`` to rebuild the executable.
  - **namelist**: These variables are used to modify the way that CAM is run.  The code does not need to be rebuilt when modifying these settings.
 
 Users need to be careful when modifying CAM's configuration and namelists as it is very easy to create an invalid run.  An example would be with the ``-nlev`` configuration setting as input files are dependent on this setting and may not exist for the requested dynamics/nlev combination.
+
+While CAM specific directions are provided in this section, additional information can be found in the `CIME Users Guide: customizing a case <http://esmci.github.io/cime/users_guide/customizing-a-case.html>`_.
+
 
 -------------------------------------------------------------------------------
 Changing CAM configurations
@@ -19,7 +22,7 @@ Changing CAM configurations
 All configure options change the way that CAM is built and need to be applied before ``case.build`` is run.  Changing the configuration is done by issuing an ``xmlchange`` command for **CAM_CONFIG_OPTS**.  It is important to make sure that you use the ``--append`` flag to maintain configuration options that are set by the compset.
 ::
 
-   %xmlchange --append CAM_CONFIG_OPTS='-nthreads 2'
+   %./xmlchange --append CAM_CONFIG_OPTS='-nthreads 2'
 
 
 CAM has numerous options which can modify it's configuration.  A few of the more widely used settings will be discussed here.  The complete listing of configure options is at :ref:`arguments to configure<arguments-to-configure>`.
@@ -37,7 +40,7 @@ There are a number of settings which can change the physics which is run.  Some 
 -------------------------------------------------------------------------------
 Changing CAM namelist options
 -------------------------------------------------------------------------------
-There are a number of ways that CAM can be modified via namelist settings.  These values control the way the code is run and do not require a recompile of the code after they are changed.  CAM namelist variables include settings to tune the model for various quantities, control over output and many other options.  An example using CMIP5 emissions will be described here and a full explanation of controlling CAM output can be found at :ref:`Model Output<model-output>`. .  A complete listing of all of CAM's namelists is available at `CAM's namelist variables <http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html>`_ 
+There are a number of ways that CAM can be modified via namelist settings.  These values control the way the code is run and do not require a recompile of the code after they are changed.  CAM namelist variables include settings to tune the model for various quantities, control over output and many other options.  An example using CMIP5 emissions will be described here and a full explanation of controlling CAM output can be found at :ref:`Model Output<model-output>`. .  A complete listing of all of CAM's namelists is available at `CAM's namelist variables <http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html>`_ 
 
 #######################################################################
 Modifying Namelist settings:  Detailed Example -- Using CMIP5 emissions
