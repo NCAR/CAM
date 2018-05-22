@@ -247,7 +247,7 @@ element dycore</td>
 <div class="section" id="example-1-default-aquaplanet-with-prescribed-sst">
 <h4>4.2.1.1. Example 1: Default Aquaplanet with prescribed SST<a class="headerlink" href="#example-1-default-aquaplanet-with-prescribed-sst" title="Permalink to this headline">¶</a></h4>
 <p>To run the standard CAM6 aquaplanet, simply supply the compset name:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
 <span class="n">cd</span> <span class="n">aqua_case</span>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -260,7 +260,7 @@ element dycore</td>
 <div class="section" id="example-2-default-aquaplanet-with-slab-ocean-model">
 <h4>4.2.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model<a class="headerlink" href="#example-2-default-aquaplanet-with-slab-ocean-model" title="Permalink to this headline">¶</a></h4>
 <p>To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QSC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
 <span class="n">cd</span> <span class="n">aqua_case</span>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -269,14 +269,14 @@ element dycore</td>
 </pre></div>
 </div>
 <p>Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate “qflux” file. To specify such a file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_SOM_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">nc</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_SOM_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">nc</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="example-3-aquaplanet-with-alternate-prescribed-sst">
 <h4>4.2.1.3. Example 3: Aquaplanet with alternate prescribed SST<a class="headerlink" href="#example-3-aquaplanet-with-alternate-prescribed-sst" title="Permalink to this headline">¶</a></h4>
 <p>All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">cam5_3keq</span> <span class="o">--</span><span class="n">compset</span> <span class="mi">2000</span><span class="n">_CAM50_SLND_SICE_DOCN</span><span class="o">%</span><span class="n">AQP7_SROF_SGLC_SWAV</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">compset</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
 <span class="n">cd</span> <span class="n">cam5_3keq</span>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -289,7 +289,7 @@ element dycore</td>
 <div class="section" id="example-4-aquaplanet-with-user-specified-sst-dataset">
 <h4>4.2.1.4. Example 4: Aquaplanet with user-specified SST dataset<a class="headerlink" href="#example-4-aquaplanet-with-user-specified-sst-dataset" title="Permalink to this headline">¶</a></h4>
 <p>An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_sst_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC4</span> <span class="o">--</span><span class="n">res</span> <span class="n">f19_f19_mg17</span>  <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
 <span class="n">cd</span> <span class="n">aqua_case</span>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>

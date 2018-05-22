@@ -94,13 +94,8 @@
 <span id="building-and-running-cam"></span><h1>3. Building and Running the atmospheric model within CESM<a class="headerlink" href="#building-and-running-the-atmospheric-model-within-cesm" title="Permalink to this headline">¶</a></h1>
 <p>If you need to install CESM, you will need to download it from a git repository.  Please refer to <a class="reference external" href="http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html">downloading CESM</a>.  If you have developer access to the CAM development repository, and if you are not going to run a fully coupled run and are only going to run F, Q or P compsets, you may save space by checking out a CAM standalone tag.  <em>This is only an option if you have developer access to the CAM development repository</em>  CAM is stored in a svn repository and the instructions for checking it out are in <a class="reference internal" href="checking-out-cam-standalone.html#checking-out-cam-standalone"><span class="std std-ref">Checking out CAM standalone</span></a></p>
 <p>CAM runs are setup, built and submitted via the cime scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using a named configuration known as a compset.  Compsets will be described in much more detail in <a class="reference internal" href="atmospheric-configurations.html#atmospheric-configurations"><span class="std std-ref">Atmospheric configurations</span></a>.  For this chapter, we will be using the compset FHIST.</p>
-<<<<<<< HEAD
-<p>A simple session to build the compset FHIST, 1 degree case and name the case test_FHIST is illustrated as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-=======
 <p>A simple session to build the compset FHIST, 1 degree finite volume case and name the case test_FHIST is illustrated as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
->>>>>>> 0068e280ecc291e7b8f3570a33f4ba2d7649eee9
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_FHIST</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -140,56 +135,8 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2_ppmv</span><span class="o">=</span><span class="mf">400.</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
-<p>To see the result, call <strong>preview_namelists</strong> and verify that the new value appears in <strong>CaseDocs/atm_in</strong>.  The exception to this are variables within the <strong>camexp</strong> namelist group (as listed in the link immediately below).  Variables within this group are used internally by CAM’s build-namelist utility and modify the resulting namelist. They will not be written out to the the atm_in file.</p>
-<p>A complete listing of all of CAM’s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html">CAM’s namelist variables</a></p>
-<div class="section" id="modifying-namelist-settings-detailed-example-using-cmip5-emissions">
-<h3>3.2.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions<a class="headerlink" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions" title="Permalink to this headline">¶</a></h3>
-<p>The following steps illustrate how to change the CMIP emissions back to the CMIP5 version.  If a user desires to do this, they may cut/paste the ext_frc_specifier and srf_emis_specifier settings below and put them into their own user_nl_cam.</p>
-<p>First the user must create a case and set it up</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_FHIST_CMIP5_emiss</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span>
-<span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-</pre></div>
-</div>
-<p>Then the user should make any namelist changes by editing the user_nl_cam file.  Depending on the compset requested, this file may or may not already have information within it.  The user should either add or replace the variables they want to set.  To revert to CMIP5 emissions, we only need to change the values of the files specifed by ext_frc_specifier and srf_frc_specifier.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ext_frc_specifier</span>  <span class="o">=</span> <span class="s1">&#39;H2O -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/emis/elev/H2O_emission_CH4_oxidationx2_elev_1850-2100_CCMI_RCP6_0_c160219.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;SO2         -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/emis/ccmi_1960-2008/IPCC_emissions_volc_SO2_1850-2100_1.9x2.5_c130426cycle.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;bc_a4       -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_bc_elev_1850-2005_c090804.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;num_a1      -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam4_num_a1_elev_1850-2005_c150205.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;num_a2      -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_num_a2_elev_1850-2005_c090804.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;num_a4      -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam4_num_a4_elev_1850-2005_c150205.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;pom_a4      -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_pom_elev_1850-2005_c130424.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;so4_a1      -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_so4_a1_elev_1850-2005_c090804.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;so4_a2      -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_so4_a2_elev_1850-2005_c090804.nc&#39;</span>
-
-<span class="n">srf_emis_specifier</span> <span class="o">=</span> <span class="s1">&#39;DMS       -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/emis/ccmi_1950_2100_rcp6/IPCC_emissions_DMS_surface_1850-2100_1.9x2.5_c130814.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;SO2       -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/emis/ccmi_1950_2100_rcp6/IPCC_emissions_SO2_surface_1850-2100_1.9x2.5_c130814.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;SOAG      -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_soag_1.5_surf_1850-2005_c130424.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;bc_a4     -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_bc_surf_1850-2005_c090804.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;num_a1    -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam4_num_a1_surf_1850-2005_c150205.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;num_a2    -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_num_a2_surf_1850-2005_c090804.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;num_a4    -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam4_num_a4_surf_1850-2005_c150205.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;pom_a4    -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_pom_surf_1850-2005_c130424.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;so4_a1    -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_so4_a1_surf_1850-2005_c090804.nc&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;so4_a2    -&gt; /glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart_aero/emis/ar5_mam3_so4_a2_surf_1850-2005_c090804.nc&#39;</span>
-</pre></div>
-</div>
-<p>At this point, it is good practice to run preview_namelists and examine the <strong>CaseDocs/atm_in</strong> file to make sure that the requested changes have made it into the CAM namelist file.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">preview_namelists</span>
-</pre></div>
-</div>
-<p>After confirming that the requested namelist changes have been put into the atm_in file, then it is safe to continue with building and submitting the job.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
-</pre></div>
-</div>
-</div>
-=======
 <p>To see the result, call <code class="docutils literal"><span class="pre">preview_namelists</span></code> and verify that the new value appears in <strong>CaseDocs/atm_in</strong>.  The exception to this are variables within the <strong>camexp</strong> namelist group (as listed in the link immediately below).  Variables within this group are used internally by CAM’s build-namelist utility and modify the resulting namelist. They will not be written out to the the atm_in file.</p>
 <p>A complete listing of all of CAM’s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html">CAM’s namelist variables</a>  More details on changing CAM’s namelist can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing compsets</span></a>.</p>
->>>>>>> 0068e280ecc291e7b8f3570a33f4ba2d7649eee9
 </div>
 </div>
 
