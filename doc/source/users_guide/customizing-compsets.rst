@@ -94,7 +94,7 @@ User-Defined Compsets
 
 Sometimes a user does not find a specific compset that brings in all of the specific versions of components that they want.  In this case, a user will need to create a user defined compset.  This is something that only an expert user should do as not all versions and variations of components are able to work together.  It is also important to note that creating runs outside of supported compsets may yield incorrect results due to the simple fact that they have not been tuned or tested.  A user needs to be extremely cautious when making their own user-defined compsets.
 
-A simple example will be discussed here, but a more comprehensive writeup can be found in `adding new cases <http://esmci.github.io/cime/users_guide/adding-cases.html>`_.
+A simple example will be discussed here, but a more comprehensive writeup can be found in `creating new compsets <http://esmci.github.io/cime/users_guide/compsets.html#creating-new-compsets.html>`_.
 
 Typically users use shortnames in their ``./create_newcase`` commands for example:
 ::

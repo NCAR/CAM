@@ -44,11 +44,11 @@ Once correctly entered, the username and password will be cached in a
 protected subdirectory of the user's home directory so that repeated
 entry of this information will not be required for a given machine.
 
-The following example shows how to checkout CAM standalone tag cam5_4_175:
+The following example shows how to checkout CAM standalone tag cam6_0_002:
 
 ::
 
-    > %svn co https://svn-ccsm-models.cgd.ucar.edu/cam1/trunk_tags/cam5_4_175
+    > %svn co https://svn-ccsm-models.cgd.ucar.edu/cam1/trunk_tags/cam6_0_002
 
 If a problem was encountered during checkout, which may happen with an older version of the client software, it may appear to have downloaded successfully, but in fact only a partial checkout has occurred. To ensure a successful download, make sure the last line of svn output has the following statement:
 
@@ -56,7 +56,7 @@ If a problem was encountered during checkout, which may happen with an older ver
 
     > Checked out revision XXXXX.
 
-This will create a directory called ``cam5_4_175`` that can be used to
+This will create a directory called ``cam6_0_002`` that can be used to
 modify, build, and run the model.
 
 --------------------------------
