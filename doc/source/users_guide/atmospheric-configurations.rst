@@ -45,9 +45,6 @@ CAM has a number of compsets/resolutions which are supported scientifically.  Th
 | F2000climo   | f09_f09_mg17         | Climatological 21st century using 1     | 2000 to 2015|
 |              |                      | degree fv dycore                        |             |
 +--------------+----------------------+-----------------------------------------+-------------+
-| FKESSLER     | ne30_n30_mg17        | KESSLER model using ne30 spectral       |             |
-|              |                      | element dycore                          |             |
-+--------------+----------------------+-----------------------------------------+-------------+
 
 It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
 
@@ -56,9 +53,34 @@ CAM Simple Models
 -------------------------------------------------------------------------------
 
 There are several simpler configurations in which CAM can be run.  These include:
+ - Generic adiabatic simple model (FDABIP04)
+ - Held-Suarez simple model (FHS94)
  - Aquaplanet (QP and QS compsets)
  - PORT - Parallel Offline Radiation Tool (P compsets)
  - SCAM - single column model (FSCAM compset)
+
+**Scientifically supported CAM simpler model compsets**
+
++--------------+----------------------+-----------------------------------------+-------------+
+| Compset Name | supported resolution |Description                              | Period      |
++==============+======================+=========================================+=============+
+| FDABIP04     | T42z30_T42_mg17,     | Generic adiabatic simple model          |             |
+|              | T85z30_T85_mg17,     |                                         |             |
+|              | T85z60_T85_mg17      |                                         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FSCAM        | T42_T42              | Single column CAM                       |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FHS94        | T42z30_T42_mg17,     | Held-Suarez simpler model               |             |
+|              | T85z30_T85_mg17,     |                                         |             |
+|              | T85z60_T85_mg17      |                                         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| QPC6         | f09_f09_mg17,        | Prescribed SST Aquaplanet using CAM6    | 2000 to 2015|
+|              | f19_f19_mg17         |                                         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| QSC6         | f09_f09_mg17,        | Slab-Ocean Aquaplanet using CAM6        | 2000 to 2015|
+|              | f19_f19_mg17         |                                         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+
 
 ====================================================================================
 CAM aquaplanet (QP and QS compsets)
@@ -66,19 +88,8 @@ CAM aquaplanet (QP and QS compsets)
 
 Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set of SST profiles based on the AquaPlanet Experiment project (APE; Neale & Hoskins [2]_, Williamson et al. [3]_). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. [1]_
 
-**Scientifically supported Aquaplanet compsets**
 
-+--------------+----------------------+---------------------------------------------------------------------+-------------+
-| Compset Name | supported resolution |Description                                                          | Period      |
-+==============+======================+=====================================================================+=============+
-| QPC6         | f09_f09_mg17         | Prescribed SST Aquaplanet using CAM6 (1 degree finite volume dycore)| 2000 to 2015|
-+--------------+----------------------+---------------------------------------------------------------------+-------------+
-| QPC6         | ne30_ne30_mg17       | Prescribed SST Aquaplanet using CAM6 (ne30 spectral element dycore) | 2000 to 2015|
-+--------------+----------------------+---------------------------------------------------------------------+-------------+
-| QSC6         | f09_f09_mg17         | Slab-Ocean Aquaplanet using CAM6     (1 degree finite volume dycore)| 2000 to 2015|
-+--------------+----------------------+---------------------------------------------------------------------+-------------+
-
-Aquaplanet compsets which have not been throughly tested.  They require the **--run-unsupported** flag and are provided as a convenience:
+Aquaplanet compsets which have been tested, but are not scientifically supported: 
  - QPC5 -- Prescribed SST Aquaplanet using CAM5
  - QPC4 -- Prescribed SST Aquaplanet using CAM4
  - QSC5 -- Slab-Ocean Aquaplanet for CAM5

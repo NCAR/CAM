@@ -12,9 +12,6 @@ It is important to understand that there are two main ways that CAM runs can be 
 
 Users need to be careful when modifying CAM's configuration and namelists as it is very easy to create an invalid run.  An example would be with the ``-nlev`` configuration setting as input files are dependent on this setting and may not exist for the requested dynamics/nlev combination.
 
-While CAM specific directions are provided in this section, additional information can be found in the `CIME Users Guide: customizing a case <http://esmci.github.io/cime/users_guide/customizing-a-case.html>`_.
-
-
 -------------------------------------------------------------------------------
 Changing CAM configurations
 -------------------------------------------------------------------------------
@@ -25,7 +22,7 @@ All configure options change the way that CAM is built and need to be applied be
    %./xmlchange --append CAM_CONFIG_OPTS='-nthreads 2'
 
 
-CAM has numerous options which can modify it's configuration.  A few of the more widely used settings will be discussed here.  The complete listing of configure options is at :ref:`arguments to configure<arguments-to-configure>`.
+CAM has numerous options which can modify it's configuration.  A few of the more widely used settings will be discussed here.  The complete listing of configure options is at :ref:`arguments to configure<arguments-to-configure>`.  More information on xmlchange can be found at the `xmlchange web page <http://esmci.github.io/cime/Tools_user/xmlchange.html>`_.
 
 #########################################
 Changing the physics
