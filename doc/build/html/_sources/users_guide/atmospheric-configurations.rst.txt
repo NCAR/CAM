@@ -486,8 +486,30 @@ More details about SPCAM can be found at: **????????????????????**
 -------------------------------------------------------------------------------
 CAM-chem compsets
 -------------------------------------------------------------------------------
+CAM-chem functional compsets in CESM2.0
+(CAM-chem scientifically supported compsets will be available in CESM2.1)
 
--------------------------------------------------------------------------------
+CAM-chem has a number of compsets/resolutions which are functional in CESM2.0, see Table.  
+All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 56 levels, aligned with the MERRA2 vertical levels. Currently, SD compsets are tested to run with 32 levels, which are not availble at this point. Half degree SD compsets use 1 degree emissions. Users have to change to half degree emissions if desired. 
+
++--------------+----------------------+-----------------------------------------+-------------+
+| Compset Name | supported resolution |Description                              | Period      |
++==============+======================+=========================================+=============+
+| FCHIST       | f09_f09_mg17         | Historical CAM6-chem using 1 degree FV  | 1979 to 2015|
+|              |                      | dycore, using CMIP6 emissions, coupled  |             |
+|              |                      | to interactive land and MEGAN2.1        |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FCSD         | f09_f09_mg17         | Historical CAM6-chem driven by MERRA2   | 2000 to 2015|
+|              | f05_f05_mg17         | meteorological analsysis, with a 50-hour| 1980 to 2015|
+|              |                      | relaxation. See details in the text     |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FC2010climo  | f09_f09_mg17         | Climatological CAM6-chem using 1 degree | 2010        |
+|              |                      | FV dycore, averaged SSTs, emissions, and|             |
+|              |                      | lower boundary conditions (2005-2015)   |             |
++--------------+----------------------+-----------------------------------------+-------------+
+
+
+
 WACCM compsets
 -------------------------------------------------------------------------------
 
