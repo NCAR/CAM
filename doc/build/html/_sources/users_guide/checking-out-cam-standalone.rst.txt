@@ -11,12 +11,14 @@ Downloading the CAM standalone code
 It is important to note that if a user downloads a CAM standalone tag, they will not be able to run a fully coupled model.  Checking out CAM standalone should only be done by users who are only using F, Q and P compsets.
 
 CAM development tags are available through a Subversion
-repository to **users who have developer access**.  If you do not have developer access, please use the directions for `downloading CESM <http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html>`_.  Access to the code requires Subversion client software
+repository to **users who have developer access**.  Access to the development code requires Subversion client software
 in place that is compatible with our Subversion server software, such
 as a recent version of the command line client, svn. Currently, our
 server software is at version 1.8.17. We recommend using a client at
 version 1.8 or later, though older versions may suffice. For more information or to
-download open source tools, visit `Subversion <http://subversion.tigris.org/>`_.
+download open source tools, visit `Subversion <http://subversion.apache.org/>`_.
+
+If you do not have developer access, please use the directions for `downloading CESM <http://escomp.github.io/cesm/release-cesm2/downloading_cesm.html>`_ and you should ignore the rest of this chapter.  
 
 With a valid svn client installed on the machine where CAM will be
 built and run, the user may download the latest version of the development 
@@ -42,11 +44,11 @@ Once correctly entered, the username and password will be cached in a
 protected subdirectory of the user's home directory so that repeated
 entry of this information will not be required for a given machine.
 
-The following example shows how to checkout CAM standalone tag cam5_4_175:
+The following example shows how to checkout CAM standalone tag cam6_0_002:
 
 ::
 
-    > %svn co https://svn-ccsm-models.cgd.ucar.edu/cam1/trunk_tags/cam5_4_175
+    > %svn co https://svn-ccsm-models.cgd.ucar.edu/cam1/trunk_tags/cam6_0_002
 
 If a problem was encountered during checkout, which may happen with an older version of the client software, it may appear to have downloaded successfully, but in fact only a partial checkout has occurred. To ensure a successful download, make sure the last line of svn output has the following statement:
 
@@ -54,7 +56,7 @@ If a problem was encountered during checkout, which may happen with an older ver
 
     > Checked out revision XXXXX.
 
-This will create a directory called ``cam5_4_175`` that can be used to
+This will create a directory called ``cam6_0_002`` that can be used to
 modify, build, and run the model.
 
 --------------------------------
