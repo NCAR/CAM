@@ -215,6 +215,9 @@ Set up the **user_nl_cam** file for the base run::
   ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
   rad_data_histfile_num=2
  
+  ! Make certain the radiation is called every time step
+  rad_always = .true.
+ 
   ! Write out the instantaneous rad_data
   rad_data_avgflag='I'
  
@@ -224,8 +227,11 @@ Set up the **user_nl_cam** file for the base run::
   ! Output frequency
   nhtfrq=0,73
 
-Note: It has been found that sampling every 73'rd time step was a good balance for dtime = 1800 and
-a 2-degree horizontal resolution.
+Note: It has been found that sampling every 73'rd time step is a good balance of computational cost
+and size of data for dtime = 1800 and a 2-degree horizontal resolution.
+
+.. [1] Conley, A. J., Lamarque, J.-F., Vitt, F., Collins, W. D., and Kiehl, J.: PORT, a CESM tool for the diagnosis of radiative forcing, Geosci. Model Dev., 6, 469-476, https://doi.org/10.5194/gmd-6-469-2013, 2013.
+  
 
 Build and submit this sampling run data::
 
