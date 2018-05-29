@@ -4,9 +4,9 @@
  Downloading CAM standalone
 ***********************************
 
---------------------------------
+-------------------------------------
 Downloading the CAM standalone code 
---------------------------------
+-------------------------------------
 
 It is important to note that if a user downloads a CAM standalone tag, they will not be able to run a fully coupled model.  Checking out CAM standalone should only be done by users who are only using F, Q and P compsets.
 

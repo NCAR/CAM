@@ -51,7 +51,7 @@ Adding new chemical or aerosol species requires to include their sources (emissi
 Sources can be either emissions (surface or vertical, see Section 6.1) or concentrations in form of lower boundary conditions. 
 To add new emissions you have to copy the existing list of emisisons to your user_nl_cam file and add the additional species (See Section 5.2.1).
 
-To add new lower boundary conditions via namelist, you have to add an addition species to the flbc_list and modify the lbc_file::
+To add new lower boundary conditions via namelist, you have to add an addition species to the flbc_list and modify the lbc_file:
 
 flbc_file              = '/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc'
 
