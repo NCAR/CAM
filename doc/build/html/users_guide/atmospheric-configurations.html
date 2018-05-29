@@ -403,11 +403,11 @@ nhtfrq=0,73
 </pre></div>
 </div>
 <p>Note: It has been found that sampling every 73’rd time step is a good balance of computational cost
-and size of data for dtime = 1800 and a 2-degree horizontal resolution.</p>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
+and size of data for dtime = 1800 and a 2-degree horizontal resolution. <a class="footnote-reference" href="#id9" id="id8">[4]</a></p>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[4]</td><td>Conley, A. J., Lamarque, J.-F., Vitt, F., Collins, W. D., and Kiehl, J.: PORT, a CESM tool for the diagnosis of radiative forcing, Geosci. Model Dev., 6, 469-476, <a class="reference external" href="https://doi.org/10.5194/gmd-6-469-2013">https://doi.org/10.5194/gmd-6-469-2013</a>, 2013.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id8">[4]</a></td><td>Conley, A. J., Lamarque, J.-F., Vitt, F., Collins, W. D., and Kiehl, J.: PORT, a CESM tool for the diagnosis of radiative forcing, Geosci. Model Dev., 6, 469-476, <a class="reference external" href="https://doi.org/10.5194/gmd-6-469-2013">https://doi.org/10.5194/gmd-6-469-2013</a>, 2013.</td></tr>
 </tbody>
 </table>
 <p>Build and submit this sampling run data:</p>
@@ -668,35 +668,35 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 <p>There are a number of other CAM compsets which have not been described in this document. The complete listing of all compsets is found <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">here</a>.  Users are cautioned about using compsets that are not scientifically supported or tested.  These compsets are not supported and users may encounter problems or get invalid results using them.</p>
 <div class="section" id="super-parameterized-cam-spcam">
 <h3>4.4.1. Super-parameterized CAM (SPCAM)<a class="headerlink" href="#super-parameterized-cam-spcam" title="Permalink to this headline">¶</a></h3>
-<p>Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.8.2) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation. Two different sets are provided. SAM1MOM use one moment SAM microphysics, and is based on Khairoutdinov and Randall <a class="footnote-reference" href="#id15" id="id9">[6]</a>. M2005 uses two moment microphysics from Morrison et al <a class="footnote-reference" href="#id16" id="id10">[7]</a>, and its implementation is based on Wang et al. <a class="footnote-reference" href="#id17" id="id11">[8]</a>; <a class="footnote-reference" href="#id18" id="id12">[9]</a>. In M2005, Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) <a class="footnote-reference" href="#id14" id="id13">[5]</a> . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.</p>
-<table class="docutils footnote" frame="void" id="id14" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id13">[5]</a></td><td>Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit-Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.</td></tr>
-</tbody>
-</table>
+<p>Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.8.2) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation. Two different sets are provided. SAM1MOM use one moment SAM microphysics, and is based on Khairoutdinov and Randall <a class="footnote-reference" href="#id16" id="id10">[6]</a>. M2005 uses two moment microphysics from Morrison et al <a class="footnote-reference" href="#id17" id="id11">[7]</a>, and its implementation is based on Wang et al. <a class="footnote-reference" href="#id18" id="id12">[8]</a>; <a class="footnote-reference" href="#id19" id="id13">[9]</a>. In M2005, Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) <a class="footnote-reference" href="#id15" id="id14">[5]</a> . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.</p>
 <table class="docutils footnote" frame="void" id="id15" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[6]</a></td><td>Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id14">[5]</a></td><td>Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit-Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id16" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[7]</a></td><td>Morrison, H., Curry, J. A., &amp; Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id10">[6]</a></td><td>Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id17" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id11">[8]</a></td><td>Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137–168, doi:10.5194/gmd-4-137-2011.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id11">[7]</a></td><td>Morrison, H., Curry, J. A., &amp; Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id18" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[9]</a></td><td>Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[8]</a></td><td>Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137–168, doi:10.5194/gmd-4-137-2011.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id19" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id13">[9]</a></td><td>Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.</td></tr>
 </tbody>
 </table>
 <p><strong>SPCAM tested compsets</strong></p>
@@ -722,7 +722,7 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 <p>CAM-chem functional compsets in CESM2.0
 (CAM-chem scientifically supported compsets will be available in CESM2.1)</p>
 <p>CAM-chem has a number of compsets/resolutions which are functional in CESM2.0, see Table.
-All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 56 levels, aligned with the MERRA2 vertical levels. Currently, SD compsets are tested to run with 32 levels, which are not availble at this point. Half degree SD compsets use 1 degree emissions. Users have to change to half degree emissions if desired.</p>
+All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested to run with 32 levels that are not availble at this point. Half degree SD compsets use 1 degree emissions. Users have to change to half degree emissions if desired.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="16%" />
@@ -746,15 +746,19 @@ to interactive land and MEGAN2.1</td>
 <td>1979 to 2015</td>
 </tr>
 <tr class="row-odd"><td>FCSD</td>
-<td>f09_f09_mg17
-f05_f05_mg17</td>
-<td>Historical CAM6-chem driven by MERRA2
-meteorological analsysis, with a 50-hour
+<td>f09_f09_mg17</td>
+<td>Historical CAM6-chem 1deg compset using
+MERRA2 analsysis with a 50-hour
 relaxation. See details in the text</td>
-<td>2000 to 2015
-1980 to 2015</td>
+<td>1980 to 2015</td>
 </tr>
-<tr class="row-even"><td>FC2010climo</td>
+<tr class="row-even"><td>FCSD</td>
+<td>f05_f05_mg17</td>
+<td>Historical CAM6-chem half deg compset
+using MERRA2 analysis</td>
+<td>1980 to 2015</td>
+</tr>
+<tr class="row-odd"><td>FC2010climo</td>
 <td>f09_f09_mg17</td>
 <td>Climatological CAM6-chem using 1 degree
 FV dycore, averaged SSTs, emissions, and
