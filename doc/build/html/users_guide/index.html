@@ -4,12 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>CAM6 User’s Guide &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -22,7 +30,8 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head><body>
+  </head>
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -55,14 +64,12 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -100,8 +107,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-parallel-offline-radiation-tool-port-p-compsets">4.2.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#still-being-edited-example-verifying-a-port-setup">4.2.2.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-using-port-to-study-flux-differences-due-to-4-x-co2">4.2.2.2. Example: Using PORT to study flux differences due to 4 x CO2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#port-compsets">4.2.2.1. PORT Compsets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-using-port-to-study-flux-differences-due-to-2-x-co2">4.2.2.2. Example: Using PORT to study flux differences due to 2 x CO2</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-single-column-fscam-compset">4.2.3. CAM single column (FSCAM compset)</a><ul>
@@ -113,12 +120,14 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#other-cam-compsets">4.3. Other CAM compsets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#super-parameterized-cam-spcam">4.3.1. Super-parameterized CAM (SPCAM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#generate-the-iop-file">4.3. Generate the IOP File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#other-cam-compsets">4.4. Other CAM compsets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#super-parameterized-cam-spcam">4.4.1. Super-parameterized CAM (SPCAM)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-compsets">4.4. CAM-chem compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">4.5. WACCM-X compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-compsets">4.5. CAM-chem compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-compsets">4.6. WACCM compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">4.7. WACCM-X compsets</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="customizing-compsets.html">5. Customizing CAM runs</a><ul>
@@ -263,7 +272,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>
