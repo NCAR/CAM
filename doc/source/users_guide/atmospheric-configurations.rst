@@ -228,7 +228,7 @@ Set up the **user_nl_cam** file for the base run::
   nhtfrq=0,73
 
 Note: It has been found that sampling every 73'rd time step is a good balance of computational cost
-and size of data for dtime = 1800 and a 2-degree horizontal resolution.
+and size of data for dtime = 1800 and a 2-degree horizontal resolution. [4]_
 
 .. [4] Conley, A. J., Lamarque, J.-F., Vitt, F., Collins, W. D., and Kiehl, J.: PORT, a CESM tool for the diagnosis of radiative forcing, Geosci. Model Dev., 6, 469-476, https://doi.org/10.5194/gmd-6-469-2013, 2013.
   
