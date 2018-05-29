@@ -503,8 +503,8 @@ All available compsets use observed SSTs and sea-ice values and CMIP6 emissions 
 |              |                      | MERRA2 analsysis with a 50-hour         | 1980 to 2015|
 |              |                      | relaxation. See details in the text     |             |
 +--------------+----------------------+-----------------------------------------+-------------+
-| FCSD         | f05_f05_mg17         | Historical CAM6-chem hald deg compset g | 1980 to 2015|
-| FCSD         | f05_f05_mg17         | using MERRA2 analysis                   |             |
+| FCSD         | f05_f05_mg17         | Historical CAM6-chem half deg compset   | 1980 to 2015|
+|              |                      | using MERRA2 analysis                   |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FC2010climo  | f09_f09_mg17         | Climatological CAM6-chem using 1 degree | 2010        |
 |              |                      | FV dycore, averaged SSTs, emissions, and|             |
