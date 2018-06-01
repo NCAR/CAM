@@ -659,5 +659,30 @@ Tested coupled WACCM compsets
 -------------------------------------------------------------------------------
 WACCM-X compsets
 -------------------------------------------------------------------------------
+WACCM-X has three compsets/resolutions which are supported scientifically.  These compsets are detailed in the following table.  A specific compset may be listed below, but unless the resolution is also listed, that compset/resolution combination is not scientifically supported.  Different resolutions exhibit different behavior and as a result require different tunings.  The scientifically supported designation is limited to the specific compset/resolution pairs listed in the following table.
 
-FX2000, FXHIST, FXSD
+**Scientifically supported WACCM-X compsets**
+
++--------------+----------------------+-----------------------------------------+-------------+
+| Compset Name | Supported Resolution |Description                              | Period      |
++==============+======================+=========================================+=============+
+| FXHIST       | f19_f19_mg16         | Historical WACCM-X based on CAM4 using  | 2000 to 2015|
+|              |                      | 2 degree FV dycore, MA chemistry, CCMI  |             |
+|              |                      | emissions, historical SSTs, coupled to  |             |
+|              |                      | land, prescribed ice, river             |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FX2000       | f19_f19_mg16         | Year 2000 WACCM-X based on CAM4 2 degree| 2000        |
+|              |                      | FV dycore, using MA chemistry, year 2000|             |
+|              |                      | CCMI emissions and SSTs, coupled to     |             |
+|              |                      | interactive land, prescribed ice, river |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FXSD         | f19_f19_mg16         | Historical SD-WACCM-X based on CAM4     | 2000 to 2015|
+|              |                      | using 2 degree FV dycore, MERRA1 with a |             |
+|              |                      | 50-hour relaxation, MA chemistry, CCMI  |             |
+|              |                      | emissions, historical SSTs, coupled to  |             |
+|              |                      | interactive land, prescribed ice, river |             |
++--------------+----------------------+-----------------------------------------+-------------+
+
+It should be noted that these WACCM-X compsets are based on the previous version 4 of CAM/WACCM and therefore are not derivatives of the version 6 CAM/WACCM compsets described above. 
+
+
