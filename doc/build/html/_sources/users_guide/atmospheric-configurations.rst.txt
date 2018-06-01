@@ -517,12 +517,12 @@ Another set of compsets which require a brief description are ones for Super-par
 More details about SPCAM can be found at: **????????????????????**
 
 -------------------------------------------------------------------------------
-CAM-chem compsets
+CAM-chem tested compsets
 -------------------------------------------------------------------------------
-CAM-chem functional compsets in CESM2.0
+CAM-chem tested compsets in CESM2.0
 (CAM-chem scientifically supported compsets will be available in CESM2.1)
 
-CAM-chem has a number of compsets/resolutions which are functional in CESM2.0, see Table.  
+CAM-chem has a number of compsets/resolutions which are tested in CESM2.0, see Table.  
 All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. 
 Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 
 56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested 
@@ -530,7 +530,7 @@ to run with 32 levels that are not availble at this point. Half-degree SD compse
 1-degree emissions. Users have to change to half-degree emissions if desired. 
 
 +--------------+-----------------------+-----------------------------------------+-------------+
-| Compset Name | functional resolution |Description                              | Period      |
+| Compset Name | tested resolution     |Description                              | Period      |
 +==============+=======================+=========================================+=============+
 | FCHIST       | f09_f09_mg17          | Historical CAM6-chem using 1 degree FV  | 1979 to 2015|
 |              |                       | dycore, using CMIP6 emissions, coupled  |             |
@@ -554,68 +554,110 @@ to run with 32 levels that are not availble at this point. Half-degree SD compse
 WACCM compsets
 -------------------------------------------------------------------------------
 
-============================
-Scientifically supported WACCM compsets
-============================
-+--------------+----------------------+-----------------------------------------+-------------+
-| Compset Name | supported resolution |Description                              | Period      |
-+==============+======================+=========================================+=============+
-| FW1850       | f09_f09_mg17         | Pre-industrial control WACCM6 using     | 1850        |
-|              |                      | 1-degree FV dycore, TSMLT1, CMIP6       |             |
-|              |                      | piControl emissions, year 1850 SSTs,    |             |
-|              |                      | coupled to interactive land and MEGAN2.1|             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FWHIST       | f09_f09_mg17         | Historical WACCM6 using 1-degree FV     | 1974 to 2015|
-|              |                      | dycore, TSMLT1, CMIP6 emissions,        |             |
-|              |                      | historical SSTs, coupled to interactive |             |
-|              |                      | land and MEGAN2.1                       |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FW2000       | f09_f09_mg17         | Year 2000 WACCM6 1deg compset using     | 2000        |
-|              |                      | 1-degree FV dycore, TSMLT1, year 2000   |             |
-|              |                      | CMIP6 emissions, year 2000 SSTs, coupled|             |
-|              |                      | to interactive land and MEGAN2.1        |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FWSD         | f09_f09_mg17         | Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
-|              |                      | analysis with a 50-hour relaxation,     |             |
-|              |                      | TSMLT1, CMIP6 emissions,                |             |
-|              |                      | historical SSTs, coupled to interactive |             |
-|              |                      | land and MEGAN2.1                       |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FWscHIST     | f09_f09_mg17         | Historical SC-WACCM6 using 1-degree FV  | 1976 to 2015|
-|              |                      | dycore, specified chemistry, historical |             |
-|              |                      | SSTs                                    |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-============================
-Functionally supported WACCM compsets
-============================
-+--------------+----------------------+-----------------------------------------+-------------+
-| Compset Name | supported resolution |Description                              | Period      |
-+==============+======================+=========================================+=============+
-| FWmaHIST     | f09_f09_mg17         | Historical WACCM6 using 1-degree FV     | 1974 to 2015|
-|              |                      | dycore, MA chemistry, CMIP6 emissions,  |             |
-|              |                      | historical SSTs, coupled to interactive |             |
-|              |                      | land and MEGAN2.1                       |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FWmadHIST    | f09_f09_mg17         | Historical WACCM6 using 1-degree FV     | 1974 to 2015|
-|              |                      | dycore, MAD chemistry, CMIP6 emissions, |             |
-|              |                      | historical SSTs, coupled to interactive |             |
-|              |                      | land and MEGAN2.1                       |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FWmaSD       | f09_f09_mg17         | Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
-|              |                      | analysis with a 50-hour relaxation,     |             |
-|              |                      | MA chemistry, CMIP6 emissions,          |             |
-|              |                      | historical SSTs, coupled to interactive |             |
-|              |                      | land and MEGAN2.1                       |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FWmadSD      | f09_f09_mg17         | Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
-|              |                      | analysis with a 50-hour relaxation,     |             |
-|              |                      | MAD chemistry, CMIP6 emissions,         |             |
-|              |                      | historical SSTs, coupled to interactive |             |
-|              |                      | land and MEGAN2.1                       |             |
-+--------------+----------------------+-----------------------------------------+-------------+
+========================================================
+Scientifically supported WACCM atmosphere compsets
+========================================================
+
+Scientifically supported WACCM atmosphere configurations for CESM2.0 use TSMLT1 chemistry 
+(see `chemical mechanisms <http://./CAM-chem-specifics.html#chemical-mechanisms>`_ ) and 
+0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17). 
+Additional scientifically validated configurations will be available in CESM2.1.
+
++---------+------------+-----------------------------------------+-------------+
+| Compset | resolution | Description                             | Period      |
++=========+============+=========================================+=============+
+| FW1850  |f09_f09_mg17| Pre-industrial control WACCM6 using     | 1850        |
+|         |            | 1-degree FV dycore, TSMLT1, CMIP6       |             |
+|         |            | piControl emissions, year 1850 SSTs,    |             |
+|         |            | coupled to interactive land and MEGAN2.1|             |
++---------+------------+-----------------------------------------+-------------+
+| FWHIST  |f09_f09_mg17| Historical WACCM6 using 1-degree FV     | 1974 to 2015|
+|         |            | dycore, TSMLT1, CMIP6 emissions,        |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+| FW2000  |f09_f09_mg17| Year 2000 WACCM6 1deg compset using     | 2000        |
+|         |            | 1-degree FV dycore, TSMLT1, year 2000   |             |
+|         |            | CMIP6 emissions, year 2000 SSTs, coupled|             |
+|         |            | to interactive land and MEGAN2.1        |             |
++---------+------------+-----------------------------------------+-------------+
+| FWSD    |f09_f09_mg17| Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
+|         |            | analysis with a 50-hour relaxation,     |             |
+|         |            | TSMLT1, CMIP6 emissions,                |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+| FWscHIST|f09_f09_mg17| Historical SC-WACCM6 using 1-degree FV  | 1976 to 2015|
+|         |            | dycore, specified chemistry, historical |             |
+|         |            | SSTs                                    |             |
++---------+------------+-----------------------------------------+-------------+
+
+========================================================
+Tested WACCM atmosphere compsets
+========================================================
+
+Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and middle atmosphere 
+plus D-region (MAD) chemistry (see 
+`chemical mechanisms <http://./CAM-chem-specifics.html#chemical-mechanisms>`_ ) and 
+0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).
+
++---------+------------+-----------------------------------------+-------------+
+| Compset | resolution | Description                             | Period      |
++=========+============+=========================================+=============+
+| FWmaHIST|f09_f09_mg17| Historical WACCM6 using 1-degree FV     | 1974 to 2015|
+|         |            | dycore, MA chemistry, CMIP6 emissions,  |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+|FWmadHIST|f09_f09_mg17| Historical WACCM6 using 1-degree FV     | 1974 to 2015|
+|         |            | dycore, MAD chemistry, CMIP6 emissions, |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+| FWmaSD  |f09_f09_mg17| Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
+|         |            | analysis with a 50-hour relaxation,     |             |
+|         |            | MA chemistry, CMIP6 emissions,          |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+| FWmadSD |f09_f09_mg17| Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
+|         |            | analysis with a 50-hour relaxation,     |             |
+|         |            | MAD chemistry, CMIP6 emissions,         |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+
+========================================================
+Scientifically supported coupled WACCM compsets
+========================================================
+
++---------+------------+-----------------------------------------+-------------+
+| Compset | resolution | Description                             | Period      |
++=========+============+=========================================+=============+
+| BW1850  | f09_g17    | Pre-industrial control WACCM6 using     | 1850        |
+|         |            | 1-degree FV dycore, TSMLT1, CMIP6       |             |
+|         |            | piControl emissions, coupled to         |             |
+|         |            | interactive ocean, sea ice, land, and   |             |
+|         |            | MEGAN2.1                                |             |
++---------+------------+-----------------------------------------+-------------+
+
+========================================================
+Tested coupled WACCM compsets
+========================================================
+
++---------+------------+-----------------------------------------+-------------+
+| Compset | resolution | Description                             | Period      |
++=========+============+=========================================+=============+
+| BWma1850| f19_g17    | Pre-industrial control WACCM6 using     | 1850        |
+|         |            | 2-degree FV dycore, MA chemistry, CMIP6 |             |
+|         |            | piControl emissions, coupled to         |             |
+|         |            | interactive ocean, sea ice, land, and   |             |
+|         |            | MEGAN2.1                                |             |
++---------+------------+-----------------------------------------+-------------+
 
 
 -------------------------------------------------------------------------------
 WACCM-X compsets
 -------------------------------------------------------------------------------
 
+FX2000, FXHIST, FXSD

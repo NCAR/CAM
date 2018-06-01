@@ -77,10 +77,12 @@
 <li><a class="reference internal" href="#super-parameterized-cam-spcam">4.4.1. Super-parameterized CAM (SPCAM)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cam-chem-compsets">4.5. CAM-chem compsets</a></li>
+<li><a class="reference internal" href="#cam-chem-tested-compsets">4.5. CAM-chem tested compsets</a></li>
 <li><a class="reference internal" href="#waccm-compsets">4.6. WACCM compsets</a><ul>
-<li><a class="reference internal" href="#scientifically-supported-waccm-compsets">4.6.1. Scientifically supported WACCM compsets</a></li>
-<li><a class="reference internal" href="#functionally-supported-waccm-compsets">4.6.2. Functionally supported WACCM compsets</a></li>
+<li><a class="reference internal" href="#scientifically-supported-waccm-atmosphere-compsets">4.6.1. Scientifically supported WACCM atmosphere compsets</a></li>
+<li><a class="reference internal" href="#tested-waccm-atmosphere-compsets">4.6.2. Tested WACCM atmosphere compsets</a></li>
+<li><a class="reference internal" href="#scientifically-supported-coupled-waccm-compsets">4.6.3. Scientifically supported coupled WACCM compsets</a></li>
+<li><a class="reference internal" href="#tested-coupled-waccm-compsets">4.6.4. Tested coupled WACCM compsets</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#waccm-x-compsets">4.7. WACCM-X compsets</a></li>
@@ -711,11 +713,11 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 <p>More details about SPCAM can be found at: <strong>????????????????????</strong></p>
 </div>
 </div>
-<div class="section" id="cam-chem-compsets">
-<h2>4.5. CAM-chem compsets<a class="headerlink" href="#cam-chem-compsets" title="Permalink to this headline">¶</a></h2>
-<p>CAM-chem functional compsets in CESM2.0
+<div class="section" id="cam-chem-tested-compsets">
+<h2>4.5. CAM-chem tested compsets<a class="headerlink" href="#cam-chem-tested-compsets" title="Permalink to this headline">¶</a></h2>
+<p>CAM-chem tested compsets in CESM2.0
 (CAM-chem scientifically supported compsets will be available in CESM2.1)</p>
-<p>CAM-chem has a number of compsets/resolutions which are functional in CESM2.0, see Table.
+<p>CAM-chem has a number of compsets/resolutions which are tested in CESM2.0, see Table.
 All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015.
 Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on
 56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested
@@ -730,7 +732,7 @@ to run with 32 levels that are not availble at this point. Half-degree SD compse
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Compset Name</th>
-<th class="head">functional resolution</th>
+<th class="head">tested resolution</th>
 <th class="head">Description</th>
 <th class="head">Period</th>
 </tr>
@@ -768,18 +770,22 @@ lower boundary conditions (2005-2015)</td>
 </div>
 <div class="section" id="waccm-compsets">
 <h2>4.6. WACCM compsets<a class="headerlink" href="#waccm-compsets" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="scientifically-supported-waccm-compsets">
-<h3>4.6.1. Scientifically supported WACCM compsets<a class="headerlink" href="#scientifically-supported-waccm-compsets" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="scientifically-supported-waccm-atmosphere-compsets">
+<h3>4.6.1. Scientifically supported WACCM atmosphere compsets<a class="headerlink" href="#scientifically-supported-waccm-atmosphere-compsets" title="Permalink to this headline">¶</a></h3>
+<p>Scientifically supported WACCM atmosphere configurations for CESM2.0 use TSMLT1 chemistry
+(see <a class="reference external" href="http://./CAM-chem-specifics.html#chemical-mechanisms">chemical mechanisms</a> ) and
+0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).
+Additional scientifically validated configurations will be available in CESM2.1.</p>
 <table border="1" class="docutils">
 <colgroup>
+<col width="12%" />
 <col width="16%" />
-<col width="24%" />
-<col width="46%" />
-<col width="14%" />
+<col width="55%" />
+<col width="17%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Compset Name</th>
-<th class="head">supported resolution</th>
+<tr class="row-odd"><th class="head">Compset</th>
+<th class="head">resolution</th>
 <th class="head">Description</th>
 <th class="head">Period</th>
 </tr>
@@ -828,18 +834,22 @@ SSTs</td>
 </tbody>
 </table>
 </div>
-<div class="section" id="functionally-supported-waccm-compsets">
-<h3>4.6.2. Functionally supported WACCM compsets<a class="headerlink" href="#functionally-supported-waccm-compsets" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tested-waccm-atmosphere-compsets">
+<h3>4.6.2. Tested WACCM atmosphere compsets<a class="headerlink" href="#tested-waccm-atmosphere-compsets" title="Permalink to this headline">¶</a></h3>
+<p>Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and middle atmosphere
+plus D-region (MAD) chemistry (see
+<a class="reference external" href="http://./CAM-chem-specifics.html#chemical-mechanisms">chemical mechanisms</a> ) and
+0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).</p>
 <table border="1" class="docutils">
 <colgroup>
+<col width="12%" />
 <col width="16%" />
-<col width="24%" />
-<col width="46%" />
-<col width="14%" />
+<col width="55%" />
+<col width="17%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Compset Name</th>
-<th class="head">supported resolution</th>
+<tr class="row-odd"><th class="head">Compset</th>
+<th class="head">resolution</th>
 <th class="head">Description</th>
 <th class="head">Period</th>
 </tr>
@@ -882,9 +892,68 @@ land and MEGAN2.1</td>
 </tbody>
 </table>
 </div>
+<div class="section" id="scientifically-supported-coupled-waccm-compsets">
+<h3>4.6.3. Scientifically supported coupled WACCM compsets<a class="headerlink" href="#scientifically-supported-coupled-waccm-compsets" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="16%" />
+<col width="55%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Compset</th>
+<th class="head">resolution</th>
+<th class="head">Description</th>
+<th class="head">Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>BW1850</td>
+<td>f09_g17</td>
+<td>Pre-industrial control WACCM6 using
+1-degree FV dycore, TSMLT1, CMIP6
+piControl emissions, coupled to
+interactive ocean, sea ice, land, and
+MEGAN2.1</td>
+<td>1850</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tested-coupled-waccm-compsets">
+<h3>4.6.4. Tested coupled WACCM compsets<a class="headerlink" href="#tested-coupled-waccm-compsets" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="16%" />
+<col width="55%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Compset</th>
+<th class="head">resolution</th>
+<th class="head">Description</th>
+<th class="head">Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>BWma1850</td>
+<td>f19_g17</td>
+<td>Pre-industrial control WACCM6 using
+2-degree FV dycore, MA chemistry, CMIP6
+piControl emissions, coupled to
+interactive ocean, sea ice, land, and
+MEGAN2.1</td>
+<td>1850</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="waccm-x-compsets">
 <h2>4.7. WACCM-X compsets<a class="headerlink" href="#waccm-x-compsets" title="Permalink to this headline">¶</a></h2>
+<p>FX2000, FXHIST, FXSD</p>
 </div>
 </div>
 
