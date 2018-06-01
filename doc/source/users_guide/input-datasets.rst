@@ -97,6 +97,7 @@ SOAG4, SVOC, TERP2OOH, TERPNIT, TERPOOH, TERPROD1, TERPROD2,
 TOLOOH, XOOH, XYLENOOH, XYLOLOOH
 
 Species with wet deposition:
+
 Aerosols:  bc_a1, bc_a4, dst_a1, dst_a2, dst_a3, ncl_a1, ncl_a2, ncl_a3, 
  num_a1, num_a2, num_a3, num_a4, pom_a1, pom_a4, so4_a1, so4_a2, so4_a3, 
  soa1_a1, soa1_a2, soa2_a1, soa2_a2, soa3_a1, soa3_a2, soa4_a1, soa4_a2, soa5_a1, soa5_a2
@@ -114,7 +115,8 @@ List of species with biogenic emissions (CAMChem/WACCM)
 ============================================================
 
 Species with MEGAN emissions (CAM-chem (TS1) and WACCM (TSMLT)) are listed in drv_flds_in, 
-and can be modified in user_nl_cam. Note, modifications may be required for other mechanisms)::
+and can be modified in user_nl_cam. Note, modifications may be required for other 
+mechanisms), see  CAM-chem-specifics.rst:- `Running with interactiv / prescribed biogenic emissions <https://ncar.github.io/CAM/doc/build/html/users_guide/CAM-chem-specifics.html#running-with-prognostic-fire-emissions>`_ ::
 
   megan_specifier = 'ISOP = isoprene',
       'MTERP = pinene_a + carene_3 + thujene_a + 2met_styrene + cymene_p + cymene_o + terpinolene + bornene + fenchene_a +
@@ -189,7 +191,7 @@ Meteorological data sets
 For specified dynamics model simulation, meteorolocial analysis from the  Goddard Earth 
 Observing System Model, Version 5 (GEOS5) and the Modern-Era Retrospective analysis for 
 Research and Applications, Version 2 (MERRA2) data have been prepared to run CESM and WRF 
-simulations and are available in 3 resulution, and are availbe on the Research Data 
+simulations and are available in 3 resolutions, and are availbe on the Research Data 
 Archive: 
 
 

@@ -178,11 +178,12 @@ NH3, NH4, NO, NO2, NOA, NTERPOOH, O3, ONITR, PAN,
 PHENOOH, POOH, ROOH, SO2, SOAG0, SOAG1, SOAG2, SOAG3,
 SOAG4, SVOC, TERP2OOH, TERPNIT, TERPOOH, TERPROD1, TERPROD2,
 TOLOOH, XOOH, XYLENOOH, XYLOLOOH</p>
-<p>Species with wet deposition:
-Aerosols:  bc_a1, bc_a4, dst_a1, dst_a2, dst_a3, ncl_a1, ncl_a2, ncl_a3,</p>
-<blockquote>
-<div>num_a1, num_a2, num_a3, num_a4, pom_a1, pom_a4, so4_a1, so4_a2, so4_a3,
-soa1_a1, soa1_a2, soa2_a1, soa2_a2, soa3_a1, soa3_a2, soa4_a1, soa4_a2, soa5_a1, soa5_a2</div></blockquote>
+<p>Species with wet deposition:</p>
+<dl class="docutils">
+<dt>Aerosols:  bc_a1, bc_a4, dst_a1, dst_a2, dst_a3, ncl_a1, ncl_a2, ncl_a3,</dt>
+<dd>num_a1, num_a2, num_a3, num_a4, pom_a1, pom_a4, so4_a1, so4_a2, so4_a3,
+soa1_a1, soa1_a2, soa2_a1, soa2_a2, soa3_a1, soa3_a2, soa4_a1, soa4_a2, soa5_a1, soa5_a2</dd>
+</dl>
 <p>Gas-phase: ALKNIT, ALKOOH, BENZOOH, BRONO2, BZOOH, C2H5OH, C2H5OOH, C3H7OOH, C6H5OOH,
 CH2O, CH3CHO, CH3CN, CH3COCH3, CH3COCHO, CH3COOH, CH3COOOH, CH3OH, CH3OOH, CLONO2, COF2,
 COFCL, EOOH, GLYALD, H2O2, H2SO4, HBR, HCL, HCN, HCOOH, HF, HNO3, HO2NO2, HOBR, HOCL,
@@ -194,7 +195,8 @@ TERP2OOH, TERPNIT, TERPOOH, TERPROD1, TERPROD2, TOLOOH, XOOH, XYLENOOH, XYLOLOOH
 <div class="section" id="list-of-species-with-biogenic-emissions-camchem-waccm">
 <h3>6.1.6. List of species with biogenic emissions (CAMChem/WACCM)<a class="headerlink" href="#list-of-species-with-biogenic-emissions-camchem-waccm" title="Permalink to this headline">¶</a></h3>
 <p>Species with MEGAN emissions (CAM-chem (TS1) and WACCM (TSMLT)) are listed in drv_flds_in,
-and can be modified in user_nl_cam. Note, modifications may be required for other mechanisms):</p>
+and can be modified in user_nl_cam. Note, modifications may be required for other
+mechanisms), see  CAM-chem-specifics.rst:- <a class="reference external" href="https://ncar.github.io/CAM/doc/build/html/users_guide/CAM-chem-specifics.html#running-with-prognostic-fire-emissions">Running with interactiv / prescribed biogenic emissions</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">megan_specifier</span> <span class="o">=</span> <span class="s1">&#39;ISOP = isoprene&#39;</span><span class="p">,</span>
      <span class="s1">&#39;MTERP = pinene_a + carene_3 + thujene_a + 2met_styrene + cymene_p + cymene_o + terpinolene + bornene + fenchene_a +</span>
 <span class="n">ocimene_al</span> <span class="o">+</span> <span class="n">pinene_b</span> <span class="o">+</span> <span class="n">sabinene</span> <span class="o">+</span> <span class="n">camphene</span> <span class="o">+</span> <span class="n">limonene</span> <span class="o">+</span> <span class="n">phellandrene_a</span> <span class="o">+</span> <span class="n">terpinene_g</span> <span class="o">+</span> <span class="n">terpinene_a</span> <span class="o">+</span> <span class="n">phellandrene_b</span> <span class="o">+</span>
@@ -259,7 +261,7 @@ soil_erod_file         = ‘/glade/p/cesmdata/cseg/inputdata/atm/cam/dst/dst_sou
 <p>For specified dynamics model simulation, meteorolocial analysis from the  Goddard Earth
 Observing System Model, Version 5 (GEOS5) and the Modern-Era Retrospective analysis for
 Research and Applications, Version 2 (MERRA2) data have been prepared to run CESM and WRF
-simulations and are available in 3 resulution, and are availbe on the Research Data
+simulations and are available in 3 resolutions, and are availbe on the Research Data
 Archive:</p>
 <p>GEOS5 2005-present (currently only 1.9x2.5 degree horizontal resolution):
 <a class="reference external" href="https://rda.ucar.edu/datasets/ds313.0/">https://rda.ucar.edu/datasets/ds313.0/</a></p>
