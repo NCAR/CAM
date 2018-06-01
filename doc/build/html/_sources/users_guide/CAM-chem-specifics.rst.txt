@@ -15,15 +15,15 @@ CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemica
 +-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
 | Mechanism | Description                     | #Species | #Reactions       | Mechanism Name               | Pre-processor code   | 
 +===========+=================================+==========+==================+==============================+======================+
-| TSMLT1    | Chemistry including troposphere,|  231     | 583 (433 kinetic,| MZ197_TSMLT1_20180423        | pp_waccm_tsmlt_mam4  |
+| TSMLT1    | Troposphere,                    |  231     | 583 (433 kinetic,| MZ197_TSMLT1_20180423        | pp_waccm_tsmlt_mam4  |
 |           | stratosphere, mesosphere, and   |          | 150 photolysis)  |                              |                      |
 |           | lower thermosphere              |          |                  |                              |                      |
 +-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| TS1       | Chemistry including troposphere,|  221     | 528 (405 kinetic,| MZ198_TS1-simpleVBS_20180423 |pp_trop_strat_mam4_vbs| 
+| TS1       | Troposphere                     |  221     | 528 (405 kinetic,| MZ198_TS1-simpleVBS_20180423 |pp_trop_strat_mam4_vbs| 
 |           | and stratosphere                |          | 123 photolysis)  |                              |                      |
 +-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| MA        | Middle atmosphere chemistry     |   98     | 298 (207 kinetic,|                              | pp_waccm_ma_mam4     | 
-|           | including stratosphere,         |          | 91 photolysis)   |                              |                      |
+| MA        | Middle atmosphere:              |   98     | 298 (207 kinetic,|                              | pp_waccm_ma_mam4     | 
+|           | stratosphere,                   |          | 91 photolysis)   |                              |                      |
 |           | mesosphere, and lower           |          |                  |                              |                      |
 |           | thermosphere                    |          |                  |                              |                      |
 +-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
@@ -33,7 +33,7 @@ CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemica
 | SC        | Specified chemistry for WACCM   |   29     | 12 (11 kinetic,  |                              | pp_waccm_sc_mam4     | 
 |           |                                 |          | 1 photolysis)    |                              |                      |
 +-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| CAM       | Simplified Chemistry for CAM to |   32     | 7 (6 kinetic), 1 |                              | modal_aero           |
+| CAM       | Simplified chemistry for CAM to |   32     | 7 (6 kinetic), 1 |                              | modal_aero           |
 |           | to allow tropospheric aerosol   |          | photolysis)      |                              |                      |
 |           | formation                       |          |                  |                              |                      |
 +-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
