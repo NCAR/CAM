@@ -78,7 +78,11 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#cam-chem-compsets">4.5. CAM-chem compsets</a></li>
-<li><a class="reference internal" href="#waccm-compsets">4.6. WACCM compsets</a></li>
+<li><a class="reference internal" href="#waccm-compsets">4.6. WACCM compsets</a><ul>
+<li><a class="reference internal" href="#scientifically-supported-waccm-compsets">4.6.1. Scientifically supported WACCM compsets</a></li>
+<li><a class="reference internal" href="#functionally-supported-waccm-compsets">4.6.2. Functionally supported WACCM compsets</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#waccm-x-compsets">4.7. WACCM-X compsets</a></li>
 </ul>
 </li>
@@ -712,17 +716,21 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 <p>CAM-chem functional compsets in CESM2.0
 (CAM-chem scientifically supported compsets will be available in CESM2.1)</p>
 <p>CAM-chem has a number of compsets/resolutions which are functional in CESM2.0, see Table.
-All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested to run with 32 levels that are not availble at this point. Half degree SD compsets use 1 degree emissions. Users have to change to half degree emissions if desired.</p>
+All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015.
+Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on
+56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested
+to run with 32 levels that are not availble at this point. Half-degree SD compsets use
+1-degree emissions. Users have to change to half-degree emissions if desired.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="16%" />
-<col width="24%" />
-<col width="46%" />
+<col width="15%" />
+<col width="25%" />
+<col width="45%" />
 <col width="14%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Compset Name</th>
-<th class="head">supported resolution</th>
+<th class="head">functional resolution</th>
 <th class="head">Description</th>
 <th class="head">Period</th>
 </tr>
@@ -760,6 +768,120 @@ lower boundary conditions (2005-2015)</td>
 </div>
 <div class="section" id="waccm-compsets">
 <h2>4.6. WACCM compsets<a class="headerlink" href="#waccm-compsets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scientifically-supported-waccm-compsets">
+<h3>4.6.1. Scientifically supported WACCM compsets<a class="headerlink" href="#scientifically-supported-waccm-compsets" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="24%" />
+<col width="46%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Compset Name</th>
+<th class="head">supported resolution</th>
+<th class="head">Description</th>
+<th class="head">Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FW1850</td>
+<td>f09_f09_mg17</td>
+<td>Pre-industrial control WACCM6 using
+1-degree FV dycore, TSMLT1, CMIP6
+piControl emissions, year 1850 SSTs,
+coupled to interactive land and MEGAN2.1</td>
+<td>1850</td>
+</tr>
+<tr class="row-odd"><td>FWHIST</td>
+<td>f09_f09_mg17</td>
+<td>Historical WACCM6 using 1-degree FV
+dycore, TSMLT1, CMIP6 emissions,
+historical SSTs, coupled to interactive
+land and MEGAN2.1</td>
+<td>1974 to 2015</td>
+</tr>
+<tr class="row-even"><td>FW2000</td>
+<td>f09_f09_mg17</td>
+<td>Year 2000 WACCM6 1deg compset using
+1-degree FV dycore, TSMLT1, year 2000
+CMIP6 emissions, year 2000 SSTs, coupled
+to interactive land and MEGAN2.1</td>
+<td>2000</td>
+</tr>
+<tr class="row-odd"><td>FWSD</td>
+<td>f09_f09_mg17</td>
+<td>Historical SD-WACCM6 using GEOS5
+analysis with a 50-hour relaxation,
+TSMLT1, CMIP6 emissions,
+historical SSTs, coupled to interactive
+land and MEGAN2.1</td>
+<td>2005 to 2015</td>
+</tr>
+<tr class="row-even"><td>FWscHIST</td>
+<td>f09_f09_mg17</td>
+<td>Historical SC-WACCM6 using 1-degree FV
+dycore, specified chemistry, historical
+SSTs</td>
+<td>1976 to 2015</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functionally-supported-waccm-compsets">
+<h3>4.6.2. Functionally supported WACCM compsets<a class="headerlink" href="#functionally-supported-waccm-compsets" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="24%" />
+<col width="46%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Compset Name</th>
+<th class="head">supported resolution</th>
+<th class="head">Description</th>
+<th class="head">Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FWmaHIST</td>
+<td>f09_f09_mg17</td>
+<td>Historical WACCM6 using 1-degree FV
+dycore, MA chemistry, CMIP6 emissions,
+historical SSTs, coupled to interactive
+land and MEGAN2.1</td>
+<td>1974 to 2015</td>
+</tr>
+<tr class="row-odd"><td>FWmadHIST</td>
+<td>f09_f09_mg17</td>
+<td>Historical WACCM6 using 1-degree FV
+dycore, MAD chemistry, CMIP6 emissions,
+historical SSTs, coupled to interactive
+land and MEGAN2.1</td>
+<td>1974 to 2015</td>
+</tr>
+<tr class="row-even"><td>FWmaSD</td>
+<td>f09_f09_mg17</td>
+<td>Historical SD-WACCM6 using GEOS5
+analysis with a 50-hour relaxation,
+MA chemistry, CMIP6 emissions,
+historical SSTs, coupled to interactive
+land and MEGAN2.1</td>
+<td>2005 to 2015</td>
+</tr>
+<tr class="row-odd"><td>FWmadSD</td>
+<td>f09_f09_mg17</td>
+<td>Historical SD-WACCM6 using GEOS5
+analysis with a 50-hour relaxation,
+MAD chemistry, CMIP6 emissions,
+historical SSTs, coupled to interactive
+land and MEGAN2.1</td>
+<td>2005 to 2015</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="waccm-x-compsets">
 <h2>4.7. WACCM-X compsets<a class="headerlink" href="#waccm-x-compsets" title="Permalink to this headline">¶</a></h2>

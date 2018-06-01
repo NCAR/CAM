@@ -116,7 +116,8 @@ List of species with biogenic emissions (CAMChem/WACCM)
 
 Species with MEGAN emissions (CAM-chem (TS1) and WACCM (TSMLT)) are listed in drv_flds_in, 
 and can be modified in user_nl_cam. Note, modifications may be required for other 
-mechanisms), see  CAM-chem-specifics.rst:- `Running with interactiv / prescribed biogenic emissions <https://ncar.github.io/CAM/doc/build/html/users_guide/CAM-chem-specifics.html#running-with-prognostic-fire-emissions>`_ ::
+mechanisms), see 
+`Running with interactiv / prescribed biogenic emissions <https://ncar.github.io/CAM/doc/build/html/users_guide/CAM-chem-specifics.html#running-with-prognostic-fire-emissions>`_ ::
 
   megan_specifier = 'ISOP = isoprene',
       'MTERP = pinene_a + carene_3 + thujene_a + 2met_styrene + cymene_p + cymene_o + terpinolene + bornene + fenchene_a +
@@ -217,10 +218,12 @@ All versions of CESM2 use the **solar_irrad_data_file**, which provides the reco
 spectral solar irradiance at 1 AU as the variable *ssi*, with units of 
 mW m :superscript:`-2` nm :superscript:`-1`.
 
-piControl:
+piControl::
+
  solar_irrad_data_file = '$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6piControl_c160921.nc'
 
-Historical:
+Historical::
+
  solar_irrad_data_file = '$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6_18491230-22991231_c171031.nc'
 
 ================================================
@@ -239,14 +242,16 @@ medium energy electrons.
 The data for all three solar inputs have been combined into a single file for each time 
 period, so that WACCM points to the same file for each.
 
-piControl:
+piControl::
+
  solar_irrad_data_file = '$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6piControl_c160921.nc'
  
  solar_parms_data_file = '$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6piControl_c160921.nc'
  
  epp_all_filepath      = '$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6piControl_c160921.nc'
 
-Historical:
+Historical ::
+
  solar_irrad_data_file = '$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6_18491230-22991231_c171031.nc'
  
  solar_parms_data_file = '$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6_18491230-22991231_c171031.nc'
@@ -260,21 +265,25 @@ WACCM-X solar inputs
 **WACCM-X** uses the Naval Research Laboratory (NRL) Version 1 reconstruction for solar 
 irradiance (Lean, ref), rather than CMIP6. Instead of the epp_all_filepath, WACCM-X uses
 the **epp_spe_filepath**, which provides ion pair production rates just for solar proton 
-events (neglecting cosmic rays and MEE).
+events (neglecting cosmic rays and MEE). For historical simulations, WACCM-X uses a 
+solar_parms_data_file with 3-hour time resolution, spanning the dates April 10, 1947 to 
+July 23, 2016.
 
-Historical:
+Historical ::
+
  solar_irrad_data_file = '$DIN_LOC_ROOT/atm/cam/solar/spectral_irradiance_Lean_1950-2014_daily_GOME-Mg_Leap_c150623.nc'
  
  epp_spe_filepath      = '$DIN_LOC_ROOT/atm/waccm/solar/spes_1963-2014_c150717.nc'
  
  solar_parms_data_file = '$DIN_LOC_ROOT/atm/waccm/solar/waxsolar_3hr_c170504.nc'
  
-Constant year 2000:
+Constant year 2000 ::
+
  solar_irrad_data_file = '$DIN_LOC_ROOT/atm/cam/solar/spectral_irradiance_Lean_1950-2014_daily_GOME-Mg_Leap_c150623.nc'
  
  epp_spe_filepath      = '$DIN_LOC_ROOT/atm/waccm/solar/spes_1963-2014_c150717.nc'
  
- solar_parms_data_file = '$DIN_LOC_ROOT/atm/waccm/solar/wa_avg_c20170519.nc'
+ solar_parms_data_file = '$DIN_LOC_ROOT/atm/waccm/phot/wa_avg_c20170519.nc'
  
 ------------------------------
 Additional inputs for WACCM and WACCM-X
@@ -288,7 +297,9 @@ Geomagnetic coefficients
 Ion drag
 ================================================
  efield_hflux_file		= '$DIN_LOC_ROOT/atm/waccm/efld/coeff_hflux.dat'
+ 
  efield_lflux_file		= '$DIN_LOC_ROOT/atm/waccm/efld/coeff_lflux.dat'
+ 
  efield_wei96_file		= '$DIN_LOC_ROOT/atm/waccm/efld/wei96.cofcnts'
 
 ================================================
