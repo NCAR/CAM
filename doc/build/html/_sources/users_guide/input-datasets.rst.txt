@@ -277,7 +277,7 @@ Constant year 2000:
  solar_parms_data_file = '$DIN_LOC_ROOT/atm/waccm/solar/wa_avg_c20170519.nc'
  
 ------------------------------
-WACCM
+Additional inputs for WACCM and WACCM-X
 ------------------------------
 ================================================
 Geomagnetic coefficients
@@ -304,5 +304,5 @@ Upper boundary condition
 ------------------------------
 WACCM-X
 ------------------------------
-
+Nothing to see here?
 
