@@ -785,7 +785,7 @@ Additional scientifically validated configurations will be available in CESM2.1.
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Compset</th>
-<th class="head">resolution</th>
+<th class="head">Resolution</th>
 <th class="head">Description</th>
 <th class="head">Period</th>
 </tr>
@@ -836,8 +836,8 @@ SSTs</td>
 </div>
 <div class="section" id="tested-waccm-atmosphere-compsets">
 <h3>4.6.2. Tested WACCM atmosphere compsets<a class="headerlink" href="#tested-waccm-atmosphere-compsets" title="Permalink to this headline">¶</a></h3>
-<p>Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and middle atmosphere
-plus D-region (MAD) chemistry (see
+<p>Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and
+middle atmosphere plus D-region (MAD) chemistry (see
 <a class="reference external" href="http://./CAM-chem-specifics.html#chemical-mechanisms">chemical mechanisms</a> ) and
 0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).</p>
 <table border="1" class="docutils">
@@ -849,7 +849,7 @@ plus D-region (MAD) chemistry (see
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Compset</th>
-<th class="head">resolution</th>
+<th class="head">Resolution</th>
 <th class="head">Description</th>
 <th class="head">Period</th>
 </tr>
@@ -894,6 +894,7 @@ land and MEGAN2.1</td>
 </div>
 <div class="section" id="scientifically-supported-coupled-waccm-compsets">
 <h3>4.6.3. Scientifically supported coupled WACCM compsets<a class="headerlink" href="#scientifically-supported-coupled-waccm-compsets" title="Permalink to this headline">¶</a></h3>
+<p><strong>AUTHOR QUESTION:</strong> Should coupled compsets be left out of the CAM user’s guide?</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -903,7 +904,7 @@ land and MEGAN2.1</td>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Compset</th>
-<th class="head">resolution</th>
+<th class="head">Resolution</th>
 <th class="head">Description</th>
 <th class="head">Period</th>
 </tr>
@@ -923,6 +924,7 @@ MEGAN2.1</td>
 </div>
 <div class="section" id="tested-coupled-waccm-compsets">
 <h3>4.6.4. Tested coupled WACCM compsets<a class="headerlink" href="#tested-coupled-waccm-compsets" title="Permalink to this headline">¶</a></h3>
+<p><strong>AUTHOR QUESTION:</strong> Should coupled compsets be left out of the CAM user’s guide?</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -932,7 +934,7 @@ MEGAN2.1</td>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Compset</th>
-<th class="head">resolution</th>
+<th class="head">Resolution</th>
 <th class="head">Description</th>
 <th class="head">Period</th>
 </tr>
@@ -953,7 +955,58 @@ MEGAN2.1</td>
 </div>
 <div class="section" id="waccm-x-compsets">
 <h2>4.7. WACCM-X compsets<a class="headerlink" href="#waccm-x-compsets" title="Permalink to this headline">¶</a></h2>
-<p>FX2000, FXHIST, FXSD</p>
+<p>WACCM-X has three compsets/resolutions which are supported scientifically.  These compsets
+are detailed in the following table.  A specific compset may be listed below, but unless
+the resolution is also listed, that compset/resolution combination is not scientifically
+supported.  Different resolutions exhibit different behavior and as a result require
+different tunings.  The scientifically supported designation is limited to the specific
+compset/resolution pairs listed in the following table.</p>
+<p><strong>Scientifically supported WACCM-X compsets</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="24%" />
+<col width="46%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Compset Name</th>
+<th class="head">Supported Resolution</th>
+<th class="head">Description</th>
+<th class="head">Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FXHIST</td>
+<td>f19_f19_mg16</td>
+<td>Historical WACCM-X based on CAM4 using
+2 degree FV dycore, MA chemistry, CCMI
+emissions, historical SSTs, coupled to
+land, prescribed ice, river</td>
+<td>2000 to 2015</td>
+</tr>
+<tr class="row-odd"><td>FX2000</td>
+<td>f19_f19_mg16</td>
+<td>Year 2000 WACCM-X based on CAM4 2 degree
+FV dycore, using MA chemistry, year 2000
+CCMI emissions and SSTs, coupled to
+interactive land, prescribed ice, river</td>
+<td>2000</td>
+</tr>
+<tr class="row-even"><td>FXSD</td>
+<td>f19_f19_mg16</td>
+<td>Historical SD-WACCM-X based on CAM4
+using 2 degree FV dycore, MERRA1 with a
+50-hour relaxation, MA chemistry, CCMI
+emissions, historical SSTs, coupled to
+interactive land, prescribed ice, river</td>
+<td>2000 to 2015</td>
+</tr>
+</tbody>
+</table>
+<p>It should be noted that these WACCM-X compsets are based on the previous version 4 of
+CAM/WACCM and therefore are not derivatives of the version 6 CAM/WACCM compsets described
+above.</p>
 </div>
 </div>
 

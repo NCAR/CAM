@@ -564,7 +564,7 @@ Scientifically supported WACCM atmosphere configurations for CESM2.0 use TSMLT1 
 Additional scientifically validated configurations will be available in CESM2.1.
 
 +---------+------------+-----------------------------------------+-------------+
-| Compset | resolution | Description                             | Period      |
+| Compset | Resolution | Description                             | Period      |
 +=========+============+=========================================+=============+
 | FW1850  |f09_f09_mg17| Pre-industrial control WACCM6 using     | 1850        |
 |         |            | 1-degree FV dycore, TSMLT1, CMIP6       |             |
@@ -596,13 +596,13 @@ Additional scientifically validated configurations will be available in CESM2.1.
 Tested WACCM atmosphere compsets
 ========================================================
 
-Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and middle atmosphere 
-plus D-region (MAD) chemistry (see 
+Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and 
+middle atmosphere plus D-region (MAD) chemistry (see 
 `chemical mechanisms <http://./CAM-chem-specifics.html#chemical-mechanisms>`_ ) and 
 0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).
 
 +---------+------------+-----------------------------------------+-------------+
-| Compset | resolution | Description                             | Period      |
+| Compset | Resolution | Description                             | Period      |
 +=========+============+=========================================+=============+
 | FWmaHIST|f09_f09_mg17| Historical WACCM6 using 1-degree FV     | 1974 to 2015|
 |         |            | dycore, MA chemistry, CMIP6 emissions,  |             |
@@ -630,9 +630,10 @@ plus D-region (MAD) chemistry (see
 ========================================================
 Scientifically supported coupled WACCM compsets
 ========================================================
+**AUTHOR QUESTION:** Should coupled compsets be left out of the CAM user's guide?
 
 +---------+------------+-----------------------------------------+-------------+
-| Compset | resolution | Description                             | Period      |
+| Compset | Resolution | Description                             | Period      |
 +=========+============+=========================================+=============+
 | BW1850  | f09_g17    | Pre-industrial control WACCM6 using     | 1850        |
 |         |            | 1-degree FV dycore, TSMLT1, CMIP6       |             |
@@ -644,9 +645,10 @@ Scientifically supported coupled WACCM compsets
 ========================================================
 Tested coupled WACCM compsets
 ========================================================
+**AUTHOR QUESTION:** Should coupled compsets be left out of the CAM user's guide?
 
 +---------+------------+-----------------------------------------+-------------+
-| Compset | resolution | Description                             | Period      |
+| Compset | Resolution | Description                             | Period      |
 +=========+============+=========================================+=============+
 | BWma1850| f19_g17    | Pre-industrial control WACCM6 using     | 1850        |
 |         |            | 2-degree FV dycore, MA chemistry, CMIP6 |             |
@@ -659,7 +661,12 @@ Tested coupled WACCM compsets
 -------------------------------------------------------------------------------
 WACCM-X compsets
 -------------------------------------------------------------------------------
-WACCM-X has three compsets/resolutions which are supported scientifically.  These compsets are detailed in the following table.  A specific compset may be listed below, but unless the resolution is also listed, that compset/resolution combination is not scientifically supported.  Different resolutions exhibit different behavior and as a result require different tunings.  The scientifically supported designation is limited to the specific compset/resolution pairs listed in the following table.
+WACCM-X has three compsets/resolutions which are supported scientifically.  These compsets 
+are detailed in the following table.  A specific compset may be listed below, but unless 
+the resolution is also listed, that compset/resolution combination is not scientifically 
+supported.  Different resolutions exhibit different behavior and as a result require 
+different tunings.  The scientifically supported designation is limited to the specific 
+compset/resolution pairs listed in the following table.
 
 **Scientifically supported WACCM-X compsets**
 
@@ -683,6 +690,8 @@ WACCM-X has three compsets/resolutions which are supported scientifically.  Thes
 |              |                      | interactive land, prescribed ice, river |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 
-It should be noted that these WACCM-X compsets are based on the previous version 4 of CAM/WACCM and therefore are not derivatives of the version 6 CAM/WACCM compsets described above. 
+It should be noted that these WACCM-X compsets are based on the previous version 4 of 
+CAM/WACCM and therefore are not derivatives of the version 6 CAM/WACCM compsets described 
+above. 
 
 
