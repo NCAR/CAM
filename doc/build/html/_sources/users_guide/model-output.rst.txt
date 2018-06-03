@@ -6,12 +6,6 @@ Model Output:
 
 **Brian Eaton will review this chapter for accuracy**
 
-**NOTE TO CAC to add**
- - **Make sure to document where output files reside - either run or archive direcotories and how to find out where they are**
- - **Add fincl for include and fexcl for exclude in an example**
- - **Use empty_htapes=.true. to exclude everything and then fincl for what want to write out**
- - **Make a list of the namelist settings for history (i.e. history_amwg, history_vdiag, etc)**
-
 CAM produces a series of NetCDF format history files containing atmospheric gridpoint data generated during the course of a run. It also produces a series of NetCDF format restart files necessary to continue a run once it has terminated successfully and a series of initial conditions files that may be used to initialize new simulations. The contents of these datasets are described below.
 
 ------------------------
@@ -22,17 +16,32 @@ History files contain model data values written at specified frequencies during 
 
 History files may be visualized using various commercial or freely available tools. Examples include the the NCAR Graphics package (via NCL), CDAT, FERRET, ncview, MATLAB, and IDL. For a list of software tools for interacting with NetCDF files, view the UNIDATA maintained link `Software for Manipulating or Displaying NetCDF Data <http://www.unidata.ucar.edu/software/netcdf/software.html>`_.
 
+--------------------------------------------------------
+ Customizing output History Fields
+--------------------------------------------------------
+
+CAM writes a sequence of time samples to each of its specified history files.  By default, CAM will output a set of fields to a single monthly average history file.  There are namelist parameters which allow the user to customize output from their run. Up to ten history file streams may be output, each with its own set of characteristics.  This section will highlight some of the most commonly used history namelist settings.
+
+The following namelist settings are specified to customize each output stream desired.  Within the file, individual fields may be specified to be instantaneous or averaged along with other settings.  See the `namelist page <http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html>`_ and review the fincl defintion for more options for the fields.
+
+- ``finclX`` - List the fields to include in the output file #X (X=1-10)
+- ``fexclX`` - List the fields to exclude from the output file #X (X=1-10)
+
+The following three namelist variables are arrays up to length 10 which specify characteristics for the output files.  
+
+- ``nhtfrq`` - Array of write frequencies for each history file series.  If nhtfrq(1) = 0, the file will be a monthly average.  Only the first file series may be a monthly average.  If nhtfrq(i) > 0, frequency is specified as number of timesteps.  If nhtfrq(i) < 0, frequency is specified as number of hours.
+- ``ndens`` - set to 1 to output single precision reals, and 2 to output double precision
+- ``mfilt`` - the maximum number of times to output into a file for each output stream
+
+There are also namelist settings which control output in a general way.  
+
+- ``empty_htapes`` - turn off all default output and only write out the fields explicitly set via fincl settings
+- ``history_YYY`` - set the history to preset settings for various experiments.  For the complete listing go to the `namelist page <http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html>`_ and search for namelist variables with the ``history_`` prefix (i.e. ``history_amwg``, ``history_clubb``, etc.)
+
+
 ----------------------------------------
 General Features of History Files
 ----------------------------------------
-
-CAM writes a sequence of time samples to each of its specified history files. There can currently be from one to six history file streams, and each stream has its own set of the following attributes:
-
-- fields
-- output frequency
-- maximun number of time samples in a file
-- output precision (4-byte or 8-byte floats)
-- output domain (global or rectangular subdomains)
 
 Each time sample in a history file has an associated timestamp which conforms to the `CF metadata conventions <http://cfconventions.org/>`_. The time unit used in CAM's output files is "days since reference date" where the reference date is the run start date by default, but can be customized via the ``ref_ymd and ref_tod`` namelist variables. The variables relevant to the timestamps are the following (from the output of the NetCDF ``ncdump`` utility):
 ::
@@ -130,7 +139,7 @@ CAM is set up by default to output a set of fields to a single monthly average h
 
 The following links provide tables of default and master field lists for some standard model configurations which are characterized by the values of the ``-dyn``, ``-phys``, and ``-chem`` arguments to configure. The source of the information in these tables is CAM's default log file, so you can always look there for any configuration not included in the list below.
 
-**CAC -- PUT in CAM6 science supported compset information**
+**Eaton -- Do we have CAM6 science supported compset information? If not, should probably delete these examples**
 
 - `fv, cam4, none <http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam4.html>`_
 - `fv, cam4, trop_bam <http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam4_trop_bam.html>`_

@@ -4,7 +4,7 @@
 Building and Running the atmospheric model within CESM
 **********************************************************
 
-If you need to install CESM, you will need to download it from a git repository.  Please refer to `downloading CESM <http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html>`_.  If you have developer access to the CAM development repository, and if you are not going to run a fully coupled run and are only going to run F, Q or P compsets, you may save space by checking out a CAM standalone tag.  *This is only an option if you have developer access to the CAM development repository*  CAM is stored in a svn repository and the instructions for checking it out are in :ref:`Checking out CAM standalone <checking-out-cam-standalone>`
+If you need to install CESM, you will need to download it from a git repository.  Please refer to `downloading CESM <http://escomp.github.io/cesm/release-cesm2/downloading_cesm.html>`_.  If you have developer access to the CAM development repository, and if you are not going to run a fully coupled run and are only going to run F, Q or P compsets, you may save space by checking out a CAM standalone tag.  *This is only an option if you have developer access to the CAM development repository.*  CAM is stored in a svn repository and the instructions for checking it out are in :ref:`Checking out CAM standalone <checking-out-cam-standalone>`
 
 CAM runs are setup, built and submitted via the cime scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using a named configuration known as a compset.  Compsets will be described in much more detail in :ref:`Atmospheric configurations <atmospheric-configurations>`.  For this chapter, we will be using the compset FHIST.
 
@@ -18,6 +18,12 @@ A simple session to build the compset FHIST, 1 degree finite volume case and nam
 	% ./case.build
 	% ./case.submit
 
+It is important to note that case.build utilizes parallel compilation and will consume much of the node on which it is run.  On machines like cheyenne, this will result in the user being logged off the system partway through the build process.  On cheyenne, if you are executing the commands in a login node, you must say:
+::
+
+% qcmd -- ./case.build
+
+
 In the example above, the directory test_FHIST is called the **CASEROOT**.  The job will be run in **RUNDIR**.  The values of these (and all the other xml variables set by cime) can be seen by using xmlquery.
 ::
 
@@ -25,7 +31,7 @@ In the example above, the directory test_FHIST is called the **CASEROOT**.  The 
 	%./xmlquery CASEROOT
 	%./xmlquery RUNDIR
 
-A summary description of the setup/build/submit process can be found at the `CESM quick start <http://cesm-development.github.io/cime/doc/build/html/quickstart.html>`_.  
+A summary description of the setup/build/submit process can be found at the `CESM quick start <http://escomp.github.io/cesm/release-cesm2>`_.  
 
 Further, detailed information for each of the above steps can be found at: 
 
