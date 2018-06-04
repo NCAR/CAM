@@ -2,7 +2,7 @@
 
 .. |waccm| replace:: WACCM4.0
 
-.. _datafiles:
+.. _init_bndry_data:
 
 Initial and Boundary Data
 =========================

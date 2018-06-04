@@ -1,4 +1,4 @@
-.. _introduction1:
+.. _introduction:
 
 .. |cam| replace:: CAM5.0
 

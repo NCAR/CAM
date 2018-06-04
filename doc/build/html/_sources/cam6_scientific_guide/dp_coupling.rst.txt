@@ -1,4 +1,4 @@
-.. _chap-coupling:
+.. _dp_coupling:
 
 .. |cam| replace:: CAM6.0
 

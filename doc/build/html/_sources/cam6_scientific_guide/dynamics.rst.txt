@@ -1,4 +1,4 @@
-.. _chap3:
+.. _dynamics:
 
 .. |cam| replace:: CAM6.0
 

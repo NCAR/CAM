@@ -1,8 +1,6 @@
-.. |cam| replace:: CAM6.0
+.. |cam| replace:: CAM5.0
 
-.. |waccm| replace:: WACCM4.0
-
-.. _chap-sea_ice:
+.. _sea_ice:
 
 Sea Ice Thermodynamics
 ======================

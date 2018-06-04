@@ -15,13 +15,12 @@ CAM6 Scientific Guide
 
    cover.rst
    acknowledgements.rst
-   chapter1.rst
-   chapter2.rst
-   chapter3.rst
-   chapter4.rst
-   chapter5.rst
-   chapter6.rst
-   chapter7.rst
+   introduction.rst
+   dp_coupling.rst
+   dynamics.rst
+   physics.rst
+   extensions.rst
+   init_bndry_data.rst
    chapter8.rst
    acronyms.rst
 
