@@ -18,7 +18,9 @@ Table of contents
       
    users_guide/index.rst
    cam6_scientific_guide/index.rst
+   cam6_scientific_summary/index.rst
    cam5_scientific_guide/index.rst
+
 
 Indices and tables
 ==================
