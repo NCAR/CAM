@@ -18,8 +18,6 @@ To get started running CAM refer to the `CESM2 Quick Start Guide
 <http://escomp.github.io/cesm/release-cesm2>`_ and the 
 :ref:`Building and Running CAM within CESM <building-and-running-cam>` section of this User's Guide.
 Running CAM using the CESM scripts provides a high level of support for doing production runs of predefined experiments on supported platforms. This is the place to start for most users.
-The ability to customize a CAM build or runtime configuration depends on being able to use the utilities described in this document. 
-Any build configuration can be set up via appropriate command-line arguments to CAM's ``configure`` utility, and any runtime configuration can be set up with appropriate arguments to CAM's ``build-namelist`` utility. 
 
 CAM provides the basic atmospheric physics for several other models included in this release:
 
