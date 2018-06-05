@@ -208,24 +208,32 @@ Create the base sampling case::
   % cd base_run_case
 
 Set up the **user_nl_cam** file for the base run::
-  
+
   ! Output the radiation data
   rad_data_output=.true.
 
   ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
   rad_data_histfile_num=2
- 
+
+  ! Write out the instantaneous rad_data and radiation diagnostics
+  rad_data_avgflag = 'I'
+  avgflag_pertape = 'A','I'
+
   ! Make certain the radiation is called every time step
-  rad_always = .true.
- 
-  ! Write out the instantaneous rad_data
-  rad_data_avgflag='I'
- 
+  iradlw = 1
+  iradsw = 1
+
   ! Include radiation diagnostics
   fincl2 = 'FLNT', 'FLNR','FLNS', 'FSNT','FSNR', 'FSNS'
- 
+
   ! Output frequency
-  nhtfrq=0,73
+  nhtfrq = 0,73
+
+  ! number of time records per individual history file
+  mfilt = 1,5
+
+  ! double precision output
+  ndens = 1,1
 
 Note: It has been found that sampling every 73'rd time step is a good balance of computational cost
 and size of data for dtime = 1800 and a 2-degree horizontal resolution. [4]_
@@ -245,10 +253,6 @@ After your job completes, you will have a number of files, including ones with f
 The "cam.h1" files contain the radiation history which was specified by the namelist and will be used in the
 next step.  
 
-Prepare sequential list of input files for the PORT run::
-
-  % ls -1d /path/base_run_case.cam.h1.*nc > /path/samples.input
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 PORT validation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -259,32 +263,42 @@ Create the PORT validation run::
   % cd port_run_case
 
 Set up the **user_nl_cam** file for the PORT run::
-  
+
+  ! PORT input data
+  offline_driver_infile = '/path/base_run_case.cam.h1.0001-01-01-00000.nc'
+
   ! Output the radiation data
   rad_data_output=.true.
 
   ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
   rad_data_histfile_num=2
- 
-  ! Write out the instantaneous rad_data
-  rad_data_avgflag='I'
- 
+
+  ! Write out the instantaneous rad_data and radiation diagnostics
+  rad_data_avgflag = 'I'
+  avgflag_pertape = 'A','I'
+
+  ! Make certain the radiation is called every time step
+  iradlw = 1
+  iradsw = 1
+
   ! Include radiation diagnostics
   fincl2 = 'FLNT', 'FLNR','FLNS', 'FSNT','FSNR', 'FSNS'
-  
+
   ! Output frequency
-  nhtfrq=0,73
+  nhtfrq = 0,73
 
-  ! Sequential list of input files
-  offline_driver_fileslist = '/path/samples.input'
+  ! number of time records per individual history file
+  mfilt = 1,5
 
+  ! double precision output
+  ndens = 1,1
 
-For verification tests the run time length can be as short as a few time steps.
+For verification tests the run time length should be long enough to include at least a few sampling times.
 
 Build and submit this validation run data::
 
  % ./case.setup
- % ./xmlchange STOP_N=1
+ % ./xmlchange STOP_N=5
  % ./xmlchange STOP_OPTION=ndays
  % ./case.build
  % ./case.submit
@@ -301,12 +315,11 @@ Further documentation on ncap can be found in the `NCO User Guide <http://nco.so
 
 Modify the composition in the sample files.  For each file listed in /path/samples.inputs::
   
-  % ncap -s "rad_CO2=2.0*rad_CO2" original.h1.file[n].nc 2xCO2.file[n].nc
+  % for fin in base_run_case.cam.h1*nc; do fout="${fin/cam.h1/cam.h1-2xCO2}"; ncap2 -s "rad_CO2=2.0*rad_CO2" $fin $fout; done
 
-Create a new sequential list of input files for the PORT run::
-  
-  % ls -1d /path/2xCO2.file*nc > /path/samples2xCO2.inputs
+Prepare sequential list of input files for the PORT run::
 
+  % ls -1 /path/base_run_case.cam.h1-2xCO2.*nc > /path/samples2xCO2.inputs
 
 Prepare the PORT run::
   
@@ -315,26 +328,24 @@ Prepare the PORT run::
 
 Set up the **user_nl_cam** file for the PORT run::
 
-  ! Output the radiation data
-  rad_data_output=.true.
-
-  ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
-  rad_data_histfile_num=2
- 
-  ! Write out the instantaneous rad_data
-  rad_data_avgflag='I'
- 
-  ! Include radiation diagnostics
-  fincl2 = 'FLNT', 'FLNR','FLNS', 'FSNT','FSNR', 'FSNS'
- 
-  ! Output frequency
-  nhtfrq=0,73
-
   ! Sequential list of input files
   offline_driver_fileslist = '/path/samples2xCO2.inputs'
 
   ! Allow temperatures above the tropopause to equilibrate under the assumption of fixed dynamical heating
   rad_data_fdh = .true.
+
+  ! Write out the instantaneous radiation diagnostics
+  avgflag_pertape = 'A','I'
+ 
+  ! Make certain the radiation is called every time step
+  iradlw = 1
+  iradsw = 1
+
+  ! Include radiation diagnostics
+  fincl2 = 'FLNT', 'FLNR','FLNS', 'FSNT','FSNR', 'FSNS'
+ 
+  ! Output frequency
+  nhtfrq = 0,73
 
 Build and submit::
 
@@ -519,32 +530,36 @@ Another set of compsets which require a brief description are ones for Super-par
  - FSPCAMCLBM: SPCAM using the double moment microphysics and a custom version of CLUBB 
 
 -------------------------------------------------------------------------------
-CAM-chem compsets
+CAM-chem tested compsets
 -------------------------------------------------------------------------------
-CAM-chem functional compsets in CESM2.0
+CAM-chem tested compsets in CESM2.0
 (CAM-chem scientifically supported compsets will be available in CESM2.1)
 
-CAM-chem has a number of compsets/resolutions which are functional in CESM2.0, see Table.  
-All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested to run with 32 levels that are not availble at this point. Half degree SD compsets use 1 degree emissions. Users have to change to half degree emissions if desired. 
+CAM-chem has a number of compsets/resolutions which are tested in CESM2.0, see Table.  
+All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. 
+Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 
+56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested 
+to run with 32 levels that are not availble at this point. Half-degree SD compsets use 
+1-degree emissions. Users have to change to half-degree emissions if desired. 
 
-+--------------+----------------------+-----------------------------------------+-------------+
-| Compset Name | supported resolution |Description                              | Period      |
-+==============+======================+=========================================+=============+
-| FCHIST       | f09_f09_mg17         | Historical CAM6-chem using 1 degree FV  | 1979 to 2015|
-|              |                      | dycore, using CMIP6 emissions, coupled  |             |
-|              |                      | to interactive land and MEGAN2.1        |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FCSD         | f09_f09_mg17         | Historical CAM6-chem 1deg compset using |             |
-|              |                      | MERRA2 analsysis with a 50-hour         | 1980 to 2015|
-|              |                      | relaxation. See details in the text     |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FCSD         | f05_f05_mg17         | Historical CAM6-chem half deg compset   | 1980 to 2015|
-|              |                      | using MERRA2 analysis                   |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| FC2010climo  | f09_f09_mg17         | Climatological CAM6-chem using 1 degree | 2010        |
-|              |                      | FV dycore, averaged SSTs, emissions, and|             |
-|              |                      | lower boundary conditions (2005-2015)   |             |
-+--------------+----------------------+-----------------------------------------+-------------+
++--------------+-----------------------+-----------------------------------------+-------------+
+| Compset Name | tested resolution     |Description                              | Period      |
++==============+=======================+=========================================+=============+
+| FCHIST       | f09_f09_mg17          | Historical CAM6-chem using 1 degree FV  | 1979 to 2015|
+|              |                       | dycore, using CMIP6 emissions, coupled  |             |
+|              |                       | to interactive land and MEGAN2.1        |             |
++--------------+-----------------------+-----------------------------------------+-------------+
+| FCSD         | f09_f09_mg17          | Historical CAM6-chem 1deg compset using |             |
+|              |                       | MERRA2 analsysis with a 50-hour         | 1980 to 2015|
+|              |                       | relaxation. See details in the text     |             |
++--------------+-----------------------+-----------------------------------------+-------------+
+| FCSD         | f05_f05_mg17          | Historical CAM6-chem half deg compset   | 1980 to 2015|
+|              |                       | using MERRA2 analysis                   |             |
++--------------+-----------------------+-----------------------------------------+-------------+
+| FC2010climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 2010        |
+|              |                       | FV dycore, averaged SSTs, emissions, and|             |
+|              |                       | lower boundary conditions (2005-2015)   |             |
++--------------+-----------------------+-----------------------------------------+-------------+
 
 
 
@@ -552,7 +567,144 @@ All available compsets use observed SSTs and sea-ice values and CMIP6 emissions 
 WACCM compsets
 -------------------------------------------------------------------------------
 
+========================================================
+Scientifically supported WACCM atmosphere compsets
+========================================================
+
+Scientifically supported WACCM atmosphere configurations for CESM2.0 use TSMLT1 chemistry 
+(see `chemical mechanisms <http://./CAM-chem-specifics.html#chemical-mechanisms>`_ ) and 
+0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17). 
+Additional scientifically validated configurations will be available in CESM2.1.
+
++---------+------------+-----------------------------------------+-------------+
+| Compset | Resolution | Description                             | Period      |
++=========+============+=========================================+=============+
+| FW1850  |f09_f09_mg17| Pre-industrial control WACCM6 using     | 1850        |
+|         |            | 1-degree FV dycore, TSMLT1, CMIP6       |             |
+|         |            | piControl emissions, year 1850 SSTs,    |             |
+|         |            | coupled to interactive land and MEGAN2.1|             |
++---------+------------+-----------------------------------------+-------------+
+| FWHIST  |f09_f09_mg17| Historical WACCM6 using 1-degree FV     | 1974 to 2015|
+|         |            | dycore, TSMLT1, CMIP6 emissions,        |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+| FW2000  |f09_f09_mg17| Year 2000 WACCM6 1deg compset using     | 2000        |
+|         |            | 1-degree FV dycore, TSMLT1, year 2000   |             |
+|         |            | CMIP6 emissions, year 2000 SSTs, coupled|             |
+|         |            | to interactive land and MEGAN2.1        |             |
++---------+------------+-----------------------------------------+-------------+
+| FWSD    |f09_f09_mg17| Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
+|         |            | analysis with a 50-hour relaxation,     |             |
+|         |            | TSMLT1, CMIP6 emissions,                |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+| FWscHIST|f09_f09_mg17| Historical SC-WACCM6 using 1-degree FV  | 1976 to 2015|
+|         |            | dycore, specified chemistry, historical |             |
+|         |            | SSTs                                    |             |
++---------+------------+-----------------------------------------+-------------+
+
+========================================================
+Tested WACCM atmosphere compsets
+========================================================
+
+Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and 
+middle atmosphere plus D-region (MAD) chemistry (see 
+`chemical mechanisms <http://./CAM-chem-specifics.html#chemical-mechanisms>`_ ) and 
+0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).
+
++---------+------------+-----------------------------------------+-------------+
+| Compset | Resolution | Description                             | Period      |
++=========+============+=========================================+=============+
+| FWmaHIST|f09_f09_mg17| Historical WACCM6 using 1-degree FV     | 1974 to 2015|
+|         |            | dycore, MA chemistry, CMIP6 emissions,  |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+|FWmadHIST|f09_f09_mg17| Historical WACCM6 using 1-degree FV     | 1974 to 2015|
+|         |            | dycore, MAD chemistry, CMIP6 emissions, |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+| FWmaSD  |f09_f09_mg17| Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
+|         |            | analysis with a 50-hour relaxation,     |             |
+|         |            | MA chemistry, CMIP6 emissions,          |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+| FWmadSD |f09_f09_mg17| Historical SD-WACCM6 using GEOS5        | 2005 to 2015|
+|         |            | analysis with a 50-hour relaxation,     |             |
+|         |            | MAD chemistry, CMIP6 emissions,         |             |
+|         |            | historical SSTs, coupled to interactive |             |
+|         |            | land and MEGAN2.1                       |             |
++---------+------------+-----------------------------------------+-------------+
+
+========================================================
+Scientifically supported coupled WACCM compsets
+========================================================
+**AUTHOR QUESTION:** Should coupled compsets be left out of the CAM user's guide?
+
++---------+------------+-----------------------------------------+-------------+
+| Compset | Resolution | Description                             | Period      |
++=========+============+=========================================+=============+
+| BW1850  | f09_g17    | Pre-industrial control WACCM6 using     | 1850        |
+|         |            | 1-degree FV dycore, TSMLT1, CMIP6       |             |
+|         |            | piControl emissions, coupled to         |             |
+|         |            | interactive ocean, sea ice, land, and   |             |
+|         |            | MEGAN2.1                                |             |
++---------+------------+-----------------------------------------+-------------+
+
+========================================================
+Tested coupled WACCM compsets
+========================================================
+**AUTHOR QUESTION:** Should coupled compsets be left out of the CAM user's guide?
+
++---------+------------+-----------------------------------------+-------------+
+| Compset | Resolution | Description                             | Period      |
++=========+============+=========================================+=============+
+| BWma1850| f19_g17    | Pre-industrial control WACCM6 using     | 1850        |
+|         |            | 2-degree FV dycore, MA chemistry, CMIP6 |             |
+|         |            | piControl emissions, coupled to         |             |
+|         |            | interactive ocean, sea ice, land, and   |             |
+|         |            | MEGAN2.1                                |             |
++---------+------------+-----------------------------------------+-------------+
+
+
 -------------------------------------------------------------------------------
 WACCM-X compsets
 -------------------------------------------------------------------------------
+WACCM-X has three compsets/resolutions which are supported scientifically.  These compsets 
+are detailed in the following table.  A specific compset may be listed below, but unless 
+the resolution is also listed, that compset/resolution combination is not scientifically 
+supported.  Different resolutions exhibit different behavior and as a result require 
+different tunings.  The scientifically supported designation is limited to the specific 
+compset/resolution pairs listed in the following table.
+
+**Scientifically supported WACCM-X compsets**
+
++--------------+----------------------+-----------------------------------------+-------------+
+| Compset Name | Supported Resolution |Description                              | Period      |
++==============+======================+=========================================+=============+
+| FXHIST       | f19_f19_mg16         | Historical WACCM-X based on CAM4 using  | 2000 to 2015|
+|              |                      | 2 degree FV dycore, MA chemistry, CCMI  |             |
+|              |                      | emissions, historical SSTs, coupled to  |             |
+|              |                      | land, prescribed ice, river             |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FX2000       | f19_f19_mg16         | Year 2000 WACCM-X based on CAM4 2 degree| 2000        |
+|              |                      | FV dycore, using MA chemistry, year 2000|             |
+|              |                      | CCMI emissions and SSTs, coupled to     |             |
+|              |                      | interactive land, prescribed ice, river |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FXSD         | f19_f19_mg16         | Historical SD-WACCM-X based on CAM4     | 2000 to 2015|
+|              |                      | using 2 degree FV dycore, MERRA1 with a |             |
+|              |                      | 50-hour relaxation, MA chemistry, CCMI  |             |
+|              |                      | emissions, historical SSTs, coupled to  |             |
+|              |                      | interactive land, prescribed ice, river |             |
++--------------+----------------------+-----------------------------------------+-------------+
+
+It should be noted that these WACCM-X compsets are based on the previous version 4 of 
+CAM/WACCM and therefore are not derivatives of the version 6 CAM/WACCM compsets described 
+above. 
+
 
