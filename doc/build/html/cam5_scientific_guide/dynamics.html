@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Dynamics &#8212; camdoc  documentation</title>
+    <title>4. Dynamics &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,6 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Model Physics" href="physics.html" />
+    <link rel="prev" title="3. Coupling of Dynamical Core and Parameterization Suite" href="pd_coupling.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -36,95 +38,108 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li> 
+        <li class="right" >
+          <a href="physics.html" title="5. Model Physics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pd_coupling.html" title="3. Coupling of Dynamical Core and Parameterization Suite"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM5 Scientific Guide</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Dynamics</a><ul>
-<li><a class="reference internal" href="#finite-volume-dynamical-core">Finite Volume Dynamical Core</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#the-governing-equations-for-the-hydrostatic-atmosphere">The governing equations for the hydrostatic atmosphere</a></li>
-<li><a class="reference internal" href="#horizontal-discretization-of-the-transport-process-on-the-sphere">Horizontal discretization of the transport process on the sphere</a></li>
-<li><a class="reference internal" href="#a-vertically-lagrangian-and-horizontally-eulerian-control-volume-discretization-of-the-hydrodynamics">A <em>vertically Lagrangian</em> and <em>horizontally Eulerian</em> control-volume discretization of the hydrodynamics</a></li>
-<li><a class="reference internal" href="#optional-diffusion-operators-in-cam5">Optional diffusion operators in CAM5</a></li>
-<li><a class="reference internal" href="#a-mass-momentum-and-total-energy-conserving-mapping-algorithm">A mass, momentum, and total energy conserving mapping algorithm</a></li>
-<li><a class="reference internal" href="#a-geopotential-conserving-mapping-algorithm">A geopotential conserving mapping algorithm</a></li>
-<li><a class="reference internal" href="#adjustment-of-pressure-to-include-change-in-mass-of-water-vapor">Adjustment of pressure to include change in mass of water vapor</a></li>
-<li><a class="reference internal" href="#negative-tracer-fixer">Negative Tracer Fixer</a></li>
-<li><a class="reference internal" href="#global-energy-fixer">Global Energy Fixer</a></li>
-<li><a class="reference internal" href="#further-discussion">Further discussion</a></li>
-<li><a class="reference internal" href="#specified-dynamics-option">Specified Dynamics Option</a></li>
-<li><a class="reference internal" href="#id16">Further discussion</a></li>
+<li><a class="reference internal" href="#">4. Dynamics</a><ul>
+<li><a class="reference internal" href="#finite-volume-dynamical-core">4.1. Finite Volume Dynamical Core</a><ul>
+<li><a class="reference internal" href="#overview">4.1.1. Overview</a></li>
+<li><a class="reference internal" href="#the-governing-equations-for-the-hydrostatic-atmosphere">4.1.2. The governing equations for the hydrostatic atmosphere</a></li>
+<li><a class="reference internal" href="#horizontal-discretization-of-the-transport-process-on-the-sphere">4.1.3. Horizontal discretization of the transport process on the sphere</a></li>
+<li><a class="reference internal" href="#a-vertically-lagrangian-and-horizontally-eulerian-control-volume-discretization-of-the-hydrodynamics">4.1.4. A <em>vertically Lagrangian</em> and <em>horizontally Eulerian</em> control-volume discretization of the hydrodynamics</a></li>
+<li><a class="reference internal" href="#optional-diffusion-operators-in-cam5">4.1.5. Optional diffusion operators in CAM5</a></li>
+<li><a class="reference internal" href="#a-mass-momentum-and-total-energy-conserving-mapping-algorithm">4.1.6. A mass, momentum, and total energy conserving mapping algorithm</a></li>
+<li><a class="reference internal" href="#a-geopotential-conserving-mapping-algorithm">4.1.7. A geopotential conserving mapping algorithm</a></li>
+<li><a class="reference internal" href="#adjustment-of-pressure-to-include-change-in-mass-of-water-vapor">4.1.8. Adjustment of pressure to include change in mass of water vapor</a></li>
+<li><a class="reference internal" href="#negative-tracer-fixer">4.1.9. Negative Tracer Fixer</a></li>
+<li><a class="reference internal" href="#global-energy-fixer">4.1.10. Global Energy Fixer</a></li>
+<li><a class="reference internal" href="#further-discussion">4.1.11. Further discussion</a></li>
+<li><a class="reference internal" href="#specified-dynamics-option">4.1.12. Specified Dynamics Option</a></li>
+<li><a class="reference internal" href="#id16">4.1.13. Further discussion</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#spectral-element-dynamical-core">Spectral Element Dynamical Core</a><ul>
-<li><a class="reference internal" href="#continuum-formulation-of-the-equations">Continuum Formulation of the Equations</a></li>
-<li><a class="reference internal" href="#conserved-quantities">Conserved Quantities</a></li>
-<li><a class="reference internal" href="#horizontal-discretization-functional-spaces">Horizontal Discretization: Functional Spaces</a></li>
-<li><a class="reference internal" href="#horizontal-discretization-differential-operators">Horizontal Discretization: Differential Operators</a></li>
-<li><a class="reference internal" href="#horizontal-discretization-discrete-inner-product">Horizontal Discretization: Discrete Inner-Product</a></li>
-<li><a class="reference internal" href="#horizontal-discretization-the-projection-operators">Horizontal Discretization: The Projection Operators</a></li>
-<li><a class="reference internal" href="#horizontal-discretization-galerkin-formulation">Horizontal Discretization: Galerkin Formulation</a></li>
-<li><a class="reference internal" href="#vertical-discretization">Vertical Discretization</a></li>
-<li><a class="reference internal" href="#discrete-formulation-dynamics">Discrete formulation: Dynamics</a></li>
-<li><a class="reference internal" href="#consistency">Consistency</a></li>
-<li><a class="reference internal" href="#time-stepping">Time Stepping</a></li>
-<li><a class="reference internal" href="#dissipation">Dissipation</a></li>
-<li><a class="reference internal" href="#discrete-formulation-tracer-advection">Discrete formulation: Tracer Advection</a></li>
-<li><a class="reference internal" href="#conservation-and-compatibility">Conservation and Compatibility</a></li>
+<li><a class="reference internal" href="#spectral-element-dynamical-core">4.2. Spectral Element Dynamical Core</a><ul>
+<li><a class="reference internal" href="#continuum-formulation-of-the-equations">4.2.1. Continuum Formulation of the Equations</a></li>
+<li><a class="reference internal" href="#conserved-quantities">4.2.2. Conserved Quantities</a></li>
+<li><a class="reference internal" href="#horizontal-discretization-functional-spaces">4.2.3. Horizontal Discretization: Functional Spaces</a></li>
+<li><a class="reference internal" href="#horizontal-discretization-differential-operators">4.2.4. Horizontal Discretization: Differential Operators</a></li>
+<li><a class="reference internal" href="#horizontal-discretization-discrete-inner-product">4.2.5. Horizontal Discretization: Discrete Inner-Product</a></li>
+<li><a class="reference internal" href="#horizontal-discretization-the-projection-operators">4.2.6. Horizontal Discretization: The Projection Operators</a></li>
+<li><a class="reference internal" href="#horizontal-discretization-galerkin-formulation">4.2.7. Horizontal Discretization: Galerkin Formulation</a></li>
+<li><a class="reference internal" href="#vertical-discretization">4.2.8. Vertical Discretization</a></li>
+<li><a class="reference internal" href="#discrete-formulation-dynamics">4.2.9. Discrete formulation: Dynamics</a></li>
+<li><a class="reference internal" href="#consistency">4.2.10. Consistency</a></li>
+<li><a class="reference internal" href="#time-stepping">4.2.11. Time Stepping</a></li>
+<li><a class="reference internal" href="#dissipation">4.2.12. Dissipation</a></li>
+<li><a class="reference internal" href="#discrete-formulation-tracer-advection">4.2.13. Discrete formulation: Tracer Advection</a></li>
+<li><a class="reference internal" href="#conservation-and-compatibility">4.2.14. Conservation and Compatibility</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#eulerian-dynamical-core">Eulerian Dynamical Core</a><ul>
-<li><a class="reference internal" href="#generalized-terrain-following-vertical-coordinates">Generalized terrain-following vertical coordinates</a></li>
-<li><a class="reference internal" href="#conversion-to-final-form">Conversion to final form</a></li>
-<li><a class="reference internal" href="#continuous-equations-using">Continuous equations using <img class="math" src="../_images/math/fe97902b4016e484299911cff59e358104446bbd.png" alt="\partial\ln(\pi)/\partial t"/></a></li>
-<li><a class="reference internal" href="#semi-implicit-formulation">Semi-implicit formulation</a></li>
-<li><a class="reference internal" href="#energy-conservation">Energy conservation</a></li>
-<li><a class="reference internal" href="#horizontal-diffusion">Horizontal diffusion</a></li>
-<li><a class="reference internal" href="#finite-difference-equations">Finite difference equations</a></li>
-<li><a class="reference internal" href="#time-filter">Time filter</a></li>
-<li><a class="reference internal" href="#spectral-transform">Spectral transform</a></li>
-<li><a class="reference internal" href="#spectral-algorithm-overview">Spectral algorithm overview</a></li>
-<li><a class="reference internal" href="#combination-of-terms">Combination of terms</a></li>
-<li><a class="reference internal" href="#transformation-to-spectral-space">Transformation to spectral space</a></li>
-<li><a class="reference internal" href="#solution-of-semi-implicit-equations">Solution of semi-implicit equations</a></li>
-<li><a class="reference internal" href="#id70">Horizontal diffusion</a></li>
-<li><a class="reference internal" href="#initial-divergence-damping">Initial divergence damping</a></li>
-<li><a class="reference internal" href="#transformation-from-spectral-to-physical-space">Transformation from spectral to physical space</a></li>
-<li><a class="reference internal" href="#horizontal-diffusion-correction">Horizontal diffusion correction</a></li>
-<li><a class="reference internal" href="#semi-lagrangian-tracer-transport">Semi-Lagrangian Tracer Transport</a></li>
-<li><a class="reference internal" href="#mass-fixers">Mass fixers</a></li>
-<li><a class="reference internal" href="#energy-fixer">Energy Fixer</a></li>
-<li><a class="reference internal" href="#statistics-calculations">Statistics Calculations</a></li>
-<li><a class="reference internal" href="#reduced-grid">Reduced grid</a></li>
+<li><a class="reference internal" href="#eulerian-dynamical-core">4.3. Eulerian Dynamical Core</a><ul>
+<li><a class="reference internal" href="#generalized-terrain-following-vertical-coordinates">4.3.1. Generalized terrain-following vertical coordinates</a></li>
+<li><a class="reference internal" href="#conversion-to-final-form">4.3.2. Conversion to final form</a></li>
+<li><a class="reference internal" href="#continuous-equations-using">4.3.3. Continuous equations using <img class="math" src="../_images/math/fe97902b4016e484299911cff59e358104446bbd.png" alt="\partial\ln(\pi)/\partial t"/></a></li>
+<li><a class="reference internal" href="#semi-implicit-formulation">4.3.4. Semi-implicit formulation</a></li>
+<li><a class="reference internal" href="#energy-conservation">4.3.5. Energy conservation</a></li>
+<li><a class="reference internal" href="#horizontal-diffusion">4.3.6. Horizontal diffusion</a></li>
+<li><a class="reference internal" href="#finite-difference-equations">4.3.7. Finite difference equations</a></li>
+<li><a class="reference internal" href="#time-filter">4.3.8. Time filter</a></li>
+<li><a class="reference internal" href="#spectral-transform">4.3.9. Spectral transform</a></li>
+<li><a class="reference internal" href="#spectral-algorithm-overview">4.3.10. Spectral algorithm overview</a></li>
+<li><a class="reference internal" href="#combination-of-terms">4.3.11. Combination of terms</a></li>
+<li><a class="reference internal" href="#transformation-to-spectral-space">4.3.12. Transformation to spectral space</a></li>
+<li><a class="reference internal" href="#solution-of-semi-implicit-equations">4.3.13. Solution of semi-implicit equations</a></li>
+<li><a class="reference internal" href="#id70">4.3.14. Horizontal diffusion</a></li>
+<li><a class="reference internal" href="#initial-divergence-damping">4.3.15. Initial divergence damping</a></li>
+<li><a class="reference internal" href="#transformation-from-spectral-to-physical-space">4.3.16. Transformation from spectral to physical space</a></li>
+<li><a class="reference internal" href="#horizontal-diffusion-correction">4.3.17. Horizontal diffusion correction</a></li>
+<li><a class="reference internal" href="#semi-lagrangian-tracer-transport">4.3.18. Semi-Lagrangian Tracer Transport</a></li>
+<li><a class="reference internal" href="#mass-fixers">4.3.19. Mass fixers</a></li>
+<li><a class="reference internal" href="#energy-fixer">4.3.20. Energy Fixer</a></li>
+<li><a class="reference internal" href="#statistics-calculations">4.3.21. Statistics Calculations</a></li>
+<li><a class="reference internal" href="#reduced-grid">4.3.22. Reduced grid</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#semi-lagrangian-dynamical-core">Semi-Lagrangian Dynamical Core</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#vertical-coordinate-and-hydrostatic-equation">Vertical coordinate and hydrostatic equation</a></li>
-<li><a class="reference internal" href="#semi-implicit-reference-state">Semi-implicit reference state</a></li>
-<li><a class="reference internal" href="#perturbation-surface-pressure-prognostic-variable">Perturbation surface pressure prognostic variable</a></li>
-<li><a class="reference internal" href="#extrapolated-variables">Extrapolated variables</a></li>
-<li><a class="reference internal" href="#interpolants">Interpolants</a></li>
-<li><a class="reference internal" href="#continuity-equation">Continuity Equation</a></li>
-<li><a class="reference internal" href="#thermodynamic-equation">Thermodynamic Equation</a></li>
-<li><a class="reference internal" href="#momentum-equations">Momentum equations</a></li>
-<li><a class="reference internal" href="#development-of-semi-implicit-system-equations">Development of semi-implicit system equations</a></li>
-<li><a class="reference internal" href="#trajectory-calculation">Trajectory Calculation</a></li>
-<li><a class="reference internal" href="#mass-and-energy-fixers-and-statistics-calculations">Mass and energy fixers and statistics calculations</a></li>
+<li><a class="reference internal" href="#semi-lagrangian-dynamical-core">4.4. Semi-Lagrangian Dynamical Core</a><ul>
+<li><a class="reference internal" href="#introduction">4.4.1. Introduction</a></li>
+<li><a class="reference internal" href="#vertical-coordinate-and-hydrostatic-equation">4.4.2. Vertical coordinate and hydrostatic equation</a></li>
+<li><a class="reference internal" href="#semi-implicit-reference-state">4.4.3. Semi-implicit reference state</a></li>
+<li><a class="reference internal" href="#perturbation-surface-pressure-prognostic-variable">4.4.4. Perturbation surface pressure prognostic variable</a></li>
+<li><a class="reference internal" href="#extrapolated-variables">4.4.5. Extrapolated variables</a></li>
+<li><a class="reference internal" href="#interpolants">4.4.6. Interpolants</a></li>
+<li><a class="reference internal" href="#continuity-equation">4.4.7. Continuity Equation</a></li>
+<li><a class="reference internal" href="#thermodynamic-equation">4.4.8. Thermodynamic Equation</a></li>
+<li><a class="reference internal" href="#momentum-equations">4.4.9. Momentum equations</a></li>
+<li><a class="reference internal" href="#development-of-semi-implicit-system-equations">4.4.10. Development of semi-implicit system equations</a></li>
+<li><a class="reference internal" href="#trajectory-calculation">4.4.11. Trajectory Calculation</a></li>
+<li><a class="reference internal" href="#mass-and-energy-fixers-and-statistics-calculations">4.4.12. Mass and energy fixers and statistics calculations</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pd_coupling.html"
+                        title="previous chapter">3. Coupling of Dynamical Core and Parameterization Suite</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="physics.html"
+                        title="next chapter">5. Model Physics</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cam5_scientific_guide/chapter3.rst.txt"
+      <li><a href="../_sources/cam5_scientific_guide/dynamics.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -147,11 +162,11 @@
           <div class="body" role="main">
             
   <span class="target" id="dynamics"></span><div class="section" id="id1">
-<h1>Dynamics<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>4. Dynamics<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="finite-volume-dynamical-core">
-<span id="sec-finite-volume"></span><h2>Finite Volume Dynamical Core<a class="headerlink" href="#finite-volume-dynamical-core" title="Permalink to this headline">¶</a></h2>
+<span id="sec-finite-volume"></span><h2>4.1. Finite Volume Dynamical Core<a class="headerlink" href="#finite-volume-dynamical-core" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="overview">
-<span id="fv-overview"></span><h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<span id="fv-overview"></span><h3>4.1.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
 <p>This document describes the Finite-Volume (FV) dynamical core that was
 initially developed and used at the NASA Data Assimilation Office (DAO)
 for data assimilation, numerical weather predictions, and climate
@@ -173,7 +188,7 @@ section [FVvdisc]). The transport for tracers, however, can take a much
 larger time step (<em>e.g.</em>, 30 minutes as for the physics).</p>
 </div>
 <div class="section" id="the-governing-equations-for-the-hydrostatic-atmosphere">
-<h3>The governing equations for the hydrostatic atmosphere<a class="headerlink" href="#the-governing-equations-for-the-hydrostatic-atmosphere" title="Permalink to this headline">¶</a></h3>
+<h3>4.1.2. The governing equations for the hydrostatic atmosphere<a class="headerlink" href="#the-governing-equations-for-the-hydrostatic-atmosphere" title="Permalink to this headline">¶</a></h3>
 <p>For reference purposes, we present the continuous differential equations
 for the hydrostatic 3D atmospheric flow on the sphere for a general
 vertical coordinate <img class="math" src="../_images/math/1bed834b3e718b4086e9b3c32284be47445d0c27.png" alt="\zeta"/> (<em>e.g</em>., <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#kasahara74" id="id4">[Kas74]</a>). Using
@@ -254,7 +269,7 @@ fixer in CAM, respectively. Last the global energy fixer is described
 (section [sec:Global-Energy-Fixer]).</p>
 </div>
 <div class="section" id="horizontal-discretization-of-the-transport-process-on-the-sphere">
-<span id="fvhdisc"></span><h3>Horizontal discretization of the transport process on the sphere<a class="headerlink" href="#horizontal-discretization-of-the-transport-process-on-the-sphere" title="Permalink to this headline">¶</a></h3>
+<span id="fvhdisc"></span><h3>4.1.3. Horizontal discretization of the transport process on the sphere<a class="headerlink" href="#horizontal-discretization-of-the-transport-process-on-the-sphere" title="Permalink to this headline">¶</a></h3>
 <p>Since the vertical transport term would vanish after the introduction of
 the vertical Lagrangian control-volume discretization (see section
 [FVvdisc]), we shall present here only the 2D (horizontal) forms of the
@@ -433,7 +448,7 @@ able to avoid generation of noise (<em>e.g</em>., creation of artificial
 gradients) and to maintain mass conservation.</p>
 </div>
 <div class="section" id="a-vertically-lagrangian-and-horizontally-eulerian-control-volume-discretization-of-the-hydrodynamics">
-<span id="fvvdisc"></span><h3>A <em>vertically Lagrangian</em> and <em>horizontally Eulerian</em> control-volume discretization of the hydrodynamics<a class="headerlink" href="#a-vertically-lagrangian-and-horizontally-eulerian-control-volume-discretization-of-the-hydrodynamics" title="Permalink to this headline">¶</a></h3>
+<span id="fvvdisc"></span><h3>4.1.4. A <em>vertically Lagrangian</em> and <em>horizontally Eulerian</em> control-volume discretization of the hydrodynamics<a class="headerlink" href="#a-vertically-lagrangian-and-horizontally-eulerian-control-volume-discretization-of-the-hydrodynamics" title="Permalink to this headline">¶</a></h3>
 <p>The very idea of using Lagrangian vertical coordinate for formulating
 governing equations for the atmosphere is not entirely new. <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#starr45" id="id9">[Sta45]</a>)
 is likely the first to have formulated, in the <em>continuous
@@ -693,7 +708,7 @@ for the Lagrangian dynamics as an impedance to computational efficiency,
 particularly on modern parallel computing platforms.</p>
 </div>
 <div class="section" id="optional-diffusion-operators-in-cam5">
-<h3>Optional diffusion operators in CAM5<a class="headerlink" href="#optional-diffusion-operators-in-cam5" title="Permalink to this headline">¶</a></h3>
+<h3>4.1.5. Optional diffusion operators in CAM5<a class="headerlink" href="#optional-diffusion-operators-in-cam5" title="Permalink to this headline">¶</a></h3>
 <p>The ‘CD’-grid discretization method used in the CAM finite-volume
 dynamical core provides explicit control over the rotational modes at
 the grid scale, due to monotonicity constraint in the PPM-based
@@ -762,7 +777,7 @@ times a user-specified damping coefficient at the top of the atmosphere
 <img class="math" src="../_images/math/72f35d0438ce75140968772be3fe09a232fe56ab.png" alt="2.5\times 10^5"/> m<img class="math" src="../_images/math/81d4e21093a294aaab4f441ff172923d688c9b7e.png" alt="^2"/>sec<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>).</p>
 </div>
 <div class="section" id="a-mass-momentum-and-total-energy-conserving-mapping-algorithm">
-<span id="fvmap"></span><h3>A mass, momentum, and total energy conserving mapping algorithm<a class="headerlink" href="#a-mass-momentum-and-total-energy-conserving-mapping-algorithm" title="Permalink to this headline">¶</a></h3>
+<span id="fvmap"></span><h3>4.1.6. A mass, momentum, and total energy conserving mapping algorithm<a class="headerlink" href="#a-mass-momentum-and-total-energy-conserving-mapping-algorithm" title="Permalink to this headline">¶</a></h3>
 <p>The Lagrangian surfaces that bound the finite-volume will eventually
 deform, particularly in the presence of persistent diabatic
 heating/cooling, in a time scale of a few hours to a day depending on
@@ -908,7 +923,7 @@ coordinate. In CAM5, vertical remapping takes place at each physics time
 step.</p>
 </div>
 <div class="section" id="a-geopotential-conserving-mapping-algorithm">
-<h3>A geopotential conserving mapping algorithm<a class="headerlink" href="#a-geopotential-conserving-mapping-algorithm" title="Permalink to this headline">¶</a></h3>
+<h3>4.1.7. A geopotential conserving mapping algorithm<a class="headerlink" href="#a-geopotential-conserving-mapping-algorithm" title="Permalink to this headline">¶</a></h3>
 <p>An alternative vertical mapping approach is available in CAM5. Instead
 of retrieving temperature by remapped total energy in the Eulerian
 coordinate, the alternative approach maps temperature directly from the
@@ -929,7 +944,7 @@ resolved by a global energy fixer already implemented in the model (see
 section [sec:Global-Energy-Fixer]).</p>
 </div>
 <div class="section" id="adjustment-of-pressure-to-include-change-in-mass-of-water-vapor">
-<span id="fvqconserve"></span><h3>Adjustment of pressure to include change in mass of water vapor<a class="headerlink" href="#adjustment-of-pressure-to-include-change-in-mass-of-water-vapor" title="Permalink to this headline">¶</a></h3>
+<span id="fvqconserve"></span><h3>4.1.8. Adjustment of pressure to include change in mass of water vapor<a class="headerlink" href="#adjustment-of-pressure-to-include-change-in-mass-of-water-vapor" title="Permalink to this headline">¶</a></h3>
 <p>The physics parameterizations operate on a model state provided by the
 dynamics, and are allowed to update specific humidity. However, the
 surface pressure remains fixed throughout the physics updates, and since
@@ -981,7 +996,7 @@ water vapor as well. The pressure correction could be formulated to
 leave the water vapor unchanged.</p>
 </div>
 <div class="section" id="negative-tracer-fixer">
-<h3>Negative Tracer Fixer<a class="headerlink" href="#negative-tracer-fixer" title="Permalink to this headline">¶</a></h3>
+<h3>4.1.9. Negative Tracer Fixer<a class="headerlink" href="#negative-tracer-fixer" title="Permalink to this headline">¶</a></h3>
 <p>In the Finite Volume dynamical core, neither the monotonic transport nor
 the conservative vertical remapping guarantee that tracers will remain
 positive definite. Thus the Finite Volume dynamical core includes a
@@ -1013,7 +1028,7 @@ filling</p>
 <img class="math" src="../_images/math/376b348eb8ae763e1e588cadcdfd70a18c2bf73b.png" alt="q_{min} = 1.0 \times 10^{-36}"/> for the remaining constituents.</p>
 </div>
 <div class="section" id="global-energy-fixer">
-<h3>Global Energy Fixer<a class="headerlink" href="#global-energy-fixer" title="Permalink to this headline">¶</a></h3>
+<h3>4.1.10. Global Energy Fixer<a class="headerlink" href="#global-energy-fixer" title="Permalink to this headline">¶</a></h3>
 <p>The finite-volume dynamical core as implemented in CAM and described
 here conserves the dry air and all other tracer mass exactly without a
 “mass fixer”. The vertical Lagrangian discretization and the associated
@@ -1136,7 +1151,7 @@ cell is updated which is needed for the temperature adjustment in the
 grid cell above.</p>
 </div>
 <div class="section" id="further-discussion">
-<h3>Further discussion<a class="headerlink" href="#further-discussion" title="Permalink to this headline">¶</a></h3>
+<h3>4.1.11. Further discussion<a class="headerlink" href="#further-discussion" title="Permalink to this headline">¶</a></h3>
 <p>There are still aspects of the numerical formulation in the finite
 volume dynamical core that can be further improved. For example, the
 choice of the horizontal grid, the computational efficiency of the
@@ -1155,7 +1170,7 @@ added to the equations to provide the subgrid-scale mixing as well as to
 smooth and/or stabilize the time marching.</p>
 </div>
 <div class="section" id="specified-dynamics-option">
-<h3>Specified Dynamics Option<a class="headerlink" href="#specified-dynamics-option" title="Permalink to this headline">¶</a></h3>
+<h3>4.1.12. Specified Dynamics Option<a class="headerlink" href="#specified-dynamics-option" title="Permalink to this headline">¶</a></h3>
 <p>In CAM4 the capability included to perform simulations using specified
 dynamics, where offline meteorological fields are nudged to the online
 calculated meteorology. This procedure was originally used in the Model
@@ -1201,11 +1216,11 @@ the input dynamical fields, which is important to prevent unrealistic
 vertical mixing.</p>
 </div>
 <div class="section" id="id16">
-<h3>Further discussion<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<h3>4.1.13. Further discussion<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="spectral-element-dynamical-core">
-<span id="s-intro"></span><h2>Spectral Element Dynamical Core<a class="headerlink" href="#spectral-element-dynamical-core" title="Permalink to this headline">¶</a></h2>
+<span id="s-intro"></span><h2>4.2. Spectral Element Dynamical Core<a class="headerlink" href="#spectral-element-dynamical-core" title="Permalink to this headline">¶</a></h2>
 <p>The CAM includes an optional dynamical core from HOMME, NCAR’s
 High-Order Method Modeling Environment <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#dennis05" id="id17">[DFS+05]</a>.  The stand-alone
 HOMME is used for research in several different types of dynamical
@@ -1254,7 +1269,7 @@ each physics timestep. Finally, a hybrid approach can be used where the
 tracer tendencies are applied as in the first option and the dynamics
 tendencies are applied as in the second option.</p>
 <div class="section" id="continuum-formulation-of-the-equations">
-<h3>Continuum Formulation of the Equations<a class="headerlink" href="#continuum-formulation-of-the-equations" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.1. Continuum Formulation of the Equations<a class="headerlink" href="#continuum-formulation-of-the-equations" title="Permalink to this headline">¶</a></h3>
 <p>HOMME uses a conventional vector-invariant form of the moist primitive
 equations. For the vertical discretization it uses the hybrid
 <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> pressure vertical coordinate system modeled after
@@ -1343,7 +1358,7 @@ a diagnostic equation for the pressure vertical velocity
 - \int_{\eta_\text{top}}^\eta {\nabla\cdot}\left( {\frac{\partial {p}}{\partial \eta'}}{{{\smash[t]{\vec{u}}}}}\right) \, d\eta',"/></p>
 </div></div>
 <div class="section" id="conserved-quantities">
-<h3>Conserved Quantities<a class="headerlink" href="#conserved-quantities" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.2. Conserved Quantities<a class="headerlink" href="#conserved-quantities" title="Permalink to this headline">¶</a></h3>
 <p>The equations have infinitely many conserved quantities, including mass,
 tracer mass, potential temperature defined by</p>
 <div class="math">
@@ -1394,7 +1409,7 @@ equations. It is present due to the fact that the hydrostatic momentum
 equation neglects the vertical pressure gradient.</p>
 </div>
 <div class="section" id="horizontal-discretization-functional-spaces">
-<h3>Horizontal Discretization: Functional Spaces<a class="headerlink" href="#horizontal-discretization-functional-spaces" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.3. Horizontal Discretization: Functional Spaces<a class="headerlink" href="#horizontal-discretization-functional-spaces" title="Permalink to this headline">¶</a></h3>
 <p>In the finite element method, instead of constructing discrete
 approximations to derivative operators, one constructs a discrete
 functional space, and then finds the function in this space which solves
@@ -1518,7 +1533,7 @@ than one element), while for <img class="math" src="../_images/math/0bb8aca487fd
 values at any redundant points must all be the same.</p>
 </div>
 <div class="section" id="horizontal-discretization-differential-operators">
-<h3>Horizontal Discretization: Differential Operators<a class="headerlink" href="#horizontal-discretization-differential-operators" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.4. Horizontal Discretization: Differential Operators<a class="headerlink" href="#horizontal-discretization-differential-operators" title="Permalink to this headline">¶</a></h3>
 <p>We use the standard curvilinear coordinate formulas for vector operators
 following <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#heinbockel01" id="id29">[Hei01]</a>. Given the <img class="math" src="../_images/math/f1f7d6de4984879f72e0178c6acd533e6d03d337.png" alt="2\times2"/> Jacobian of the
 the mapping from <img class="math" src="../_images/math/e1cdac3b0ab78248dad8f67e24b15272e5d09790.png" alt="{{[-1,1]^2}}"/> to <img class="math" src="../_images/math/4581273430480cde47b754eb0e9959c00ee7b281.png" alt="\Omega_m"/>, we denote its
@@ -1620,7 +1635,7 @@ evaluated at the <img class="math" src="../_images/math/92bfeba05daa24ee383f5300
 property of these points  <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#deville02" id="id33">[DFM02]</a>,:cite:<cite>karniadakis05</cite>.</p>
 </div>
 <div class="section" id="horizontal-discretization-discrete-inner-product">
-<h3>Horizontal Discretization: Discrete Inner-Product<a class="headerlink" href="#horizontal-discretization-discrete-inner-product" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.5. Horizontal Discretization: Discrete Inner-Product<a class="headerlink" href="#horizontal-discretization-discrete-inner-product" title="Permalink to this headline">¶</a></h3>
 <p>Instead of using exact integration of the basis functions as in a
 traditional finite-element method, the SEM uses a GLL quadrature
 approximation for the integral over <img class="math" src="../_images/math/cd30e0b91d2b53728ae09ccac9d857b79b3adfcb.png" alt="\Omega"/>, that we denote by
@@ -1651,7 +1666,7 @@ as</p>
 inner-product in the usual manner.</p>
 </div>
 <div class="section" id="horizontal-discretization-the-projection-operators">
-<h3>Horizontal Discretization: The Projection Operators<a class="headerlink" href="#horizontal-discretization-the-projection-operators" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.6. Horizontal Discretization: The Projection Operators<a class="headerlink" href="#horizontal-discretization-the-projection-operators" title="Permalink to this headline">¶</a></h3>
 <p>Let <img class="math" src="../_images/math/1ba9757f47c0bbdf6dd520665b2c8dc79012a075.png" alt="{{P}}: {\mathcal V^{0}_{}} \rightarrow {\mathcal V^{1}_{}}"/>
 be the unique orthogonal (self-adjoint) projection operator from
 <img class="math" src="../_images/math/5543ae9c97da1b7461702a048b2e4e61868626bd.png" alt="{\mathcal V^{0}_{}}"/> onto <img class="math" src="../_images/math/43994c406598e3be456f7fb02d09d8f98fd42c30.png" alt="{\mathcal V^{1}_{}}"/> w.r.t.&nbsp;the
@@ -1687,7 +1702,7 @@ latitude-longitude unit vectors <img class="math" src="../_images/math/a5e4127cf
 {{P}}( {{{\smash[t]{\vec{u}}}}}\cdot \hat\theta) \hat\theta."/></p>
 </div></div>
 <div class="section" id="horizontal-discretization-galerkin-formulation">
-<h3>Horizontal Discretization: Galerkin Formulation<a class="headerlink" href="#horizontal-discretization-galerkin-formulation" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.7. Horizontal Discretization: Galerkin Formulation<a class="headerlink" href="#horizontal-discretization-galerkin-formulation" title="Permalink to this headline">¶</a></h3>
 <p>The SEM solves a Galerkin formulation of the equations of interest.
 Given the discrete differential operators described above, the primitive
 equations can be written as an ODE for a generic prognostic variable
@@ -1745,7 +1760,7 @@ communication in HOMME is isolated to the projection operator step, in
 which element boundary data must be exchanged between adjacent elements.</p>
 </div>
 <div class="section" id="vertical-discretization">
-<h3>Vertical Discretization<a class="headerlink" href="#vertical-discretization" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.8. Vertical Discretization<a class="headerlink" href="#vertical-discretization" title="Permalink to this headline">¶</a></h3>
 <p>The vertical coordinate system uses a Lorenz staggering of the variables
 as shown in <a class="reference internal" href="../cam6_scientific_guide/dynamics.html#figure-1"><span class="std std-ref">Figure 3.1: A graphical illustration of the different levels of sub-cycling in CAM5.</span></a>. Let <img class="math" src="../_images/math/684381a21cd73ebbf43b63a087d3f7410ee99ce8.png" alt="K"/> be the total number of layers,
 with variables <img class="math" src="../_images/math/ca531845aa86f7428d84d52ddce68d6f0746f42a.png" alt="{{{\smash[t]{\vec{u}}}}}, T, q, \omega, \Phi"/> at
@@ -1794,7 +1809,7 @@ expression that can be written in terms of
 ."/></p>
 </div></div>
 <div class="section" id="discrete-formulation-dynamics">
-<h3>Discrete formulation: Dynamics<a class="headerlink" href="#discrete-formulation-dynamics" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.9. Discrete formulation: Dynamics<a class="headerlink" href="#discrete-formulation-dynamics" title="Permalink to this headline">¶</a></h3>
 <p>We discretize the equations exactly in the form shown in , , and ,
 obtaining</p>
 <div class="math" id="equation-E:PEmomD">
@@ -1871,7 +1886,7 @@ representing the integral from <img class="math" src="../_images/math/da26d7d2c1
 </div><p>which ensures energy conservation (<a class="reference internal" href="../cam6_scientific_guide/chapter8.html#taylor10a" id="id39">[Tay10]</a>).</p>
 </div>
 <div class="section" id="consistency">
-<h3>Consistency<a class="headerlink" href="#consistency" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.10. Consistency<a class="headerlink" href="#consistency" title="Permalink to this headline">¶</a></h3>
 <p>It is important that the discrete equations be as consistent as
 possible. In particular, we need a discrete version of , the
 non-vertically averaged continuity equation. Equation implicitly implies
@@ -1899,7 +1914,7 @@ interfaces, is the SEM discretization of
 <img class="math" src="../_images/math/b5c1a7c01f90fee20bdbd7f83b4ac4708da55606.png" alt="w  = \partial p / \partial t + {{{\smash[t]{\vec{u}}}}}\cdot {\nabla_{\rm h}}p + {{\dot\eta}}{\pi}"/>.</p>
 </div>
 <div class="section" id="time-stepping">
-<h3>Time Stepping<a class="headerlink" href="#time-stepping" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.11. Time Stepping<a class="headerlink" href="#time-stepping" title="Permalink to this headline">¶</a></h3>
 <p>Applying the SEM discretization to - results in a system of ODEs. These
 are solved with an <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/>-stage Runge-Kutta method. This method
 allows for a gravity-wave based CFL number close to <img class="math" src="../_images/math/6e5bd910d2a98f9a975a4078ea3258c7be8992bf.png" alt="N-1"/>,
@@ -1925,7 +1940,7 @@ an integer multiple of <img class="math" src="../_images/math/ec002955bdf95ee986
 of <img class="math" src="../_images/math/ec002955bdf95ee9869878fbad4f80fc98539359.png" alt="\Delta t"/> and <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/>.</p>
 </div>
 <div class="section" id="dissipation">
-<h3>Dissipation<a class="headerlink" href="#dissipation" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.12. Dissipation<a class="headerlink" href="#dissipation" title="Permalink to this headline">¶</a></h3>
 <p>A horizontal hyper-viscosity operator, modeled after [eul:hdiff] is
 applied to the momentum and temperature equations. It is applied in a
 time-split manor after each dynamics timestep. The hyper-viscosity step
@@ -1991,7 +2006,7 @@ used above so we omit the details. The correction for terrain following
 coordinates given in [eul:hdiff] is not yet implemented in CAM-HOMME.</p>
 </div>
 <div class="section" id="discrete-formulation-tracer-advection">
-<h3>Discrete formulation: Tracer Advection<a class="headerlink" href="#discrete-formulation-tracer-advection" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.13. Discrete formulation: Tracer Advection<a class="headerlink" href="#discrete-formulation-tracer-advection" title="Permalink to this headline">¶</a></h3>
 <p>All tracers, including specific humidity, are advected with a
 discretized version of . HOMME uses the vertically Lagrangian approach
 (see [FVvdisc]) from <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#lin04" id="id42">[Lin04]</a>. At the beginning of each timestep, the
@@ -2034,7 +2049,7 @@ with a sign-preserving hyper-viscosity operator which dissipates
 <img class="math" src="../_images/math/5b82e2d47a29dcc5fa385aaf446c1d530db77673.png" alt="q^2"/>.</p>
 </div>
 <div class="section" id="conservation-and-compatibility">
-<h3>Conservation and Compatibility<a class="headerlink" href="#conservation-and-compatibility" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.14. Conservation and Compatibility<a class="headerlink" href="#conservation-and-compatibility" title="Permalink to this headline">¶</a></h3>
 <p>The SEM is compatible, meaning it has a discrete version of the
 divergence theorem, Stokes theorem and curl/gradient annihilator
 properties <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#taylor10b" id="id46">[TF10]</a>. The divergence theorem is the key
@@ -2110,7 +2125,7 @@ desired that the dynamical core conserve <img class="math" src="../_images/math/
 </div>
 </div>
 <div class="section" id="eulerian-dynamical-core">
-<h2>Eulerian Dynamical Core<a class="headerlink" href="#eulerian-dynamical-core" title="Permalink to this headline">¶</a></h2>
+<h2>4.3. Eulerian Dynamical Core<a class="headerlink" href="#eulerian-dynamical-core" title="Permalink to this headline">¶</a></h2>
 <p>The hybrid vertical coordinate that has been implemented in {cam} is
 described in this section. The hybrid coordinate was developed by
 <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#simmons81a" id="id53">[SStrufing81]</a> in order to provide a general framework for a
@@ -2130,7 +2145,7 @@ in the original development by Kasahara.  Such an upper boundary may
 be required when the equations are solved using vertical finite
 differences.</p>
 <div class="section" id="generalized-terrain-following-vertical-coordinates">
-<h3>Generalized terrain-following vertical coordinates<a class="headerlink" href="#generalized-terrain-following-vertical-coordinates" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.1. Generalized terrain-following vertical coordinates<a class="headerlink" href="#generalized-terrain-following-vertical-coordinates" title="Permalink to this headline">¶</a></h3>
 <p>Deriving the primitive equations in a generalized terrain-following
 vertical coordinate requires only that certain basic properties of the
 coordinate be specified. If the surface pressure is <img class="math" src="../_images/math/b7793e4f08d00aca47e272dcdfeb70f933dac222.png" alt="\pi"/>, then we
@@ -2226,7 +2241,7 @@ of <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b4603
 (<img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/> (1), which is the pressure at <img class="math" src="../_images/math/b44c1347599ced0d18c92253f31679e29775e932.png" alt="\eta = 1"/>).</p>
 </div>
 <div class="section" id="conversion-to-final-form">
-<h3>Conversion to final form<a class="headerlink" href="#conversion-to-final-form" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.2. Conversion to final form<a class="headerlink" href="#conversion-to-final-form" title="Permalink to this headline">¶</a></h3>
 <p>Equations <a class="reference internal" href="#equation-3.a.1">(91)</a> - <a class="reference internal" href="#equation-3.a.16">(106)</a> are the complete set which must be solved
 by a GCM. However, in order to solve them, the function
 <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> must be specified. In advance of actually specifying
@@ -2371,7 +2386,7 @@ will be done in section [ssec:finitediffeqs]. In the case that
 CCM1.</p>
 </div>
 <div class="section" id="continuous-equations-using">
-<h3>Continuous equations using <img class="math" src="../_images/math/fe97902b4016e484299911cff59e358104446bbd.png" alt="\partial\ln(\pi)/\partial t"/><a class="headerlink" href="#continuous-equations-using" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.3. Continuous equations using <img class="math" src="../_images/math/fe97902b4016e484299911cff59e358104446bbd.png" alt="\partial\ln(\pi)/\partial t"/><a class="headerlink" href="#continuous-equations-using" title="Permalink to this headline">¶</a></h3>
 <p>In practice, the solutions generated by solving the above equations are
 excessively noisy. This problem appears to arise from aliasing problems
 in the hydrostatic equation <a class="reference internal" href="#equation-3.a.30">(120)</a>. The <img class="math" src="../_images/math/a1015909871cfc6e5391294e07770a374880437f.png" alt="\ln p"/> integral
@@ -2451,7 +2466,7 @@ in CCM1 if <img class="math" src="../_images/math/0eb51c762b48abc6919a7380343127
 case <img class="math" src="../_images/math/fe393d291c5cf7e2c369afa7e600686b03cad741.png" alt="\partial p / \partial\pi = p/\pi = \sigma"/>.)</p>
 </div>
 <div class="section" id="semi-implicit-formulation">
-<span id="eulsemiimplicit"></span><h3>Semi-implicit formulation<a class="headerlink" href="#semi-implicit-formulation" title="Permalink to this headline">¶</a></h3>
+<span id="eulsemiimplicit"></span><h3>4.3.4. Semi-implicit formulation<a class="headerlink" href="#semi-implicit-formulation" title="Permalink to this headline">¶</a></h3>
 <p>The model described by <a class="reference internal" href="#equation-3.a.33">(123)</a> -<a class="reference internal" href="#equation-3.a.42">(132)</a> , without the horizontal
 diffusion terms, together with boundary conditions <a class="reference internal" href="#equation-3.a.1">(91)</a>  and
 <a class="reference internal" href="#equation-3.a.2">(92)</a> , is integrated in time using the semi-implicit leapfrog scheme
@@ -2610,7 +2625,7 @@ and <img class="math" src="../_images/math/bc4dbbce6b48eb49e4c2a4a3d3efb4613ea2f
 specification of the vertical coordinate and will be defined later.</p>
 </div>
 <div class="section" id="energy-conservation">
-<span id="eul-econserve"></span><h3>Energy conservation<a class="headerlink" href="#energy-conservation" title="Permalink to this headline">¶</a></h3>
+<span id="eul-econserve"></span><h3>4.3.5. Energy conservation<a class="headerlink" href="#energy-conservation" title="Permalink to this headline">¶</a></h3>
 <p>We shall impose a requirement on the vertical finite differences of the
 model that they conserve the global integral of total energy <em>in the
 absence of sources and sinks</em>. We need to derive equations for kinetic
@@ -2848,7 +2863,7 @@ neglecting lack of conservation due to the truncation of the horizontal
 spherical harmonic expansions.</p>
 </div>
 <div class="section" id="horizontal-diffusion">
-<span id="eul-hdiff"></span><h3>Horizontal diffusion<a class="headerlink" href="#horizontal-diffusion" title="Permalink to this headline">¶</a></h3>
+<span id="eul-hdiff"></span><h3>4.3.6. Horizontal diffusion<a class="headerlink" href="#horizontal-diffusion" title="Permalink to this headline">¶</a></h3>
 <p>CAM5.0 contains a horizontal diffusion term for <img class="math" src="../_images/math/b5f27ef787a4a1e946b37bbea9bc67fc0b686a17.png" alt="T, \zeta"/>, and
 <img class="math" src="../_images/math/a702e781dfc76762a3a132c2031fba8898430925.png" alt="\delta"/> to prevent spectral blocking and to provide reasonable
 kinetic energy spectra. The horizontal diffusion operator in CAM5.0 is also
@@ -2933,7 +2948,7 @@ vorticity and divergence diffusion operators to prevent damping of
 uniform rotations.</p>
 </div>
 <div class="section" id="finite-difference-equations">
-<span id="ssec-finitediffeqs"></span><h3>Finite difference equations<a class="headerlink" href="#finite-difference-equations" title="Permalink to this headline">¶</a></h3>
+<span id="ssec-finitediffeqs"></span><h3>4.3.7. Finite difference equations<a class="headerlink" href="#finite-difference-equations" title="Permalink to this headline">¶</a></h3>
 <p>The governing equations are solved using the spectral method in the
 horizontal, so that only the vertical and time differences are presented
 here. The dynamics includes horizontal diffusion of <img class="math" src="../_images/math/f81c5104389fb5c5116585f40de090cbb6ecfdd3.png" alt="T,
@@ -3173,7 +3188,7 @@ at ECMWF can be obtained by changing only the
 vectors and hydrostatic matrix defined by <a class="reference internal" href="#equation-3.a.108">(196)</a> -<a class="reference internal" href="#equation-3.a.111">(199)</a> .</p>
 </div>
 <div class="section" id="time-filter">
-<h3>Time filter<a class="headerlink" href="#time-filter" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.8. Time filter<a class="headerlink" href="#time-filter" title="Permalink to this headline">¶</a></h3>
 <p>The time step is completed by applying a recursive time filter
 originally designed by <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#robert66" id="id64">[Rob66]</a> and later studied by
 <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#asselin72" id="id65">[Ass72]</a>.</p>
@@ -3182,7 +3197,7 @@ originally designed by <a class="reference internal" href="../cam6_scientific_gu
  - 2 \psi^n + \psi^{n+1} \right)"/></p>
 </div></div>
 <div class="section" id="spectral-transform">
-<h3>Spectral transform<a class="headerlink" href="#spectral-transform" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.9. Spectral transform<a class="headerlink" href="#spectral-transform" title="Permalink to this headline">¶</a></h3>
 <p>The spectral transform method is used in the horizontal exactly as in
 CCM1. As shown earlier, the vertical and temporal aspects of the model
 are represented by finite–difference approximations. The horizontal
@@ -3210,7 +3225,7 @@ details and general philosophy, the reader is referred to these
 earlier papers.</p>
 </div>
 <div class="section" id="spectral-algorithm-overview">
-<h3>Spectral algorithm overview<a class="headerlink" href="#spectral-algorithm-overview" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.10. Spectral algorithm overview<a class="headerlink" href="#spectral-algorithm-overview" title="Permalink to this headline">¶</a></h3>
 <p>The horizontal representation of an arbitrary variable <img class="math" src="../_images/math/499a2ee48b33448e80b97af9df9550828bdbfb59.png" alt="\psi"/>
 consists of a truncated series of spherical harmonic functions,</p>
 <div class="math" id="equation-3.b.1">
@@ -3343,7 +3358,7 @@ transformation back to grid–point space. The details of the equations
 involved in the various transformations are given in the next section.</p>
 </div>
 <div class="section" id="combination-of-terms">
-<h3>Combination of terms<a class="headerlink" href="#combination-of-terms" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.11. Combination of terms<a class="headerlink" href="#combination-of-terms" title="Permalink to this headline">¶</a></h3>
 <p>In order to describe the transformation to spectral space, for each
 equation we first group together all undifferentiated explicit terms,
 all explicit terms with longitudinal derivatives, and all explicit terms
@@ -3428,7 +3443,7 @@ follows. The terms of <a class="reference internal" href="#equation-3.b.19">(221
 \end{aligned}"/></p>
 </div></div>
 <div class="section" id="transformation-to-spectral-space">
-<h3>Transformation to spectral space<a class="headerlink" href="#transformation-to-spectral-space" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.12. Transformation to spectral space<a class="headerlink" href="#transformation-to-spectral-space" title="Permalink to this headline">¶</a></h3>
 <p>Formally, Equations <a class="reference internal" href="#equation-3.b.18">(217)</a> -<a class="reference internal" href="#equation-3.b.21">(223)</a>  are transformed to spectral
 space by performing the operations indicated in <a class="reference internal" href="#equation-3.b.22">(232)</a>  to each term.
 We see that the equations basically contain three types of terms, for
@@ -3507,7 +3522,7 @@ is the Fourier coefficient of the original grid variable
 <img class="math" src="../_images/math/d3b376a85d1400d3726e7ae2a589726864a6a0f7.png" alt="\underline{{\hbox{\sffamily\slshape D}}}_\nabla"/>.</p>
 </div>
 <div class="section" id="solution-of-semi-implicit-equations">
-<h3>Solution of semi-implicit equations<a class="headerlink" href="#solution-of-semi-implicit-equations" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.13. Solution of semi-implicit equations<a class="headerlink" href="#solution-of-semi-implicit-equations" title="Permalink to this headline">¶</a></h3>
 <p>The prognostic equations can be converted to spectral form by summation
 over the Gaussian grid using <a class="reference internal" href="#equation-3.b.22">(232)</a> , <a class="reference internal" href="#equation-3.b.24">(234)</a> , and <a class="reference internal" href="#equation-3.b.27">(237)</a> . The
 resulting equation for absolute vorticity is</p>
@@ -3600,7 +3615,7 @@ perturbations are taken with respect to a specified
 <img class="math" src="../_images/math/00603f4e1bf73877e726b64a92975be99fc1e4be.png" alt="\underline{T}^r"/>.</p>
 </div>
 <div class="section" id="id70">
-<h3>Horizontal diffusion<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.14. Horizontal diffusion<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned earlier, the horizontal diffusion in <a class="reference internal" href="#equation-3.a.87">(175)</a>  and
 <a class="reference internal" href="#equation-3.a.90">(178)</a>  is computed implicitly via time splitting after the
 transformations into spectral space and solution of the semi-implicit
@@ -3666,7 +3681,7 @@ grid–point space. The values of the coefficients <img class="math" src="../_im
 <img class="math" src="../_images/math/9e77ef8444eca8f79ed2faf6c6e9d42b2c4a6e9d.png" alt="1.0 \times 10^{16}"/>m<img class="math" src="../_images/math/8b33f4947248e1204653c8e7d2b41fa0825ad7c5.png" alt="^4"/>sec<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>, respectively.</p>
 </div>
 <div class="section" id="initial-divergence-damping">
-<h3>Initial divergence damping<a class="headerlink" href="#initial-divergence-damping" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.15. Initial divergence damping<a class="headerlink" href="#initial-divergence-damping" title="Permalink to this headline">¶</a></h3>
 <p>Occasionally, with poorly balanced initial conditions, the model
 exhibits numerical instability during the beginning of an integration
 because of excessive noise in the solution. Therefore, an optional
@@ -3681,7 +3696,7 @@ time splitting after the horizontal diffusion.</p>
 <p><span class="eqno">(259)<a class="headerlink" href="#equation-3.b.45" title="Permalink to this equation">¶</a></span><img src="../_images/math/b450f7e67177dc8f5d4ad537211038a48075286c.png" alt="\left(\delta^*\right)^m_n = \frac{1}{1 + 2\Delta t r} \left(\delta^*\right)^m_n"/></p>
 </div></div>
 <div class="section" id="transformation-from-spectral-to-physical-space">
-<h3>Transformation from spectral to physical space<a class="headerlink" href="#transformation-from-spectral-to-physical-space" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.16. Transformation from spectral to physical space<a class="headerlink" href="#transformation-from-spectral-to-physical-space" title="Permalink to this headline">¶</a></h3>
 <p>After the prognostic variables are completed at time <img class="math" src="../_images/math/b700b57c3b9fcd19ef715b657735e6dbbeaf8f00.png" alt="n+1"/> in
 spectral space <img class="math" src="../_images/math/58997043c2b07df98e3cdfe1581aa96b9dd05bc0.png" alt="\left(\underline{(\zeta + f)^*}\right)^m_n"/>,
 <img class="math" src="../_images/math/e76ae4043c8ed2080a52d33d498e19206a668dec.png" alt="\left(\underline{\delta^*}\right)^m_n"/>,
@@ -3768,7 +3783,7 @@ diffusion tendencies are converted to equivalent <img class="math" src="../_imag
 diffusion tendencies.</p>
 </div>
 <div class="section" id="horizontal-diffusion-correction">
-<h3>Horizontal diffusion correction<a class="headerlink" href="#horizontal-diffusion-correction" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.17. Horizontal diffusion correction<a class="headerlink" href="#horizontal-diffusion-correction" title="Permalink to this headline">¶</a></h3>
 <p>After grid–point values are calculated, frictional heating rates are
 determined from the momentum diffusion tendencies and are added to the
 temperature, and the partial correction of the <img class="math" src="../_images/math/1ca9cf69f082c5af6e6cffa9ea1a60eddd4efeb1.png" alt="\nabla^4"/>
@@ -3812,7 +3827,7 @@ purposes:</p>
 \right)_k K^{(4)} \nabla^4 \Pi^{n+1} ."/></p>
 </div></div>
 <div class="section" id="semi-lagrangian-tracer-transport">
-<h3>Semi-Lagrangian Tracer Transport<a class="headerlink" href="#semi-lagrangian-tracer-transport" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.18. Semi-Lagrangian Tracer Transport<a class="headerlink" href="#semi-lagrangian-tracer-transport" title="Permalink to this headline">¶</a></h3>
 <p>The forecast equation for water vapor specific humidity and constituent
 mixing ratio in the <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> system is from <a class="reference internal" href="#equation-3.a.36">(126)</a>  excluding
 sources and sinks.</p>
@@ -4081,7 +4096,7 @@ the <img class="math" src="../_images/math/fa977e968522cc27719b24b2da6fceb3b1ace
 <a class="reference internal" href="#equation-3.c.31">(302)</a>  are applied to the <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> derivative estimates.</p>
 </div>
 <div class="section" id="mass-fixers">
-<h3>Mass fixers<a class="headerlink" href="#mass-fixers" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.19. Mass fixers<a class="headerlink" href="#mass-fixers" title="Permalink to this headline">¶</a></h3>
 <p>This section describes original and modified fixers used for the
 Eulerian and semi-Lagrangian dynamical cores.</p>
 <p>Let <img class="math" src="../_images/math/8e53d98ce0d079fb2e2a9b7f8e5e027932f66b60.png" alt="\pi^0"/>, <img class="math" src="../_images/math/548023dfeeba80d1870461ab7e0a6c5e2df49334.png" alt="\Delta p^0"/> and <img class="math" src="../_images/math/523c6afabb2220102ab6e6369bbd2b0d150d79e0.png" alt="q^0"/> denote the values
@@ -4200,7 +4215,7 @@ temperature field to prevent changes to the IPCC simulations. In the
 future, constituent fields may use a <em>corrected</em> version of <a class="reference internal" href="#equation-3.d.10">(317)</a> .</p>
 </div>
 <div class="section" id="energy-fixer">
-<span id="energyfixer"></span><h3>Energy Fixer<a class="headerlink" href="#energy-fixer" title="Permalink to this headline">¶</a></h3>
+<span id="energyfixer"></span><h3>4.3.20. Energy Fixer<a class="headerlink" href="#energy-fixer" title="Permalink to this headline">¶</a></h3>
 <p>Following notation in section [massfixers], the total energy integrals
 are</p>
 <div class="math">
@@ -4255,7 +4270,7 @@ v^+ \left( \lambda, \varphi, \eta \right) &amp;=&amp; \hat v^+\end{aligned}"/></
 \over \int\limits_3 c_p \, p_0\Delta A + {\boldsymbol{M}} \int\limits_3 c_p \hat\pi^+ \Delta B }"/></p>
 </div></div>
 <div class="section" id="statistics-calculations">
-<span id="statcalc"></span><h3>Statistics Calculations<a class="headerlink" href="#statistics-calculations" title="Permalink to this headline">¶</a></h3>
+<span id="statcalc"></span><h3>4.3.21. Statistics Calculations<a class="headerlink" href="#statistics-calculations" title="Permalink to this headline">¶</a></h3>
 <p>At each time step, selected global average statistics are computed for
 diagnostic purposes when the model is integrated with the Eulerian and
 semi-Lagrangian dynamical cores. Let <img class="math" src="../_images/math/ead54547fbbedcde64ff99c3904acd9416b64b33.png" alt="\int_3"/> denote a global and
@@ -4286,7 +4301,7 @@ arbitrary variable <img class="math" src="../_images/math/499a2ee48b33448e80b97a
 &amp; = \int_3 \pi^{n} q^{n}/g dV . \end{aligned}"/></p>
 </div></div>
 <div class="section" id="reduced-grid">
-<h3>Reduced grid<a class="headerlink" href="#reduced-grid" title="Permalink to this headline">¶</a></h3>
+<h3>4.3.22. Reduced grid<a class="headerlink" href="#reduced-grid" title="Permalink to this headline">¶</a></h3>
 <p>The Eulerian core and semi-Lagrangian tracer transport can be run on
 reduced grids. The term reduced grid generally refers to a grid based on
 latitude and longitude circles in which the longitudinal grid increment
@@ -4297,9 +4312,9 @@ saving of computer time of up to 25%.</p>
 </div>
 </div>
 <div class="section" id="semi-lagrangian-dynamical-core">
-<span id="sec-semi-lagrange"></span><h2>Semi-Lagrangian Dynamical Core<a class="headerlink" href="#semi-lagrangian-dynamical-core" title="Permalink to this headline">¶</a></h2>
+<span id="sec-semi-lagrange"></span><h2>4.4. Semi-Lagrangian Dynamical Core<a class="headerlink" href="#semi-lagrangian-dynamical-core" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>The two-time-level semi-implicit semi-Lagrangian spectral transform
 dynamical core in CAM5.0 evolved from the three-time-level CCM2 semi-Lagrangian
 version detailed in <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#williamson94a" id="id78">[WO94a]</a> hereafter
@@ -4318,7 +4333,7 @@ derivation of basic aspects of the semi-Lagrangian approximations. Only
 the details of the two-time-level approximations are provided here.</p>
 </div>
 <div class="section" id="vertical-coordinate-and-hydrostatic-equation">
-<h3>Vertical coordinate and hydrostatic equation<a class="headerlink" href="#vertical-coordinate-and-hydrostatic-equation" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.2. Vertical coordinate and hydrostatic equation<a class="headerlink" href="#vertical-coordinate-and-hydrostatic-equation" title="Permalink to this headline">¶</a></h3>
 <p>The semi-Lagrangian dynamical core adopts the same hybrid vertical
 coordinate (<img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/>) as the Eulerian core defined by</p>
 <div class="math" id="equation-sld.1">
@@ -4344,14 +4359,14 @@ hydrostatic integral and is left unspecified for now. It depends on
 pressure, which varies from horizontal point to point.</p>
 </div>
 <div class="section" id="semi-implicit-reference-state">
-<h3>Semi-implicit reference state<a class="headerlink" href="#semi-implicit-reference-state" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.3. Semi-implicit reference state<a class="headerlink" href="#semi-implicit-reference-state" title="Permalink to this headline">¶</a></h3>
 <p>The semi-implicit equations are linearized about a reference state with
 constant <img class="math" src="../_images/math/bf1fa74c814cfbc22f349d3354060c74811e8383.png" alt="T^r"/> and <img class="math" src="../_images/math/4312d47077d6bc47fd202c34a3b62c117e1361c6.png" alt="p_s^r"/>. We choose</p>
 <div class="math">
 <p><img src="../_images/math/832e295f58284da6f4f4c779d109ac7ae356e9a6.png" alt="T^r = 350 {\rm K},~~~~~ p_s^r = 10^5 {\rm Pa}"/></p>
 </div></div>
 <div class="section" id="perturbation-surface-pressure-prognostic-variable">
-<h3>Perturbation surface pressure prognostic variable<a class="headerlink" href="#perturbation-surface-pressure-prognostic-variable" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.4. Perturbation surface pressure prognostic variable<a class="headerlink" href="#perturbation-surface-pressure-prognostic-variable" title="Permalink to this headline">¶</a></h3>
 <p>To ameliorate the mountain resonance problem, <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#ritchie-tanguay96" id="id82">[RT96]</a>
 introduce a perturbation <img class="math" src="../_images/math/a527f8be5abecb24a35d49fdd58552e8d5858ea8.png" alt="{\rm ln}\,p_{s}"/> surface pressure
 prognostic variable</p>
@@ -4371,7 +4386,7 @@ correction to pressure surfaces. However the semi-Lagrangian CAM5.0 default is
 to run with no horizontal diffusion.</p>
 </div>
 <div class="section" id="extrapolated-variables">
-<h3>Extrapolated variables<a class="headerlink" href="#extrapolated-variables" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.5. Extrapolated variables<a class="headerlink" href="#extrapolated-variables" title="Permalink to this headline">¶</a></h3>
 <p>Variables needed at time (<img class="math" src="../_images/math/c094339ab9597a209f0c64b74a5a450424d3f5a3.png" alt="n+\frac{1}{2}"/>) are obtained by
 extrapolation</p>
 <div class="math">
@@ -4379,7 +4394,7 @@ extrapolation</p>
                    - \frac{1}{2} \left(~~~\right)^{n-1}"/></p>
 </div></div>
 <div class="section" id="interpolants">
-<h3>Interpolants<a class="headerlink" href="#interpolants" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.6. Interpolants<a class="headerlink" href="#interpolants" title="Permalink to this headline">¶</a></h3>
 <p>Lagrangian polynomial quasi-cubic interpolation is used in the
 prognostic equations for the dynamical core. Monotonic Hermite
 quasi-cubic interpolation is used for tracers. Details are provided in
@@ -4387,7 +4402,7 @@ the Eulerian Dynamical Core description. The trajectory calculation uses
 tri-linear interpolation of the wind field.</p>
 </div>
 <div class="section" id="continuity-equation">
-<h3>Continuity Equation<a class="headerlink" href="#continuity-equation" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.7. Continuity Equation<a class="headerlink" href="#continuity-equation" title="Permalink to this headline">¶</a></h3>
 <p>The discrete semi-Lagrangian, semi-implicit continuity equation is
 obtained from (16) of W&amp;O94 modified to be spatially uncentered by a
 fraction <img class="math" src="../_images/math/65d19c66c148d5016c6a89d26486bf6d1966ded1.png" alt="\epsilon"/>, and to predict <img class="math" src="../_images/math/0c5ed2d3305c082f9bd4fb9967197b6ca255405f.png" alt="{\rm ln}\,p_{s}'"/></p>
@@ -4535,7 +4550,7 @@ divergence at time (<img class="math" src="../_images/math/b700b57c3b9fcd19ef715
 </div><p>is treated as a unit, and follows from <a class="reference internal" href="#equation-sld.3">(326)</a> .</p>
 </div>
 <div class="section" id="thermodynamic-equation">
-<h3>Thermodynamic Equation<a class="headerlink" href="#thermodynamic-equation" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.8. Thermodynamic Equation<a class="headerlink" href="#thermodynamic-equation" title="Permalink to this headline">¶</a></h3>
 <p>The thermodynamic equation is obtained from (25) of W&amp;O94 modified to be
 spatially uncentered and to use <img class="math" src="../_images/math/0c5ed2d3305c082f9bd4fb9967197b6ca255405f.png" alt="{\rm ln}\,p_{s}'"/>. In addition
 Hortal’s modification (citep{tempertonetal01}) is included,
@@ -4602,7 +4617,7 @@ T_0\left({(p_k)_{ref} \over (p_s)_{ref} }\right)^{R \gamma / g} \\
 1000 {\rm mb} \\ \gamma &amp;=&amp; 6.5 {\rm K / km} \\ T_C &amp;=&amp; 216.5 {\rm K}\end{aligned}"/></p>
 </div></div>
 <div class="section" id="momentum-equations">
-<h3>Momentum equations<a class="headerlink" href="#momentum-equations" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.9. Momentum equations<a class="headerlink" href="#momentum-equations" title="Permalink to this headline">¶</a></h3>
 <p>The momentum equations follow from (3) of W&amp;O94 modified to be spatially
 uncentered, to use <img class="math" src="../_images/math/0c5ed2d3305c082f9bd4fb9967197b6ca255405f.png" alt="{\rm ln}\,p_{s}'"/>, and with the Coriolis term
 implicit following <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#cote-staniforth88" id="id83">[CS88]</a> and <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#temperton97" id="id84">[Tem97]</a>. The
@@ -4678,7 +4693,7 @@ pressure gradient calculated from the spectral representation</p>
 <p><img src="../_images/math/1f3c572cb66c9604d5046cb60cfb8be5f7680880.png" alt="\nabla p_{_{l}} = B_l\nabla p_s = B_l p_s \nabla\,{\rm ln}\,p_s"/></p>
 </div></div>
 <div class="section" id="development-of-semi-implicit-system-equations">
-<h3>Development of semi-implicit system equations<a class="headerlink" href="#development-of-semi-implicit-system-equations" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.10. Development of semi-implicit system equations<a class="headerlink" href="#development-of-semi-implicit-system-equations" title="Permalink to this headline">¶</a></h3>
 <p>The momentum equation can be written as</p>
 <div class="math" id="equation-vmeq">
 <p><span class="eqno">(327)<a class="headerlink" href="#equation-vmeq" title="Permalink to this equation">¶</a></span><img src="../_images/math/467bf33ebbee73ce089ddea59dd0fc7f51fdb442.png" alt="\begin{aligned}
@@ -5067,7 +5082,7 @@ coefficients by</p>
                           p^r} \right)^T \underline{\delta}^m_n\end{aligned}"/></p>
 </div></div>
 <div class="section" id="trajectory-calculation">
-<h3>Trajectory Calculation<a class="headerlink" href="#trajectory-calculation" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.11. Trajectory Calculation<a class="headerlink" href="#trajectory-calculation" title="Permalink to this headline">¶</a></h3>
 <p>The trajectory calculation follows <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#hortal99" id="id90">[Hor99]</a> Let
 <img class="math" src="../_images/math/b1339f5e667268bfd3301cc15b53978ef473d29e.png" alt="{\boldsymbol{R}}"/> denote the position vector of the parcel,</p>
 <div class="math">
@@ -5098,7 +5113,7 @@ coefficients by</p>
 </div><p>for the trajectory equation.</p>
 </div>
 <div class="section" id="mass-and-energy-fixers-and-statistics-calculations">
-<h3>Mass and energy fixers and statistics calculations<a class="headerlink" href="#mass-and-energy-fixers-and-statistics-calculations" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.12. Mass and energy fixers and statistics calculations<a class="headerlink" href="#mass-and-energy-fixers-and-statistics-calculations" title="Permalink to this headline">¶</a></h3>
 <p>The semi-Lagrangian dynamical core applies the same mass and energy
 fixers and statistical calculations as the Eulerian dynamical core.
 These are described in sections [massfixers], [energyfixer], and
@@ -5119,7 +5134,14 @@ These are described in sections [massfixers], [energyfixer], and
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li> 
+        <li class="right" >
+          <a href="physics.html" title="5. Model Physics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pd_coupling.html" title="3. Coupling of Dynamical Core and Parameterization Suite"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM5 Scientific Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

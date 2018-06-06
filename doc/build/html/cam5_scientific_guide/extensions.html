@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>5. Extensions to CAM &#8212; camdoc  documentation</title>
+    <title>6. Extensions to CAM &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Slab Ocean Model" href="slab_ocean.html" />
-    <link rel="prev" title="4. Model Physics" href="physics.html" />
+    <link rel="next" title="7. Slab Ocean Model" href="slab_ocean.html" />
+    <link rel="prev" title="5. Model Physics" href="physics.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -39,10 +39,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="slab_ocean.html" title="6. Slab Ocean Model"
+          <a href="slab_ocean.html" title="7. Slab Ocean Model"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="physics.html" title="4. Model Physics"
+          <a href="physics.html" title="5. Model Physics"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM5 Scientific Guide</a> &#187;</li> 
@@ -52,87 +52,87 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">5. Extensions to CAM</a><ul>
-<li><a class="reference internal" href="#introduction">5.1. Introduction</a></li>
-<li><a class="reference internal" href="#chemistry">5.2. Chemistry</a><ul>
-<li><a class="reference internal" href="#chemistry-schemes">5.2.1. Chemistry Schemes</a><ul>
-<li><a class="reference internal" href="#the-bulk-aerosol-model">5.2.1.1. The Bulk Aerosol Model</a></li>
-<li><a class="reference internal" href="#cam-chem-using-the-modal-aerosol-model">5.2.1.2. CAM-Chem using the Modal Aerosol Model</a></li>
-<li><a class="reference internal" href="#trop-mozart-chemistry">5.2.1.3. Trop MOZART Chemistry</a></li>
-<li><a class="reference internal" href="#trop-strat-mozart-chemistry">5.2.1.4. Trop-Strat MOZART Chemistry</a></li>
-<li><a class="reference internal" href="#soa-calculation-in-cam-chem">5.2.1.5. SOA calculation in CAM-Chem</a></li>
+<li><a class="reference internal" href="#">6. Extensions to CAM</a><ul>
+<li><a class="reference internal" href="#introduction">6.1. Introduction</a></li>
+<li><a class="reference internal" href="#chemistry">6.2. Chemistry</a><ul>
+<li><a class="reference internal" href="#chemistry-schemes">6.2.1. Chemistry Schemes</a><ul>
+<li><a class="reference internal" href="#the-bulk-aerosol-model">6.2.1.1. The Bulk Aerosol Model</a></li>
+<li><a class="reference internal" href="#cam-chem-using-the-modal-aerosol-model">6.2.1.2. CAM-Chem using the Modal Aerosol Model</a></li>
+<li><a class="reference internal" href="#trop-mozart-chemistry">6.2.1.3. Trop MOZART Chemistry</a></li>
+<li><a class="reference internal" href="#trop-strat-mozart-chemistry">6.2.1.4. Trop-Strat MOZART Chemistry</a></li>
+<li><a class="reference internal" href="#soa-calculation-in-cam-chem">6.2.1.5. SOA calculation in CAM-Chem</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#emissions">5.2.2. Emissions</a><ul>
-<li><a class="reference internal" href="#emissions-of-trace-gases">5.2.2.1. Emissions of Trace Gases</a></li>
-<li><a class="reference internal" href="#biogenic-emissions">5.2.2.2. Biogenic emissions</a></li>
+<li><a class="reference internal" href="#emissions">6.2.2. Emissions</a><ul>
+<li><a class="reference internal" href="#emissions-of-trace-gases">6.2.2.1. Emissions of Trace Gases</a></li>
+<li><a class="reference internal" href="#biogenic-emissions">6.2.2.2. Biogenic emissions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#boundary-conditions">5.2.3. Boundary conditions</a><ul>
-<li><a class="reference internal" href="#lower-boundary-conditions">5.2.3.1. Lower boundary conditions</a></li>
-<li><a class="reference internal" href="#specified-stratospheric-distributions">5.2.3.2. Specified stratospheric distributions</a></li>
-<li><a class="reference internal" href="#upper-boundary-condition">5.2.3.3. Upper boundary condition</a></li>
+<li><a class="reference internal" href="#boundary-conditions">6.2.3. Boundary conditions</a><ul>
+<li><a class="reference internal" href="#lower-boundary-conditions">6.2.3.1. Lower boundary conditions</a></li>
+<li><a class="reference internal" href="#specified-stratospheric-distributions">6.2.3.2. Specified stratospheric distributions</a></li>
+<li><a class="reference internal" href="#upper-boundary-condition">6.2.3.3. Upper boundary condition</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lightning">5.2.4. Lightning</a></li>
-<li><a class="reference internal" href="#dry-deposition">5.2.5. Dry deposition</a></li>
-<li><a class="reference internal" href="#wet-removal">5.2.6. Wet removal</a></li>
+<li><a class="reference internal" href="#lightning">6.2.4. Lightning</a></li>
+<li><a class="reference internal" href="#dry-deposition">6.2.5. Dry deposition</a></li>
+<li><a class="reference internal" href="#wet-removal">6.2.6. Wet removal</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#photolytic-approach-neutral-species">5.3. Photolytic Approach (Neutral Species)</a></li>
-<li><a class="reference internal" href="#numerical-solution-approach">5.4. Numerical Solution Approach</a></li>
-<li><a class="reference internal" href="#superfast-chemistry">5.5. Superfast Chemistry</a><ul>
-<li><a class="reference internal" href="#chemical-mechanism">5.5.1. Chemical mechanism</a></li>
-<li><a class="reference internal" href="#emissions-for-cam4-superfast-chemistry">5.5.2. Emissions for CAM4 superfast chemistry</a></li>
-<li><a class="reference internal" href="#linoz">5.5.3. LINOZ</a></li>
-<li><a class="reference internal" href="#parameterized-psc-ozone-loss">5.5.4. Parameterized PSC ozone loss</a></li>
+<li><a class="reference internal" href="#photolytic-approach-neutral-species">6.3. Photolytic Approach (Neutral Species)</a></li>
+<li><a class="reference internal" href="#numerical-solution-approach">6.4. Numerical Solution Approach</a></li>
+<li><a class="reference internal" href="#superfast-chemistry">6.5. Superfast Chemistry</a><ul>
+<li><a class="reference internal" href="#chemical-mechanism">6.5.1. Chemical mechanism</a></li>
+<li><a class="reference internal" href="#emissions-for-cam4-superfast-chemistry">6.5.2. Emissions for CAM4 superfast chemistry</a></li>
+<li><a class="reference internal" href="#linoz">6.5.3. LINOZ</a></li>
+<li><a class="reference internal" href="#parameterized-psc-ozone-loss">6.5.4. Parameterized PSC ozone loss</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#physical-parameterizations">5.6. Physical Parameterizations</a><ul>
-<li><a class="reference internal" href="#domain-and-resolution">5.6.1. Domain and Resolution</a></li>
-<li><a class="reference internal" href="#molecular-diffusion-and-constituent-separation">5.6.2. Molecular Diffusion and Constituent Separation</a><ul>
-<li><a class="reference internal" href="#molecular-viscosity-and-diffusivity">5.6.2.1. Molecular viscosity and diffusivity</a></li>
-<li><a class="reference internal" href="#diffusive-separation-velocities">5.6.2.2. Diffusive separation velocities</a></li>
-<li><a class="reference internal" href="#discretization-of-the-vertical-diffusion-equations">5.6.2.3. Discretization of the vertical diffusion equations</a></li>
-<li><a class="reference internal" href="#solution-of-the-vertical-diffusion-equations">5.6.2.4. Solution of the vertical diffusion equations</a></li>
+<li><a class="reference internal" href="#physical-parameterizations">6.6. Physical Parameterizations</a><ul>
+<li><a class="reference internal" href="#domain-and-resolution">6.6.1. Domain and Resolution</a></li>
+<li><a class="reference internal" href="#molecular-diffusion-and-constituent-separation">6.6.2. Molecular Diffusion and Constituent Separation</a><ul>
+<li><a class="reference internal" href="#molecular-viscosity-and-diffusivity">6.6.2.1. Molecular viscosity and diffusivity</a></li>
+<li><a class="reference internal" href="#diffusive-separation-velocities">6.6.2.2. Diffusive separation velocities</a></li>
+<li><a class="reference internal" href="#discretization-of-the-vertical-diffusion-equations">6.6.2.3. Discretization of the vertical diffusion equations</a></li>
+<li><a class="reference internal" href="#solution-of-the-vertical-diffusion-equations">6.6.2.4. Solution of the vertical diffusion equations</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#gravity-wave-drag">5.6.3. Gravity Wave Drag</a><ul>
-<li><a class="reference internal" href="#adiabatic-inviscid-formulation">5.6.3.1. Adiabatic inviscid formulation</a></li>
-<li><a class="reference internal" href="#saturation-condition">5.6.3.2. Saturation condition</a></li>
-<li><a class="reference internal" href="#diffusive-damping">5.6.3.3. Diffusive damping</a></li>
-<li><a class="reference internal" href="#transport-due-to-dissipating-waves">5.6.3.4. Transport due to dissipating waves</a></li>
-<li><a class="reference internal" href="#heating-due-to-wave-dissipation">5.6.3.5. Heating due to wave dissipation</a></li>
-<li><a class="reference internal" href="#orographic-source-function">5.6.3.6. Orographic source function</a></li>
-<li><a class="reference internal" href="#non-orographic-source-functions">5.6.3.7. Non-orographic source functions</a></li>
-<li><a class="reference internal" href="#numerical-approximations">5.6.3.8. Numerical approximations</a></li>
+<li><a class="reference internal" href="#gravity-wave-drag">6.6.3. Gravity Wave Drag</a><ul>
+<li><a class="reference internal" href="#adiabatic-inviscid-formulation">6.6.3.1. Adiabatic inviscid formulation</a></li>
+<li><a class="reference internal" href="#saturation-condition">6.6.3.2. Saturation condition</a></li>
+<li><a class="reference internal" href="#diffusive-damping">6.6.3.3. Diffusive damping</a></li>
+<li><a class="reference internal" href="#transport-due-to-dissipating-waves">6.6.3.4. Transport due to dissipating waves</a></li>
+<li><a class="reference internal" href="#heating-due-to-wave-dissipation">6.6.3.5. Heating due to wave dissipation</a></li>
+<li><a class="reference internal" href="#orographic-source-function">6.6.3.6. Orographic source function</a></li>
+<li><a class="reference internal" href="#non-orographic-source-functions">6.6.3.7. Non-orographic source functions</a></li>
+<li><a class="reference internal" href="#numerical-approximations">6.6.3.8. Numerical approximations</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#turbulent-mountain-stress">5.6.4. Turbulent Mountain Stress</a></li>
-<li><a class="reference internal" href="#qbo-forcing">5.6.5. QBO Forcing</a></li>
-<li><a class="reference internal" href="#radiation">5.6.6. Radiation</a><ul>
-<li><a class="reference internal" href="#longwave-radiation">5.6.6.1. Longwave radiation</a></li>
-<li><a class="reference internal" href="#shortwave-radiation">5.6.6.2. Shortwave radiation</a></li>
-<li><a class="reference internal" href="#volcanic-heating">5.6.6.3. Volcanic Heating</a></li>
+<li><a class="reference internal" href="#turbulent-mountain-stress">6.6.4. Turbulent Mountain Stress</a></li>
+<li><a class="reference internal" href="#qbo-forcing">6.6.5. QBO Forcing</a></li>
+<li><a class="reference internal" href="#radiation">6.6.6. Radiation</a><ul>
+<li><a class="reference internal" href="#longwave-radiation">6.6.6.1. Longwave radiation</a></li>
+<li><a class="reference internal" href="#shortwave-radiation">6.6.6.2. Shortwave radiation</a></li>
+<li><a class="reference internal" href="#volcanic-heating">6.6.6.3. Volcanic Heating</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id40">5.6.7. &nbsp;chemistry</a><ul>
-<li><a class="reference internal" href="#chemical-mechanism-neutral-species">5.6.7.1. Chemical Mechanism (Neutral Species)</a></li>
-<li><a class="reference internal" href="#stratospheric-aerosols">5.6.7.2. Stratospheric Aerosols</a></li>
-<li><a class="reference internal" href="#sedimentation-of-stratospheric-aerosols">5.6.7.3. Sedimentation of Stratospheric Aerosols</a></li>
-<li><a class="reference internal" href="#ion-chemistry">5.6.7.4. Ion Chemistry</a></li>
+<li><a class="reference internal" href="#id40">6.6.7. &nbsp;chemistry</a><ul>
+<li><a class="reference internal" href="#chemical-mechanism-neutral-species">6.6.7.1. Chemical Mechanism (Neutral Species)</a></li>
+<li><a class="reference internal" href="#stratospheric-aerosols">6.6.7.2. Stratospheric Aerosols</a></li>
+<li><a class="reference internal" href="#sedimentation-of-stratospheric-aerosols">6.6.7.3. Sedimentation of Stratospheric Aerosols</a></li>
+<li><a class="reference internal" href="#ion-chemistry">6.6.7.4. Ion Chemistry</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#electric-field">5.6.8. Electric Field</a><ul>
-<li><a class="reference internal" href="#low-and-midlatitude-electric-potential-model">5.6.8.1. Low- and midlatitude electric potential model</a></li>
-<li><a class="reference internal" href="#highlatitude-electric-potential-model">5.6.8.2. High–latitude electric potential model</a></li>
-<li><a class="reference internal" href="#combing-low-midlatitude-with-the-high-latitude-electric-potential">5.6.8.3. Combing low–/ mid–latitude with the high latitude electric potential</a></li>
-<li><a class="reference internal" href="#calculation-of-electric-field">5.6.8.4. Calculation of electric field</a></li>
-<li><a class="reference internal" href="#calculation-of-electrodynamic-drift-velocity">5.6.8.5. Calculation of electrodynamic drift velocity</a></li>
-<li><a class="reference internal" href="#ion-drag-calculation">5.6.8.6. Ion drag calculation</a></li>
+<li><a class="reference internal" href="#electric-field">6.6.8. Electric Field</a><ul>
+<li><a class="reference internal" href="#low-and-midlatitude-electric-potential-model">6.6.8.1. Low- and midlatitude electric potential model</a></li>
+<li><a class="reference internal" href="#highlatitude-electric-potential-model">6.6.8.2. High–latitude electric potential model</a></li>
+<li><a class="reference internal" href="#combing-low-midlatitude-with-the-high-latitude-electric-potential">6.6.8.3. Combing low–/ mid–latitude with the high latitude electric potential</a></li>
+<li><a class="reference internal" href="#calculation-of-electric-field">6.6.8.4. Calculation of electric field</a></li>
+<li><a class="reference internal" href="#calculation-of-electrodynamic-drift-velocity">6.6.8.5. Calculation of electrodynamic drift velocity</a></li>
+<li><a class="reference internal" href="#ion-drag-calculation">6.6.8.6. Ion drag calculation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id41">5.6.9. Boundary Conditions</a></li>
+<li><a class="reference internal" href="#id41">6.6.9. Boundary Conditions</a></li>
 </ul>
 </li>
 </ul>
@@ -141,10 +141,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="physics.html"
-                        title="previous chapter">4. Model Physics</a></p>
+                        title="previous chapter">5. Model Physics</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="slab_ocean.html"
-                        title="next chapter">6. Slab Ocean Model</a></p>
+                        title="next chapter">7. Slab Ocean Model</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -171,9 +171,9 @@
           <div class="body" role="main">
             
   <div class="section" id="extensions-to-cam">
-<span id="extensions"></span><h1>5. Extensions to CAM<a class="headerlink" href="#extensions-to-cam" title="Permalink to this headline">¶</a></h1>
+<span id="extensions"></span><h1>6. Extensions to CAM<a class="headerlink" href="#extensions-to-cam" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
-<h2>5.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2>6.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This section contains a description of the neutral constituent chemical
 options available CAM and WACCM4.0, including different chemical schemes,
 emissions, boundary conditions, lightning, dry depositions and wet
@@ -182,9 +182,9 @@ solve the corresponding set of ordinary differential equations.; 4)
 additions to superfast chemistry.</p>
 </div>
 <div class="section" id="chemistry">
-<h2>5.2. Chemistry<a class="headerlink" href="#chemistry" title="Permalink to this headline">¶</a></h2>
+<h2>6.2. Chemistry<a class="headerlink" href="#chemistry" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="chemistry-schemes">
-<h3>5.2.1. Chemistry Schemes<a class="headerlink" href="#chemistry-schemes" title="Permalink to this headline">¶</a></h3>
+<h3>6.2.1. Chemistry Schemes<a class="headerlink" href="#chemistry-schemes" title="Permalink to this headline">¶</a></h3>
 <p>For CAM-Chem, an extensive tropospheric chemistry option is available
 (trop mozart), as well as an extensive tropospheric and stratospheric
 chemistry (trop-strat mozart) as discussed in detail in (<a class="reference internal" href="../cam6_scientific_guide/chapter8.html#lamarque-12" id="id1">[LEH+12]</a>),
@@ -200,7 +200,7 @@ specifies based on the chemical lifetime of each species. For all
 supported compsets, this generated code is available in a sub-directory
 of <code class="docutils literal"><span class="pre">atm/src/chemistry</span></code>.</p>
 <div class="section" id="the-bulk-aerosol-model">
-<h4>5.2.1.1. The Bulk Aerosol Model<a class="headerlink" href="#the-bulk-aerosol-model" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.1.1. The Bulk Aerosol Model<a class="headerlink" href="#the-bulk-aerosol-model" title="Permalink to this headline">¶</a></h4>
 <p>CAM4-chem uses the bulk aerosol model discussed in <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#lamarque-05" id="id2">[LHE+05]</a>
 and <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#emmons-10" id="id3">[EWH+10]</a>. This model has a representation of aerosols
 based on the work by [{tie:02] and <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#tie-05" id="id5">[TMW+05a]</a>, i.e. sulfate
@@ -224,7 +224,7 @@ through the oxidation of atmospheric non-methane hydrocarbons (NMHCs),
 as in <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#lack-04" id="id11">[LTB+04]</a>.</p>
 </div>
 <div class="section" id="cam-chem-using-the-modal-aerosol-model">
-<h4>5.2.1.2. CAM-Chem using the Modal Aerosol Model<a class="headerlink" href="#cam-chem-using-the-modal-aerosol-model" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.1.2. CAM-Chem using the Modal Aerosol Model<a class="headerlink" href="#cam-chem-using-the-modal-aerosol-model" title="Permalink to this headline">¶</a></h4>
 <p>CAM-Chem has the ability to run with two modal aerosols models, the MAM3
 and MAM7 (<a class="reference internal" href="../cam6_scientific_guide/chapter8.html#liu-12" id="id12">[LEG+12]</a>). The Modal Aerosols Model, is described in Section
 4.8.2. In CAM5-Chem, the gase-phase chemistry is coupled to Modal
@@ -235,7 +235,7 @@ reactions as discribed in Section 4.8.2. are added to the standard MAM
 chemical mechanism.</p>
 </div>
 <div class="section" id="trop-mozart-chemistry">
-<h4>5.2.1.3. Trop MOZART Chemistry<a class="headerlink" href="#trop-mozart-chemistry" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.1.3. Trop MOZART Chemistry<a class="headerlink" href="#trop-mozart-chemistry" title="Permalink to this headline">¶</a></h4>
 <p>The extensive tropospheric chemistry scheme represents a minor update to
 the MOZART-4 mechanism, fully described in (<a class="reference internal" href="../cam6_scientific_guide/chapter8.html#emmons-10" id="id13">[EWH+10]</a>). In particular, we
 have included C<img class="math" src="../_images/math/bb24541895bbe61f03ab83032effbbdcddfe5e82.png" alt="_{2}"/>H<img class="math" src="../_images/math/bb24541895bbe61f03ab83032effbbdcddfe5e82.png" alt="_{2}"/>, HCOOH, HCN and
@@ -249,7 +249,7 @@ distributions of long-lived species (see discussion below) are specified
 from previously performed WACCM simulations (<a class="reference internal" href="../cam6_scientific_guide/chapter8.html#garcia-etal-07" id="id15">[GMK+07]</a>); see Section <a class="reference internal" href="../cam6_scientific_guide/extensions.html#sec-boundary"><span class="std std-ref">Boundary conditions</span></a>).</p>
 </div>
 <div class="section" id="trop-strat-mozart-chemistry">
-<h4>5.2.1.4. Trop-Strat MOZART Chemistry<a class="headerlink" href="#trop-strat-mozart-chemistry" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.1.4. Trop-Strat MOZART Chemistry<a class="headerlink" href="#trop-strat-mozart-chemistry" title="Permalink to this headline">¶</a></h4>
 <p>The extensive tropospheric and stratospheric chemistry includes the full
 stratospheric chemistry from WACCM4.0, with an updated enforcement of the
 conservation of total chlorine and total bromine under advection to
@@ -260,7 +260,7 @@ that the model was underestimating the supercooled ternary solution
 Section&nbsp;[sec:waccm]; (<strong>???</strong>), Kinnison et al, 2012, (in prepareation).</p>
 </div>
 <div class="section" id="soa-calculation-in-cam-chem">
-<h4>5.2.1.5. SOA calculation in CAM-Chem<a class="headerlink" href="#soa-calculation-in-cam-chem" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.1.5. SOA calculation in CAM-Chem<a class="headerlink" href="#soa-calculation-in-cam-chem" title="Permalink to this headline">¶</a></h4>
 <p>An SOA simulation of intermediate complexity is also available in
 CAM-Chem. This is based on the 2-product model scheme of
 <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#odum-97" id="id16">[OJG+97]</a>, as implemented in CAM-Chem by <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#heald-08" id="id17">[HHH+08]</a>. This
@@ -277,7 +277,7 @@ run with biogenic emissions calucated by the MEGAN2.1 model (see Section <a clas
 </div>
 </div>
 <div class="section" id="emissions">
-<span id="sec-emissions"></span><h3>5.2.2. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h3>
+<span id="sec-emissions"></span><h3>6.2.2. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h3>
 <p>Surface emissions are used in as a flux boundary condition for the
 diffusion equation of all applicable tracers in the planetary
 boundary-layer scheme. The surface flux files used in the released
@@ -288,7 +288,7 @@ offline to avoid the internal remapping, which consists of a simple
 linear interpolation and therefore does not ensure exact conservation of
 emissions between resolutions.</p>
 <div class="section" id="emissions-of-trace-gases">
-<h4>5.2.2.1. Emissions of Trace Gases<a class="headerlink" href="#emissions-of-trace-gases" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.2.1. Emissions of Trace Gases<a class="headerlink" href="#emissions-of-trace-gases" title="Permalink to this headline">¶</a></h4>
 <p>Emissions for historic and future model simulations are based on ACCMIP
 ((<strong>???</strong>)) and different RCP scenarios, which are available for the
 years 1850-2000, and 2000-2100.</p>
@@ -327,7 +327,7 @@ Emissions available to be used in CAM5-Chem are described above (Section
 4.8.1.).</p>
 </div>
 <div class="section" id="biogenic-emissions">
-<h4>5.2.2.2. Biogenic emissions<a class="headerlink" href="#biogenic-emissions" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.2.2. Biogenic emissions<a class="headerlink" href="#biogenic-emissions" title="Permalink to this headline">¶</a></h4>
 <p>Biogenic emissions can be calculated by the Model of Emissions of Gases
 and Aerosols from Nature version 2.1 (MEGAN2.1) (<strong>???</strong>). In this case,
 MEGAN2.1 is coupled to the CESM atmosphere and land model. Biogenic
@@ -353,9 +353,9 @@ model produces biogenic emissions to prevent double counting.</p>
 </div>
 </div>
 <div class="section" id="boundary-conditions">
-<span id="sec-boundary"></span><h3>5.2.3. Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<span id="sec-boundary"></span><h3>6.2.3. Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="lower-boundary-conditions">
-<h4>5.2.3.1. Lower boundary conditions<a class="headerlink" href="#lower-boundary-conditions" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.3.1. Lower boundary conditions<a class="headerlink" href="#lower-boundary-conditions" title="Permalink to this headline">¶</a></h4>
 <p>For all long-lived species (methane and longer lifetimes, in addition to
 hydrogen and methyl bromide) (<strong>???</strong> see Table 3), the surface
 concentrations are specified using the historical reconstruction from
@@ -367,7 +367,7 @@ model mixing ratio in the lowest model level with the time (and
 latitude, if applicable) interpolated specified mixing ratio.</p>
 </div>
 <div class="section" id="specified-stratospheric-distributions">
-<h4>5.2.3.2. Specified stratospheric distributions<a class="headerlink" href="#specified-stratospheric-distributions" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.3.2. Specified stratospheric distributions<a class="headerlink" href="#specified-stratospheric-distributions" title="Permalink to this headline">¶</a></h4>
 <p>For the trop-mozart chemistry, no stratospheric chemistry is explicitly
 represented in the model. Therefore, it is necessary to ensure a proper
 distribution of some chemically-active stratospheric (namely
@@ -384,13 +384,13 @@ high CFC and post-Pinatubo era. Additional datasets for different RCP
 runs are also available or can easily be constructed if necessary.</p>
 </div>
 <div class="section" id="upper-boundary-condition">
-<h4>5.2.3.3. Upper boundary condition<a class="headerlink" href="#upper-boundary-condition" title="Permalink to this headline">¶</a></h4>
+<h4>6.2.3.3. Upper boundary condition<a class="headerlink" href="#upper-boundary-condition" title="Permalink to this headline">¶</a></h4>
 <p>The model top at about 40km is considered a rigid lid (no flux across
 that boundary) for all chemical species. For trop-mozart</p>
 </div>
 </div>
 <div class="section" id="lightning">
-<h3>5.2.4. Lightning<a class="headerlink" href="#lightning" title="Permalink to this headline">¶</a></h3>
+<h3>6.2.4. Lightning<a class="headerlink" href="#lightning" title="Permalink to this headline">¶</a></h3>
 <p>The emissions of NO from lightning are included as in (<strong>???</strong>), i.e.
 using the Price parameterization ((<strong>???</strong>; <strong>???</strong>), scaled to provide
 a global annual emission of 3-4 Tg(N)/year. The vertical distribution
@@ -402,7 +402,7 @@ NOx is increased by a factor of 3 to reach the same emissions of 3-4
 Tg(N)/year.</p>
 </div>
 <div class="section" id="dry-deposition">
-<span id="sec-dry-deposition"></span><h3>5.2.5. Dry deposition<a class="headerlink" href="#dry-deposition" title="Permalink to this headline">¶</a></h3>
+<span id="sec-dry-deposition"></span><h3>6.2.5. Dry deposition<a class="headerlink" href="#dry-deposition" title="Permalink to this headline">¶</a></h3>
 <p>Dry deposition is represented following the resistance approach
 originally described in (<strong>???</strong>), as discussed in (<strong>???</strong>), this
 earlier paper was subsequently updated and we have included all updates
@@ -434,7 +434,7 @@ the mechanism are per default affected by dry deposition if depostion
 velocities are defined in the model.</p>
 </div>
 <div class="section" id="wet-removal">
-<span id="sec-wet-removal"></span><h3>5.2.6. Wet removal<a class="headerlink" href="#wet-removal" title="Permalink to this headline">¶</a></h3>
+<span id="sec-wet-removal"></span><h3>6.2.6. Wet removal<a class="headerlink" href="#wet-removal" title="Permalink to this headline">¶</a></h3>
 <p>Wet removal of soluble gas-phase species is the combination of two
 processes: in-cloud, or nucleation scavenging (rainout), which is the
 local uptake of soluble gases and aerosols by the formation of initial
@@ -506,7 +506,7 @@ is then assumed based on the effective Henry’s law.</p>
 </div>
 </div>
 <div class="section" id="photolytic-approach-neutral-species">
-<h2>5.3. Photolytic Approach (Neutral Species)<a class="headerlink" href="#photolytic-approach-neutral-species" title="Permalink to this headline">¶</a></h2>
+<h2>6.3. Photolytic Approach (Neutral Species)<a class="headerlink" href="#photolytic-approach-neutral-species" title="Permalink to this headline">¶</a></h2>
 <p>The calculation of the photolysis coefficients is divided into two
 regions: (1) 120 nm to 200 nm (33 wavelength intervals); (2) 200 nm to
 750 nm (67 wavelength intervals). The total photolytic rate constant (J)
@@ -566,7 +566,7 @@ the Chemistry-CLimate Working Group Liaison as this is an unsupported
 option.</p>
 </div>
 <div class="section" id="numerical-solution-approach">
-<h2>5.4. Numerical Solution Approach<a class="headerlink" href="#numerical-solution-approach" title="Permalink to this headline">¶</a></h2>
+<h2>6.4. Numerical Solution Approach<a class="headerlink" href="#numerical-solution-approach" title="Permalink to this headline">¶</a></h2>
 <p>Chemical and photochemical processes are expressed by a system of
 time-dependent ordinary differential equations at each point in the
 spatial grid, of the following form:</p>
@@ -625,9 +625,9 @@ This approach is based on the work of <a class="reference internal" href="../cam
 <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#brasseur-etal-99" id="id24">[BOT99]</a>.</p>
 </div>
 <div class="section" id="superfast-chemistry">
-<span id="sec-chem-superfast"></span><h2>5.5. Superfast Chemistry<a class="headerlink" href="#superfast-chemistry" title="Permalink to this headline">¶</a></h2>
+<span id="sec-chem-superfast"></span><h2>6.5. Superfast Chemistry<a class="headerlink" href="#superfast-chemistry" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="chemical-mechanism">
-<h3>5.5.1. Chemical mechanism<a class="headerlink" href="#chemical-mechanism" title="Permalink to this headline">¶</a></h3>
+<h3>6.5.1. Chemical mechanism<a class="headerlink" href="#chemical-mechanism" title="Permalink to this headline">¶</a></h3>
 <p>The super-fast mechanism was developed for long coupled
 chemistry-climate simulations, and is based on an updated version of the
 full non-methane hydrocarbon effects (NMHC) chemical mechanism for the
@@ -650,7 +650,7 @@ In this scheme, CH4 concentrations are read in from a file and uses CAM3.5 simul
 The super-fast mechanism was validated by comparing the super-fast and full mechanisms in side-by-side simulations.</p>
 </div>
 <div class="section" id="emissions-for-cam4-superfast-chemistry">
-<h3>5.5.2. Emissions for CAM4 superfast chemistry<a class="headerlink" href="#emissions-for-cam4-superfast-chemistry" title="Permalink to this headline">¶</a></h3>
+<h3>6.5.2. Emissions for CAM4 superfast chemistry<a class="headerlink" href="#emissions-for-cam4-superfast-chemistry" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line">|lccc| &amp; Anthro. &amp;Natural &amp; Interactive</div>
 <div class="line">CH<img class="math" src="../_images/math/bb24541895bbe61f03ab83032effbbdcddfe5e82.png" alt="_{2}"/>O &amp; x &amp; x &amp;</div>
@@ -662,7 +662,7 @@ The super-fast mechanism was validated by comparing the super-fast and full mech
 </div>
 </div>
 <div class="section" id="linoz">
-<h3>5.5.3. LINOZ<a class="headerlink" href="#linoz" title="Permalink to this headline">¶</a></h3>
+<h3>6.5.3. LINOZ<a class="headerlink" href="#linoz" title="Permalink to this headline">¶</a></h3>
 <p>Linoz is linearized ozone chemistry for stratospheric
 modeling <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#mclinden-00" id="id27">[MOH+00]</a>. It calculates the net
 production of ozone (i.e., production minus loss) as a
@@ -699,7 +699,7 @@ mass-weighted average of the interpolated Linoz profiles. Equation (1)
 is implemented for the chemical tendency of ozone in CAM-chem.</p>
 </div>
 <div class="section" id="parameterized-psc-ozone-loss">
-<h3>5.5.4. Parameterized PSC ozone loss<a class="headerlink" href="#parameterized-psc-ozone-loss" title="Permalink to this headline">¶</a></h3>
+<h3>6.5.4. Parameterized PSC ozone loss<a class="headerlink" href="#parameterized-psc-ozone-loss" title="Permalink to this headline">¶</a></h3>
 <p>In the superfast chemistry, we incorporate the PSCs parameterization
 scheme of <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#cariolle-et-al-90" id="id29">[CLBRG90]</a> when the temperature falls below
 195 K and the sun is above the horizon at stratospheric altitudes.
@@ -716,7 +716,7 @@ from WACCM in the strat-trop configuration.</p>
 </div>
 </div>
 <div class="section" id="physical-parameterizations">
-<h2>5.6. Physical Parameterizations<a class="headerlink" href="#physical-parameterizations" title="Permalink to this headline">¶</a></h2>
+<h2>6.6. Physical Parameterizations<a class="headerlink" href="#physical-parameterizations" title="Permalink to this headline">¶</a></h2>
 <p>In WACCM4.0, we extend the physical parameterizations used in CAM4 by adding
 constituent separation velocities to the molecular (vertical) diffusion
 and modifying the gravity spectrum parameterization. Both of these
@@ -724,7 +724,7 @@ parameterizations are present, but not used, in CAM4. In addition, we
 replace the CAM4 parameterizations for both solar and longwave radiation
 above <img class="math" src="../_images/math/5649f49c754aa9312b270dfd5f93ce37ff9f26a5.png" alt="\sim 65"/> km, and add neutral and ion chemistry models.</p>
 <div class="section" id="domain-and-resolution">
-<h3>5.6.1. Domain and Resolution<a class="headerlink" href="#domain-and-resolution" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.1. Domain and Resolution<a class="headerlink" href="#domain-and-resolution" title="Permalink to this headline">¶</a></h3>
 <p>WACCM4.0 has 66 vertical levels from the ground to <img class="math" src="../_images/math/c1349341eb0fbd6357ae9e20b9eeaac08f7d8075.png" alt="5.1 \times 10^{-6}"/>
 hPa, as in the previous WACCM versions. As in CAM4, the vertical
 coordinate is purely isobaric above 100 hPa, but is terrain following
@@ -782,7 +782,7 @@ parameterizations. Within the finite volume dynamical core, this time
 step is subdivided as necessary for computational stability.</p>
 </div>
 <div class="section" id="molecular-diffusion-and-constituent-separation">
-<h3>5.6.2. Molecular Diffusion and Constituent Separation<a class="headerlink" href="#molecular-diffusion-and-constituent-separation" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.2. Molecular Diffusion and Constituent Separation<a class="headerlink" href="#molecular-diffusion-and-constituent-separation" title="Permalink to this headline">¶</a></h3>
 <p>The vertical diffusion parameterization in CAM4 provides the interface
 to the turbulence parameterization, computes the molecular diffusivities
 (if necessary) and finally computes the tendencies of the input
@@ -831,7 +831,7 @@ energy dissipation <img class="math" src="../_images/math/3cf5aa5abe312e6fd49969
 <img class="math" src="../_images/math/e12b1603a3fd97b4fe46d7854447d83650d38e08.png" alt="\gamma_{H,q}"/> is described in the &nbsp;Technical Description and will
 be omitted here.</p>
 <div class="section" id="molecular-viscosity-and-diffusivity">
-<h4>5.6.2.1. Molecular viscosity and diffusivity<a class="headerlink" href="#molecular-viscosity-and-diffusivity" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.2.1. Molecular viscosity and diffusivity<a class="headerlink" href="#molecular-viscosity-and-diffusivity" title="Permalink to this headline">¶</a></h4>
 <p>The empirical formula for the molecular kinematic viscosity is</p>
 <div class="math" id="equation-Kmm">
 <p><span class="eqno">(13)<a class="headerlink" href="#equation-Kmm" title="Permalink to this equation">¶</a></span><img src="../_images/math/2d002766f979430eb98e31059898f75a2eb45de9.png" alt="K_m^m = 3.55\times 10^{-7} T^{2/3} / \rho,"/></p>
@@ -845,7 +845,7 @@ WACCM4.0. The constituent diffusivities are</p>
 </div><p>where <img class="math" src="../_images/math/f17d59905f89a054537c343254885d895f7088c7.png" alt="M_w"/> is the molecular weight.</p>
 </div>
 <div class="section" id="diffusive-separation-velocities">
-<h4>5.6.2.2. Diffusive separation velocities<a class="headerlink" href="#diffusive-separation-velocities" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.2.2. Diffusive separation velocities<a class="headerlink" href="#diffusive-separation-velocities" title="Permalink to this headline">¶</a></h4>
 <p>As the mean free path increases, constituents of different molecular
 weights begin to separate in the vertical. In WACCM4.0, this separation is
 represented by a separation velocity for each constituent with respect
@@ -855,7 +855,7 @@ usual dry air mixture used in the lower atmosphere
 (<img class="math" src="../_images/math/0f0c82d32516acc517b6c9b6b157f320ff73b0af.png" alt="M_w = 28.966"/>) (<a class="reference internal" href="../cam6_scientific_guide/chapter8.html#banks-kockarts-73" id="id31">[BK73]</a>).</p>
 </div>
 <div class="section" id="discretization-of-the-vertical-diffusion-equations">
-<h4>5.6.2.3. Discretization of the vertical diffusion equations<a class="headerlink" href="#discretization-of-the-vertical-diffusion-equations" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.2.3. Discretization of the vertical diffusion equations<a class="headerlink" href="#discretization-of-the-vertical-diffusion-equations" title="Permalink to this headline">¶</a></h4>
 <p>In CAM4, as in previous version of the CCM, <a class="reference internal" href="#equation-eq:contz1">(7)</a> [eq:fluxz2])
 are cast in pressure coordinates, using</p>
 <div class="math" id="equation-eq:hydrostatic">
@@ -904,7 +904,7 @@ coefficients, given by <a class="reference internal" href="#equation-Kmm">(13)</
 <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/>.</p>
 </div>
 <div class="section" id="solution-of-the-vertical-diffusion-equations">
-<h4>5.6.2.4. Solution of the vertical diffusion equations<a class="headerlink" href="#solution-of-the-vertical-diffusion-equations" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.2.4. Solution of the vertical diffusion equations<a class="headerlink" href="#solution-of-the-vertical-diffusion-equations" title="Permalink to this headline">¶</a></h4>
 <p>Neglecting the discretization of <img class="math" src="../_images/math/f6ea28a2124fce88394218f2f0fea69ddceae32c.png" alt="K_{m,q,H}^t"/>, <img class="math" src="../_images/math/3cf5aa5abe312e6fd4996975341a43aa566e8d8d.png" alt="D"/> and
 <img class="math" src="../_images/math/9e052a41e960c437f8cd39d1265c0559c7b90539.png" alt="\gamma_{q,H}"/>, a series of time-split operators is defined by
 <a class="reference internal" href="#equation-eq:vduvq">(17)</a> [eq:vdfqs]). Once the diffusivities (<img class="math" src="../_images/math/1bed79a742c630c905571edab070a7032fd9cc13.png" alt="K_{m,q,H}"/>) and
@@ -975,7 +975,7 @@ diffusion is important.</p>
 </div>
 </div>
 <div class="section" id="gravity-wave-drag">
-<h3>5.6.3. Gravity Wave Drag<a class="headerlink" href="#gravity-wave-drag" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.3. Gravity Wave Drag<a class="headerlink" href="#gravity-wave-drag" title="Permalink to this headline">¶</a></h3>
 <p>Vertically propagating gravity waves can be excited in the atmosphere
 where stably stratified air flows over an irregular lower boundary and
 by internal heating and shear.  These waves are capable of
@@ -995,7 +995,7 @@ the standard tropospheric version of CAM4, as in previous versions of the CCM.
 Here we describe the modified version of the gravity wave spectrum
 parameterization used in WACCM4.0.</p>
 <div class="section" id="adiabatic-inviscid-formulation">
-<h4>5.6.3.1. Adiabatic inviscid formulation<a class="headerlink" href="#adiabatic-inviscid-formulation" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.3.1. Adiabatic inviscid formulation<a class="headerlink" href="#adiabatic-inviscid-formulation" title="Permalink to this headline">¶</a></h4>
 <p>Following (<strong>???</strong>), the continuous equations for the gravity wave
 parameterization are obtained from the two-dimensional hydrostatic
 momentum, continuity and thermodynamic equations in a vertical plane:</p>
@@ -1059,7 +1059,7 @@ the mean flow will be accompanied by a transfer of energy to the
 background state.</p>
 </div>
 <div class="section" id="saturation-condition">
-<h4>5.6.3.2. Saturation condition<a class="headerlink" href="#saturation-condition" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.3.2. Saturation condition<a class="headerlink" href="#saturation-condition" title="Permalink to this headline">¶</a></h4>
 <p>The wave amplitude in <a class="reference internal" href="#equation-eq:gw_final">(36)</a>  grows as <img class="math" src="../_images/math/5eb976a66e416bc49627931588b8534ce2a92c51.png" alt="e^{Z/2H}"/>
 until the wave becomes unstable to convective overturning,
 Kelvin-Helmholtz instability, or other nonlinear processes. At that
@@ -1091,7 +1091,7 @@ model, the stress profile is computed at interfaces and differenced to
 get the specific force at layer midpoints.</p>
 </div>
 <div class="section" id="diffusive-damping">
-<h4>5.6.3.3. Diffusive damping<a class="headerlink" href="#diffusive-damping" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.3.3. Diffusive damping<a class="headerlink" href="#diffusive-damping" title="Permalink to this headline">¶</a></h4>
 <p>In addition to breaking as a result of instability, vertically
 propagating waves can also be damped by molecular diffusion (both
 thermal and momentum) or by radiative cooling. Because the intrinsic
@@ -1114,7 +1114,7 @@ negligible, <img class="math" src="../_images/math/c844830b0dca35bac64b2fb663156
 conserved outside of saturation regions.</p>
 </div>
 <div class="section" id="transport-due-to-dissipating-waves">
-<h4>5.6.3.4. Transport due to dissipating waves<a class="headerlink" href="#transport-due-to-dissipating-waves" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.3.4. Transport due to dissipating waves<a class="headerlink" href="#transport-due-to-dissipating-waves" title="Permalink to this headline">¶</a></h4>
 <p>When the wave is dissipated, either through saturation or diffusive
 damping, there is a transfer of wave momentum and energy to the
 background state. In addition, a phase shift is introduced between the
@@ -1154,7 +1154,7 @@ into account the effect of localization of turbulence (e.g., <a class="reference
 number, <img class="math" src="../_images/math/6304f91a99b602f7e115bbb2272b4470ed404f8d.png" alt="{Pr}^{-1}"/>; in WACCM4.0 we use <img class="math" src="../_images/math/e2378553b18d643bdf14e4d1bb1a9f3b0f902492.png" alt="{Pr}^{-1}=0.25"/>.</p>
 </div>
 <div class="section" id="heating-due-to-wave-dissipation">
-<h4>5.6.3.5. Heating due to wave dissipation<a class="headerlink" href="#heating-due-to-wave-dissipation" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.3.5. Heating due to wave dissipation<a class="headerlink" href="#heating-due-to-wave-dissipation" title="Permalink to this headline">¶</a></h4>
 <p>The vertical flux of wave energy density, <img class="math" src="../_images/math/7c01b7f4452cc57747c586fdb8138de798892531.png" alt="E'"/>, is related to the
 stress according to:</p>
 <div class="math">
@@ -1200,7 +1200,7 @@ spectrum using the first equality in <a class="reference internal" href="#equati
 product of the phase velocity times the stress divergence.</p>
 </div>
 <div class="section" id="orographic-source-function">
-<h4>5.6.3.6. Orographic source function<a class="headerlink" href="#orographic-source-function" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.3.6. Orographic source function<a class="headerlink" href="#orographic-source-function" title="Permalink to this headline">¶</a></h4>
 <p>For orographically generated waves, the source is taken from (<strong>???</strong>):</p>
 <div class="math" id="equation-eq:oro_tau">
 <p><span class="eqno">(48)<a class="headerlink" href="#equation-eq:oro_tau" title="Permalink to this equation">¶</a></span><img src="../_images/math/5e378a568fb37d51bb14c2b8707841c2748c0b2b.png" alt="\tau_g = |\rho\overline{ u^\prime  w^\prime}|_0
@@ -1228,7 +1228,7 @@ orientation of the coordinate system in
 source wind <img class="math" src="../_images/math/1da0db0005bda262a85d3c87761273f9b3a0b980.png" alt="\overline u_0"/>.</p>
 </div>
 <div class="section" id="non-orographic-source-functions">
-<h4>5.6.3.7. Non-orographic source functions<a class="headerlink" href="#non-orographic-source-functions" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.3.7. Non-orographic source functions<a class="headerlink" href="#non-orographic-source-functions" title="Permalink to this headline">¶</a></h4>
 <p>The source spectrum for non-orographic gravity waves is no longer
 assumed to be a specified function of location and season, as was the
 case with the earlier version of the model described by (<strong>???</strong>).
@@ -1277,7 +1277,7 @@ for each phase speed, <img class="math" src="../_images/math/ff90a5f025d9fd305aa
      =F_c^2 \frac{k}{2}\rho \frac{|\overline u-c_i|^3}{N} ."/></p>
 </div></div>
 <div class="section" id="numerical-approximations">
-<h4>5.6.3.8. Numerical approximations<a class="headerlink" href="#numerical-approximations" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.3.8. Numerical approximations<a class="headerlink" href="#numerical-approximations" title="Permalink to this headline">¶</a></h4>
 <p>The gravity wave drag parameterization is applied immediately after the
 nonlinear vertical diffusion. The interface Brunt-Väisällä frequency is</p>
 <div class="math" id="equation-4.e.25">
@@ -1385,7 +1385,7 @@ of CAM4, but also requires accounting for the energy flux at the source.</p>
 </div>
 </div>
 <div class="section" id="turbulent-mountain-stress">
-<h3>5.6.4. Turbulent Mountain Stress<a class="headerlink" href="#turbulent-mountain-stress" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.4. Turbulent Mountain Stress<a class="headerlink" href="#turbulent-mountain-stress" title="Permalink to this headline">¶</a></h3>
 <p>An important difference between WACCM4 and earlier versions is the
 addition of surface stress due to unresolved orography. A numerical
 model can compute explicitly only surface stresses due to resolved
@@ -1417,7 +1417,7 @@ land, and only in grid cells where the height of topography above sea
 level, <img class="math" src="../_images/math/683f2dd9129a91d21aaf1c04afa6f78b39d4cb0a.png" alt="z"/>, is nonzero.</p>
 </div>
 <div class="section" id="qbo-forcing">
-<h3>5.6.5. QBO Forcing<a class="headerlink" href="#qbo-forcing" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.5. QBO Forcing<a class="headerlink" href="#qbo-forcing" title="Permalink to this headline">¶</a></h3>
 <p>WACCM4 has several options for forcing a quasi-biennial oscillation
 (QBO) by applying a momentum forcing in the tropical stratosphere. The
 parameterization relaxes the simulated winds to a specified wind field
@@ -1455,7 +1455,7 @@ Fourier coefficients that can be expanded for any day and year. The
 expanded wind fields match the climatology during the years 1954-2004.</p>
 </div>
 <div class="section" id="radiation">
-<h3>5.6.6. Radiation<a class="headerlink" href="#radiation" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.6. Radiation<a class="headerlink" href="#radiation" title="Permalink to this headline">¶</a></h3>
 <p>The radiation parameterizations in CAM4 are quite accurate up to
 <img class="math" src="../_images/math/5649f49c754aa9312b270dfd5f93ce37ff9f26a5.png" alt="\sim 65"/> km, but deteriorate rapidly above that altitude. Because
 65 km is near a local minimum in both shortwave heating and longwave
@@ -1484,7 +1484,7 @@ These constants give smooth heating profiles. Note that a typical
 atmospheric scale height of <img class="math" src="../_images/math/f8970549e06e858da198cbdca3eda5f0956817a3.png" alt="H=7"/> km places the transition zones
 between 60 and 70 km.</p>
 <div class="section" id="longwave-radiation">
-<h4>5.6.6.1. Longwave radiation<a class="headerlink" href="#longwave-radiation" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.6.1. Longwave radiation<a class="headerlink" href="#longwave-radiation" title="Permalink to this headline">¶</a></h4>
 <p>WACCM4.0 retains the longwave (LW) formulation used in CAM4 (<strong>???</strong>). However,
 in the MLT longwave radiation uses the parameterization of (<strong>???</strong>) for
 <img class="math" src="../_images/math/bf556d781d8152aba3827e752c0363da8e9bc930.png" alt="\rm CO_2"/> and <img class="math" src="../_images/math/14355fe747ec3fd1c7c369f82985f6081508a49c.png" alt="\rm O_3"/> cooling and the parameterization of
@@ -1497,7 +1497,7 @@ case all of the gases (O, <img class="math" src="../_images/math/cf250695f5e627c
 parameterizations, are predicted within WACCM4.0.</p>
 </div>
 <div class="section" id="shortwave-radiation">
-<h4>5.6.6.2. Shortwave radiation<a class="headerlink" href="#shortwave-radiation" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.6.2. Shortwave radiation<a class="headerlink" href="#shortwave-radiation" title="Permalink to this headline">¶</a></h4>
 <p>WACCM4.0 uses a combination of solar parameterizations to specify spectral
 irradiances over two spectral intervals. The first spectral interval
 covers soft x-ray and extreme ultraviolet irradiances (wavelengths
@@ -1609,7 +1609,7 @@ airglow is assumed to be lost to space, and so represents an energy
 pathway that does not generate heat.</p>
 </div>
 <div class="section" id="volcanic-heating">
-<h4>5.6.6.3. Volcanic Heating<a class="headerlink" href="#volcanic-heating" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.6.3. Volcanic Heating<a class="headerlink" href="#volcanic-heating" title="Permalink to this headline">¶</a></h4>
 <p>The sulfate aerosol heating is a function of a prescribed aerosol
 distribution varying in space and time that has a size distribution
 similar to that seen after a volcanic eruption (<strong>???</strong>). The
@@ -1622,9 +1622,9 @@ calculates heating and cooling rates.</p>
 </div>
 </div>
 <div class="section" id="id40">
-<h3>5.6.7. &nbsp;chemistry<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.7. &nbsp;chemistry<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="chemical-mechanism-neutral-species">
-<h4>5.6.7.1. Chemical Mechanism (Neutral Species)<a class="headerlink" href="#chemical-mechanism-neutral-species" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.7.1. Chemical Mechanism (Neutral Species)<a class="headerlink" href="#chemical-mechanism-neutral-species" title="Permalink to this headline">¶</a></h4>
 <p>&nbsp;includes a detailed neutral chemistry model for the middle atmosphere
 based on the Model for Ozone and Related Chemical Tracers, Version 3
 (<strong>???</strong>). The mechanism represents chemical and physical processes in
@@ -1680,7 +1680,7 @@ value of cm<img class="math" src="../_images/math/2f3b4d4eadd11c44b1b9ee0a71b77e
 approach assumes that all the HCl is in the aerosol particle.</p>
 </div>
 <div class="section" id="stratospheric-aerosols">
-<h4>5.6.7.2. Stratospheric Aerosols<a class="headerlink" href="#stratospheric-aerosols" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.7.2. Stratospheric Aerosols<a class="headerlink" href="#stratospheric-aerosols" title="Permalink to this headline">¶</a></h4>
 <p>Heterogeneous processes on liquid sulfate aerosols and solid polar
 stratospheric clouds (Type 1a, 1b, and 2) are included following the
 approach of (<strong>???</strong>). This approach assumes that the condensed phase
@@ -1747,7 +1747,7 @@ water-ice surface area density is used for the calculation of the rate
 constants for reactions 12-17 (Table 3).</p>
 </div>
 <div class="section" id="sedimentation-of-stratospheric-aerosols">
-<h4>5.6.7.3. Sedimentation of Stratospheric Aerosols<a class="headerlink" href="#sedimentation-of-stratospheric-aerosols" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.7.3. Sedimentation of Stratospheric Aerosols<a class="headerlink" href="#sedimentation-of-stratospheric-aerosols" title="Permalink to this headline">¶</a></h4>
 <p>The sedimentation of HNO<img class="math" src="../_images/math/2912b78af320853e0afcf706763b5d39b26b5c1e.png" alt="_3"/> in stratospheric aerosols follows
 the approach described in (<strong>???</strong>). The following equation is used to
 derive the flux (<img class="math" src="../_images/math/a3965ac90c9513644606210339d525386626dcb2.png" alt="F"/>) of HNO<img class="math" src="../_images/math/2912b78af320853e0afcf706763b5d39b26b5c1e.png" alt="_3"/>, as NAT aerosol, across
@@ -1770,7 +1770,7 @@ significant denitrification and settling of condensed phase
 H<img class="math" src="../_images/math/ba312cf0eeebc5f3ecc40ece2c744c499d75dc2d.png" alt="_2"/>O is handled in the CAM4 prognostic water routines.</p>
 </div>
 <div class="section" id="ion-chemistry">
-<h4>5.6.7.4. Ion Chemistry<a class="headerlink" href="#ion-chemistry" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.7.4. Ion Chemistry<a class="headerlink" href="#ion-chemistry" title="Permalink to this headline">¶</a></h4>
 <p>&nbsp;includes a six constituent ion chemistry model (O:math:<cite>^+</cite>,
 O<img class="math" src="../_images/math/c0bdd49f3d8c2937eaa479d4f33d7681e343dd5c.png" alt="_2^+"/>, N<img class="math" src="../_images/math/b8cbe359704eeb7977b6c921447ad0edacc492de.png" alt="^+"/>, N<img class="math" src="../_images/math/c0bdd49f3d8c2937eaa479d4f33d7681e343dd5c.png" alt="_2^+"/>, NO<img class="math" src="../_images/math/b8cbe359704eeb7977b6c921447ad0edacc492de.png" alt="^+"/>, and
 electrons) that represents the the E-region ionosphere. The global mean
@@ -3692,14 +3692,14 @@ N<img class="math" src="../_images/math/ba312cf0eeebc5f3ecc40ece2c744c499d75dc2d
 </div>
 </div>
 <div class="section" id="electric-field">
-<h3>5.6.8. Electric Field<a class="headerlink" href="#electric-field" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.8. Electric Field<a class="headerlink" href="#electric-field" title="Permalink to this headline">¶</a></h3>
 <p>The global electric field is based on a composite of two empirical
 models for the different latitude regions: at high latitude the Weimer95
 model (<strong>???</strong>), and at low- and midlatitude the Scherliess model
 (<strong>???</strong>). In the following the different models are described since the
 model is not published to date.</p>
 <div class="section" id="low-and-midlatitude-electric-potential-model">
-<h4>5.6.8.1. Low- and midlatitude electric potential model<a class="headerlink" href="#low-and-midlatitude-electric-potential-model" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.8.1. Low- and midlatitude electric potential model<a class="headerlink" href="#low-and-midlatitude-electric-potential-model" title="Permalink to this headline">¶</a></h4>
 <p>The low- and mid latitude electric field model was developed by Ldger
 Scherliess (<strong>???</strong>). It’s based on Incoherent Scatter Radar data
 (ISR) from Jicamarca, Arecibo, Saint Santin, Millstone Hill, and the
@@ -3778,7 +3778,7 @@ The description of the IGRF can be updated every 5 years to be extended
 in time.</p>
 </div>
 <div class="section" id="highlatitude-electric-potential-model">
-<h4>5.6.8.2. High–latitude electric potential model<a class="headerlink" href="#highlatitude-electric-potential-model" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.8.2. High–latitude electric potential model<a class="headerlink" href="#highlatitude-electric-potential-model" title="Permalink to this headline">¶</a></h4>
 <p>The high–latitude electric potential model from Weimer (<strong>???</strong>) is
 used. The model is based on spherical harmonic coefficients that were
 derived by least square fitting of measurements from the Dynamics
@@ -3806,7 +3806,7 @@ averaged northern and southern hemisphere. The <img class="math" src="../_images
 season are reversed to get the values for the other hemisphere.</p>
 </div>
 <div class="section" id="combing-low-midlatitude-with-the-high-latitude-electric-potential">
-<h4>5.6.8.3. Combing low–/ mid–latitude with the high latitude electric potential<a class="headerlink" href="#combing-low-midlatitude-with-the-high-latitude-electric-potential" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.8.3. Combing low–/ mid–latitude with the high latitude electric potential<a class="headerlink" href="#combing-low-midlatitude-with-the-high-latitude-electric-potential" title="Permalink to this headline">¶</a></h4>
 <p>After the low/mid–latitude electric potential <img class="math" src="../_images/math/6356240705d58c6c4cf52b37f278703d98dc6cce.png" alt="\Phi_{mid}"/> and the
 high latitude potential <img class="math" src="../_images/math/73a1d48694c1f1e33ccf4d4f7eb51407fb1facc8.png" alt="\Phi_{hgh}"/> are calculated, both patterns
 are combined to be smooth at the boundary. The boundary between high and
@@ -3841,7 +3841,7 @@ F_{int}(\Phi_{mid},\Phi_{hgh}) = \frac{1}{3} \frac{1}{2 \Delta \lambda_{trs}}[
  \end{split}"/></p>
 </div></div>
 <div class="section" id="calculation-of-electric-field">
-<h4>5.6.8.4. Calculation of electric field<a class="headerlink" href="#calculation-of-electric-field" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.8.4. Calculation of electric field<a class="headerlink" href="#calculation-of-electric-field" title="Permalink to this headline">¶</a></h4>
 <p>The electric field can be derived from the electric potential by</p>
 <div class="math">
 <p><img src="../_images/math/23c7ca17db4a5a2c70afdcdbdcab0d0505b20a29.png" alt="\begin{aligned}
@@ -3860,7 +3860,7 @@ code that the electric field is constant in height.</p>
 </div><p>with <img class="math" src="../_images/math/a56f00f00e5bcd66add9580ff0a819bd88b80249.png" alt="\sin I = 2\sin \lambda [4-3\cos^2\lambda]^{0.5}"/>.</p>
 </div>
 <div class="section" id="calculation-of-electrodynamic-drift-velocity">
-<h4>5.6.8.5. Calculation of electrodynamic drift velocity<a class="headerlink" href="#calculation-of-electrodynamic-drift-velocity" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.8.5. Calculation of electrodynamic drift velocity<a class="headerlink" href="#calculation-of-electrodynamic-drift-velocity" title="Permalink to this headline">¶</a></h4>
 <p>The electric field is calculated on a <img class="math" src="../_images/math/44fd98c37a2df2ce83e691d010391a8d8d34053b.png" alt="2^o \; \times \; 2^o"/>
 degree geomagnetic grid with the magnetic longitude represented by the
 magnetic local time (MLT) from 0 MLT to 24 MLT. Therefore, the
@@ -3897,7 +3897,7 @@ be simplified by the electrodynamic drift velocity
 </div><p>with <img class="math" src="../_images/math/54e4c325ca0a8ac0daaae6091a6003f76c173714.png" alt="\mathbf{B}_o"/> the geomagnetic main field from IGRF.</p>
 </div>
 <div class="section" id="ion-drag-calculation">
-<h4>5.6.8.6. Ion drag calculation<a class="headerlink" href="#ion-drag-calculation" title="Permalink to this headline">¶</a></h4>
+<h4>6.6.8.6. Ion drag calculation<a class="headerlink" href="#ion-drag-calculation" title="Permalink to this headline">¶</a></h4>
 <p>The following is written according to the source code. Two subroutines
 iondrag_calc exist in the code, one uses the calculated ion drag
 coefficients if WACCM_MOZART &nbsp;is used, and the other one uses look-up
@@ -4156,7 +4156,7 @@ here.</p>
 </div>
 </div>
 <div class="section" id="id41">
-<h3>5.6.9. Boundary Conditions<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.9. Boundary Conditions<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
 <p>The upper boundary conditions for momentum and for most constituents are
 the usual zero flux conditions used in CAM4. However, in the energy
 budget of the thermosphere, much of the SW radiation at wavelengths
@@ -4218,10 +4218,10 @@ unrealistically large mixing ratios at the model top in polar night.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="slab_ocean.html" title="6. Slab Ocean Model"
+          <a href="slab_ocean.html" title="7. Slab Ocean Model"
              >next</a> |</li>
         <li class="right" >
-          <a href="physics.html" title="4. Model Physics"
+          <a href="physics.html" title="5. Model Physics"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM5 Scientific Guide</a> &#187;</li> 

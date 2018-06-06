@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4. Model Physics &#8212; camdoc  documentation</title>
+    <title>5. Model Physics &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Extensions to CAM" href="extensions.html" />
-    <link rel="prev" title="3. Coupling of Dynamical Core and Parameterization Suite" href="pd_coupling.html" />
+    <link rel="next" title="6. Extensions to CAM" href="extensions.html" />
+    <link rel="prev" title="4. Dynamics" href="dynamics.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -39,10 +39,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="extensions.html" title="5. Extensions to CAM"
+          <a href="extensions.html" title="6. Extensions to CAM"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pd_coupling.html" title="3. Coupling of Dynamical Core and Parameterization Suite"
+          <a href="dynamics.html" title="4. Dynamics"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM5 Scientific Guide</a> &#187;</li> 
@@ -52,110 +52,110 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">4. Model Physics</a><ul>
-<li><a class="reference internal" href="#conversion-to-and-from-dry-and-wet-mixing-ratios-for-trace-constituents-in-the-model">4.1. Conversion to and from dry and wet mixing ratios for trace constituents in the model</a></li>
-<li><a class="reference internal" href="#deep-convection">4.2. Deep Convection</a><ul>
-<li><a class="reference internal" href="#updraft-ensemble">4.2.1. Updraft Ensemble</a></li>
-<li><a class="reference internal" href="#downdraft-ensemble">4.2.2. Downdraft Ensemble</a></li>
-<li><a class="reference internal" href="#closure">4.2.3. Closure</a></li>
-<li><a class="reference internal" href="#numerical-approximations">4.2.4. Numerical Approximations</a></li>
-<li><a class="reference internal" href="#deep-convective-momentum-transports">4.2.5. Deep Convective Momentum Transports</a></li>
-<li><a class="reference internal" href="#deep-convective-tracer-transport">4.2.6. Deep Convective Tracer Transport</a></li>
+<li><a class="reference internal" href="#">5. Model Physics</a><ul>
+<li><a class="reference internal" href="#conversion-to-and-from-dry-and-wet-mixing-ratios-for-trace-constituents-in-the-model">5.1. Conversion to and from dry and wet mixing ratios for trace constituents in the model</a></li>
+<li><a class="reference internal" href="#deep-convection">5.2. Deep Convection</a><ul>
+<li><a class="reference internal" href="#updraft-ensemble">5.2.1. Updraft Ensemble</a></li>
+<li><a class="reference internal" href="#downdraft-ensemble">5.2.2. Downdraft Ensemble</a></li>
+<li><a class="reference internal" href="#closure">5.2.3. Closure</a></li>
+<li><a class="reference internal" href="#numerical-approximations">5.2.4. Numerical Approximations</a></li>
+<li><a class="reference internal" href="#deep-convective-momentum-transports">5.2.5. Deep Convective Momentum Transports</a></li>
+<li><a class="reference internal" href="#deep-convective-tracer-transport">5.2.6. Deep Convective Tracer Transport</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#evaporation-of-convective-precipitation">4.3. Evaporation of convective precipitation</a></li>
-<li><a class="reference internal" href="#prognostic-condensate-and-precipitation-parameterization">4.4. Prognostic Condensate and Precipitation Parameterization</a><ul>
-<li><a class="reference internal" href="#introductory-comments">4.4.1. Introductory comments</a></li>
+<li><a class="reference internal" href="#evaporation-of-convective-precipitation">5.3. Evaporation of convective precipitation</a></li>
+<li><a class="reference internal" href="#prognostic-condensate-and-precipitation-parameterization">5.4. Prognostic Condensate and Precipitation Parameterization</a><ul>
+<li><a class="reference internal" href="#introductory-comments">5.4.1. Introductory comments</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cloud-microphysics">4.5. Cloud Microphysics</a><ul>
-<li><a class="reference internal" href="#overview-of-the-microphysics-scheme">4.5.1. Overview of the microphysics scheme</a><ul>
-<li><a class="reference internal" href="#sub-grid-cloud-variability">4.5.1.1. Sub-grid cloud variability</a></li>
-<li><a class="reference internal" href="#diagnostic-treatment-of-precipitation">4.5.1.2. Diagnostic treatment of precipitation</a></li>
-<li><a class="reference internal" href="#cloud-and-precipitation-particle-terminal-fallspeeds">4.5.1.3. Cloud and precipitation particle terminal fallspeeds</a></li>
-<li><a class="reference internal" href="#ice-cloud-fraction">4.5.1.4. Ice Cloud Fraction</a></li>
+<li><a class="reference internal" href="#cloud-microphysics">5.5. Cloud Microphysics</a><ul>
+<li><a class="reference internal" href="#overview-of-the-microphysics-scheme">5.5.1. Overview of the microphysics scheme</a><ul>
+<li><a class="reference internal" href="#sub-grid-cloud-variability">5.5.1.1. Sub-grid cloud variability</a></li>
+<li><a class="reference internal" href="#diagnostic-treatment-of-precipitation">5.5.1.2. Diagnostic treatment of precipitation</a></li>
+<li><a class="reference internal" href="#cloud-and-precipitation-particle-terminal-fallspeeds">5.5.1.3. Cloud and precipitation particle terminal fallspeeds</a></li>
+<li><a class="reference internal" href="#ice-cloud-fraction">5.5.1.4. Ice Cloud Fraction</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#radiative-treatment-of-ice">4.5.2. Radiative Treatment of Ice</a></li>
-<li><a class="reference internal" href="#formulations-for-the-microphysical-processes">4.5.3. Formulations for the microphysical processes</a><ul>
-<li><a class="reference internal" href="#activation-of-cloud-droplets">4.5.3.1. Activation of cloud droplets</a></li>
-<li><a class="reference internal" href="#primary-ice-nucleation">4.5.3.2. Primary ice nucleation</a></li>
-<li><a class="reference internal" href="#deposition-sublimation-of-ice">4.5.3.3. Deposition/sublimation of ice</a></li>
-<li><a class="reference internal" href="#conversion-of-cloud-water-to-rain">4.5.3.4. Conversion of cloud water to rain</a></li>
-<li><a class="reference internal" href="#conversion-of-cloud-ice-to-snow">4.5.3.5. Conversion of cloud ice to snow</a></li>
-<li><a class="reference internal" href="#other-collection-processes">4.5.3.6. Other collection processes</a></li>
-<li><a class="reference internal" href="#freezing-of-cloud-droplets-and-rain-and-ice-multiplication">4.5.3.7. Freezing of cloud droplets and rain and ice multiplication</a></li>
-<li><a class="reference internal" href="#melting-of-cloud-ice-and-snow">4.5.3.8. Melting of cloud ice and snow</a></li>
-<li><a class="reference internal" href="#evaporation-sublimation-of-precipitation">4.5.3.9. Evaporation/sublimation of precipitation</a></li>
-<li><a class="reference internal" href="#sedimentation-of-cloud-water-and-ice">4.5.3.10. Sedimentation of cloud water and ice</a></li>
-<li><a class="reference internal" href="#convective-detrainment-of-cloud-water-and-ice">4.5.3.11. Convective detrainment of cloud water and ice</a></li>
-<li><a class="reference internal" href="#numerical-considerations">4.5.3.12. Numerical considerations</a></li>
+<li><a class="reference internal" href="#radiative-treatment-of-ice">5.5.2. Radiative Treatment of Ice</a></li>
+<li><a class="reference internal" href="#formulations-for-the-microphysical-processes">5.5.3. Formulations for the microphysical processes</a><ul>
+<li><a class="reference internal" href="#activation-of-cloud-droplets">5.5.3.1. Activation of cloud droplets</a></li>
+<li><a class="reference internal" href="#primary-ice-nucleation">5.5.3.2. Primary ice nucleation</a></li>
+<li><a class="reference internal" href="#deposition-sublimation-of-ice">5.5.3.3. Deposition/sublimation of ice</a></li>
+<li><a class="reference internal" href="#conversion-of-cloud-water-to-rain">5.5.3.4. Conversion of cloud water to rain</a></li>
+<li><a class="reference internal" href="#conversion-of-cloud-ice-to-snow">5.5.3.5. Conversion of cloud ice to snow</a></li>
+<li><a class="reference internal" href="#other-collection-processes">5.5.3.6. Other collection processes</a></li>
+<li><a class="reference internal" href="#freezing-of-cloud-droplets-and-rain-and-ice-multiplication">5.5.3.7. Freezing of cloud droplets and rain and ice multiplication</a></li>
+<li><a class="reference internal" href="#melting-of-cloud-ice-and-snow">5.5.3.8. Melting of cloud ice and snow</a></li>
+<li><a class="reference internal" href="#evaporation-sublimation-of-precipitation">5.5.3.9. Evaporation/sublimation of precipitation</a></li>
+<li><a class="reference internal" href="#sedimentation-of-cloud-water-and-ice">5.5.3.10. Sedimentation of cloud water and ice</a></li>
+<li><a class="reference internal" href="#convective-detrainment-of-cloud-water-and-ice">5.5.3.11. Convective detrainment of cloud water and ice</a></li>
+<li><a class="reference internal" href="#numerical-considerations">5.5.3.12. Numerical considerations</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#parameterization-of-cloud-fraction">4.6. Parameterization of Cloud Fraction</a></li>
-<li><a class="reference internal" href="#aerosols">4.7. Aerosols</a><ul>
-<li><a class="reference internal" href="#emissions">4.7.1. Emissions</a></li>
-<li><a class="reference internal" href="#chemistry">4.7.2. Chemistry</a></li>
-<li><a class="reference internal" href="#secondary-organic-aerosol">4.7.3. Secondary Organic Aerosol</a></li>
-<li><a class="reference internal" href="#nucleation">4.7.4. Nucleation</a></li>
-<li><a class="reference internal" href="#condensation">4.7.5. Condensation</a></li>
-<li><a class="reference internal" href="#coagulation">4.7.6. Coagulation</a></li>
-<li><a class="reference internal" href="#water-uptake">4.7.7. Water Uptake</a></li>
-<li><a class="reference internal" href="#subgrid-vertical-transport-and-activation-resuspension">4.7.8. Subgrid Vertical Transport and Activation/Resuspension</a></li>
-<li><a class="reference internal" href="#wet-deposition">4.7.9. Wet Deposition</a></li>
-<li><a class="reference internal" href="#dry-deposition">4.7.10. Dry Deposition</a></li>
+<li><a class="reference internal" href="#parameterization-of-cloud-fraction">5.6. Parameterization of Cloud Fraction</a></li>
+<li><a class="reference internal" href="#aerosols">5.7. Aerosols</a><ul>
+<li><a class="reference internal" href="#emissions">5.7.1. Emissions</a></li>
+<li><a class="reference internal" href="#chemistry">5.7.2. Chemistry</a></li>
+<li><a class="reference internal" href="#secondary-organic-aerosol">5.7.3. Secondary Organic Aerosol</a></li>
+<li><a class="reference internal" href="#nucleation">5.7.4. Nucleation</a></li>
+<li><a class="reference internal" href="#condensation">5.7.5. Condensation</a></li>
+<li><a class="reference internal" href="#coagulation">5.7.6. Coagulation</a></li>
+<li><a class="reference internal" href="#water-uptake">5.7.7. Water Uptake</a></li>
+<li><a class="reference internal" href="#subgrid-vertical-transport-and-activation-resuspension">5.7.8. Subgrid Vertical Transport and Activation/Resuspension</a></li>
+<li><a class="reference internal" href="#wet-deposition">5.7.9. Wet Deposition</a></li>
+<li><a class="reference internal" href="#dry-deposition">5.7.10. Dry Deposition</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#condensed-phase-optics">4.8. Condensed Phase Optics</a><ul>
-<li><a class="reference internal" href="#tropospheric-aerosol-optics">4.8.1. Tropospheric Aerosol Optics</a></li>
-<li><a class="reference internal" href="#stratospheric-volcanic-aerosol-optics">4.8.2. Stratospheric Volcanic Aerosol Optics</a></li>
-<li><a class="reference internal" href="#liquid-cloud-optics">4.8.3. Liquid Cloud Optics</a></li>
-<li><a class="reference internal" href="#ice-cloud-optics">4.8.4. Ice Cloud Optics</a><ul>
-<li><a class="reference internal" href="#tests-of-mada">4.8.4.1. Tests of MADA</a></li>
-<li><a class="reference internal" href="#application-to">4.8.4.2. Application to</a></li>
+<li><a class="reference internal" href="#condensed-phase-optics">5.8. Condensed Phase Optics</a><ul>
+<li><a class="reference internal" href="#tropospheric-aerosol-optics">5.8.1. Tropospheric Aerosol Optics</a></li>
+<li><a class="reference internal" href="#stratospheric-volcanic-aerosol-optics">5.8.2. Stratospheric Volcanic Aerosol Optics</a></li>
+<li><a class="reference internal" href="#liquid-cloud-optics">5.8.3. Liquid Cloud Optics</a></li>
+<li><a class="reference internal" href="#ice-cloud-optics">5.8.4. Ice Cloud Optics</a><ul>
+<li><a class="reference internal" href="#tests-of-mada">5.8.4.1. Tests of MADA</a></li>
+<li><a class="reference internal" href="#application-to">5.8.4.2. Application to</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#snow-cloud-optics">4.8.5. Snow Cloud Optics</a></li>
+<li><a class="reference internal" href="#snow-cloud-optics">5.8.5. Snow Cloud Optics</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#radiative-transfer">4.9. Radiative Transfer</a><ul>
-<li><a class="reference internal" href="#combination-of-aerosol-radiative-properties">4.9.1. Combination of Aerosol Radiative Properties</a></li>
-<li><a class="reference internal" href="#combination-of-cloud-optics">4.9.2. Combination of Cloud Optics</a></li>
-<li><a class="reference internal" href="#radiative-fluxes-and-heating-rates">4.9.3. Radiative Fluxes and Heating Rates</a><ul>
-<li><a class="reference internal" href="#shortwave-radiative-transfer">4.9.3.1. Shortwave Radiative Transfer</a></li>
-<li><a class="reference internal" href="#longwave-radiative-transfer">4.9.3.2. Longwave Radiative Transfer</a></li>
+<li><a class="reference internal" href="#radiative-transfer">5.9. Radiative Transfer</a><ul>
+<li><a class="reference internal" href="#combination-of-aerosol-radiative-properties">5.9.1. Combination of Aerosol Radiative Properties</a></li>
+<li><a class="reference internal" href="#combination-of-cloud-optics">5.9.2. Combination of Cloud Optics</a></li>
+<li><a class="reference internal" href="#radiative-fluxes-and-heating-rates">5.9.3. Radiative Fluxes and Heating Rates</a><ul>
+<li><a class="reference internal" href="#shortwave-radiative-transfer">5.9.3.1. Shortwave Radiative Transfer</a></li>
+<li><a class="reference internal" href="#longwave-radiative-transfer">5.9.3.2. Longwave Radiative Transfer</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#surface-radiative-properties">4.9.4. Surface Radiative Properties</a></li>
-<li><a class="reference internal" href="#time-sampling">4.9.5. Time Sampling</a></li>
-<li><a class="reference internal" href="#diurnal-cycle-and-earth-orbit">4.9.6. Diurnal Cycle and Earth Orbit</a></li>
-<li><a class="reference internal" href="#solar-spectral-irradiance">4.9.7. Solar Spectral Irradiance</a></li>
+<li><a class="reference internal" href="#surface-radiative-properties">5.9.4. Surface Radiative Properties</a></li>
+<li><a class="reference internal" href="#time-sampling">5.9.5. Time Sampling</a></li>
+<li><a class="reference internal" href="#diurnal-cycle-and-earth-orbit">5.9.6. Diurnal Cycle and Earth Orbit</a></li>
+<li><a class="reference internal" href="#solar-spectral-irradiance">5.9.7. Solar Spectral Irradiance</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#surface-exchange-formulations">4.10. Surface Exchange Formulations</a><ul>
-<li><a class="reference internal" href="#land">4.10.1. Land</a><ul>
-<li><a class="reference internal" href="#roughness-lengths-and-zero-plane-displacement">4.10.1.1. Roughness lengths and zero-plane displacement</a></li>
-<li><a class="reference internal" href="#monin-obukhov-similarity-theory">4.10.1.2. Monin-Obukhov similarity theory</a></li>
+<li><a class="reference internal" href="#surface-exchange-formulations">5.10. Surface Exchange Formulations</a><ul>
+<li><a class="reference internal" href="#land">5.10.1. Land</a><ul>
+<li><a class="reference internal" href="#roughness-lengths-and-zero-plane-displacement">5.10.1.1. Roughness lengths and zero-plane displacement</a></li>
+<li><a class="reference internal" href="#monin-obukhov-similarity-theory">5.10.1.2. Monin-Obukhov similarity theory</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ocean">4.10.2. Ocean</a></li>
-<li><a class="reference internal" href="#sea-ice">4.10.3. Sea Ice</a></li>
+<li><a class="reference internal" href="#ocean">5.10.2. Ocean</a></li>
+<li><a class="reference internal" href="#sea-ice">5.10.3. Sea Ice</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dry-adiabatic-adjustment">4.11. Dry Adiabatic Adjustment</a></li>
-<li><a class="reference internal" href="#prognostic-greenhouse-gases">4.12. Prognostic Greenhouse Gases</a></li>
+<li><a class="reference internal" href="#dry-adiabatic-adjustment">5.11. Dry Adiabatic Adjustment</a></li>
+<li><a class="reference internal" href="#prognostic-greenhouse-gases">5.12. Prognostic Greenhouse Gases</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="pd_coupling.html"
-                        title="previous chapter">3. Coupling of Dynamical Core and Parameterization Suite</a></p>
+  <p class="topless"><a href="dynamics.html"
+                        title="previous chapter">4. Dynamics</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="extensions.html"
-                        title="next chapter">5. Extensions to CAM</a></p>
+                        title="next chapter">6. Extensions to CAM</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -182,7 +182,7 @@
           <div class="body" role="main">
             
   <span class="target" id="physics"></span><div class="section" id="model-physics">
-<h1>4. Model Physics<a class="headerlink" href="#model-physics" title="Permalink to this headline">¶</a></h1>
+<h1>5. Model Physics<a class="headerlink" href="#model-physics" title="Permalink to this headline">¶</a></h1>
 <p>As stated in chapter&nbsp;[chap:coupling], the total parameterization package
 in CAM5.0 consists of a sequence of components, indicated by</p>
 <div class="math">
@@ -263,7 +263,7 @@ dynamical cores. The inconsistency in the use of temperature and dry
 static energy apparent in the description above should be eliminated in
 future versions of the model.</p>
 <div class="section" id="conversion-to-and-from-dry-and-wet-mixing-ratios-for-trace-constituents-in-the-model">
-<span id="ssec-wetanddry"></span><h2>4.1. Conversion to and from dry and wet mixing ratios for trace constituents in the model<a class="headerlink" href="#conversion-to-and-from-dry-and-wet-mixing-ratios-for-trace-constituents-in-the-model" title="Permalink to this headline">¶</a></h2>
+<span id="ssec-wetanddry"></span><h2>5.1. Conversion to and from dry and wet mixing ratios for trace constituents in the model<a class="headerlink" href="#conversion-to-and-from-dry-and-wet-mixing-ratios-for-trace-constituents-in-the-model" title="Permalink to this headline">¶</a></h2>
 <p>There are trade offs in the various options for the representation of
 trace constituents <img class="math" src="../_images/math/1bc8153a40ba7d2281c26bfe99604ad9e6f34749.png" alt="\chi"/> in any general circulation model:</p>
 <ol class="arabic simple">
@@ -345,7 +345,7 @@ using equations of such a form still satisfy a conservation relationship</p>
 </div><p>provided the appropriate <img class="math" src="../_images/math/b9b3054e0caac87844767ff5b7173783fe4d49d1.png" alt="\delta p"/> is used in the summation.</p>
 </div>
 <div class="section" id="deep-convection">
-<span id="ssec-deep-convection"></span><h2>4.2. Deep Convection<a class="headerlink" href="#deep-convection" title="Permalink to this headline">¶</a></h2>
+<span id="ssec-deep-convection"></span><h2>5.2. Deep Convection<a class="headerlink" href="#deep-convection" title="Permalink to this headline">¶</a></h2>
 <p>The process of deep convection is treated with a parameterization
 scheme developed by <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#zhang95" id="id2">[ZM95]</a> and modified with the addition of
 convective momentum transports by <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#richter08" id="id3">[RR08]</a> and a modified
@@ -397,7 +397,7 @@ evaporation rates, <img class="math" src="../_images/math/1dbc400fcc213305415872
 energy and specific humidity, and <img class="math" src="../_images/math/1816a709e69aded198b67d8fd508a588b11cae90.png" alt="M_b"/> is the cloud base mass
 flux.</p>
 <div class="section" id="updraft-ensemble">
-<h3>4.2.1. Updraft Ensemble<a class="headerlink" href="#updraft-ensemble" title="Permalink to this headline">¶</a></h3>
+<h3>5.2.1. Updraft Ensemble<a class="headerlink" href="#updraft-ensemble" title="Permalink to this headline">¶</a></h3>
 <p>The updraft ensemble is represented as a collection of entraining
 plumes, each with a characteristic fractional entrainment rate
 <img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/>. The moist static energy in each plume <img class="math" src="../_images/math/fde72ee090b2fc023f1f1265dcd0b2ea6bcbfed1.png" alt="h_c"/> is
@@ -574,7 +574,7 @@ model. Instead,</p>
 c_3 \neq \epsilon L/R"/>.</p>
 </div>
 <div class="section" id="downdraft-ensemble">
-<h3>4.2.2. Downdraft Ensemble<a class="headerlink" href="#downdraft-ensemble" title="Permalink to this headline">¶</a></h3>
+<h3>5.2.2. Downdraft Ensemble<a class="headerlink" href="#downdraft-ensemble" title="Permalink to this headline">¶</a></h3>
 <p>Downdrafts are assumed to exist whenever there is precipitation
 production in the updraft ensemble where the downdrafts start at or
 below the bottom of the updraft detrainment layer. Detrainment from the
@@ -595,7 +595,7 @@ evaporation cannot exceed some fraction, <img class="math" src="../_images/math/
 precipitation, where <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> = 0.2.</p>
 </div>
 <div class="section" id="closure">
-<h3>4.2.3. Closure<a class="headerlink" href="#closure" title="Permalink to this headline">¶</a></h3>
+<h3>5.2.3. Closure<a class="headerlink" href="#closure" title="Permalink to this headline">¶</a></h3>
 <p>The parameterization is closed, i.e., the cloud base mass fluxes are
 determined, as a function of the rate at which the cumulus consume
 convective available potential energy (CAPE). Since the large-scale
@@ -616,7 +616,7 @@ time scale <img class="math" src="../_images/math/ee8e2ad88f8f3c337bb092cdeaf7fa
 ~."/></p>
 </div></div>
 <div class="section" id="numerical-approximations">
-<h3>4.2.4. Numerical Approximations<a class="headerlink" href="#numerical-approximations" title="Permalink to this headline">¶</a></h3>
+<h3>5.2.4. Numerical Approximations<a class="headerlink" href="#numerical-approximations" title="Permalink to this headline">¶</a></h3>
 <p>The quantities <img class="math" src="../_images/math/d8297e4309ab395e45828c35ddac48714dc5f7a3.png" alt="M_{u,d}"/>, <img class="math" src="../_images/math/69936a1144be0482fbfd69c0e1edb51c5e19f0b5.png" alt="\ell"/>, <img class="math" src="../_images/math/2f23f1dda8c3b894a0a0e038baf4a357c5550631.png" alt="S_{u,d}"/>,
 <img class="math" src="../_images/math/312cfedc591898adca60b9020a74ff4644b87db9.png" alt="q_{u,d}"/>, <img class="math" src="../_images/math/c0c4c69f1619ba304419e13564bb81f770119488.png" alt="h_{u,d}"/> are defined on layer interfaces, while
 <img class="math" src="../_images/math/e5ba9921d299a8e029b32b29f8fd02ec0877a16f.png" alt="D_u"/>, <img class="math" src="../_images/math/a092b467f6826fae203fc858e878a8854e4cb250.png" alt="C_u"/>, <img class="math" src="../_images/math/bfe49451dc34e097de4b8a39fc677b5945d0e7b5.png" alt="R_u"/> are defined on layer midpoints.
@@ -759,7 +759,7 @@ are then determined by differencing <a class="reference internal" href="#equatio
 ~.\end{aligned}"/></p>
 </div></div>
 <div class="section" id="deep-convective-momentum-transports">
-<span id="ssec-convection-cmt"></span><h3>4.2.5. Deep Convective Momentum Transports<a class="headerlink" href="#deep-convective-momentum-transports" title="Permalink to this headline">¶</a></h3>
+<span id="ssec-convection-cmt"></span><h3>5.2.5. Deep Convective Momentum Transports<a class="headerlink" href="#deep-convective-momentum-transports" title="Permalink to this headline">¶</a></h3>
 <p>Sub-grid scale Convective Momentum Transports (CMT) have ben added to
 the existing deep convection parameterization following Richter and
 Rasch (2008) and the methodology of Gregory, Kershaw, and Inness (1997).
@@ -794,7 +794,7 @@ As these coefiicients increase so do the pressure gradient terms, and
 convective momentum transport decreases.</p>
 </div>
 <div class="section" id="deep-convective-tracer-transport">
-<h3>4.2.6. Deep Convective Tracer Transport<a class="headerlink" href="#deep-convective-tracer-transport" title="Permalink to this headline">¶</a></h3>
+<h3>5.2.6. Deep Convective Tracer Transport<a class="headerlink" href="#deep-convective-tracer-transport" title="Permalink to this headline">¶</a></h3>
 <p>The CAM5.0 provides the ability to transport constituents via convection. The
 method used for constituent transport by deep convection is a
 modification of the formulation described in Zhang and McFarlane (1995).</p>
@@ -848,7 +848,7 @@ quantities</em>.</li>
 </div>
 </div>
 <div class="section" id="evaporation-of-convective-precipitation">
-<span id="conv-evap"></span><h2>4.3. Evaporation of convective precipitation<a class="headerlink" href="#evaporation-of-convective-precipitation" title="Permalink to this headline">¶</a></h2>
+<span id="conv-evap"></span><h2>5.3. Evaporation of convective precipitation<a class="headerlink" href="#evaporation-of-convective-precipitation" title="Permalink to this headline">¶</a></h2>
 <p>The CAM5.0 employs a <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#sundqvist88" id="id7">[Sun88]</a> style evaporation of the convective
 precipitation as it makes its way to the surface. This scheme relates
 the rate at which raindrops evaporate to the local large-scale
@@ -904,9 +904,9 @@ a very small reduction in the convective precipitation rate where the
 evaporated condensate acts to moisten the middle and lower troposphere.</p>
 </div>
 <div class="section" id="prognostic-condensate-and-precipitation-parameterization">
-<span id="ssec-prognostic-water"></span><h2>4.4. Prognostic Condensate and Precipitation Parameterization<a class="headerlink" href="#prognostic-condensate-and-precipitation-parameterization" title="Permalink to this headline">¶</a></h2>
+<span id="ssec-prognostic-water"></span><h2>5.4. Prognostic Condensate and Precipitation Parameterization<a class="headerlink" href="#prognostic-condensate-and-precipitation-parameterization" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="introductory-comments">
-<h3>4.4.1. Introductory comments<a class="headerlink" href="#introductory-comments" title="Permalink to this headline">¶</a></h3>
+<h3>5.4.1. Introductory comments<a class="headerlink" href="#introductory-comments" title="Permalink to this headline">¶</a></h3>
 <p>The parameterization of non-convective cloud processes in CAM5.0 is described
 in <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#rasch98" id="id8">[RK98]</a> and <a class="reference internal" href="../cam6_scientific_guide/chapter8.html#zhang03" id="id9">[ZLB+03]</a>. The original
 formulation is introduced in Rasch and Kristjánsson (1998). Revisions to
@@ -958,7 +958,7 @@ sections.</p>
 </div>
 </div>
 <div class="section" id="cloud-microphysics">
-<h2>4.5. Cloud Microphysics<a class="headerlink" href="#cloud-microphysics" title="Permalink to this headline">¶</a></h2>
+<h2>5.5. Cloud Microphysics<a class="headerlink" href="#cloud-microphysics" title="Permalink to this headline">¶</a></h2>
 <p>The base parameterization of stratiform cloud microphysics is described
 by Morrison and Gettelman (2008). Details of the CAM implementation are
 described by Gettelman, Morrison, and Ghan (2008). Modifications to
@@ -983,7 +983,7 @@ sub-grid cloud water distribution for calculation of the various
 microphysical process rates, and the diagnostic two-moment treatment of
 rain and snow.</p>
 <div class="section" id="overview-of-the-microphysics-scheme">
-<h3>4.5.1. Overview of the microphysics scheme<a class="headerlink" href="#overview-of-the-microphysics-scheme" title="Permalink to this headline">¶</a></h3>
+<h3>5.5.1. Overview of the microphysics scheme<a class="headerlink" href="#overview-of-the-microphysics-scheme" title="Permalink to this headline">¶</a></h3>
 <p>The two-moment scheme is based loosely on the approach of Morrison,
 Curry, and Khvorostyanov (2005). This scheme predicts the number
 concentrations (Nc, Ni) and mixing ratios (qc, qi) of cloud droplets
@@ -1067,7 +1067,7 @@ homogeneous freezing of cloud droplets (subscript hom), melting
 formulations for these processes are detailed in section 3. Numerical
 aspects in solving <a class="reference internal" href="#equation-eq:MG6">(51)</a> and <a class="reference internal" href="#equation-eq:MG7">(52)</a> are detailed in section 4.</p>
 <div class="section" id="sub-grid-cloud-variability">
-<h4>4.5.1.1. Sub-grid cloud variability<a class="headerlink" href="#sub-grid-cloud-variability" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.1.1. Sub-grid cloud variability<a class="headerlink" href="#sub-grid-cloud-variability" title="Permalink to this headline">¶</a></h4>
 <p>Sub-grid variability is considered for cloud water but neglected for
 cloud ice and precipitation at present; furthermore, we neglect sub-grid
 variability of droplet number concentration for simplicity. We assume
@@ -1104,7 +1104,7 @@ yields a mean in-cloud process rate</p>
 <p><span class="eqno">(55)<a class="headerlink" href="#equation-eq:MG10" title="Permalink to this equation">¶</a></span><img src="../_images/math/7f83ed275327bcfb6e1f28f0873479dd65302313.png" alt="E = \frac{\Gamma(\nu + y)}{\Gamma(\nu)\nu^y}"/></p>
 </div></div>
 <div class="section" id="diagnostic-treatment-of-precipitation">
-<h4>4.5.1.2. Diagnostic treatment of precipitation<a class="headerlink" href="#diagnostic-treatment-of-precipitation" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.1.2. Diagnostic treatment of precipitation<a class="headerlink" href="#diagnostic-treatment-of-precipitation" title="Permalink to this headline">¶</a></h4>
 <p>As described by Ghan and Easter (1992), diagnostic treatment of
 precipitation allows for a longer time step, since prognostic
 precipitation is constrained by the Courant criterion for sedimentation.
@@ -1184,7 +1184,7 @@ rain and <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f
 Reisner, Rasmussen, and Bruintjes (1998).</p>
 </div>
 <div class="section" id="cloud-and-precipitation-particle-terminal-fallspeeds">
-<h4>4.5.1.3. Cloud and precipitation particle terminal fallspeeds<a class="headerlink" href="#cloud-and-precipitation-particle-terminal-fallspeeds" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.1.3. Cloud and precipitation particle terminal fallspeeds<a class="headerlink" href="#cloud-and-precipitation-particle-terminal-fallspeeds" title="Permalink to this headline">¶</a></h4>
 <p>The mass- and number-weighted terminal fallspeeds for all cloud and
 precipitation species are obtained by integration over the particle size
 distributions with appropriate weighting by number concentration or
@@ -1206,7 +1206,7 @@ multiplying the <img class="math" src="../_images/math/5a9cf1ad3e1bde5c0671abaf7
 given by <a class="reference internal" href="#equation-eq:MG10">(55)</a>.</p>
 </div>
 <div class="section" id="ice-cloud-fraction">
-<h4>4.5.1.4. Ice Cloud Fraction<a class="headerlink" href="#ice-cloud-fraction" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.1.4. Ice Cloud Fraction<a class="headerlink" href="#ice-cloud-fraction" title="Permalink to this headline">¶</a></h4>
 <p>Several modifications have been made to the determination of diagnostic
 fractional cloudiness in the simulations. The ice and liquid cloud
 fractions are now calculated separately. Ice and liquid cloud can exist
@@ -1245,7 +1245,7 @@ whereas <img class="math" src="../_images/math/af00f79cc783190476647511acf74f229
 </div>
 </div>
 <div class="section" id="radiative-treatment-of-ice">
-<h3>4.5.2. Radiative Treatment of Ice<a class="headerlink" href="#radiative-treatment-of-ice" title="Permalink to this headline">¶</a></h3>
+<h3>5.5.2. Radiative Treatment of Ice<a class="headerlink" href="#radiative-treatment-of-ice" title="Permalink to this headline">¶</a></h3>
 <p>The simulations use a self consistent treatment of ice in the radiation
 code. The radiation code uses as input the prognostic effective diameter
 of ice from the cloud microphysics (give eq. # from above). Ice cloud
@@ -1272,9 +1272,9 @@ was based on the crystal shape observations reported in Lawson et al.
 rosettes and 43% irregular ice particles.</p>
 </div>
 <div class="section" id="formulations-for-the-microphysical-processes">
-<h3>4.5.3. Formulations for the microphysical processes<a class="headerlink" href="#formulations-for-the-microphysical-processes" title="Permalink to this headline">¶</a></h3>
+<h3>5.5.3. Formulations for the microphysical processes<a class="headerlink" href="#formulations-for-the-microphysical-processes" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="activation-of-cloud-droplets">
-<h4>4.5.3.1. Activation of cloud droplets<a class="headerlink" href="#activation-of-cloud-droplets" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.1. Activation of cloud droplets<a class="headerlink" href="#activation-of-cloud-droplets" title="Permalink to this headline">¶</a></h4>
 <p>Activation of cloud droplets, occurs on a multi-modal lognormal aerosol
 size distribution based on the scheme of Abdul-Razzak and Ghan (2000).
 Activation of cloud droplets occurs if <img class="math" src="../_images/math/be212f4bd9d05ef8cd8949a5610bc3ca04e750f7.png" alt="N_c"/> decreases below the
@@ -1311,7 +1311,7 @@ the timescale for large eddy turnover; here, we assume an activation
 timescale of 20 min.</p>
 </div>
 <div class="section" id="primary-ice-nucleation">
-<h4>4.5.3.2. Primary ice nucleation<a class="headerlink" href="#primary-ice-nucleation" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.2. Primary ice nucleation<a class="headerlink" href="#primary-ice-nucleation" title="Permalink to this headline">¶</a></h4>
 <p>Ice crystal nucleation is based on Liu et al. (2007), which includes
 homogeneous freezing of sulfate competing with heterogeneous immersion
 freezing on mineral dust in ice clouds (with temperatures below
@@ -1376,7 +1376,7 @@ accumulation mode (it falls out), and almost all sulfate is in the
 Aitken mode.</p>
 </div>
 <div class="section" id="deposition-sublimation-of-ice">
-<h4>4.5.3.3. Deposition/sublimation of ice<a class="headerlink" href="#deposition-sublimation-of-ice" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.3. Deposition/sublimation of ice<a class="headerlink" href="#deposition-sublimation-of-ice" title="Permalink to this headline">¶</a></h4>
 <p>Several cases are treated below that involve ice deposition in ice-only
 clouds or mixed-phase clouds in which all liquid water is depleted
 within the time step. Case [1] Ice only clouds in which
@@ -1462,7 +1462,7 @@ scheme within the cloud macrophysics scheme, and therefore not described
 here.</p>
 </div>
 <div class="section" id="conversion-of-cloud-water-to-rain">
-<h4>4.5.3.4. Conversion of cloud water to rain<a class="headerlink" href="#conversion-of-cloud-water-to-rain" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.4. Conversion of cloud water to rain<a class="headerlink" href="#conversion-of-cloud-water-to-rain" title="Permalink to this headline">¶</a></h4>
 <p>Autoconversion of cloud droplets and accretion of cloud droplets by rain
 is given by a version of the Khairoutdinov and Kogan (2000) scheme that
 is modified here to account for sub-grid variability of cloud water
@@ -1506,7 +1506,7 @@ autoconversion results in a source of both rain mixing ratio and number
 concentration.</p>
 </div>
 <div class="section" id="conversion-of-cloud-ice-to-snow">
-<h4>4.5.3.5. Conversion of cloud ice to snow<a class="headerlink" href="#conversion-of-cloud-ice-to-snow" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.5. Conversion of cloud ice to snow<a class="headerlink" href="#conversion-of-cloud-ice-to-snow" title="Permalink to this headline">¶</a></h4>
 <p>The autoconversion of cloud ice to form snow is calculated by
 integration of the cloud ice mass- and number-weighted size
 distributions greater than some specified threshold size, and
@@ -1543,7 +1543,7 @@ aggregation efficiencies typically much less than unity (e.g., Field,
 Heymsfield, and Bansemer (2007)).</p>
 </div>
 <div class="section" id="other-collection-processes">
-<h4>4.5.3.6. Other collection processes<a class="headerlink" href="#other-collection-processes" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.6. Other collection processes<a class="headerlink" href="#other-collection-processes" title="Permalink to this headline">¶</a></h4>
 <p>The accretion of <img class="math" src="../_images/math/0dcc2bef42dfdea25f333d21a81d4d2ad1e53677.png" alt="q_c"/> and <img class="math" src="../_images/math/be212f4bd9d05ef8cd8949a5610bc3ca04e750f7.png" alt="N_c"/> by snow
 <img class="math" src="../_images/math/0f3b188d5472eab672a2b0d7a78c694287ea7a8c.png" alt="(\partial q_c / \partial t)_{accs}"/>,
 <img class="math" src="../_images/math/5e96445f3b0cc18a0f409a0410f3d239b135eaec.png" alt="(\partial N_c/ \partial t)_{accs}"/>, and
@@ -1564,7 +1564,7 @@ and <img class="math" src="../_images/math/b45b323a9b053100650fbaa291b939492328e
 Saito (1990) assuming collection efficiency of unity.</p>
 </div>
 <div class="section" id="freezing-of-cloud-droplets-and-rain-and-ice-multiplication">
-<h4>4.5.3.7. Freezing of cloud droplets and rain and ice multiplication<a class="headerlink" href="#freezing-of-cloud-droplets-and-rain-and-ice-multiplication" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.7. Freezing of cloud droplets and rain and ice multiplication<a class="headerlink" href="#freezing-of-cloud-droplets-and-rain-and-ice-multiplication" title="Permalink to this headline">¶</a></h4>
 <p>Heterogeneous freezing of cloud droplets and rain to form cloud ice and
 snow, respectively, occurs by immersion freezing following Bigg (1953),
 which has been utilized in previous microphysics schemes (e.g., Reisner,
@@ -1586,7 +1586,7 @@ mixing ratio and source term for cloud ice mixing ratio and number
 concentration.</p>
 </div>
 <div class="section" id="melting-of-cloud-ice-and-snow">
-<h4>4.5.3.8. Melting of cloud ice and snow<a class="headerlink" href="#melting-of-cloud-ice-and-snow" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.8. Melting of cloud ice and snow<a class="headerlink" href="#melting-of-cloud-ice-and-snow" title="Permalink to this headline">¶</a></h4>
 <p>For simplicity, detailed formulations for heat transfer during melting
 of ice and snow are not included. Melting of cloud ice occurs
 instantaneously at 0<img class="math" src="../_images/math/416949279b3505b72d9f643b9c648a648ba2e17c.png" alt="^\circ"/>C. Melting of snow occurs
@@ -1596,7 +1596,7 @@ melting temperature from +2<img class="math" src="../_images/math/416949279b3505
 found no significant changes.</p>
 </div>
 <div class="section" id="evaporation-sublimation-of-precipitation">
-<h4>4.5.3.9. Evaporation/sublimation of precipitation<a class="headerlink" href="#evaporation-sublimation-of-precipitation" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.9. Evaporation/sublimation of precipitation<a class="headerlink" href="#evaporation-sublimation-of-precipitation" title="Permalink to this headline">¶</a></h4>
 <p>Evaporation of rain and sublimation of snow,
 <img class="math" src="../_images/math/cb11c0f8c179d8b5da6bd82294ec911c2961a13c.png" alt="(\partial q_s / \partial t)_{evap}"/> and
 <img class="math" src="../_images/math/c4f22a99b0f37dc06c4a499d71a101ddc566dde6.png" alt="(\partial q_r / \partial t)_{evap}"/>, are given by diffusional
@@ -1621,7 +1621,7 @@ and <img class="math" src="../_images/math/6355342271312a908c771ccb8b4a28052208f
 reduction of <img class="math" src="../_images/math/6e8e6044151c93d08d545a310fc471c1a931a2b3.png" alt="q_r"/> and <img class="math" src="../_images/math/e52f9ba2d675f8b4ef987d370b1bf732b59e797a.png" alt="q_s"/> during evaporation/sublimation.</p>
 </div>
 <div class="section" id="sedimentation-of-cloud-water-and-ice">
-<h4>4.5.3.10. Sedimentation of cloud water and ice<a class="headerlink" href="#sedimentation-of-cloud-water-and-ice" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.10. Sedimentation of cloud water and ice<a class="headerlink" href="#sedimentation-of-cloud-water-and-ice" title="Permalink to this headline">¶</a></h4>
 <p>The time rates of change of q and N for cloud water and cloud ice due to
 sedimentation, <img class="math" src="../_images/math/2d67d644ebbb29a298a17042c0abbe43f3b89291.png" alt="(\partial q_c / \partial t)_{sed}"/> ,
 <img class="math" src="../_images/math/908480af86d7e058f0a5baec450a7de030326812.png" alt="(\partial q_i / \partial t)_{sed}"/>,
@@ -1639,7 +1639,7 @@ with the evaporation/condensate rate proportional to the difference in
 cloud fraction between the levels.</p>
 </div>
 <div class="section" id="convective-detrainment-of-cloud-water-and-ice">
-<h4>4.5.3.11. Convective detrainment of cloud water and ice<a class="headerlink" href="#convective-detrainment-of-cloud-water-and-ice" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.11. Convective detrainment of cloud water and ice<a class="headerlink" href="#convective-detrainment-of-cloud-water-and-ice" title="Permalink to this headline">¶</a></h4>
 <p>The ratio of ice to total cloud condensate detrained from the convective
 parameterizations, Fdet, is a linear function of temperature between
 -40:math:<cite>^circ</cite> C and -10:math:<cite>^circ</cite> C; <img class="math" src="../_images/math/b44a966102b9b44e3c764878bf0ecdabbc4d9004.png" alt="F_{det}"/> = 1 at T
@@ -1649,7 +1649,7 @@ by assuming a mean volume radius of 8 and 32 micron for droplets and
 cloud ice, respectively.</p>
 </div>
 <div class="section" id="numerical-considerations">
-<h4>4.5.3.12. Numerical considerations<a class="headerlink" href="#numerical-considerations" title="Permalink to this headline">¶</a></h4>
+<h4>5.5.3.12. Numerical considerations<a class="headerlink" href="#numerical-considerations" title="Permalink to this headline">¶</a></h4>
 <p>To ensure conservation of both q and N for each species, the magnitudes
 of the various sink terms are reduced if the provisional q and N are
 negative after stepping forward in time. This approach ensures critical
@@ -1684,7 +1684,7 @@ the temperature above homogeneous freezing threshold.</p>
 </div>
 </div>
 <div class="section" id="parameterization-of-cloud-fraction">
-<h2>4.6. Parameterization of Cloud Fraction<a class="headerlink" href="#parameterization-of-cloud-fraction" title="Permalink to this headline">¶</a></h2>
+<h2>5.6. Parameterization of Cloud Fraction<a class="headerlink" href="#parameterization-of-cloud-fraction" title="Permalink to this headline">¶</a></h2>
 <p>Cloud amount (or cloud fraction), and the associated optical properties,
 are evaluated via a diagnostic method in CAM5.0. The basic approach is similar
 to that employed in CAM3. The diagnosis of cloud fraction is a
@@ -1778,7 +1778,7 @@ seen in the CAM3, where cloud condesate was zero and yet cloud had been
 diagnosed to exists due to an inconsistant relative humidity.</p>
 </div>
 <div class="section" id="aerosols">
-<h2>4.7. Aerosols<a class="headerlink" href="#aerosols" title="Permalink to this headline">¶</a></h2>
+<h2>5.7. Aerosols<a class="headerlink" href="#aerosols" title="Permalink to this headline">¶</a></h2>
 <p>Two different modal representations of the aerosol were implemented in
 CAM5. A 7-mode version of the modal aerosol model (MAM-7) serves as a
 benchmark for the further simplification. It includes Aitken,
@@ -1908,7 +1908,7 @@ is described as:</p>
 side represent the source/sink terms for <img class="math" src="../_images/math/f5a813d28d36cafe3265dddce27754c8269a9f27.png" alt="\mathrm{M_{i,j}}"/> and
 <img class="math" src="../_images/math/6f4c8e8636279c7435bb742efa9b1ad491853037.png" alt="\mathrm{N_{j}}"/> (<strong>???</strong>).</p>
 <div class="section" id="emissions">
-<h3>4.7.1. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.1. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h3>
 <p>Anthropogenic (defined here as originating from industrial, domestic and
 agriculture activity sectors) emissions are from the (<strong>???</strong>) IPCC AR5
 emission data set. Emissions of black carbon (BC) and organic carbon
@@ -1993,7 +1993,7 @@ MAM-7; and 0.1-1.0 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b255
 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m (coarse) for MAM-3.</p>
 </div>
 <div class="section" id="chemistry">
-<h3>4.7.2. Chemistry<a class="headerlink" href="#chemistry" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.2. Chemistry<a class="headerlink" href="#chemistry" title="Permalink to this headline">¶</a></h3>
 <p>Simple gas-phase chemistry is included for sulfate aerosol. This
 includes (1) DMS oxidation with OH and <img class="math" src="../_images/math/82f113ba10e9decfdc43cc16c268c0381bcf735a.png" alt="\mathrm{NO_{3}}"/> to form
 <img class="math" src="../_images/math/da9cdb213053795a1c73439335fe3cf3c5c13277.png" alt="\mathrm{SO_{2}}"/>; (2) <img class="math" src="../_images/math/da9cdb213053795a1c73439335fe3cf3c5c13277.png" alt="\mathrm{SO_{2}}"/> oxidation with OH
@@ -2027,7 +2027,7 @@ each mode have the same size. For MAM-7, changes to aqueous
 due to aqueous phase consumption.</p>
 </div>
 <div class="section" id="secondary-organic-aerosol">
-<h3>4.7.3. Secondary Organic Aerosol<a class="headerlink" href="#secondary-organic-aerosol" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.3. Secondary Organic Aerosol<a class="headerlink" href="#secondary-organic-aerosol" title="Permalink to this headline">¶</a></h3>
 <p>The simplest treatment of secondary organic aerosol (SOA), which is used
 in many global models, is to assume fixed mass yields for anthropogenic
 and biogenic precursor VOC’s, then directly emit this mass as primary
@@ -2062,7 +2062,7 @@ among different modes and (2) a minimal treatment of the temperature
 dependence of the gas/aerosol partitioning.</p>
 </div>
 <div class="section" id="nucleation">
-<h3>4.7.4. Nucleation<a class="headerlink" href="#nucleation" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.4. Nucleation<a class="headerlink" href="#nucleation" title="Permalink to this headline">¶</a></h3>
 <p>New particle formation is calculated using parameterizations of binary
 <img class="math" src="../_images/math/c619f451d1e6d4a6e8e223f3a8c7aa58a33ff773.png" alt="\mathrm{H_{2}SO_{4}}"/>-<img class="math" src="../_images/math/812da6d1c6f6f92d617421eb8891f6ed2dc7b516.png" alt="\mathrm{H_{2}O}"/> homogeneous
 nucleation, ternary
@@ -2080,7 +2080,7 @@ by coagulation as they grow from critical cluster size to Aitken mode
 size.</p>
 </div>
 <div class="section" id="condensation">
-<h3>4.7.5. Condensation<a class="headerlink" href="#condensation" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.5. Condensation<a class="headerlink" href="#condensation" title="Permalink to this headline">¶</a></h3>
 <p>Condensation of <img class="math" src="../_images/math/c619f451d1e6d4a6e8e223f3a8c7aa58a33ff773.png" alt="\mathrm{H_{2}SO_{4}}"/> vapor,
 <img class="math" src="../_images/math/6516d37093c9c4cf71a664e012eb10d0a9c906fc.png" alt="\mathrm{NH_{3}}"/> (MAM-7 only), and the SOA (gas) to various modes
 is treated dynamically, using standard mass transfer expressions
@@ -2114,7 +2114,7 @@ on the upper tail of the distribution) to the accumulation mode after
 calculating continuous growth (<strong>???</strong>).</p>
 </div>
 <div class="section" id="coagulation">
-<h3>4.7.6. Coagulation<a class="headerlink" href="#coagulation" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.6. Coagulation<a class="headerlink" href="#coagulation" title="Permalink to this headline">¶</a></h3>
 <p>Coagulation of the Aitken, accumulation, and primary carbon modes is
 treated. Coagulation within each of these modes reduces number but
 leaves mass unchanged. For coagulation of Aitken with accumulation mode
@@ -2130,7 +2130,7 @@ of the Community Multiscale Air Quality (CMAQ) model, version 4.6
 (<strong>???</strong>).</p>
 </div>
 <div class="section" id="water-uptake">
-<h3>4.7.7. Water Uptake<a class="headerlink" href="#water-uptake" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.7. Water Uptake<a class="headerlink" href="#water-uptake" title="Permalink to this headline">¶</a></h3>
 <p>Water uptake is based on the equilibrium Kohler theory (Ghan and Zaveri
 2007) using the relative humidity and the volume mean hygroscopicity for
 each mode to diagnose the wet volume mean radius of the mode from the
@@ -2275,7 +2275,7 @@ measured solubility of dust varies widely, from 0.03 to 0.26 (<strong>???</stron
 <p>Table: Hygroscopicity of aerosol components</p>
 </div>
 <div class="section" id="subgrid-vertical-transport-and-activation-resuspension">
-<span id="table-hgroscopicity"></span><h3>4.7.8. Subgrid Vertical Transport and Activation/Resuspension<a class="headerlink" href="#subgrid-vertical-transport-and-activation-resuspension" title="Permalink to this headline">¶</a></h3>
+<span id="table-hgroscopicity"></span><h3>5.7.8. Subgrid Vertical Transport and Activation/Resuspension<a class="headerlink" href="#subgrid-vertical-transport-and-activation-resuspension" title="Permalink to this headline">¶</a></h3>
 <p>The vertical transport of interstitial aerosols and trace gases by deep
 convective clouds, using updraft and downdraft mass fluxes from the
 Zhang-McFarlane parameterization, is described in (<strong>???</strong>). Currently
@@ -2321,7 +2321,7 @@ process is assumed to occur as droplets are transferred below or above
 cloud and as clouds dissipate.</p>
 </div>
 <div class="section" id="wet-deposition">
-<h3>4.7.9. Wet Deposition<a class="headerlink" href="#wet-deposition" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.9. Wet Deposition<a class="headerlink" href="#wet-deposition" title="Permalink to this headline">¶</a></h3>
 <p>Aerosol wet removal is calculated using the CAM3.5 wet removal routine
 (Rasch et al. 2000; Barth et al. 2000) with modifications for the
 consistency with cloud macro- and microphysics. The routine treats
@@ -2374,7 +2374,7 @@ and the resuspended fraction is equal to the fraction of precipitation
 that evaporates below cloud.</p>
 </div>
 <div class="section" id="dry-deposition">
-<h3>4.7.10. Dry Deposition<a class="headerlink" href="#dry-deposition" title="Permalink to this headline">¶</a></h3>
+<h3>5.7.10. Dry Deposition<a class="headerlink" href="#dry-deposition" title="Permalink to this headline">¶</a></h3>
 <p>Aerosol dry deposition velocities are calculated using the (<strong>???</strong>)
 parameterization with the CAM5 land-use and surface layer information.
 Gravitational settling velocities are calculated at layers above the
@@ -2398,7 +2398,7 @@ Standard deviation for each mode is 1.6 (Aitken), 1.8 (accumulation) and 1.8 (co
 </div>
 </div>
 <div class="section" id="condensed-phase-optics">
-<h2>4.8. Condensed Phase Optics<a class="headerlink" href="#condensed-phase-optics" title="Permalink to this headline">¶</a></h2>
+<h2>5.8. Condensed Phase Optics<a class="headerlink" href="#condensed-phase-optics" title="Permalink to this headline">¶</a></h2>
 <p>Condensed phase (aerosols, liquid cloud droplets, hydrometeors, and ice
 crystal) optics are provided as a mass-specific quantities in
 m<img class="math" src="../_images/math/81d4e21093a294aaab4f441ff172923d688c9b7e.png" alt="^2"/>/kg. These optics are specified for each band of the
@@ -2411,7 +2411,7 @@ quantities by the vertical mass path of the corresponding material.</p>
 the in-cloud values of cloud optical depths. The radiation does not use
 grid-cell average optical depths of clouds.</p>
 <div class="section" id="tropospheric-aerosol-optics">
-<h3>4.8.1. Tropospheric Aerosol Optics<a class="headerlink" href="#tropospheric-aerosol-optics" title="Permalink to this headline">¶</a></h3>
+<h3>5.8.1. Tropospheric Aerosol Optics<a class="headerlink" href="#tropospheric-aerosol-optics" title="Permalink to this headline">¶</a></h3>
 <p>While the radiation code supports a range of possible aerosol packages,
 the modal aerosol package is the default configuration, and we will
 discuss the optics treatment used in that package. Aerosol optical
@@ -2508,7 +2508,7 @@ for each mode.</p>
 <p>Table: Hygroscopicity of aerosol components.</p>
 </div>
 <div class="section" id="stratospheric-volcanic-aerosol-optics">
-<h3>4.8.2. Stratospheric Volcanic Aerosol Optics<a class="headerlink" href="#stratospheric-volcanic-aerosol-optics" title="Permalink to this headline">¶</a></h3>
+<h3>5.8.2. Stratospheric Volcanic Aerosol Optics<a class="headerlink" href="#stratospheric-volcanic-aerosol-optics" title="Permalink to this headline">¶</a></h3>
 <p>specifies the volcanic aerosol as a mass mixing ratio <img class="math" src="../_images/math/0ef7cb237beb7b61a64acd65ce1bda1e4b43e850.png" alt="q_V"/> of wet
 volcanic aerosol to dry air as a function of height, latitude, longitude
 and time. also specifies a geometric mean radius <img class="math" src="../_images/math/46c9675a1bfd8fa8f6b5ccb27cacd6a100462b5a.png" alt="r_g"/> of the
@@ -2560,7 +2560,7 @@ corresponding scattering optical depth, asymmetric scattering optical
 depth, and absorption optical depth are derived similarly.</p>
 </div>
 <div class="section" id="liquid-cloud-optics">
-<h3>4.8.3. Liquid Cloud Optics<a class="headerlink" href="#liquid-cloud-optics" title="Permalink to this headline">¶</a></h3>
+<h3>5.8.3. Liquid Cloud Optics<a class="headerlink" href="#liquid-cloud-optics" title="Permalink to this headline">¶</a></h3>
 <p>For liquid clouds specifies the fraction of each grid cell occupied by
 liquid cloud droplets <img class="math" src="../_images/math/00b675d15383d8ed691c5586b370c301503186ac.png" alt="C_\mathrm{liq}"/>, the ratio of mass of
 condensed water to wet air in the cloud <img class="math" src="../_images/math/b2bc370a4f5ce778465ca4df3c1d573561a06ce5.png" alt="q_\mathrm{liq}"/>, and the
@@ -2600,7 +2600,7 @@ longwave band.</p>
 <p>In-cloud water path variability is not treated by the optics.</p>
 </div>
 <div class="section" id="ice-cloud-optics">
-<h3>4.8.4. Ice Cloud Optics<a class="headerlink" href="#ice-cloud-optics" title="Permalink to this headline">¶</a></h3>
+<h3>5.8.4. Ice Cloud Optics<a class="headerlink" href="#ice-cloud-optics" title="Permalink to this headline">¶</a></h3>
 <p>specifies an in-cloud ice water path, an ice cloud fraction, and an
 effective diameter for ice particles in the cloud. The optics for ice
 clouds are constructed as a lookup table as a function of effective
@@ -2673,7 +2673,7 @@ depends on projected area). For terrestrial radiation, <img class="math" src="..
 for ice are based on the <img class="math" src="../_images/math/307b3725cbb03398131f9ca542d79aff4933195f.png" alt="g"/> parameterization described in (Yang
 et al. 2005).</p>
 <div class="section" id="tests-of-mada">
-<h4>4.8.4.1. Tests of MADA<a class="headerlink" href="#tests-of-mada" title="Permalink to this headline">¶</a></h4>
+<h4>5.8.4.1. Tests of MADA<a class="headerlink" href="#tests-of-mada" title="Permalink to this headline">¶</a></h4>
 <p>While this treatment of ice optical properties began and evolved through
 van de Hulst’s original insights formulated in ADT, optical properties
 predicted by MADA closely agree with those predicted by other ice optics
@@ -2694,7 +2694,7 @@ shapes. Finally, the absorption coefficients predicted by MADA and the
 generally agreed within 5%.</p>
 </div>
 <div class="section" id="application-to">
-<h4>4.8.4.2. Application to<a class="headerlink" href="#application-to" title="Permalink to this headline">¶</a></h4>
+<h4>5.8.4.2. Application to<a class="headerlink" href="#application-to" title="Permalink to this headline">¶</a></h4>
 <p>The MADA-based ice optics scheme described above is not used explicitly
 in , but was used to generate a look-up table of optical properties as a
 function of effective diameter, <img class="math" src="../_images/math/7084e4de058460665b235c1933fcfbfbd85978d2.png" alt="D_e"/>. The PSD optical properties
@@ -2723,14 +2723,14 @@ characterizing the PSD (Mitchell 2002):</p>
 </div>
 </div>
 <div class="section" id="snow-cloud-optics">
-<h3>4.8.5. Snow Cloud Optics<a class="headerlink" href="#snow-cloud-optics" title="Permalink to this headline">¶</a></h3>
+<h3>5.8.5. Snow Cloud Optics<a class="headerlink" href="#snow-cloud-optics" title="Permalink to this headline">¶</a></h3>
 <p>specifies snow as a cloud fraction of snow, an effective diameter of
 snow, and an in-cloud mass mixing ratio of snow. The snow optics are
 identical to the optics for ice clouds.</p>
 </div>
 </div>
 <div class="section" id="radiative-transfer">
-<h2>4.9. Radiative Transfer<a class="headerlink" href="#radiative-transfer" title="Permalink to this headline">¶</a></h2>
+<h2>5.9. Radiative Transfer<a class="headerlink" href="#radiative-transfer" title="Permalink to this headline">¶</a></h2>
 <p>Radiative transfer calculations in the longwave and shortwave are
 provided by the radiation code RRTMG (Iacono et al. 2008; Mlawer et al.
 1997). This is an accelerated and modified version of the correlated
@@ -2738,7 +2738,7 @@ provided by the radiation code RRTMG (Iacono et al. 2008; Mlawer et al.
 parameterizations are external to the radiation package, however the gas
 optics and radiative transfer solver are provided within RRTMG.</p>
 <div class="section" id="combination-of-aerosol-radiative-properties">
-<h3>4.9.1. Combination of Aerosol Radiative Properties<a class="headerlink" href="#combination-of-aerosol-radiative-properties" title="Permalink to this headline">¶</a></h3>
+<h3>5.9.1. Combination of Aerosol Radiative Properties<a class="headerlink" href="#combination-of-aerosol-radiative-properties" title="Permalink to this headline">¶</a></h3>
 <p>The number <img class="math" src="../_images/math/7ebb34898c6438eaf77123e54e744fdcb6095adc.png" alt="N_a"/> of aerosol species is arbitrary; however in the
 standard configuration there are 3 modes. The radiative properties are
 combined before being passed to the radiative transfer solver. If the
@@ -2757,7 +2757,7 @@ in band <img class="math" src="../_images/math/57c9d14bb082716df9000146882ce3653
 <img class="math" src="../_images/math/57c9d14bb082716df9000146882ce365335d08f1.png" alt="b"/>.</p>
 </div>
 <div class="section" id="combination-of-cloud-optics">
-<h3>4.9.2. Combination of Cloud Optics<a class="headerlink" href="#combination-of-cloud-optics" title="Permalink to this headline">¶</a></h3>
+<h3>5.9.2. Combination of Cloud Optics<a class="headerlink" href="#combination-of-cloud-optics" title="Permalink to this headline">¶</a></h3>
 <p>are specifies three different types of clouds: ice clouds, liquid
 clouds, and snow clouds. Each of these clouds has a separate cloud
 fraction <img class="math" src="../_images/math/ace2e7a754363328b80709216dbec3b27594a5a6.png" alt="C_\mathrm{liq},C_\mathrm{ice},C_\mathrm{snow}"/>, as well
@@ -2775,7 +2775,7 @@ g_c&amp;=&amp;\sum_\mathrm{t \in type}  \tau_{tb} \omega_{tb} g_{tb} C_t / (\tau
 parameters.</p>
 </div>
 <div class="section" id="radiative-fluxes-and-heating-rates">
-<h3>4.9.3. Radiative Fluxes and Heating Rates<a class="headerlink" href="#radiative-fluxes-and-heating-rates" title="Permalink to this headline">¶</a></h3>
+<h3>5.9.3. Radiative Fluxes and Heating Rates<a class="headerlink" href="#radiative-fluxes-and-heating-rates" title="Permalink to this headline">¶</a></h3>
 <p>Radiative fluxes and heating rates in are calculated using RRTMG(Iacono
 et al. 2008).</p>
 <p>This model utilizes the correlated <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/>-distribution technique to
@@ -2803,7 +2803,7 @@ equilibrium) effects in the upper atmosphere. It provides accurate
 fluxes and heating rates up to about <img class="math" src="../_images/math/7dd58f4c45e3e6ab4a260cec948f17a4349766a4.png" alt="0.1"/> hPa, above which
 non-LTE effects become more significant.</p>
 <div class="section" id="shortwave-radiative-transfer">
-<h4>4.9.3.1. Shortwave Radiative Transfer<a class="headerlink" href="#shortwave-radiative-transfer" title="Permalink to this headline">¶</a></h4>
+<h4>5.9.3.1. Shortwave Radiative Transfer<a class="headerlink" href="#shortwave-radiative-transfer" title="Permalink to this headline">¶</a></h4>
 <p>RRTMG divides the solar spectrum into 14 shortwave bands that extend
 over the spectral range from 0.2 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m to 12.2 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m
 (820 to 50000 cm<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>). Modeled sources of extinction
@@ -2982,7 +2982,7 @@ horizon.</p>
 <p>Table: RRTMG_SW spectral band boundaries and the solar irradiance in each band.</p>
 </div>
 <div class="section" id="longwave-radiative-transfer">
-<h4>4.9.3.2. Longwave Radiative Transfer<a class="headerlink" href="#longwave-radiative-transfer" title="Permalink to this headline">¶</a></h4>
+<h4>5.9.3.2. Longwave Radiative Transfer<a class="headerlink" href="#longwave-radiative-transfer" title="Permalink to this headline">¶</a></h4>
 <p>The infrared spectrum in RRTMG is divided into 16 longwave bands that
 extend over the spectral range from 3.1 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m to 1000.0
 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m (10 to 3250 cm<img class="math" src="../_images/math/8d34bfcb312f7595e8920e33d2e640d8297367dc.png" alt="^{-1})"/>. The band boundaries are
@@ -3154,7 +3154,7 @@ of total column water vapor.</p>
 </div>
 </div>
 <div class="section" id="surface-radiative-properties">
-<h3>4.9.4. Surface Radiative Properties<a class="headerlink" href="#surface-radiative-properties" title="Permalink to this headline">¶</a></h3>
+<h3>5.9.4. Surface Radiative Properties<a class="headerlink" href="#surface-radiative-properties" title="Permalink to this headline">¶</a></h3>
 <p>For the shortwave, the surface albedoes are specified at every grid
 point at every time step. The albedoes are partitioned for the spectral
 ranges [2.0, 0.7]<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m and [0.7,12.0]:math:<cite>mu</cite>m. In
@@ -3168,13 +3168,13 @@ surface emissivity less than 1.0, if this condition exists in surface
 models (e.g. the land model).</p>
 </div>
 <div class="section" id="time-sampling">
-<h3>4.9.5. Time Sampling<a class="headerlink" href="#time-sampling" title="Permalink to this headline">¶</a></h3>
+<h3>5.9.5. Time Sampling<a class="headerlink" href="#time-sampling" title="Permalink to this headline">¶</a></h3>
 <p>Both the shortwave and longwave radiation is computed at hourly
 intervals by default. The heating rates and fluxes are assumed to be
 constant between time steps.</p>
 </div>
 <div class="section" id="diurnal-cycle-and-earth-orbit">
-<h3>4.9.6. Diurnal Cycle and Earth Orbit<a class="headerlink" href="#diurnal-cycle-and-earth-orbit" title="Permalink to this headline">¶</a></h3>
+<h3>5.9.6. Diurnal Cycle and Earth Orbit<a class="headerlink" href="#diurnal-cycle-and-earth-orbit" title="Permalink to this headline">¶</a></h3>
 <p>In CAM5.0, the diurnal cycle and earth orbit is computed using the method of
 (Berger 1978). Using this formulation, the insolation can be determined
 for any time within <img class="math" src="../_images/math/4e3e30fcf8f5b44fd4e61386ba457022ddf17304.png" alt="10^6"/> years of 1950&nbsp;AD. The insolation at the
@@ -3292,7 +3292,7 @@ integrations under 1995&nbsp;AD conditions are <img class="math" src="../_images
 180 = 102.7"/>.</p>
 </div>
 <div class="section" id="solar-spectral-irradiance">
-<h3>4.9.7. Solar Spectral Irradiance<a class="headerlink" href="#solar-spectral-irradiance" title="Permalink to this headline">¶</a></h3>
+<h3>5.9.7. Solar Spectral Irradiance<a class="headerlink" href="#solar-spectral-irradiance" title="Permalink to this headline">¶</a></h3>
 <p>The reference spectrum assumed by RRTMG is the Kurucz spectrum.
 specifies the solar spectral irradiance in a file, based on the work of
 Lean (Wang, Lean, and Sheeley 2005). The Kurucz spectrum can be seen in
@@ -3544,7 +3544,7 @@ longward of 12195 nm to capture irradiance in the very far infrared.</p>
 </div>
 </div>
 <div class="section" id="surface-exchange-formulations">
-<h2>4.10. Surface Exchange Formulations<a class="headerlink" href="#surface-exchange-formulations" title="Permalink to this headline">¶</a></h2>
+<h2>5.10. Surface Exchange Formulations<a class="headerlink" href="#surface-exchange-formulations" title="Permalink to this headline">¶</a></h2>
 <p>The surface exchange of heat, moisture and momentum between the
 atmosphere and land, ocean or ice surfaces are treated with a bulk
 exchange formulation. We present a description of each surface exchange
@@ -3558,7 +3558,7 @@ over sea ice is discussed in the sea-ice model documentation. Over
 lakes, exchanges are computed by a lake model embedded in the land
 surface model described in the following section.</p>
 <div class="section" id="land">
-<h3>4.10.1. Land<a class="headerlink" href="#land" title="Permalink to this headline">¶</a></h3>
+<h3>5.10.1. Land<a class="headerlink" href="#land" title="Permalink to this headline">¶</a></h3>
 <p>In , the NCAR Land Surface Model (LSM) (Bonan 1996) has been replaced by
 the Community Land Model CLM2 (Bonan et al. 2002). This new model
 includes components treating hydrological and biogeochemical processes,
@@ -3611,7 +3611,7 @@ fraction, <img class="math" src="../_images/math/4ee44065bc80a5cd2860918f230f5c1
 humidity at ground surface. These terms are described by Dai et al.
 (2001).</p>
 <div class="section" id="roughness-lengths-and-zero-plane-displacement">
-<h4>4.10.1.1. Roughness lengths and zero-plane displacement<a class="headerlink" href="#roughness-lengths-and-zero-plane-displacement" title="Permalink to this headline">¶</a></h4>
+<h4>5.10.1.1. Roughness lengths and zero-plane displacement<a class="headerlink" href="#roughness-lengths-and-zero-plane-displacement" title="Permalink to this headline">¶</a></h4>
 <p>The aerodynamic roughness <img class="math" src="../_images/math/d9cda7239399dbfb6e57ca6356cc48e8abea379c.png" alt="z_{0m}"/> is used for wind, while the
 thermal roughness <img class="math" src="../_images/math/5664af9bf4aba357b95e1d86be4b07bd5c6f4fca.png" alt="z_{0h}"/> is used for heat and water vapor. In
 general, <img class="math" src="../_images/math/d9cda7239399dbfb6e57ca6356cc48e8abea379c.png" alt="z_{0m}"/> is different from <img class="math" src="../_images/math/5664af9bf4aba357b95e1d86be4b07bd5c6f4fca.png" alt="z_{0h}"/>, because the
@@ -3645,7 +3645,7 @@ index, and leaf shapes. The simple relationship <img class="math" src="../_image
 used to obtain the height.</p>
 </div>
 <div class="section" id="monin-obukhov-similarity-theory">
-<h4>4.10.1.2. Monin-Obukhov similarity theory<a class="headerlink" href="#monin-obukhov-similarity-theory" title="Permalink to this headline">¶</a></h4>
+<h4>5.10.1.2. Monin-Obukhov similarity theory<a class="headerlink" href="#monin-obukhov-similarity-theory" title="Permalink to this headline">¶</a></h4>
 <p>A length scale (the Monin-Obukhov length) <img class="math" src="../_images/math/ae2b750f71e1fc0daaa3de9a85d42794d7cd1326.png" alt="L"/> is defined by</p>
 <div class="math">
 <p><img src="../_images/math/cf43ab6e5c083d18e5d423b3bee198691794af29.png" alt="L = \frac{{\theta_v u_*^2 }} {{kg\theta_{v*}}}"/></p>
@@ -3789,7 +3789,7 @@ been described by Dai et al. (2001).</p>
 </div>
 </div>
 <div class="section" id="ocean">
-<h3>4.10.2. Ocean<a class="headerlink" href="#ocean" title="Permalink to this headline">¶</a></h3>
+<h3>5.10.2. Ocean<a class="headerlink" href="#ocean" title="Permalink to this headline">¶</a></h3>
 <p>The bulk formulas used to determine the turbulent fluxes of momentum
 (stress), water (evaporation, or latent heat), and sensible heat into
 the atmosphere over ocean surfaces are</p>
@@ -3877,13 +3877,13 @@ itself varies with the surface fluxes over oceans <a class="reference internal" 
 above system of equations is solved by iteration.</p>
 </div>
 <div class="section" id="sea-ice">
-<h3>4.10.3. Sea Ice<a class="headerlink" href="#sea-ice" title="Permalink to this headline">¶</a></h3>
+<h3>5.10.3. Sea Ice<a class="headerlink" href="#sea-ice" title="Permalink to this headline">¶</a></h3>
 <p>The fluxes between the atmosphere and sea ice are described in detail in
 the sea-ice model documentation.</p>
 </div>
 </div>
 <div class="section" id="dry-adiabatic-adjustment">
-<h2>4.11. Dry Adiabatic Adjustment<a class="headerlink" href="#dry-adiabatic-adjustment" title="Permalink to this headline">¶</a></h2>
+<h2>5.11. Dry Adiabatic Adjustment<a class="headerlink" href="#dry-adiabatic-adjustment" title="Permalink to this headline">¶</a></h2>
 <p>If a layer is unstable with respect to the dry adiabatic lapse rate, dry
 adiabatic adjustment is performed. The layer is stable if</p>
 <div class="math" id="equation-4.j.1">
@@ -3939,7 +3939,7 @@ momentum is mixed as well as moisture and potential temperature in the
 unstable case.</p>
 </div>
 <div class="section" id="prognostic-greenhouse-gases">
-<h2>4.12. Prognostic Greenhouse Gases<a class="headerlink" href="#prognostic-greenhouse-gases" title="Permalink to this headline">¶</a></h2>
+<h2>5.12. Prognostic Greenhouse Gases<a class="headerlink" href="#prognostic-greenhouse-gases" title="Permalink to this headline">¶</a></h2>
 <p>The principal greenhouse gases whose longwave radiative effects are
 included in &nbsp;are H<img class="math" src="../_images/math/ba312cf0eeebc5f3ecc40ece2c744c499d75dc2d.png" alt="_2"/>O, CO<img class="math" src="../_images/math/ba312cf0eeebc5f3ecc40ece2c744c499d75dc2d.png" alt="_2"/>, O<img class="math" src="../_images/math/2912b78af320853e0afcf706763b5d39b26b5c1e.png" alt="_3"/>,
 CH<img class="math" src="../_images/math/284796e299f67ddec30ffb68aa85adb566a054af.png" alt="_4"/>, N<img class="math" src="../_images/math/ba312cf0eeebc5f3ecc40ece2c744c499d75dc2d.png" alt="_2"/>O, CFC11, and CFC12. The prediction of
@@ -4007,10 +4007,10 @@ the main features of the CH<img class="math" src="../_images/math/284796e299f67d
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="extensions.html" title="5. Extensions to CAM"
+          <a href="extensions.html" title="6. Extensions to CAM"
              >next</a> |</li>
         <li class="right" >
-          <a href="pd_coupling.html" title="3. Coupling of Dynamical Core and Parameterization Suite"
+          <a href="dynamics.html" title="4. Dynamics"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM5 Scientific Guide</a> &#187;</li> 

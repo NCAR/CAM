@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6. Slab Ocean Model &#8212; camdoc  documentation</title>
+    <title>7. Slab Ocean Model &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Sea Ice Thermodynamics" href="sea_ice.html" />
-    <link rel="prev" title="5. Extensions to CAM" href="extensions.html" />
+    <link rel="next" title="8. Sea Ice Thermodynamics" href="sea_ice.html" />
+    <link rel="prev" title="6. Extensions to CAM" href="extensions.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -39,10 +39,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="sea_ice.html" title="7. Sea Ice Thermodynamics"
+          <a href="sea_ice.html" title="8. Sea Ice Thermodynamics"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="extensions.html" title="5. Extensions to CAM"
+          <a href="extensions.html" title="6. Extensions to CAM"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM5 Scientific Guide</a> &#187;</li> 
@@ -52,20 +52,20 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">6. Slab Ocean Model</a><ul>
-<li><a class="reference internal" href="#open-ocean-component">6.1. Open Ocean Component</a></li>
-<li><a class="reference internal" href="#thermodynamic-sea-ice-model">6.2. Thermodynamic Sea Ice Model</a></li>
-<li><a class="reference internal" href="#evaluation-of-the-ocean-flux">6.3. Evaluation of the Ocean <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> Flux</a></li>
+<li><a class="reference internal" href="#">7. Slab Ocean Model</a><ul>
+<li><a class="reference internal" href="#open-ocean-component">7.1. Open Ocean Component</a></li>
+<li><a class="reference internal" href="#thermodynamic-sea-ice-model">7.2. Thermodynamic Sea Ice Model</a></li>
+<li><a class="reference internal" href="#evaluation-of-the-ocean-flux">7.3. Evaluation of the Ocean <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> Flux</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="extensions.html"
-                        title="previous chapter">5. Extensions to CAM</a></p>
+                        title="previous chapter">6. Extensions to CAM</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="sea_ice.html"
-                        title="next chapter">7. Sea Ice Thermodynamics</a></p>
+                        title="next chapter">8. Sea Ice Thermodynamics</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -93,7 +93,7 @@
             
   <p id="extensions">Extensions to CAM</p>
 <div class="section" id="slab-ocean-model">
-<h1>6. Slab Ocean Model<a class="headerlink" href="#slab-ocean-model" title="Permalink to this headline">¶</a></h1>
+<h1>7. Slab Ocean Model<a class="headerlink" href="#slab-ocean-model" title="Permalink to this headline">¶</a></h1>
 <p>The Slab Ocean Model (SOM) configuration enables a simple but tightly
 coupled ocean modeling component combined with a thermodynamic sea ice
 component based on the CCSM3 sea ice model. This configuration of the
@@ -115,7 +115,7 @@ ice distribution, and to moderate sea ice changes in climate change
 experiments, the <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> flux term is adjusted under the ice in a
 globally conserving manner.</p>
 <div class="section" id="open-ocean-component">
-<h2>6.1. Open Ocean Component<a class="headerlink" href="#open-ocean-component" title="Permalink to this headline">¶</a></h2>
+<h2>7.1. Open Ocean Component<a class="headerlink" href="#open-ocean-component" title="Permalink to this headline">¶</a></h2>
 <p>The general formulation for the open ocean slab model is taken from
 Hansen et al. (1984), although we have modified it to allow for a
 fractional sea ice coverage. The governing equation for ocean mixed
@@ -283,7 +283,7 @@ In practice, the bracket term adjustment is applied to warm ocean points
 after the Q redistribution is completed.</p>
 </div>
 <div class="section" id="thermodynamic-sea-ice-model">
-<h2>6.2. Thermodynamic Sea Ice Model<a class="headerlink" href="#thermodynamic-sea-ice-model" title="Permalink to this headline">¶</a></h2>
+<h2>7.2. Thermodynamic Sea Ice Model<a class="headerlink" href="#thermodynamic-sea-ice-model" title="Permalink to this headline">¶</a></h2>
 <p>After the slab ocean component computes the atmosphere-ocean heat fluxes
 and updates <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/> and <img class="math" src="../_images/math/90e8254d1e5ee6948a1efad97afdd6a9dfc0131f.png" alt="F_{frz}"/>, the thermodynamic sea ice
 model takes the latter two variables as input and computes the
@@ -294,7 +294,7 @@ of the sea ice component model in CAM5.0 are discussed in detail in the next
 chapter.</p>
 </div>
 <div class="section" id="evaluation-of-the-ocean-flux">
-<h2>6.3. Evaluation of the Ocean <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> Flux<a class="headerlink" href="#evaluation-of-the-ocean-flux" title="Permalink to this headline">¶</a></h2>
+<h2>7.3. Evaluation of the Ocean <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> Flux<a class="headerlink" href="#evaluation-of-the-ocean-flux" title="Permalink to this headline">¶</a></h2>
 <p>The ocean <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> flux is generally evaluated using a CAM5.0 control
 simulation driven by prescribed sea surface temperature and sea ice
 distributions. Let</p>
@@ -357,10 +357,10 @@ control run.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="sea_ice.html" title="7. Sea Ice Thermodynamics"
+          <a href="sea_ice.html" title="8. Sea Ice Thermodynamics"
              >next</a> |</li>
         <li class="right" >
-          <a href="extensions.html" title="5. Extensions to CAM"
+          <a href="extensions.html" title="6. Extensions to CAM"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM5 Scientific Guide</a> &#187;</li> 
