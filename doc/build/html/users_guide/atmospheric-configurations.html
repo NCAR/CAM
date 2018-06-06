@@ -395,17 +395,25 @@ rad_data_output=.true.
 ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
 rad_data_histfile_num=2
 
-! Make certain the radiation is called every time step
-rad_always = .true.
+! Write out the instantaneous rad_data and radiation diagnostics
+rad_data_avgflag = &#39;I&#39;
+avgflag_pertape = &#39;A&#39;,&#39;I&#39;
 
-! Write out the instantaneous rad_data
-rad_data_avgflag=&#39;I&#39;
+! Make certain the radiation is called every time step
+iradlw = 1
+iradsw = 1
 
 ! Include radiation diagnostics
 fincl2 = &#39;FLNT&#39;, &#39;FLNR&#39;,&#39;FLNS&#39;, &#39;FSNT&#39;,&#39;FSNR&#39;, &#39;FSNS&#39;
 
 ! Output frequency
-nhtfrq=0,73
+nhtfrq = 0,73
+
+! number of time records per individual history file
+mfilt = 1,5
+
+! double precision output
+ndens = 1,1
 </pre></div>
 </div>
 <p>Note: It has been found that sampling every 73’rd time step is a good balance of computational cost
@@ -427,10 +435,6 @@ and size of data for dtime = 1800 and a 2-degree horizontal resolution. <a class
 <p>After your job completes, you will have a number of files, including ones with filenames containing “cam.h1”.
 The “cam.h1” files contain the radiation history which was specified by the namelist and will be used in the
 next step.</p>
-<p>Prepare sequential list of input files for the PORT run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">ls</span> <span class="o">-</span><span class="mi">1</span><span class="n">d</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">base_run_case</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">h1</span><span class="o">.*</span><span class="n">nc</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">samples</span><span class="o">.</span><span class="n">input</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="port-validation">
 <h5>4.2.2.2.2. PORT validation<a class="headerlink" href="#port-validation" title="Permalink to this headline">¶</a></h5>
@@ -440,29 +444,40 @@ next step.</p>
 </pre></div>
 </div>
 <p>Set up the <strong>user_nl_cam</strong> file for the PORT run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>! Output the radiation data
+<div class="highlight-default"><div class="highlight"><pre><span></span>! PORT input data
+offline_driver_infile = &#39;/path/base_run_case.cam.h1.0001-01-01-00000.nc&#39;
+
+! Output the radiation data
 rad_data_output=.true.
 
 ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
 rad_data_histfile_num=2
 
-! Write out the instantaneous rad_data
-rad_data_avgflag=&#39;I&#39;
+! Write out the instantaneous rad_data and radiation diagnostics
+rad_data_avgflag = &#39;I&#39;
+avgflag_pertape = &#39;A&#39;,&#39;I&#39;
+
+! Make certain the radiation is called every time step
+iradlw = 1
+iradsw = 1
 
 ! Include radiation diagnostics
 fincl2 = &#39;FLNT&#39;, &#39;FLNR&#39;,&#39;FLNS&#39;, &#39;FSNT&#39;,&#39;FSNR&#39;, &#39;FSNS&#39;
 
 ! Output frequency
-nhtfrq=0,73
+nhtfrq = 0,73
 
-! Sequential list of input files
-offline_driver_fileslist = &#39;/path/samples.input&#39;
+! number of time records per individual history file
+mfilt = 1,5
+
+! double precision output
+ndens = 1,1
 </pre></div>
 </div>
-<p>For verification tests the run time length can be as short as a few time steps.</p>
+<p>For verification tests the run time length should be long enough to include at least a few sampling times.</p>
 <p>Build and submit this validation run data:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">1</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">5</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">ndays</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
@@ -476,11 +491,11 @@ PORT run should be zero (or within roundoff).</p>
 <p>In this case we are doubling the CO2 and modifying this via the netcdf utility, ncap for each file.
 Further documentation on ncap can be found in the <a class="reference external" href="http://nco.sourceforge.net/nco.html">NCO User Guide</a>.</p>
 <p>Modify the composition in the sample files.  For each file listed in /path/samples.inputs:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">ncap</span> <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;rad_CO2=2.0*rad_CO2&quot;</span> <span class="n">original</span><span class="o">.</span><span class="n">h1</span><span class="o">.</span><span class="n">file</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">nc</span> <span class="mi">2</span><span class="n">xCO2</span><span class="o">.</span><span class="n">file</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">nc</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>% for fin in base_run_case.cam.h1*nc; do fout=&quot;${fin/cam.h1/cam.h1-2xCO2}&quot;; ncap2 -s &quot;rad_CO2=2.0*rad_CO2&quot; $fin $fout; done
 </pre></div>
 </div>
-<p>Create a new sequential list of input files for the PORT run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">ls</span> <span class="o">-</span><span class="mi">1</span><span class="n">d</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="mi">2</span><span class="n">xCO2</span><span class="o">.</span><span class="n">file</span><span class="o">*</span><span class="n">nc</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">samples2xCO2</span><span class="o">.</span><span class="n">inputs</span>
+<p>Prepare sequential list of input files for the PORT run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">ls</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">base_run_case</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">h1</span><span class="o">-</span><span class="mi">2</span><span class="n">xCO2</span><span class="o">.*</span><span class="n">nc</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">samples2xCO2</span><span class="o">.</span><span class="n">inputs</span>
 </pre></div>
 </div>
 <p>Prepare the PORT run:</p>
@@ -489,26 +504,24 @@ Further documentation on ncap can be found in the <a class="reference external" 
 </pre></div>
 </div>
 <p>Set up the <strong>user_nl_cam</strong> file for the PORT run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>! Output the radiation data
-rad_data_output=.true.
+<div class="highlight-default"><div class="highlight"><pre><span></span>! Sequential list of input files
+offline_driver_fileslist = &#39;/path/samples2xCO2.inputs&#39;
 
-! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
-rad_data_histfile_num=2
+! Allow temperatures above the tropopause to equilibrate under the assumption of fixed dynamical heating
+rad_data_fdh = .true.
 
-! Write out the instantaneous rad_data
-rad_data_avgflag=&#39;I&#39;
+! Write out the instantaneous radiation diagnostics
+avgflag_pertape = &#39;A&#39;,&#39;I&#39;
+
+! Make certain the radiation is called every time step
+iradlw = 1
+iradsw = 1
 
 ! Include radiation diagnostics
 fincl2 = &#39;FLNT&#39;, &#39;FLNR&#39;,&#39;FLNS&#39;, &#39;FSNT&#39;,&#39;FSNR&#39;, &#39;FSNS&#39;
 
 ! Output frequency
-nhtfrq=0,73
-
-! Sequential list of input files
-offline_driver_fileslist = &#39;/path/samples2xCO2.inputs&#39;
-
-! Allow temperatures above the tropopause to equilibrate under the assumption of fixed dynamical heating
-rad_data_fdh = .true.
+nhtfrq = 0,73
 </pre></div>
 </div>
 <p>Build and submit:</p>
@@ -671,35 +684,47 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 <p>There are a number of other CAM compsets which have not been described in this document. The complete listing of all compsets is found <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">here</a>.  Users are cautioned about using compsets that are not scientifically supported or tested.  These compsets are not supported and users may encounter problems or get invalid results using them.</p>
 <div class="section" id="super-parameterized-cam-spcam">
 <h3>4.4.1. Super-parameterized CAM (SPCAM)<a class="headerlink" href="#super-parameterized-cam-spcam" title="Permalink to this headline">¶</a></h3>
-<p>Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.8.2) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation. Two different sets are provided. SAM1MOM use one moment SAM microphysics, and is based on Khairoutdinov and Randall <a class="footnote-reference" href="#id16" id="id10">[6]</a>. M2005 uses two moment microphysics from Morrison et al <a class="footnote-reference" href="#id17" id="id11">[7]</a>, and its implementation is based on Wang et al. <a class="footnote-reference" href="#id18" id="id12">[8]</a>; <a class="footnote-reference" href="#id19" id="id13">[9]</a>. In M2005, Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) <a class="footnote-reference" href="#id15" id="id14">[5]</a> . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.</p>
-<table class="docutils footnote" frame="void" id="id15" rules="none">
+<p>Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.10.4) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation <a class="footnote-reference" href="#id20" id="id10">[5]</a>. Four different compsets are provided. FSPCAMS uses one moment SAM microphysics, and is based on Khairoutdinov and Randall <a class="footnote-reference" href="#id21" id="id11">[6]</a>. FSPCAMM uses two moment microphysics from Morrison et al <a class="footnote-reference" href="#id22" id="id12">[7]</a>, and its implementation is based on Wang et al. <a class="footnote-reference" href="#id20" id="id13">[5]</a>; <a class="footnote-reference" href="#id23" id="id14">[8]</a>; <a class="footnote-reference" href="#id24" id="id15">[9]</a>. FSPCAMCLBS and FSPCAMCLBM are the same as FSPCAMS and FSPCAMM respectivly, but are coupled with a higher-order turbulence closure scheme, CLUBB <a class="footnote-reference" href="#id20" id="id16">[5]</a>.  In FSPCAMM ad FSPCAMCLBM, the Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) <a class="footnote-reference" href="#id25" id="id17">[10]</a> . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.  The performance of these four compsets as they existed in CAM5.2 has been documented in detail <a class="footnote-reference" href="#id20" id="id18">[5]</a> and <a class="footnote-reference" href="#id26" id="id19">[11]</a>.</p>
+<table class="docutils footnote" frame="void" id="id20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id14">[5]</a></td><td>Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit-Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.</td></tr>
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id13">2</a>, <a class="fn-backref" href="#id16">3</a>, <a class="fn-backref" href="#id18">4</a>)</em> Wang, M., V. Larson, S. Ghan, M. Ovchinnikov, D. Schanen, H. Xiao, X. Liu, Z.  Guo, and P. Rasch (2015), A multiscale modeling framework model (superparameterized CAM5) with a higher-order turbulence closure: Model description and low-cloud simulations, Journal of Advances in Modeling Earth Systems, 7, <a class="reference external" href="https://doi.org/10.1002/2014MS000375">https://doi.org/10.1002/2014MS000375</a>.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id16" rules="none">
+<table class="docutils footnote" frame="void" id="id21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[6]</a></td><td>Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id11">[6]</a></td><td>Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id17" rules="none">
+<table class="docutils footnote" frame="void" id="id22" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id11">[7]</a></td><td>Morrison, H., Curry, J. A., &amp; Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[7]</a></td><td>Morrison, H., Curry, J. A., Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id18" rules="none">
+<table class="docutils footnote" frame="void" id="id23" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[8]</a></td><td>Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137–168, doi:10.5194/gmd-4-137-2011.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id14">[8]</a></td><td>Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137–168, doi:10.5194/gmd-4-137-2011.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id19" rules="none">
+<table class="docutils footnote" frame="void" id="id24" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id13">[9]</a></td><td>Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id15">[9]</a></td><td>Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id25" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id17">[10]</a></td><td>Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit- Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id26" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id19">[11]</a></td><td>Zhang, K., Fu, R., Shaikh, M. J., Ghan, S., Wang, M., Leung, L. R., … Marengo, J. (2017). Inﬂuence of superparameterization and a higher-order turbulence closure on rainfall bias over Amazonia in Community Atmosphere Model version 5. Journal of Geophysical Research: Atmosphere s, 122, 9879-9902, <a class="reference external" href="https://doi.org/10.1002/2017JD026576">https://doi.org/10.1002/2017JD026576</a></td></tr>
 </tbody>
 </table>
 <p><strong>SPCAM tested compsets</strong></p>
@@ -717,7 +742,6 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 </ul>
 </dd>
 </dl>
-<p>More details about SPCAM can be found at: <strong>????????????????????</strong></p>
 </div>
 </div>
 <div class="section" id="cam-chem-tested-compsets">
