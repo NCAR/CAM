@@ -62,7 +62,7 @@ Modifying namelist settings in CAM run
 --------------------------------------
 To modify CAM namelist settings, add the appropriate keyword/value pair at the end of the $CASEROOT/user_nl_cam file.  If the run needs to change namelist settings in other components, then modify the appropriate $CASEROOT/user_nl_XXX file.
 
-For example, to change the CO2 constant to 400, modify **user_nl_cam** and add the following line at the end:
+For example, to change the CO2 volume mixing ratio to 400.e-6, modify **user_nl_cam** and add the following line at the end:
 ::
 
 	co2vmr=400.e-6
