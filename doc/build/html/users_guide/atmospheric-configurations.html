@@ -90,8 +90,6 @@
 <li><a class="reference internal" href="#waccm-compsets">4.6. WACCM compsets</a><ul>
 <li><a class="reference internal" href="#scientifically-supported-waccm-atmosphere-compsets">4.6.1. Scientifically supported WACCM atmosphere compsets</a></li>
 <li><a class="reference internal" href="#tested-waccm-atmosphere-compsets">4.6.2. Tested WACCM atmosphere compsets</a></li>
-<li><a class="reference internal" href="#scientifically-supported-coupled-waccm-compsets">4.6.3. Scientifically supported coupled WACCM compsets</a></li>
-<li><a class="reference internal" href="#tested-coupled-waccm-compsets">4.6.4. Tested coupled WACCM compsets</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#waccm-x-compsets">4.7. WACCM-X compsets</a></li>
@@ -267,7 +265,7 @@ f19_f19_mg17</td>
 <div class="section" id="example-1-default-aquaplanet-with-prescribed-sst">
 <h4>4.2.1.1. Example 1: Default Aquaplanet with prescribed SST<a class="headerlink" href="#example-1-default-aquaplanet-with-prescribed-sst" title="Permalink to this headline">¶</a></h4>
 <p>To run the standard CAM6 aquaplanet, simply supply the compset name:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
 <span class="n">cd</span> <span class="n">aqua_case</span>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -275,33 +273,34 @@ f19_f19_mg17</td>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE “QOBS” option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="footnote-reference" href="#id5" id="id4">[1]</a> for details.</p>
+<p>By default, initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE “QOBS” option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="footnote-reference" href="#id5" id="id4">[1]</a> for details.</p>
 </div>
 <div class="section" id="example-2-default-aquaplanet-with-slab-ocean-model">
 <h4>4.2.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model<a class="headerlink" href="#example-2-default-aquaplanet-with-slab-ocean-model" title="Permalink to this headline">¶</a></h4>
 <p>To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QSC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
-<span class="n">cd</span> <span class="n">aqua_case</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QSC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
 <p>Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate “qflux” file. To specify such a file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_SOM_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">nc</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_SOM_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">nc</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="example-3-aquaplanet-with-alternate-prescribed-sst">
 <h4>4.2.1.3. Example 3: Aquaplanet with alternate prescribed SST<a class="headerlink" href="#example-3-aquaplanet-with-alternate-prescribed-sst" title="Permalink to this headline">¶</a></h4>
 <p>All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">cam5_3keq</span> <span class="o">--</span><span class="n">compset</span> <span class="mi">2000</span><span class="n">_CAM50_SLND_SICE_DOCN</span><span class="o">%</span><span class="n">AQP7_SROF_SGLC_SWAV</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">compset</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
-<span class="n">cd</span> <span class="n">cam5_3keq</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">cam5_3keq</span> <span class="o">--</span><span class="n">compset</span> <span class="mi">2000</span><span class="n">_CAM50_SLND_SICE_DOCN</span><span class="o">%</span><span class="n">AQP7_SROF_SGLC_SWAV</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
+   <span class="p">(</span><span class="n">Note</span> <span class="n">that</span> <span class="n">you</span> <span class="n">may</span> <span class="n">see</span> <span class="n">a</span> <span class="n">message</span> <span class="s">&quot;Did not find an alias or longname compset match...&quot;</span>  <span class="n">This</span> <span class="n">message</span> <span class="n">may</span> <span class="n">be</span> <span class="n">ignored</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">cam5_3keq</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
 <p>The example uses the 3KEQ SST pattern, which is specified with “AQP7” in the compset name. The analytical SST profiles are defined in the source code (cime/src/components/data_comps/docn/docn_comp_mod.F90). Also note this example switched to CAM5 physics by specifying “CAM50” in the compset name. The run-unsupported flag is required.</p>
@@ -309,14 +308,14 @@ f19_f19_mg17</td>
 <div class="section" id="example-4-aquaplanet-with-user-specified-sst-dataset">
 <h4>4.2.1.4. Example 4: Aquaplanet with user-specified SST dataset<a class="headerlink" href="#example-4-aquaplanet-with-user-specified-sst-dataset" title="Permalink to this headline">¶</a></h4>
 <p>An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_sst_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC4</span> <span class="o">--</span><span class="n">res</span> <span class="n">f19_f19_mg17</span>  <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
-<span class="n">cd</span> <span class="n">aqua_case</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_MODE</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst_aquapfile</span>
-<span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_AQP_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst</span><span class="o">.</span><span class="n">nc</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_sst_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC4</span> <span class="o">--</span><span class="n">res</span> <span class="n">f19_f19_mg17</span>  <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_MODE</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst_aquapfile</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_AQP_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst</span><span class="o">.</span><span class="n">nc</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
 <p>Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.</p>
@@ -384,12 +383,12 @@ configuration to compute radiative forcing that includes the stratospheric adjus
 <div class="section" id="sample-the-base-run">
 <h5>4.2.2.2.1. Sample the base run<a class="headerlink" href="#sample-the-base-run" title="Permalink to this headline">¶</a></h5>
 <p>Create the base sampling case:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">base_run_case</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000climo</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">base_run_case</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000climo</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">base_run_case</span>
 </pre></div>
 </div>
 <p>Set up the <strong>user_nl_cam</strong> file for the base run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>! Output the radiation data
+<div class="highlight-default"><div class="highlight"><pre>! Output the radiation data
 rad_data_output=.true.
 
 ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
@@ -425,7 +424,7 @@ and size of data for dtime = 1800 and a 2-degree horizontal resolution. <a class
 </tbody>
 </table>
 <p>Build and submit this sampling run data:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">16</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">nmonths</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
@@ -439,12 +438,12 @@ next step.</p>
 <div class="section" id="port-validation">
 <h5>4.2.2.2.2. PORT validation<a class="headerlink" href="#port-validation" title="Permalink to this headline">¶</a></h5>
 <p>Create the PORT validation run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">port_run_case</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">port_run_case</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">port_run_case</span>
 </pre></div>
 </div>
 <p>Set up the <strong>user_nl_cam</strong> file for the PORT run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>! PORT input data
+<div class="highlight-default"><div class="highlight"><pre>! PORT input data
 offline_driver_infile = &#39;/path/base_run_case.cam.h1.0001-01-01-00000.nc&#39;
 
 ! Output the radiation data
@@ -476,7 +475,7 @@ ndens = 1,1
 </div>
 <p>For verification tests the run time length should be long enough to include at least a few sampling times.</p>
 <p>Build and submit this validation run data:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">5</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">ndays</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
@@ -491,20 +490,20 @@ PORT run should be zero (or within roundoff).</p>
 <p>In this case we are doubling the CO2 and modifying this via the netcdf utility, ncap for each file.
 Further documentation on ncap can be found in the <a class="reference external" href="http://nco.sourceforge.net/nco.html">NCO User Guide</a>.</p>
 <p>Modify the composition in the sample files.  For each file listed in /path/samples.inputs:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>% for fin in base_run_case.cam.h1*nc; do fout=&quot;${fin/cam.h1/cam.h1-2xCO2}&quot;; ncap2 -s &quot;rad_CO2=2.0*rad_CO2&quot; $fin $fout; done
+<div class="highlight-default"><div class="highlight"><pre>% for fin in base_run_case.cam.h1*nc; do fout=&quot;${fin/cam.h1/cam.h1-2xCO2}&quot;; ncap2 -s &quot;rad_CO2=2.0*rad_CO2&quot; $fin $fout; done
 </pre></div>
 </div>
 <p>Prepare sequential list of input files for the PORT run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">ls</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">base_run_case</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">h1</span><span class="o">-</span><span class="mi">2</span><span class="n">xCO2</span><span class="o">.*</span><span class="n">nc</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">samples2xCO2</span><span class="o">.</span><span class="n">inputs</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">ls</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">base_run_case</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">h1</span><span class="o">-</span><span class="mi">2</span><span class="n">xCO2</span><span class="o">.*</span><span class="n">nc</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">samples2xCO2</span><span class="o">.</span><span class="n">inputs</span>
 </pre></div>
 </div>
 <p>Prepare the PORT run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">port_2xCO2_case</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">port_2xCO2_case</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">port_2xCO2_case</span>
 </pre></div>
 </div>
 <p>Set up the <strong>user_nl_cam</strong> file for the PORT run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>! Sequential list of input files
+<div class="highlight-default"><div class="highlight"><pre>! Sequential list of input files
 offline_driver_fileslist = &#39;/path/samples2xCO2.inputs&#39;
 
 ! Allow temperatures above the tropopause to equilibrate under the assumption of fixed dynamical heating
@@ -525,7 +524,7 @@ nhtfrq = 0,73
 </pre></div>
 </div>
 <p>Build and submit:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">16</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">nmonths</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
@@ -570,13 +569,13 @@ nhtfrq = 0,73
 <div class="section" id="scam-configuration-options">
 <h4>4.2.3.1. SCAM Configuration Options<a class="headerlink" href="#scam-configuration-options" title="Permalink to this headline">¶</a></h4>
 <p>The default SCAM settings read in initial conditions for aerosols off of an initial condition file: typically a CAM initial condition file. The aerosols and the Temperature field are relaxed to the initial conditions with a variable timescale from 10 days at the bottom of the model to 2 days at the top of the model. U and V wind are taken from the IOP file. This ensures that aerosols and temperature do not drift too far in the upper troposphere and above: where advection for aerosols is important, and where non-represented dynamical forcing would dominate the temperature field. Any field can be relaxed using this method if the user desires it.</p>
-<p>Emissions of constituients from the surface occur as in a standard CAM simulation, reading off climatological emissions files for the year 2000.</p>
+<p>Emissions of constituents from the surface occur as in a standard CAM simulation, reading off climatological emissions files for the year 2000.</p>
 <p>Default Settings:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scm_use_obs_uv</span>         <span class="o">=</span> <span class="o">.</span><span class="n">true</span><span class="o">.</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">scm_use_obs_uv</span>         <span class="o">=</span> <span class="o">.</span><span class="n">true</span><span class="o">.</span>
 <span class="n">scm_relaxation</span>         <span class="o">=</span> <span class="o">.</span><span class="n">true</span><span class="o">.</span>
-<span class="n">scm_relax_fincl</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;bc_a1&#39;</span><span class="p">,</span> <span class="s1">&#39;bc_a4&#39;</span><span class="p">,</span> <span class="s1">&#39;dst_a1&#39;</span><span class="p">,</span> <span class="s1">&#39;dst_a2&#39;</span><span class="p">,</span> <span class="s1">&#39;dst_a3&#39;</span><span class="p">,</span> <span class="s1">&#39;ncl_a1&#39;</span><span class="p">,</span> <span class="s1">&#39;ncl_a2&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;ncl_a3&#39;</span><span class="p">,</span> <span class="s1">&#39;num_a1&#39;</span><span class="p">,</span> <span class="s1">&#39;num_a2&#39;</span><span class="p">,</span> <span class="s1">&#39;num_a3&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;num_a4&#39;</span><span class="p">,</span> <span class="s1">&#39;pom_a1&#39;</span><span class="p">,</span> <span class="s1">&#39;pom_a4&#39;</span><span class="p">,</span> <span class="s1">&#39;so4_a1&#39;</span><span class="p">,</span> <span class="s1">&#39;so4_a2&#39;</span><span class="p">,</span> <span class="s1">&#39;so4_a3&#39;</span><span class="p">,</span> <span class="s1">&#39;soa_a1&#39;</span><span class="p">,</span> <span class="s1">&#39;soa_a2&#39;</span>
+<span class="n">scm_relax_fincl</span> <span class="o">=</span> <span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="s">&#39;bc_a1&#39;</span><span class="p">,</span> <span class="s">&#39;bc_a4&#39;</span><span class="p">,</span> <span class="s">&#39;dst_a1&#39;</span><span class="p">,</span> <span class="s">&#39;dst_a2&#39;</span><span class="p">,</span> <span class="s">&#39;dst_a3&#39;</span><span class="p">,</span> <span class="s">&#39;ncl_a1&#39;</span><span class="p">,</span> <span class="s">&#39;ncl_a2&#39;</span><span class="p">,</span>
+                  <span class="s">&#39;ncl_a3&#39;</span><span class="p">,</span> <span class="s">&#39;num_a1&#39;</span><span class="p">,</span> <span class="s">&#39;num_a2&#39;</span><span class="p">,</span> <span class="s">&#39;num_a3&#39;</span><span class="p">,</span>
+                  <span class="s">&#39;num_a4&#39;</span><span class="p">,</span> <span class="s">&#39;pom_a1&#39;</span><span class="p">,</span> <span class="s">&#39;pom_a4&#39;</span><span class="p">,</span> <span class="s">&#39;so4_a1&#39;</span><span class="p">,</span> <span class="s">&#39;so4_a2&#39;</span><span class="p">,</span> <span class="s">&#39;so4_a3&#39;</span><span class="p">,</span> <span class="s">&#39;soa_a1&#39;</span><span class="p">,</span> <span class="s">&#39;soa_a2&#39;</span>
 <span class="n">scm_relax_bot_p</span>        <span class="o">=</span> <span class="mf">105000.</span>
 <span class="n">scm_relax_top_p</span>        <span class="o">=</span> <span class="mf">200.</span>
 <span class="n">scm_relax_linear</span>       <span class="o">=</span> <span class="o">.</span><span class="n">true</span><span class="o">.</span>
@@ -588,7 +587,7 @@ nhtfrq = 0,73
 <div class="section" id="example-setting-up-a-scam-run">
 <h4>4.2.3.2. Example:  Setting up a SCAM run<a class="headerlink" href="#example-setting-up-a-scam-run" title="Permalink to this headline">¶</a></h4>
 <p>Users specify the directory containing the specifications for running an IOP using the –user-mods-dir flag.  In this example we are using the MPACE IOP.  Note that the default settings are to run for all of the observations within the IOP, but a user may shorten that by issuing an xmlchange for the STOP_N setting.  In this example we will limit the run to 600 timesteps</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_scam_mpace</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FSCAM</span> <span class="o">--</span><span class="n">res</span> <span class="n">T42_T42</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">../../</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">cime_config</span><span class="o">/</span><span class="n">usermods_dirs</span><span class="o">/</span><span class="n">scam_mpace</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_scam_mpace</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -597,13 +596,13 @@ nhtfrq = 0,73
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>If user neglects to specify a –use-mods-dir, then it defaults to a shortened run of ARM97.</p>
-<p>The user may modify the sample script <strong>components/cam/bld/scripts/create_scam6_iop</strong>.</p>
+<p>If the user neglects to specify a –use-mods-dir, then it defaults to a shortened run of ARM97.</p>
+<p>The user may also find it useful to modify the sample script <strong>components/cam/bld/scripts/create_scam6_iop</strong>.</p>
 </div>
 <div class="section" id="example-efficient-way-to-cycle-over-several-scam-iop-locations">
 <h4>4.2.3.3. Example:  Efficient way to cycle over several SCAM IOP locations<a class="headerlink" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations" title="Permalink to this headline">¶</a></h4>
 <p>While a user can use the above directions for running multiple IOP’s, rebuilding the executable for each IOP is time-consuming and unnecessary as the same executable may be used for multiple IOP’s.  A more efficient way to run over several IOP’s is to use create_newcase using the scam_mandatory setup and then using create_clone for all SCAM IOP’s.  This example, will make runs for TWP06 and SPARTICUS by running create_newcase using the setup in scam_mandatory and then using create_clone for test_scam_twp06 and test_scam_sparticus.  Note the addition of the flag –keepexe on the create_clone command to indicate that the executable will be used from the test_scam_mandatory case.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_scam_mandatory</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FSCAM</span> <span class="o">--</span><span class="n">res</span> <span class="n">T42_T42</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">../../</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">cime_config</span><span class="o">/</span><span class="n">usermods_dirs</span><span class="o">/</span><span class="n">scam_mandatory</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_scam_mandatory</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -624,14 +623,14 @@ nhtfrq = 0,73
 </div>
 <div class="section" id="example-setting-up-user-defined-iop-for-scam">
 <h4>4.2.3.4. Example:  Setting up User Defined IOP for SCAM<a class="headerlink" href="#example-setting-up-user-defined-iop-for-scam" title="Permalink to this headline">¶</a></h4>
-<p>If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at 305 degrees E and 62 degrees N over the Labrador Sea.  It is important to note that the user needs to have the NetCDF Command Language (NCL) and NetCDF Operators (NCO) installed on their machine as the generation scripts utilizes this library.</p>
+<p>If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at 305 degrees E and 62 degrees N over the Labrador Sea.  It is important to note that the user needs to have the NetCDF Command Language (NCL) and NetCDF Operators (NCO) installed on their machine as the generation scripts utilize this library.</p>
 </div>
 </div>
 </div>
 <div class="section" id="generate-the-iop-file">
 <h2>4.3. Generate the IOP File<a class="headerlink" href="#generate-the-iop-file" title="Permalink to this headline">¶</a></h2>
 <p>1. First, run CAM (in any desired configuration ) with following namelist, specifying fields at a point (305 degrees E, 62 degrees N)</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>fincl2=U, V, T, Q, OMEGA, TTEND_TOT, PTTEND, TAQ, TS,PS,PSL
+<div class="highlight-default"><div class="highlight"><pre>fincl2=U, V, T, Q, OMEGA, TTEND_TOT, PTTEND, TAQ, TS,PS,PSL
 fincl2lonlat = ‘305e_62n’
 nhtfrq = 0,-3
 avgflag_pertape = &#39;A&#39;,&#39;I&#39;
@@ -639,8 +638,8 @@ avgflag_pertape = &#39;A&#39;,&#39;I&#39;
 </div>
 <p>Averaging can be either ‘I’nstantaneous or ‘A’ average for fincl2
 This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
-<p>2. Run following script on resulting h1 files:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">bld</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">camfv2iop</span><span class="o">.</span><span class="n">ncl</span>
+<p>2. Run the following script on the resulting h1 files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">./</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">bld</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">camfv2iop</span><span class="o">.</span><span class="n">ncl</span>
 </pre></div>
 </div>
 <p>This uses NCL and NCO to create a SCAM IOP file. See internal to the script for documentation on what needs to be changed for a particular case.</p>
@@ -648,12 +647,14 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 <li>Run the User IOP case.</li>
 </ol>
 <p>To run the user iop with SCAM, follow the following steps (here it is a test case over the Labrador Sea from a CAM Run)</p>
-<ul class="simple">
-<li>Decide your iop name (e.g. usrLabSea)</li>
-<li>Add this IOP to the script create_scam6_iop</li>
+<ul>
+<li><p class="first">Decide your iop name (e.g. usrLabSea)</p>
+</li>
+<li><p class="first">Add this IOP to the script create_scam6_iop</p>
+</li>
 <li><dl class="first docutils">
 <dt>In the tag you have downloaded, go to the ‘usermods_dirs’ directory</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>cam6_0_000/components/cam/cime_config/usermods_dirs</li>
 </ul>
 </dd>
@@ -661,7 +662,7 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Copy one of the directories for the IOP cases, e.g.</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>cp -r scam_arm97 scam_usrLabSea</li>
 </ul>
 </dd>
@@ -669,14 +670,15 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Change files in this directory</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li><strong>shell_commands</strong>: XML change commands: Typically the LAT, LON, STARTDATE, START_TOD, STOP_OPTION and STOP_N</li>
-<li><strong>sser_nl_cam</strong>:  usually just iopfile. May also want to change mfilt (to keep all times on one file)</li>
+<li><strong>user_nl_cam</strong>:  usually just iopfile. May also want to change mfilt (to keep all times on one file)</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>Run create_scam6_iop script with apprpriate IOP (e.g. IOP=scam_usrLabSea in this case)</li>
+<li><p class="first">Run create_scam6_iop script with appropriate IOP (e.g. IOP=scam_usrLabSea in this case)</p>
+</li>
 </ul>
 </div>
 <div class="section" id="other-cam-compsets">
@@ -804,7 +806,7 @@ lower boundary conditions (2005-2015)</td>
 <div class="section" id="scientifically-supported-waccm-atmosphere-compsets">
 <h3>4.6.1. Scientifically supported WACCM atmosphere compsets<a class="headerlink" href="#scientifically-supported-waccm-atmosphere-compsets" title="Permalink to this headline">¶</a></h3>
 <p>Scientifically supported WACCM atmosphere configurations for CESM2.0 use TSMLT1 chemistry
-(see <a class="reference external" href="http://./CAM-chem-specifics.html#chemical-mechanisms">chemical mechanisms</a> ) and
+(see <a class="reference internal" href="CAM-chem-specifics.html#chemical-mechanisms"><span class="std std-ref">chemical mechanisms</span></a> ) and
 0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).
 Additional scientifically validated configurations will be available in CESM2.1.</p>
 <table border="1" class="docutils">
@@ -869,7 +871,7 @@ SSTs</td>
 <h3>4.6.2. Tested WACCM atmosphere compsets<a class="headerlink" href="#tested-waccm-atmosphere-compsets" title="Permalink to this headline">¶</a></h3>
 <p>Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and
 middle atmosphere plus D-region (MAD) chemistry (see
-<a class="reference external" href="http://./CAM-chem-specifics.html#chemical-mechanisms">chemical mechanisms</a> ) and
+<a class="reference internal" href="CAM-chem-specifics.html#chemical-mechanisms"><span class="std std-ref">chemical mechanisms</span></a> ) and
 0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -919,66 +921,6 @@ MAD chemistry, CMIP6 emissions,
 historical SSTs, coupled to interactive
 land and MEGAN2.1</td>
 <td>2005 to 2015</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="scientifically-supported-coupled-waccm-compsets">
-<h3>4.6.3. Scientifically supported coupled WACCM compsets<a class="headerlink" href="#scientifically-supported-coupled-waccm-compsets" title="Permalink to this headline">¶</a></h3>
-<p><strong>AUTHOR QUESTION:</strong> Should coupled compsets be left out of the CAM user’s guide?</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="12%" />
-<col width="16%" />
-<col width="55%" />
-<col width="17%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Compset</th>
-<th class="head">Resolution</th>
-<th class="head">Description</th>
-<th class="head">Period</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>BW1850</td>
-<td>f09_g17</td>
-<td>Pre-industrial control WACCM6 using
-1-degree FV dycore, TSMLT1, CMIP6
-piControl emissions, coupled to
-interactive ocean, sea ice, land, and
-MEGAN2.1</td>
-<td>1850</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="tested-coupled-waccm-compsets">
-<h3>4.6.4. Tested coupled WACCM compsets<a class="headerlink" href="#tested-coupled-waccm-compsets" title="Permalink to this headline">¶</a></h3>
-<p><strong>AUTHOR QUESTION:</strong> Should coupled compsets be left out of the CAM user’s guide?</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="12%" />
-<col width="16%" />
-<col width="55%" />
-<col width="17%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Compset</th>
-<th class="head">Resolution</th>
-<th class="head">Description</th>
-<th class="head">Period</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>BWma1850</td>
-<td>f19_g17</td>
-<td>Pre-industrial control WACCM6 using
-2-degree FV dycore, MA chemistry, CMIP6
-piControl emissions, coupled to
-interactive ocean, sea ice, land, and
-MEGAN2.1</td>
-<td>1850</td>
 </tr>
 </tbody>
 </table>
@@ -1065,7 +1007,7 @@ above.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

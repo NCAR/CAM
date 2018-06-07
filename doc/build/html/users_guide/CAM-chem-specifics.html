@@ -99,7 +99,7 @@
 <span id="cam-chem-specifics"></span><h1>9. Chemistry specific modifications<a class="headerlink" href="#chemistry-specific-modifications" title="Permalink to this headline">¶</a></h1>
 <p>CESM2.0 supports one standard mechanisms for CAM, CAM-chem, and WACCM (see details in the cam6_scientific_guide). Here, we describe details on how the chemical mechanism is compiled and how to perform modifications of chemistry in the model, including adding or removing chemical and aerosol species, which requires changing the chemical mechanism and if applicable changes to wet and dry deposition.  Additional changes may be required in the namelist, e.g., adding our removing output, changing deposition species etc., as described in Section 5.2.  Furthermore, code changes may be required, depending of the specifics of the changes.</p>
 <div class="section" id="chemical-mechanisms">
-<h2>9.1. Chemical mechanisms<a class="headerlink" href="#chemical-mechanisms" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>9.1. Chemical mechanisms<a class="headerlink" href="#chemical-mechanisms" title="Permalink to this headline">¶</a></h2>
 <p>CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (<a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf">http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf</a>). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -256,9 +256,9 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 </ul>
 <p>Running with prescribed biogenic emissions:</p>
 <p>To turn run with prescribed biogenic emissions requires including those emissions in the namelist for surface emission files that are not indluced in the namelist by default. Additionally, one needs to turn off interactive biogenic emissions, if using a CAMchem or WACCM TSML compset:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">megan_emis_nl</span>
- <span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
- <span class="n">megan_specifier</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">&amp;</span><span class="n">megan_emis_nl</span>
+ <span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s">&#39; &#39;</span>
+ <span class="n">megan_specifier</span> <span class="o">=</span> <span class="s">&#39; &#39;</span>
 <span class="o">&amp;</span>
 </pre></div>
 </div>
@@ -293,7 +293,7 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>
