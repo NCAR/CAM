@@ -6,7 +6,7 @@
 .. _scientific-guide:
 
 #####################################
-CAM6 Scientific Guide
+CAM6 Scientific Summary
 #####################################
 
 CAM6 contains substantial modifications of every atmospheric physics parameterization except for radiative
