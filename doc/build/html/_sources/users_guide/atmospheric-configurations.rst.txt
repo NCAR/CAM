@@ -22,7 +22,7 @@ The predefined compsets exist with one of three levels of support.
 
 CAM compsets include the F, P and Q compsets.
 
-- **F**: CAM standalone runs, using an active Land and everything else is prognostic
+- **F**: CAM standalone runs, using an active Atmosphere and Land with prescribed Sea-Surface Temperatures (SSTs) and sea-ice extent. 
 - **P**: Parallel offline radiation tool (PORT)
 - **Q**: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)
 
@@ -101,7 +101,7 @@ Example 1: Default Aquaplanet with prescribed SST
 To run the standard CAM6 aquaplanet, simply supply the compset name::
 
   cd cime/scripts
-  ./create_newcase --case aqua_case --compset QPC6 --res f09_f09_mg17
+  ./create_newcase --case aqua_case --compset QPC6 --res f09_f09_mg17  --run-unsupported 
   cd aqua_case
   ./case.setup
   ./case.build

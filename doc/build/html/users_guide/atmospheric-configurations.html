@@ -146,7 +146,7 @@
 </ul>
 <p>CAM compsets include the F, P and Q compsets.</p>
 <ul class="simple">
-<li><strong>F</strong>: CAM standalone runs, using an active Land and everything else is prognostic</li>
+<li><strong>F</strong>: CAM standalone runs, using an active Atmosphere and Land with prescribed Sea-Surface Temperatures (SSTs) and sea-ice extent.</li>
 <li><strong>P</strong>: Parallel offline radiation tool (PORT)</li>
 <li><strong>Q</strong>: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)</li>
 </ul>
@@ -266,7 +266,7 @@ f19_f19_mg17</td>
 <h4>4.2.1.1. Example 1: Default Aquaplanet with prescribed SST<a class="headerlink" href="#example-1-default-aquaplanet-with-prescribed-sst" title="Permalink to this headline">¶</a></h4>
 <p>To run the standard CAM6 aquaplanet, simply supply the compset name:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>  <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
 <span class="n">cd</span> <span class="n">aqua_case</span>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
