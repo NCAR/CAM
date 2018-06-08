@@ -99,7 +99,7 @@
 <span id="cam-chem-specifics"></span><h1>9. Chemistry specific modifications<a class="headerlink" href="#chemistry-specific-modifications" title="Permalink to this headline">¶</a></h1>
 <p>CESM2.0 supports one standard mechanisms for CAM, CAM-chem, and WACCM (see details in the cam6_scientific_guide). Here, we describe details on how the chemical mechanism is compiled and how to perform modifications of chemistry in the model, including adding or removing chemical and aerosol species, which requires changing the chemical mechanism and if applicable changes to wet and dry deposition.  Additional changes may be required in the namelist, e.g., adding our removing output, changing deposition species etc., as described in Section 5.2.  Furthermore, code changes may be required, depending of the specifics of the changes.</p>
 <div class="section" id="chemical-mechanisms">
-<h2>9.1. Chemical mechanisms<a class="headerlink" href="#chemical-mechanisms" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>9.1. Chemical mechanisms<a class="headerlink" href="#chemical-mechanisms" title="Permalink to this headline">¶</a></h2>
 <p>CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (<a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf">http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf</a>). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -197,12 +197,11 @@ photolysis)</td>
 Sources can be either emissions (surface or vertical, see Section 6.1) or concentrations in form of lower boundary conditions.
 To add new emissions you have to copy the existing list of emisisons to your user_nl_cam file and add the additional species (See Section 5.2.1).</p>
 <p>To add new lower boundary conditions via namelist, you have to add an addition species to the flbc_list and modify the lbc_file:</p>
-<p>flbc_file              = ‘/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc’</p>
-<dl class="docutils">
-<dt>flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, ‘CFC113’, ‘CFC12’, ‘CH3BR’, ‘CH3CCL3’, ‘CH3CL’, ‘CH4’,</dt>
-<dd>‘CO2’, ‘H2’, ‘HCFC22’, ‘N2O’, ‘CFC114’, ‘CFC115’, ‘HCFC141B’, ‘HCFC142B’, ‘CH2BR2’, ‘CHBR3’,
-‘H2402’, ‘OCS’, ‘SF6’, ‘CFC11eq’</dd>
-</dl>
+<p>flbc_file              = ‘/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc’
+flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, ‘CFC113’, ‘CFC12’, ‘CH3BR’, ‘CH3CCL3’, ‘CH3CL’, ‘CH4’,</p>
+<blockquote>
+<div>‘CO2’, ‘H2’, ‘HCFC22’, ‘N2O’, ‘CFC114’, ‘CFC115’, ‘HCFC141B’, ‘HCFC142B’, ‘CH2BR2’, ‘CHBR3’,
+‘H2402’, ‘OCS’, ‘SF6’, ‘CFC11eq’</div></blockquote>
 </div>
 <div class="section" id="adding-species-and-changing-the-mechanism">
 <h2>9.4. Adding species and changing the mechanism<a class="headerlink" href="#adding-species-and-changing-the-mechanism" title="Permalink to this headline">¶</a></h2>

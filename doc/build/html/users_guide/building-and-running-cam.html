@@ -131,19 +131,22 @@ This is where you change the numbers of vertical level, the physics (cam4, cam5)
 The list of possible options are detailed at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  It is important to note that CAM compsets already have this variable set and that a user will most likely want to append flags as opposed to replacing them.  If the append flag is not used, this variable is reset to only include the values specified and all preset values are removed.  More details on changing CAM’s configuration can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing compsets</span></a>.</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
-<span class="o">%</span> <span class="n">xmlchange</span> <span class="o">--</span><span class="n">append</span> <span class="n">CAM_CONFIG_OPTS</span><span class="o">=</span><span class="s1">&#39;-cosp&#39;</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">append</span> <span class="n">CAM_CONFIG_OPTS</span><span class="o">=</span><span class="s1">&#39;-cosp&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="modifying-namelist-settings-in-cam-run">
 <h2>3.2. Modifying namelist settings in CAM run<a class="headerlink" href="#modifying-namelist-settings-in-cam-run" title="Permalink to this headline">¶</a></h2>
 <p>To modify CAM namelist settings, add the appropriate keyword/value pair at the end of the $CASEROOT/user_nl_cam file.  If the run needs to change namelist settings in other components, then modify the appropriate $CASEROOT/user_nl_XXX file.</p>
-<p>For example, to change the CO2 constant to 400, modify <strong>user_nl_cam</strong> and add the following line at the end:</p>
+<p>For example, to change the CO2 volume mixing ratio to 400.e-6, modify <strong>user_nl_cam</strong> and add the following line at the end:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2vmr</span><span class="o">=</span><span class="mf">400.e-6</span>
 </pre></div>
 </div>
 <p>To see the result, call <code class="docutils literal"><span class="pre">preview_namelists</span></code> and verify that the new value appears in <strong>CaseDocs/atm_in</strong>.  The exception to this are variables within the <strong>camexp</strong> namelist group (as listed in the link immediately below).  Variables within this group are used internally by CAM’s build-namelist utility and modify the resulting namelist. They will not be written out to the the atm_in file.</p>
-<p>A complete listing of all of CAM’s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/component_settings/cam_nml.html">CAM’s namelist variables</a>  More details on changing CAM’s namelist can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing compsets</span></a>.</p>
+<p>A complete listing of all of CAM’s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/component_settings/cam_nml.html">CAM’s
+namelist variables</a>
+More details on changing CAM’s namelist can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing
+compsets</span></a>.</p>
 </div>
 </div>
 

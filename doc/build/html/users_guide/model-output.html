@@ -125,7 +125,8 @@
 <p>There are also namelist settings which control output in a general way.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">empty_htapes</span></code> - turn off all default output and only write out the fields explicitly set via fincl settings</li>
-<li><code class="docutils literal"><span class="pre">history_YYY</span></code> - set the history to preset settings for various experiments.  For the complete listing go to the <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html">namelist page</a> and search for namelist variables with the <code class="docutils literal"><span class="pre">history_</span></code> prefix (i.e. <code class="docutils literal"><span class="pre">history_amwg</span></code>, <code class="docutils literal"><span class="pre">history_clubb</span></code>, etc.)</li>
+<li><code class="docutils literal"><span class="pre">history_YYY</span></code> - add fields for specific diagnostic purposes to the
+default output.  For the complete listing go to the <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html">namelist page</a> and search for namelist variables with the <code class="docutils literal"><span class="pre">history_</span></code> prefix (i.e. <code class="docutils literal"><span class="pre">history_amwg</span></code>, <code class="docutils literal"><span class="pre">history_clubb</span></code>, etc.)</li>
 </ul>
 </div>
 <div class="section" id="general-features-of-history-files">
@@ -204,14 +205,9 @@
 <h2>7.6. Example: Default History Fields and Master Field Lists<a class="headerlink" href="#example-default-history-fields-and-master-field-lists" title="Permalink to this headline">¶</a></h2>
 <p>CAM is set up by default to output a set of fields to a single monthly average history file. There is a much larger set of available fields, known as the “master field list,” from which the user can choose fields of interest to add to the history file via namelist settings. Both the set of default fields and the master field list depend on how CAM is configured. Due to the large number of fields we have chosen to make lists of fields for some standard configuration available via linked documents rather than to inline the lists here. Each of the field list documents is comprised of tables containing the lists of fields that are output by default as well as the master field list.</p>
 <p><strong>NOTE:</strong>  The master field list tables may contain some fields that are not actually available for output. The presence of a field in the master field list is a necessary, but not sufficient condition that the corresponding field in the history file will contain valid data. This is because in some instances fields are added to the master field list (this is done in the source code) even though that field may not be computed in the configuration that is built (specified via the arguments to <code class="docutils literal"><span class="pre">configure</span></code>). When adding non-default fields to the history file it’s important to check that the fields contain reasonable data before doing a long run.</p>
-<p>The following links provide tables of default and master field lists for some standard model configurations which are characterized by the values of the <code class="docutils literal"><span class="pre">-dyn</span></code>, <code class="docutils literal"><span class="pre">-phys</span></code>, and <code class="docutils literal"><span class="pre">-chem</span></code> arguments to configure. The source of the information in these tables is CAM’s default log file, so you can always look there for any configuration not included in the list below.</p>
-<p><strong>Eaton – Do we have CAM6 science supported compset information? If not, should probably delete these examples</strong></p>
+<p>The following links provide tables of default and master field lists for some standard model compsets. The source of the information in these tables is CAM’s default log file, so you can always look there for any configuration not included in the list below.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam4.html">fv, cam4, none</a></li>
-<li><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam4_trop_bam.html">fv, cam4, trop_bam</a></li>
-<li><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam5.html">fv, cam5, trop_mam3</a></li>
-<li><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam4_waccm.html">fv, cam4, waccm_mozart (use_case: waccm_2000_cam4)</a></li>
-<li><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm1.2/cam/docs/ug5_3/hist_flds_fv_cam4_super_fast_llnl.html">fv, cam4, super_fast_llnl (use_case: 2000_cam4_super_fast_llnl)</a></li>
+<li><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/atmosphere/docs/ug6/hist_flds_f2000.html">F2000climo</a></li>
 </ul>
 </div>
 </div>

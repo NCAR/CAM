@@ -6,6 +6,8 @@ Chemistry specific modifications
 
 CESM2.0 supports one standard mechanisms for CAM, CAM-chem, and WACCM (see details in the cam6_scientific_guide). Here, we describe details on how the chemical mechanism is compiled and how to perform modifications of chemistry in the model, including adding or removing chemical and aerosol species, which requires changing the chemical mechanism and if applicable changes to wet and dry deposition.  Additional changes may be required in the namelist, e.g., adding our removing output, changing deposition species etc., as described in Section 5.2.  Furthermore, code changes may be required, depending of the specifics of the changes.
 
+.. _chemical-mechanisms:
+
 ----------------------------------------------------------------
 Chemical mechanisms
 ----------------------------------------------------------------
@@ -65,7 +67,6 @@ To add new emissions you have to copy the existing list of emisisons to your use
 To add new lower boundary conditions via namelist, you have to add an addition species to the flbc_list and modify the lbc_file:
 
 flbc_file              = '/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc'
-
 flbc_list              = 'CCL4', 'CF2CLBR', 'CF3BR', 'CFC11', 'CFC113', 'CFC12', 'CH3BR', 'CH3CCL3', 'CH3CL', 'CH4',
          'CO2', 'H2', 'HCFC22', 'N2O', 'CFC114', 'CFC115', 'HCFC141B', 'HCFC142B', 'CH2BR2', 'CHBR3',
          'H2402', 'OCS', 'SF6', 'CFC11eq'
