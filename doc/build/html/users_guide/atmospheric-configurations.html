@@ -191,7 +191,7 @@ using 1 degree fv dycore</td>
 </tr>
 </tbody>
 </table>
-<p>To run the FHIST compset, and create a case called fhist, simply supply the compset name:</p>
+<p>To run the FHIST compset, and create a case called fhist, simply run the following commands:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">fhist</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">fhist</span>
@@ -200,7 +200,7 @@ using 1 degree fv dycore</td>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>To run the F2000climo compset, and create a case called f_present_day, simply supply the compset name:</p>
+<p>To run the F2000climo compset, and create a case called f_present_day, simply run the following commands:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">f_present_day</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">f_present_day</span>
@@ -209,7 +209,13 @@ using 1 degree fv dycore</td>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.</p>
+<p>An important reminder: On cheyenne, if you are building on a login node, you must say:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">qcmd</span> <span class="o">--</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+</pre></div>
+</div>
+<p>It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.
+The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2.
+It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.</p>
 </div>
 <div class="section" id="cam-simple-models">
 <h2>4.2. CAM Simple Models<a class="headerlink" href="#cam-simple-models" title="Permalink to this headline">¶</a></h2>

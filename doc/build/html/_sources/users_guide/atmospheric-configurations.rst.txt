@@ -47,7 +47,7 @@ CAM has a number of compsets/resolutions which are supported scientifically.  Th
 |              |                      | using 1 degree fv dycore                |  1995-2005  |
 +--------------+----------------------+-----------------------------------------+-------------+
 
-To run the FHIST compset, and create a case called fhist, simply supply the compset name::
+To run the FHIST compset, and create a case called fhist, simply run the following commands::
 
   % cd cime/scripts
   % ./create_newcase --case fhist --compset FHIST --res f09_f09_mg17 
@@ -56,7 +56,7 @@ To run the FHIST compset, and create a case called fhist, simply supply the comp
   % ./case.build
   % ./case.submit
 
-To run the F2000climo compset, and create a case called f_present_day, simply supply the compset name::
+To run the F2000climo compset, and create a case called f_present_day, simply run the following commands::
 
   % cd cime/scripts
   % ./create_newcase --case f_present_day --compset FHIST --res f09_f09_mg17 
@@ -65,7 +65,14 @@ To run the F2000climo compset, and create a case called f_present_day, simply su
   % ./case.build
   % ./case.submit
 
-It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
+  
+An important reminder: On cheyenne, if you are building on a login node, you must say::
+
+  % qcmd -- ./case.build
+  
+It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.
+The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2.
+It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
 
 -------------------------------------------------------------------------------
 CAM Simple Models
