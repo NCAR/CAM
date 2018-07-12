@@ -16,7 +16,7 @@ CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemica
 
 +--------------------------+-----------------------------+---------------+-----------------+
 || Mechanism               | | Model:                    || #Species     || #Reactions     | 
-|| (pre-processor code)    | | Description               |               |                 |
+|| (pre-processor code)    | | Chemistry Description     |               |                 |
 +==========================+=============================+===============+=================+
 || TSMLT1                  | WACCM: Troposphere,         || 231 solution,|| 583            |
 || (pp_waccm_tsmlt_mam4)   | stratosphere, mesosphere,   || 2 invariant  | (433 kinetic,   |
