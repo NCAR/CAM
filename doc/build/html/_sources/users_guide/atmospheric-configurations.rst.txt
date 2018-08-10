@@ -38,13 +38,13 @@ CAM has a number of compsets/resolutions which are supported scientifically.  Th
 +--------------+----------------------+-----------------------------------------+-------------+
 | Compset Name | supported resolution |Description                              | Period      |
 +==============+======================+=========================================+=============+
-| FHIST        | f09_f09_mg17         | Historical CAM6 using 1 degree finite   | 1979 to 2015|
+| FHIST        | f09_f09_mg17         | Historical CAM6 using 1-degree finite   | 1979 to 2015|
 |              |                      | volume dycore *[Note - this is similar  |             |
 |              |                      | to the obsolete CAM5 FAMIP compset]*    |             |
 +--------------+----------------------+-----------------------------------------+-------------+
-| F2000climo   | f09_f09_mg17         | Climatological present day climate      | Climos over |
-|              |                      | (year 2000) with CAM6 physics           |  1995-2005  |
-|              |                      | using 1 degree fv dycore                |  1995-2005  |
+| F2000climo   | f09_f09_mg17         | Climatological present day climate      | 1995-2005   |
+|              |                      | (year 2000) with CAM6 physics           | average     |
+|              |                      | using 1-degree fv dycore                | climo       |
 +--------------+----------------------+-----------------------------------------+-------------+
 
 To run the FHIST compset, and create a case called fhist, simply run the following commands::
@@ -573,22 +573,22 @@ to run with 32 levels that are not availble at this point. Half-degree SD compse
 +--------------+-----------------------+-----------------------------------------+-------------+
 | Compset Name | tested resolution     |Description                              | Period      |
 +==============+=======================+=========================================+=============+
-| FCHIST       | f09_f09_mg17          | Historical CAM6-chem using 1 degree FV  | 1979 to 2015|
+| FCHIST       | f09_f09_mg17          | Historical CAM6-chem using 1-degree FV  | 1979 to 2015|
 |              |                       | dycore, using CMIP6 emissions, coupled  |             |
 |              |                       | to interactive land and MEGAN2.1        |             |
 +--------------+-----------------------+-----------------------------------------+-------------+
-| FCSD         | f09_f09_mg17          | Historical CAM6-chem 1deg compset using |             |
-|              |                       | MERRA2 analsysis with a 50-hour         | 1980 to 2015|
+| FCSD         | f09_f09_mg17          | Historical CAM6-chem 1-degree compset   |             |
+|              |                       | using MERRA2 analsysis with a 50-hour   | 1980 to 2015|
 |              |                       | relaxation. See details in the text     |             |
 +--------------+-----------------------+-----------------------------------------+-------------+
-| FCSD         | f05_f05_mg17          | Historical CAM6-chem half deg compset   | 1980 to 2015|
-|              |                       | using MERRA2 analysis                   |             |
+| FCSD         | f05_f05_mg17          | Historical CAM6-chem half-degree        | 1980 to 2015|
+|              |                       | resolution compset using MERRA2 analysis|             |
 +--------------+-----------------------+-----------------------------------------+-------------+
-| FC2000climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 1995-2005   |
+| FC2000climo  | f09_f09_mg17          | Climatological CAM6-chem using 1-degree | 1995-2005   |
 |              |                       | FV dycore, averaged SSTs, emissions, and| average     |
 |              |                       | lower boundary conditions (1995-2005)   | climo       |
 +--------------+-----------------------+-----------------------------------------+-------------+
-| FC2010climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 2006-2014   |
+| FC2010climo  | f09_f09_mg17          | Climatological CAM6-chem using 1-degree | 2006-2014   |
 |              |                       | FV dycore, averaged SSTs, emissions, and| average     |
 |              |                       | lower boundary conditions (2006-2014)   | climo       |
 +--------------+-----------------------+-----------------------------------------+-------------+
