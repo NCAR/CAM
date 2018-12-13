@@ -171,7 +171,7 @@
 <tbody valign="top">
 <tr class="row-even"><td>FHIST</td>
 <td>f09_f09_mg17</td>
-<td>Historical CAM6 using 1-degree finite
+<td>Historical CAM6 using 1 degree finite
 volume dycore <em>[Note - this is similar
 to the obsolete CAM5 FAMIP compset]</em></td>
 <td>1979 to 2015</td>
@@ -180,10 +180,13 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 <td>f09_f09_mg17</td>
 <td>Climatological present day climate
 (year 2000) with CAM6 physics
-using 1-degree fv dycore</td>
-<td>1995-2005
-average
-climo</td>
+using 1 degree fv dycore</td>
+<td><dl class="first last docutils">
+<dt>Climos over</dt>
+<dd>1995-2005
+1995-2005</dd>
+</dl>
+</td>
 </tr>
 </tbody>
 </table>
@@ -700,8 +703,6 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 </li>
 <li>Run create_scam6_iop script with appropriate IOP (e.g. IOP=scam_usrLabSea in this case)</li>
 </ul>
-<blockquote>
-<div><strong>Important note</strong>: For reproducing a SCAM case, it is necessary to validate that the atm_in settings for your SCAM run are the same as for the underlying CAM run (in the run directories for both simulations). This can be done by differencing the atm_in files. Many CAM compsets will have different emissions files or tuning parameters than a default SCAM case. So, user_nl_cam for the SCAM case should be modified to read in the same emissions and set parameters as the original run.</div></blockquote>
 </div>
 </div>
 </div>
@@ -797,41 +798,30 @@ to run with 32 levels that are not availble at this point. Half-degree SD compse
 <tbody valign="top">
 <tr class="row-even"><td>FCHIST</td>
 <td>f09_f09_mg17</td>
-<td>Historical CAM6-chem using 1-degree FV
+<td>Historical CAM6-chem using 1 degree FV
 dycore, using CMIP6 emissions, coupled
 to interactive land and MEGAN2.1</td>
 <td>1979 to 2015</td>
 </tr>
 <tr class="row-odd"><td>FCSD</td>
 <td>f09_f09_mg17</td>
-<td>Historical CAM6-chem 1-degree compset
-using MERRA2 analsysis with a 50-hour
+<td>Historical CAM6-chem 1deg compset using
+MERRA2 analsysis with a 50-hour
 relaxation. See details in the text</td>
 <td>1980 to 2015</td>
 </tr>
 <tr class="row-even"><td>FCSD</td>
 <td>f05_f05_mg17</td>
-<td>Historical CAM6-chem half-degree
-resolution compset using MERRA2 analysis</td>
+<td>Historical CAM6-chem half deg compset
+using MERRA2 analysis</td>
 <td>1980 to 2015</td>
 </tr>
-<tr class="row-odd"><td>FC2000climo</td>
+<tr class="row-odd"><td>FC2010climo</td>
 <td>f09_f09_mg17</td>
-<td>Climatological CAM6-chem using 1-degree
+<td>Climatological CAM6-chem using 1 degree
 FV dycore, averaged SSTs, emissions, and
-lower boundary conditions (1995-2005)</td>
-<td>1995-2005
-average
-climo</td>
-</tr>
-<tr class="row-even"><td>FC2010climo</td>
-<td>f09_f09_mg17</td>
-<td>Climatological CAM6-chem using 1-degree
-FV dycore, averaged SSTs, emissions, and
-lower boundary conditions (2006-2014)</td>
-<td>2006-2014
-average
-climo</td>
+lower boundary conditions (2005-2015)</td>
+<td>2010</td>
 </tr>
 </tbody>
 </table>
