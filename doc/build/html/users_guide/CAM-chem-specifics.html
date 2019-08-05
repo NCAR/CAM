@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>9. Chemistry specific modifications &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -30,8 +22,7 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -79,12 +70,14 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -103,79 +96,141 @@
 <p>CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (<a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf">http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf</a>). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="9%" />
-<col width="27%" />
-<col width="8%" />
-<col width="15%" />
-<col width="24%" />
-<col width="18%" />
+<col width="30%" />
+<col width="33%" />
+<col width="17%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Mechanism</th>
-<th class="head">Description</th>
-<th class="head">#Species</th>
-<th class="head">#Reactions</th>
-<th class="head">Mechanism Name</th>
-<th class="head">Pre-processor code</th>
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Mechanism</div>
+<div class="line">(pre-processor code)</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Model:</div>
+<div class="line">Chemistry Description</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">#Species</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">#Reactions</div>
+</div>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>TSMLT1</td>
-<td>Troposphere,
-stratosphere, mesosphere, and
-lower thermosphere</td>
-<td>231</td>
-<td>583 (433 kinetic,
-150 photolysis)</td>
-<td>MZ197_TSMLT1_20180423</td>
-<td>pp_waccm_tsmlt_mam4</td>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">TSMLT1</div>
+<div class="line">(pp_waccm_tsmlt_mam4)</div>
+</div>
+</td>
+<td>WACCM: Troposphere,
+stratosphere, mesosphere,
+and lower thermosphere</td>
+<td><div class="first last line-block">
+<div class="line">231 solution,</div>
+<div class="line">2 invariant</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">583
+(433 kinetic,</div>
+<div class="line">150 photolysis)</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td>TS1</td>
-<td>Troposphere
-and stratosphere</td>
-<td>221</td>
-<td>528 (405 kinetic,
-123 photolysis)</td>
-<td>MZ198_TS1-simpleVBS_20180423</td>
-<td>pp_trop_strat_mam4_vbs</td>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">TS1</div>
+<div class="line">(pp_trop_strat_mam4_vbs)</div>
+</div>
+</td>
+<td>CAM-chem: Troposphere and
+stratosphere</td>
+<td><div class="first last line-block">
+<div class="line">221 solution,</div>
+<div class="line">3 invariant</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">528
+(405 kinetic,</div>
+<div class="line">123 photolysis)</div>
+</div>
+</td>
 </tr>
-<tr class="row-even"><td>MA</td>
-<td>Middle atmosphere:
-stratosphere,
-mesosphere, and lower
-thermosphere</td>
-<td>98</td>
-<td>298 (207 kinetic,
-91 photolysis)</td>
-<td>&#160;</td>
-<td>pp_waccm_ma_mam4</td>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">MA</div>
+<div class="line">(pp_waccm_ma_mam4)</div>
+</div>
+</td>
+<td>WACCM: Middle atmosphere
+(stratosphere, mesosphere,
+and lower thermosphere)</td>
+<td><div class="first last line-block">
+<div class="line">98 solution,</div>
+<div class="line">2 invariant</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">298
+(207 kinetic,</div>
+<div class="line">91 photolysis)</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td>MAD</td>
-<td>Middle atmosphere plus D-region
-ion chemistry</td>
-<td>135</td>
-<td>593 (489 kinetic,
-104 photolysis)</td>
-<td>&#160;</td>
-<td>pp_waccm_mad_mam4</td>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">MAD</div>
+<div class="line">(pp_waccm_mad_mam4)</div>
+</div>
+</td>
+<td>WACCM: Middle atmosphere
+plus D-region ion chemistry</td>
+<td><div class="first last line-block">
+<div class="line">135 solution,</div>
+<div class="line">2 invariant</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">593
+(489 kinetic,</div>
+<div class="line">104 photolysis)</div>
+</div>
+</td>
 </tr>
-<tr class="row-even"><td>SC</td>
-<td>Specified chemistry for WACCM</td>
-<td>29</td>
-<td>12 (11 kinetic,
-1 photolysis)</td>
-<td>&#160;</td>
-<td>pp_waccm_sc_mam4</td>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">SC</div>
+<div class="line">(pp_waccm_sc_mam4)</div>
+</div>
+</td>
+<td>WACCM: Specified chemistry</td>
+<td><div class="first last line-block">
+<div class="line">29 solution,</div>
+<div class="line">8 invariant</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">12
+(11 kinetic,</div>
+<div class="line">1 photolysis)</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td>CAM</td>
-<td>Simplified chemistry for CAM to
-to allow tropospheric aerosol
-formation</td>
-<td>32</td>
-<td>7 (6 kinetic), 1
-photolysis)</td>
-<td>&#160;</td>
-<td>modal_aero</td>
+<td>CAM: Aerosol chemistry</td>
+<td><div class="first last line-block">
+<div class="line">25 solution,</div>
+<div class="line">7 invariant</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">7 (6 kinetic,</div>
+<div class="line">1 photolysis)</div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -256,7 +311,7 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 </ul>
 <p>Running with prescribed biogenic emissions:</p>
 <p>To turn run with prescribed biogenic emissions requires including those emissions in the namelist for surface emission files that are not indluced in the namelist by default. Additionally, one needs to turn off interactive biogenic emissions, if using a CAMchem or WACCM TSML compset:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">megan_emis_nl</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">megan_emis_nl</span>
  <span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
  <span class="n">megan_specifier</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
 <span class="o">&amp;</span>
@@ -293,7 +348,7 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
     </div>
   </body>
 </html>
