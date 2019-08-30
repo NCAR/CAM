@@ -1,4 +1,8 @@
-# CAM: The Community Atmosphere Model 
+# Welcome to the CAM Development Repository
+
+This is the repository for private, NSF-funded CAM development
+
+For CAM release code and public (AMWG) development, see the [ESCOMP/CAM](https://github.com/ESCOMP/CAM) repository.
 
 CAM User's Guide - https://ncar.github.io/CAM/doc/build/html/index.html
 
