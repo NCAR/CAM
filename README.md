@@ -2,7 +2,7 @@
 
 This is the repository for private, NSF-funded CAM development, including CAM documentation.
 
-__NOTE: This is unsupported development code and is subject to the [CESM developer's agreement](http://www.cgd.ucar.edu/cseg/development-code.html).__
+## NOTE: This is unsupported development code and is subject to the [CESM developer's agreement](http://www.cgd.ucar.edu/cseg/development-code.html).
 
 For CAM release code and public (AMWG) development, see the [ESCOMP/CAM](https://github.com/ESCOMP/CAM) repository.
 
