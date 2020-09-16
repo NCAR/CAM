@@ -17,7 +17,6 @@ Each of these models have a number of atmospheric configurations provided to run
 The predefined compsets exist with one of four levels of support.
 
 - **Scientifically supported**:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.
-- **Functionally supported**: One or more tests for this compset have been made using at least one resolution.  The resolutions/compsets have undergone some scientific validation and tuning, however, not to the extend of **Scientifically supported** compsets/resolutions. The user is encouraged to carefully examine the results.
 - **Tested**: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of "Tested" simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.
 - **Unsupported**:  These compsets are setup as a "convenience" for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the --run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.
 
@@ -76,13 +75,17 @@ The rationale behind this is that due to changes in code and namelist settings, 
 It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
 
 -------------------------------------------------------------------------------
-CAM functionally supported compsets
+CAM developmental compsets
 -------------------------------------------------------------------------------
 
-**Functionally supported uniform resolution CAM compsets**
+The CAM6.3 has a number of developmental compsets that are being evaluated for candidate CESM3 applications. They currently require the "run-unsupported" flag
+
+  % ./create_newcase --case ... --compset ... --run-unsupported
+
+**Uniform resolution developmental CAM compsets**
 
 +------------------------+-------------------------------------------+-------------------------------------+
-| Tested resolution      | Description                               | Compsets                            |
+| Resolution             | Description                               | Compsets                            |
 +========================+===========================================+=====================================+
 | ne30_ne30_mg17         | Approximately 1 degree CAM-SE             | F2000climo, F1850, FHIST, FHIST_BGC |
 |                        |                                           |                                     |
@@ -102,8 +105,8 @@ CAM functionally supported compsets
 |                        | with a lower resolution physics grid      |                                     |
 |                        | (approximately 3/8 degree)                |                                     |
 +------------------------+-------------------------------------------+-------------------------------------+
-| C96_C96_mg17           | Approximately 1 degree CAM-FV3            | F2000climo, B1850                   |
-|                        |                                           |                                     |
+| C96_C96_mg17           | Approximately 1 degree CAM-FV3            | F2000climo, F1850, FHIST, FHIST_BGC,|
+|                        |                                           | B1850                               |
 +------------------------+-------------------------------------------+-------------------------------------+
 
 In physics grid (pg) configurations using CAM-SE-CSLAM each element is divided in 3x3 (pg3) or
@@ -111,7 +114,8 @@ In physics grid (pg) configurations using CAM-SE-CSLAM each element is divided i
 `Herrington et al. (2019a) <https://journals.ametsoc.org/mwr/article/147/1/69/103200/Physics-Dynamics-Coupling-with-Element-Based-High>`_
 and `Herrington et al. (2019b) <https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019MS001684>`_, respectively.
 
-**Functionally supported variable resolution CAM compsets**
+
+**Variable resolution developmental CAM compsets**
 
 *CONUS Grid*
 
@@ -145,7 +149,7 @@ additionally refines a patch covering the Greenland with 1/8 degree resolution.
 +--------+--------+
 
 +-----------------------------------------------+---------------------------------+--------------------+
-| Tested resolution                             | Description                     | Compsets           |
+| Resolution                                    | Description                     | Compsets           |
 +===============================================+=================================+====================+
 | ne0CONUSne30x8_ne0CONUSne30x8_mt12            | Approximately 1/4 degree        | F2000climo, F1850, |
 |                                               | resolution over the Contiguous  | FHIST, FHIST_BGC   |
@@ -161,7 +165,6 @@ additionally refines a patch covering the Greenland with 1/8 degree resolution.
 |                                               | otherwise identical to the      |                    |
 |                                               | ne0ARCTICne30x4 grid elsewhere  |                    |
 +-----------------------------------------------+---------------------------------+--------------------+
-
 
 -------------------------------------------------------------------------------
 CAM Simple Models
@@ -205,8 +208,11 @@ For more information on the CESM Simpler Models project see http://www.cesm.ucar
 |              | f19_f19_mg17         |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 
-The FHS94, FTJ16, FKESSLER, and QPC6 COMPSET's are functionally supported with  the FV, FV3,
-SE and SE-CSLAM dynamical cores.
+Note that FHS94, FTJ16, FKESSLER, and QPC6 compset's can be run  with  the FV, FV3,
+SE and SE-CSLAM dynamical cores using the "run-unsupported" flag
+
+  % ./create_newcase --case ... --compset ... --run-unsupported
+
 
 ====================================================================================
 CAM aquaplanet (QP and QS compsets)
