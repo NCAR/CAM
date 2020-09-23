@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>5. Customizing CAM runs &#8212; camdoc  documentation</title>
+    <title>6. Customizing CAM runs &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Input Datasets" href="input-datasets.html" />
-    <link rel="prev" title="4. Atmospheric configurations (compsets)" href="atmospheric-configurations.html" />
+    <link rel="next" title="7. Input Datasets" href="input-datasets.html" />
+    <link rel="prev" title="5. User Defined Variable Resolution Configurations" href="variable-resolution-configurations.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -32,10 +32,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="input-datasets.html" title="6. Input Datasets"
+          <a href="input-datasets.html" title="7. Input Datasets"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="atmospheric-configurations.html" title="4. Atmospheric configurations (compsets)"
+          <a href="variable-resolution-configurations.html" title="5. User Defined Variable Resolution Configurations"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li> 
@@ -45,27 +45,27 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">5. Customizing CAM runs</a><ul>
-<li><a class="reference internal" href="#changing-cam-configurations">5.1. Changing CAM configurations</a><ul>
-<li><a class="reference internal" href="#changing-the-physics">5.1.1. Changing the physics</a></li>
+<li><a class="reference internal" href="#">6. Customizing CAM runs</a><ul>
+<li><a class="reference internal" href="#changing-cam-configurations">6.1. Changing CAM configurations</a><ul>
+<li><a class="reference internal" href="#changing-the-physics">6.1.1. Changing the physics</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#changing-cam-namelist-options">5.2. Changing CAM namelist options</a><ul>
-<li><a class="reference internal" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions">5.2.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions</a></li>
+<li><a class="reference internal" href="#changing-cam-namelist-options">6.2. Changing CAM namelist options</a><ul>
+<li><a class="reference internal" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions">6.2.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#user-defined-compsets">5.3. User-Defined Compsets</a></li>
-<li><a class="reference internal" href="#changing-specified-dynamics-compsets">5.4. Changing Specified Dynamics Compsets</a></li>
+<li><a class="reference internal" href="#user-defined-compsets">6.3. User-Defined Compsets</a></li>
+<li><a class="reference internal" href="#changing-specified-dynamics-compsets">6.4. Changing Specified Dynamics Compsets</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="atmospheric-configurations.html"
-                        title="previous chapter">4. Atmospheric configurations (compsets)</a></p>
+  <p class="topless"><a href="variable-resolution-configurations.html"
+                        title="previous chapter">5. User Defined Variable Resolution Configurations</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="input-datasets.html"
-                        title="next chapter">6. Input Datasets</a></p>
+                        title="next chapter">7. Input Datasets</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -94,7 +94,7 @@
           <div class="body" role="main">
             
   <div class="section" id="customizing-cam-runs">
-<span id="customizing-compsets"></span><h1>5. Customizing CAM runs<a class="headerlink" href="#customizing-cam-runs" title="Permalink to this headline">¶</a></h1>
+<span id="customizing-compsets"></span><h1>6. Customizing CAM runs<a class="headerlink" href="#customizing-cam-runs" title="Permalink to this headline">¶</a></h1>
 <p>Compsets are useful for easily setting up standard runs of CAM.  Sometimes though a user wants to customize a run.  The first step in doing this is to start with a compset which is close to what a user wants to run and then applying the appropriate modifications.  Users must be mindful of using a compset which has appropriate settings for the experiment to be run.</p>
 <dl class="docutils">
 <dt>It is important to understand that there are two main ways that CAM runs can be modified.</dt>
@@ -106,14 +106,14 @@
 </dl>
 <p>Users need to be careful when modifying CAM’s configuration and namelists as it is very easy to create an invalid run.  An example would be with the <code class="docutils literal notranslate"><span class="pre">-nlev</span></code> configuration setting as input files are dependent on this setting and may not exist for the requested dynamics/nlev combination.</p>
 <div class="section" id="changing-cam-configurations">
-<h2>5.1. Changing CAM configurations<a class="headerlink" href="#changing-cam-configurations" title="Permalink to this headline">¶</a></h2>
+<h2>6.1. Changing CAM configurations<a class="headerlink" href="#changing-cam-configurations" title="Permalink to this headline">¶</a></h2>
 <p>All configure options change the way that CAM is built and need to be applied before <code class="docutils literal notranslate"><span class="pre">case.build</span></code> is run.  Changing the configuration is done by issuing an <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code> command for <strong>CAM_CONFIG_OPTS</strong>.  It is important to make sure that you use the <code class="docutils literal notranslate"><span class="pre">--append</span></code> flag to maintain configuration options that are set by the compset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">append</span> <span class="n">CAM_CONFIG_OPTS</span><span class="o">=</span><span class="s1">&#39;-cosp&#39;</span>
 </pre></div>
 </div>
 <p>CAM has numerous options which can modify it’s configuration.  A few of the more widely used settings will be discussed here.  The complete listing of configure options is at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  More information on xmlchange can be found at the <a class="reference external" href="http://esmci.github.io/cime/Tools_user/xmlchange.html">xmlchange web page</a>.</p>
 <div class="section" id="changing-the-physics">
-<h3>5.1.1. Changing the physics<a class="headerlink" href="#changing-the-physics" title="Permalink to this headline">¶</a></h3>
+<h3>6.1.1. Changing the physics<a class="headerlink" href="#changing-the-physics" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>There are a number of settings which can change the physics which is run.  Some of the more popular settings are:</dt>
 <dd><ul class="first last simple">
@@ -126,10 +126,10 @@
 </div>
 </div>
 <div class="section" id="changing-cam-namelist-options">
-<h2>5.2. Changing CAM namelist options<a class="headerlink" href="#changing-cam-namelist-options" title="Permalink to this headline">¶</a></h2>
+<h2>6.2. Changing CAM namelist options<a class="headerlink" href="#changing-cam-namelist-options" title="Permalink to this headline">¶</a></h2>
 <p>There are a number of ways that CAM can be modified via namelist settings.  These values control the way the code is run and do not require a recompile of the code after they are changed.  CAM namelist variables include settings to tune the model for various quantities, control over output and many other options.  An example using CMIP5 emissions will be described here and a full explanation of controlling CAM output can be found at <a class="reference internal" href="model-output.html#model-output"><span class="std std-ref">Model Output</span></a>. .  A complete listing of all of CAM’s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/settings/current/cam_nml.html">CAM’s namelist variables</a></p>
 <div class="section" id="modifying-namelist-settings-detailed-example-using-cmip5-emissions">
-<h3>5.2.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions<a class="headerlink" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions" title="Permalink to this headline">¶</a></h3>
+<h3>6.2.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions<a class="headerlink" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions" title="Permalink to this headline">¶</a></h3>
 <p>The following steps illustrate how to change the CMIP emissions back to the CMIP5 version.  If a user desires to do this, they may cut/paste the ext_frc_specifier and srf_emis_specifier settings below and put them into their own user_nl_cam.</p>
 <p>First the user must create a case and set it up</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
@@ -173,7 +173,7 @@
 </div>
 </div>
 <div class="section" id="user-defined-compsets">
-<h2>5.3. User-Defined Compsets<a class="headerlink" href="#user-defined-compsets" title="Permalink to this headline">¶</a></h2>
+<h2>6.3. User-Defined Compsets<a class="headerlink" href="#user-defined-compsets" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes a user does not find a specific compset that brings in all of the specific versions of components that they want.  In this case, a user will need to create a user defined compset.  This is something that only an expert user should do as not all versions and variations of components are able to work together.  It is also important to note that creating runs outside of supported compsets may yield incorrect results due to the simple fact that they have not been tuned or tested.  A user needs to be extremely cautious when making their own user-defined compsets.</p>
 <p>A simple example will be discussed here, but a more comprehensive writeup can be found in <a class="reference external" href="http://esmci.github.io/cime/users_guide/compsets.html#creating-new-compsets.html">creating new compsets</a>.</p>
 <p>Typically users use shortnames in their <code class="docutils literal notranslate"><span class="pre">./create_newcase</span></code> commands for example:</p>
@@ -182,7 +182,7 @@
 </div>
 </div>
 <div class="section" id="changing-specified-dynamics-compsets">
-<h2>5.4. Changing Specified Dynamics Compsets<a class="headerlink" href="#changing-specified-dynamics-compsets" title="Permalink to this headline">¶</a></h2>
+<h2>6.4. Changing Specified Dynamics Compsets<a class="headerlink" href="#changing-specified-dynamics-compsets" title="Permalink to this headline">¶</a></h2>
 <p>Specified dynamics compsets are setup to use specified meteorological analysis (MERRA2 or GEOS5) to nudge the internally derived meteorology from the model to the analysis fields. Available compsets are only produced for a specific date and resolution.  Meteorological data sets (dates and resolutions) can be downloaded from the repository or from the Research Data Archive.  Information how to download MERRA2 or GEOS5 data sets can be found in ‘Meteorological Datasets &lt;<a class="reference external" href="https://ncar.github.io/CAM/doc/build/html/users_guide/input-datasets.html#meteorological-data-sets.html">https://ncar.github.io/CAM/doc/build/html/users_guide/input-datasets.html#meteorological-data-sets.html</a>&gt;’_.</p>
 <p>To change the start data of a specified dynamics simulation, the new start date and location of the meteorological data have to be adjusted in user_nl_cam, as shown in the following example for Jan 1st 2014 (start date) and using GEOS5 1 deg meteorological analysis. Also met_filenames_list needs to be updated if the simulation covers a different period than included in this file.  One has to make sure to also update nc_data to the start date, even if a branch or hybrid run is performed:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">met_data_file</span>          <span class="o">=</span> <span class="s1">&#39;2014/GEOS5_09x125_20140101.nc&#39;</span>
@@ -228,10 +228,10 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="input-datasets.html" title="6. Input Datasets"
+          <a href="input-datasets.html" title="7. Input Datasets"
              >next</a> |</li>
         <li class="right" >
-          <a href="atmospheric-configurations.html" title="4. Atmospheric configurations (compsets)"
+          <a href="variable-resolution-configurations.html" title="5. User Defined Variable Resolution Configurations"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li> 

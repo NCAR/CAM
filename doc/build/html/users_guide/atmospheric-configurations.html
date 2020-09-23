@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Customizing CAM runs" href="customizing-compsets.html" />
+    <link rel="next" title="5. User Defined Variable Resolution Configurations" href="variable-resolution-configurations.html" />
     <link rel="prev" title="3. Building and Running the atmospheric model within CESM" href="building-and-running-cam.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="customizing-compsets.html" title="5. Customizing CAM runs"
+          <a href="variable-resolution-configurations.html" title="5. User Defined Variable Resolution Configurations"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="building-and-running-cam.html" title="3. Building and Running the atmospheric model within CESM"
@@ -47,7 +47,7 @@
   <ul>
 <li><a class="reference internal" href="#">4. Atmospheric configurations (compsets)</a><ul>
 <li><a class="reference internal" href="#cam-scientifically-supported-compsets">4.1. CAM scientifically supported compsets</a></li>
-<li><a class="reference internal" href="#cam-functionally-supported-compsets">4.2. CAM functionally supported compsets</a></li>
+<li><a class="reference internal" href="#cam-developmental-compsets">4.2. CAM developmental compsets</a></li>
 <li><a class="reference internal" href="#cam-simple-models">4.3. CAM Simple Models</a><ul>
 <li><a class="reference internal" href="#cam-aquaplanet-qp-and-qs-compsets">4.3.1. CAM aquaplanet (QP and QS compsets)</a><ul>
 <li><a class="reference internal" href="#example-1-default-aquaplanet-with-prescribed-sst">4.3.1.1. Example 1: Default Aquaplanet with prescribed SST</a></li>
@@ -94,8 +94,8 @@
   <p class="topless"><a href="building-and-running-cam.html"
                         title="previous chapter">3. Building and Running the atmospheric model within CESM</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="customizing-compsets.html"
-                        title="next chapter">5. Customizing CAM runs</a></p>
+  <p class="topless"><a href="variable-resolution-configurations.html"
+                        title="next chapter">5. User Defined Variable Resolution Configurations</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -133,10 +133,9 @@
 <li><strong>WACCM-X</strong>: Whole Atmosphere Community Climate Model with thermosphere and ionosphere extension</li>
 </ul>
 <p>Each of these models have a number of atmospheric configurations provided to run them.  These component sets known as <strong>compsets</strong> are used to supply both configure and namelist settings for predefined experiments.</p>
-<p>The predefined compsets exist with one of four levels of support.</p>
+<p>The predefined compsets exist with one of three levels of support.</p>
 <ul class="simple">
 <li><strong>Scientifically supported</strong>:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.</li>
-<li><strong>Functionally supported</strong>: One or more tests for this compset have been made using at least one resolution.  The resolutions/compsets have undergone some scientific validation and tuning, however, not to the extend of <strong>Scientifically supported</strong> compsets/resolutions. The user is encouraged to carefully examine the results.</li>
 <li><strong>Tested</strong>: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of “Tested” simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.</li>
 <li><strong>Unsupported</strong>:  These compsets are setup as a “convenience” for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the –run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.</li>
 </ul>
@@ -213,9 +212,12 @@ using 1 degree fv dycore</td>
 The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2.
 It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.</p>
 </div>
-<div class="section" id="cam-functionally-supported-compsets">
-<h2>4.2. CAM functionally supported compsets<a class="headerlink" href="#cam-functionally-supported-compsets" title="Permalink to this headline">¶</a></h2>
-<p><strong>Functionally supported uniform resolution CAM compsets</strong></p>
+<div class="section" id="cam-developmental-compsets">
+<h2>4.2. CAM developmental compsets<a class="headerlink" href="#cam-developmental-compsets" title="Permalink to this headline">¶</a></h2>
+<p>The CAM6.3 has a number of developmental compsets that are being evaluated for candidate CESM3 applications. They currently require the “run-unsupported” flag</p>
+<blockquote>
+<div>% ./create_newcase –case … –compset … –run-unsupported</div></blockquote>
+<p><strong>Uniform resolution developmental CAM compsets</strong></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -223,7 +225,7 @@ It is recommended that if a user wants to make a true CAM4 or CAM5 run, that the
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Tested resolution</th>
+<tr class="row-odd"><th class="head">Resolution</th>
 <th class="head">Description</th>
 <th class="head">Compsets</th>
 </tr>
@@ -256,7 +258,8 @@ with a lower resolution physics grid
 </tr>
 <tr class="row-odd"><td>C96_C96_mg17</td>
 <td>Approximately 1 degree CAM-FV3</td>
-<td>F2000climo, B1850</td>
+<td>F2000climo, F1850, FHIST, FHIST_BGC,
+B1850</td>
 </tr>
 </tbody>
 </table>
@@ -264,7 +267,27 @@ with a lower resolution physics grid
 2x2 (pg2) quasi-uniform resolution physics columns. The pg3 and pg2 configurations are documented in
 <a class="reference external" href="https://journals.ametsoc.org/mwr/article/147/1/69/103200/Physics-Dynamics-Coupling-with-Element-Based-High">Herrington et al. (2019a)</a>
 and <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019MS001684">Herrington et al. (2019b)</a>, respectively.</p>
-<p><strong>Functionally supported variable resolution CAM compsets</strong></p>
+<p><strong>Variable resolution developmental CAM compsets</strong></p>
+<p><em>CONUS Grid</em></p>
+<p>The <strong>CONUS</strong> variable resolution grid is a 1 degree horizontal resolution grid with
+a regional refinement of 1/8 degree resolution over the continential United States.</p>
+<a class="reference internal image-reference" href="../_images/Grid_CONUS.png"><img alt="../_images/Grid_CONUS.png" class="align-center" src="../_images/Grid_CONUS.png" style="width: 350px; height: 350px;" /></a>
+<p><em>ARCTIC Grids</em></p>
+<p>Two variable resolution grids are available for the Artic region. The <strong>ARCTIC</strong> grid,
+which is a 1 degree horizontal resolution grid with regional refinement of 1/4 degree
+resolution over the broader Arctic region and the <strong>ARCTICGRIS</strong> grid which
+additionally refines a patch covering the Greenland with 1/8 degree resolution.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../_images/Grid_ARCTIC.png"><img alt="img1" src="../_images/Grid_ARCTIC.png" style="width: 350px; height: 350px;" /></a></td>
+<td><a class="reference internal" href="../_images/Grid_ARCTICGRIS.png"><img alt="img2" src="../_images/Grid_ARCTICGRIS.png" style="width: 350px; height: 350px;" /></a></td>
+</tr>
+</tbody>
+</table>
 <table border="1" class="docutils">
 <colgroup>
 <col width="47%" />
@@ -272,7 +295,7 @@ and <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/
 <col width="20%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Tested resolution</th>
+<tr class="row-odd"><th class="head">Resolution</th>
 <th class="head">Description</th>
 <th class="head">Compsets</th>
 </tr>
@@ -382,8 +405,10 @@ f19_f19_mg17</td>
 </tr>
 </tbody>
 </table>
-<p>The FHS94, FTJ16, FKESSLER, and QPC6 COMPSET’s are functionally supported with  the FV, FV3,
-SE and SE-CSLAM dynamical cores.</p>
+<p>Note that FHS94, FTJ16, FKESSLER, and QPC6 compset’s can be run  with  the FV, FV3,
+SE and SE-CSLAM dynamical cores using the “run-unsupported” flag</p>
+<blockquote>
+<div>% ./create_newcase –case … –compset … –run-unsupported</div></blockquote>
 <div class="section" id="cam-aquaplanet-qp-and-qs-compsets">
 <h3>4.3.1. CAM aquaplanet (QP and QS compsets)<a class="headerlink" href="#cam-aquaplanet-qp-and-qs-compsets" title="Permalink to this headline">¶</a></h3>
 <p>Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set of SST profiles based on the AquaPlanet Experiment project (APE; Neale &amp; Hoskins <a class="footnote-reference" href="#id6" id="id1">[2]</a>, Williamson et al. <a class="footnote-reference" href="#id7" id="id2">[3]</a>). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. <a class="footnote-reference" href="#id5" id="id3">[1]</a></p>
@@ -897,20 +922,20 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 </div>
 <div class="section" id="cam-chem-tested-compsets">
 <h2>4.5. CAM-chem tested compsets<a class="headerlink" href="#cam-chem-tested-compsets" title="Permalink to this headline">¶</a></h2>
-<p>CAM-chem tested compsets in CESM2.0
-(CAM-chem scientifically supported compsets will be available in CESM2.1)</p>
-<p>CAM-chem has a number of compsets/resolutions which are tested in CESM2.0, see Table.
-All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015.
-Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on
-56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested
-to run with 32 levels that are not availble at this point. Half-degree SD compsets use
-1-degree emissions. Users have to change to half-degree emissions if desired.</p>
+<p>CAM-chem tested compsets in CESM2.2:</p>
+<p>In CESM2.2 new compsets have been included and existing ones have been slightly changed with
+regard to starting dates and available resolutions.  In particular, new resolutions for running the spectral element dynamical core have been
+added and new compsets that use meteorological nudging using MERRA2 on CESM model levels, as described in Section 9.6.
+Starting dates have been changed to start in 2010-2014 using default CMIP6 emissions, besides for the regional refined grid over CONUS.
+Other anthropogenic and biomass burning emissions are available on cheyenne covering different periods, see Section 6.1.1. New emission
+regridding tools are available here (<a class="reference external" href="https://github.com/NCAR/IPT">https://github.com/NCAR/IPT</a>).
+These compsets are functional releases.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
-<col width="25%" />
-<col width="45%" />
-<col width="14%" />
+<col width="13%" />
+<col width="35%" />
+<col width="39%" />
+<col width="13%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Compset Name</th>
@@ -920,32 +945,58 @@ to run with 32 levels that are not availble at this point. Half-degree SD compse
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>FCHIST</td>
-<td>f09_f09_mg17</td>
-<td>Historical CAM6-chem using 1 degree FV
-dycore, using CMIP6 emissions, coupled
-to interactive land and MEGAN2.1</td>
-<td>1979 to 2015</td>
+<tr class="row-even"><td>FC2010climo</td>
+<td>f09_f09_mg17
+ne30_ne30_mg17
+ne30pg3_ne30pg3_mg17</td>
+<td>Climatological CAM6-chem using TS1
+chemistry, 1 deg horizontal resolution,
+different dycores, averaged SSTs, emis,
+lower boundary conditions (2005-2015)</td>
+<td>2010</td>
 </tr>
-<tr class="row-odd"><td>FCSD</td>
+<tr class="row-odd"><td>FCHIST</td>
+<td>f09_f09_mg17
+ne30_ne30_mg17
+ne30pg3_ne30pg3_mg17</td>
+<td>Historical CAM6-chem using TS1
+chemistry, 1 deg horizontal resolution,
+different dycores, CMIP6 emissions,
+coupled to interactive land and MEGAN2.1</td>
+<td>2010-2014</td>
+</tr>
+<tr class="row-even"><td>FCnudged</td>
+<td>f09_f09_mg17
+ne30_ne30_mg17
+ne30pg3_ne30pg3_mg17</td>
+<td>As FCHIST, but nudged to U,V,T from
+MERRA2 analsysis with a 50-hours
+interpolated to CESM (32) model levels</td>
+<td>2010-2014</td>
+</tr>
+<tr class="row-odd"><td>FCts2nudged</td>
+<td>f09_f09_mg17
+ne30_ne30_mg17
+ne30pg3_ne30pg3_mg17</td>
+<td>As FCnudged, but using TS2  chemistry</td>
+<td>2010-2014</td>
+</tr>
+<tr class="row-even"><td>FCnudged</td>
+<td>ne0CONUSne30x8_ne0CONUSne30x8_mt12</td>
+<td>As FCnudged for regional refined grid</td>
+<td>2013</td>
+</tr>
+<tr class="row-odd"><td>FCts2nudged</td>
+<td>ne0CONUSne30x8_ne0CONUSne30x8_mt12</td>
+<td>As FCts2nudged for regional refined grid</td>
+<td>2013</td>
+</tr>
+<tr class="row-even"><td>FCSD</td>
 <td>f09_f09_mg17</td>
 <td>Historical CAM6-chem 1deg compset using
 MERRA2 analsysis with a 50-hour
-relaxation. See details in the text</td>
+relaxation, using MERRA vertical levels</td>
 <td>1980 to 2015</td>
-</tr>
-<tr class="row-even"><td>FCSD</td>
-<td>f05_f05_mg17</td>
-<td>Historical CAM6-chem half deg compset
-using MERRA2 analysis</td>
-<td>1980 to 2015</td>
-</tr>
-<tr class="row-odd"><td>FC2010climo</td>
-<td>f09_f09_mg17</td>
-<td>Climatological CAM6-chem using 1 degree
-FV dycore, averaged SSTs, emissions, and
-lower boundary conditions (2005-2015)</td>
-<td>2010</td>
 </tr>
 </tbody>
 </table>
@@ -1145,7 +1196,7 @@ above.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="customizing-compsets.html" title="5. Customizing CAM runs"
+          <a href="variable-resolution-configurations.html" title="5. User Defined Variable Resolution Configurations"
              >next</a> |</li>
         <li class="right" >
           <a href="building-and-running-cam.html" title="3. Building and Running the atmospheric model within CESM"

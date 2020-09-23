@@ -34,17 +34,18 @@ This is due to many factors including code changes and namelist settings.  While
 What's new in the CAM6.3 release?
 -----------------------
 
-The CAM6.3 release consists of new functionally supported configurations mostly centered around new dynamical core configurations and capabilities. New capabilities include:
+The CAM6.3 is a developmental release mostly centered around new dynamical core configurations and capabilities. New configurations/capabilities include:
 
-a. The Spectral-Element (SE) dynamical core has been further developed since the CESM2.0 release. Algorithmic improvements include:
-  - New Exner function pressure gradient formulation and new reference profiles for damping to improve flow over orography.
-  - New vertical remapping algorithms.
-b. Extensive support for variable resolution SE applications. Three resolution/configurations are supported (CONUS, ARCTIC and ARCTICGRIS) and tools for making new grids are provided.
-c. Functional support for coupled simulations using CAM-SE and CAM-SE-CSLAM (Conservative Semi-Lagrangian multi-tracer transport scheme) is provided .
-d. NOAA's FV3 dynamical core used operationally by EMC (Environmental Modeling Center) has been coupled with CAM6 physics and functionally supported for coupled runs.
-e. A new simpler models configuration has been added: Moist Held-Suarez.
+ - The Spectral-Element (SE) dynamical core has been further developed since the `CESM2.0 release <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017MS001257>`_. Algorithmic improvements include:
+   - New Exner function pressure gradient formulation and new reference profiles for damping to improve flow over orography.
+   - New vertical remapping algorithms.
+ - Extensive new capabilities for variable resolution SE applications which include three new resolutions/configurations (CONUS, ARCTIC and ARCTICGRIS) and tools for making new grids are.
+ - Developmental setups for coupled simulations using CAM-SE and CAM-SE-CSLAM (Conservative Semi-Lagrangian multi-tracer transport scheme).
+ - NOAA's FV3 dynamical core used operationally by EMC (Environmental Modeling Center) has been coupled with CAM6 physics.
+ - A new simpler models configuration has been added: Moist Held-Suarez.
 
-As opposed to the CESM2.0 release, these new configurations are not fully scientifically supported in the sense of extensive tuning and vetting.
+As opposed to the CESM2.0 release, these new configurations are not fully scientifically supported in the sense of extensive tuning, testing and vetting. Hence they are referred to as
+**developmental configurations**.
 
 
 

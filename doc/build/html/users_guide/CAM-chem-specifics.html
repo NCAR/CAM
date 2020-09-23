@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9. Chemistry specific modifications &#8212; camdoc  documentation</title>
+    <title>10. Chemistry specific modifications &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Downloading CAM standalone" href="checking-out-cam-standalone.html" />
-    <link rel="prev" title="8. Physics modifications via the namelist" href="physics-modifications-via-the-namelist.html" />
+    <link rel="next" title="11. Downloading CAM standalone" href="checking-out-cam-standalone.html" />
+    <link rel="prev" title="9. Physics modifications via the namelist" href="physics-modifications-via-the-namelist.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -32,10 +32,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="checking-out-cam-standalone.html" title="10. Downloading CAM standalone"
+          <a href="checking-out-cam-standalone.html" title="11. Downloading CAM standalone"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="physics-modifications-via-the-namelist.html" title="8. Physics modifications via the namelist"
+          <a href="physics-modifications-via-the-namelist.html" title="9. Physics modifications via the namelist"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li> 
@@ -45,24 +45,24 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">9. Chemistry specific modifications</a><ul>
-<li><a class="reference internal" href="#chemical-mechanisms">9.1. Chemical mechanisms</a></li>
-<li><a class="reference internal" href="#modifications-of-the-chemical-mechanisms">9.2. Modifications of the Chemical Mechanisms</a></li>
-<li><a class="reference internal" href="#adding-emissions-and-lower-boundary-conditions">9.3. Adding emissions and lower boundary conditions</a></li>
-<li><a class="reference internal" href="#adding-species-and-changing-the-mechanism">9.4. Adding species and changing the mechanism</a></li>
-<li><a class="reference internal" href="#running-with-prognostic-fire-emissions">9.5. Running with prognostic fire emissions</a></li>
-<li><a class="reference internal" href="#running-with-fixed-land-data">9.6. Running with fixed land data</a></li>
-<li><a class="reference internal" href="#running-with-interactiv-prescribed-biogenic-emissions">9.7. Running with interactiv / prescribed biogenic emissions</a></li>
+<li><a class="reference internal" href="#">10. Chemistry specific modifications</a><ul>
+<li><a class="reference internal" href="#chemical-mechanisms">10.1. Chemical mechanisms</a></li>
+<li><a class="reference internal" href="#modifications-of-the-chemical-mechanisms">10.2. Modifications of the Chemical Mechanisms</a></li>
+<li><a class="reference internal" href="#adding-emissions-and-lower-boundary-conditions">10.3. Adding emissions and lower boundary conditions</a></li>
+<li><a class="reference internal" href="#adding-species-and-changing-the-mechanism">10.4. Adding species and changing the mechanism</a></li>
+<li><a class="reference internal" href="#running-with-prognostic-fire-emissions">10.5. Running with prognostic fire emissions</a></li>
+<li><a class="reference internal" href="#running-with-fixed-land-data">10.6. Running with fixed land data</a></li>
+<li><a class="reference internal" href="#running-with-interactiv-prescribed-biogenic-emissions">10.7. Running with interactiv / prescribed biogenic emissions</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="physics-modifications-via-the-namelist.html"
-                        title="previous chapter">8. Physics modifications via the namelist</a></p>
+                        title="previous chapter">9. Physics modifications via the namelist</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="checking-out-cam-standalone.html"
-                        title="next chapter">10. Downloading CAM standalone</a></p>
+                        title="next chapter">11. Downloading CAM standalone</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -91,10 +91,10 @@
           <div class="body" role="main">
             
   <div class="section" id="chemistry-specific-modifications">
-<span id="cam-chem-specifics"></span><h1>9. Chemistry specific modifications<a class="headerlink" href="#chemistry-specific-modifications" title="Permalink to this headline">¶</a></h1>
+<span id="cam-chem-specifics"></span><h1>10. Chemistry specific modifications<a class="headerlink" href="#chemistry-specific-modifications" title="Permalink to this headline">¶</a></h1>
 <p>CESM2.0 supports one standard mechanisms for CAM, CAM-chem, and WACCM (see details in the cam6_scientific_guide). Here, we describe details on how the chemical mechanism is compiled and how to perform modifications of chemistry in the model, including adding or removing chemical and aerosol species, which requires changing the chemical mechanism and if applicable changes to wet and dry deposition.  Additional changes may be required in the namelist, e.g., adding our removing output, changing deposition species etc., as described in Section 5.2.  Furthermore, code changes may be required, depending of the specifics of the changes.</p>
 <div class="section" id="chemical-mechanisms">
-<span id="id1"></span><h2>9.1. Chemical mechanisms<a class="headerlink" href="#chemical-mechanisms" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>10.1. Chemical mechanisms<a class="headerlink" href="#chemical-mechanisms" title="Permalink to this headline">¶</a></h2>
 <p>CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (<a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf">http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf</a>). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -238,7 +238,7 @@ plus D-region ion chemistry</td>
 </table>
 </div>
 <div class="section" id="modifications-of-the-chemical-mechanisms">
-<h2>9.2. Modifications of the Chemical Mechanisms<a class="headerlink" href="#modifications-of-the-chemical-mechanisms" title="Permalink to this headline">¶</a></h2>
+<h2>10.2. Modifications of the Chemical Mechanisms<a class="headerlink" href="#modifications-of-the-chemical-mechanisms" title="Permalink to this headline">¶</a></h2>
 <p>To modify the chemical mechanism, including changing reaction rates requires the following steps:</p>
 <ul class="simple">
 <li>Check out an existing compset that you would like to modify and compile and build your case</li>
@@ -249,7 +249,7 @@ plus D-region ion chemistry</td>
 </ul>
 </div>
 <div class="section" id="adding-emissions-and-lower-boundary-conditions">
-<h2>9.3. Adding emissions and lower boundary conditions<a class="headerlink" href="#adding-emissions-and-lower-boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<h2>10.3. Adding emissions and lower boundary conditions<a class="headerlink" href="#adding-emissions-and-lower-boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <p>Adding new chemical or aerosol species requires to include their sources (emissions) and sinks (deposition, see below).
 Sources can be either emissions (surface or vertical, see Section 6.1) or concentrations in form of lower boundary conditions.
 To add new emissions you have to copy the existing list of emisisons to your user_nl_cam file and add the additional species (See Section 5.2.1).</p>
@@ -261,7 +261,7 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 ‘H2402’, ‘OCS’, ‘SF6’, ‘CFC11eq’</div></blockquote>
 </div>
 <div class="section" id="adding-species-and-changing-the-mechanism">
-<h2>9.4. Adding species and changing the mechanism<a class="headerlink" href="#adding-species-and-changing-the-mechanism" title="Permalink to this headline">¶</a></h2>
+<h2>10.4. Adding species and changing the mechanism<a class="headerlink" href="#adding-species-and-changing-the-mechanism" title="Permalink to this headline">¶</a></h2>
 <p>The addition of species with dry and wet deposition requires code changes. This requires to add information of the Henry’s law coefficient:</p>
 <ul>
 <li><p class="first">Copy $CCSMROOT/cime/src/drivers/mct/shr/seq_drydep_mod.F90 in to your  $CASEROOTSourceMods/src.share directory and modify the following. You can also map the new new species to deposit with the same rates as a species already undergoing wet deposition and therefore skip this step.</p>
@@ -294,14 +294,14 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 </ul>
 </div>
 <div class="section" id="running-with-prognostic-fire-emissions">
-<h2>9.5. Running with prognostic fire emissions<a class="headerlink" href="#running-with-prognostic-fire-emissions" title="Permalink to this headline">¶</a></h2>
+<h2>10.5. Running with prognostic fire emissions<a class="headerlink" href="#running-with-prognostic-fire-emissions" title="Permalink to this headline">¶</a></h2>
 <p>This option will be added in CESM2.1</p>
 </div>
 <div class="section" id="running-with-fixed-land-data">
-<h2>9.6. Running with fixed land data<a class="headerlink" href="#running-with-fixed-land-data" title="Permalink to this headline">¶</a></h2>
+<h2>10.6. Running with fixed land data<a class="headerlink" href="#running-with-fixed-land-data" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="running-with-interactiv-prescribed-biogenic-emissions">
-<h2>9.7. Running with interactiv / prescribed biogenic emissions<a class="headerlink" href="#running-with-interactiv-prescribed-biogenic-emissions" title="Permalink to this headline">¶</a></h2>
+<h2>10.7. Running with interactiv / prescribed biogenic emissions<a class="headerlink" href="#running-with-interactiv-prescribed-biogenic-emissions" title="Permalink to this headline">¶</a></h2>
 <p>Running with interactive biogenic emissions:</p>
 <ul class="simple">
 <li>The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified:</li>
@@ -339,10 +339,10 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="checking-out-cam-standalone.html" title="10. Downloading CAM standalone"
+          <a href="checking-out-cam-standalone.html" title="11. Downloading CAM standalone"
              >next</a> |</li>
         <li class="right" >
-          <a href="physics-modifications-via-the-namelist.html" title="8. Physics modifications via the namelist"
+          <a href="physics-modifications-via-the-namelist.html" title="9. Physics modifications via the namelist"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li> 

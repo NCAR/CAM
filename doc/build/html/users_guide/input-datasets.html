@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6. Input Datasets &#8212; camdoc  documentation</title>
+    <title>7. Input Datasets &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Model Output:" href="model-output.html" />
-    <link rel="prev" title="5. Customizing CAM runs" href="customizing-compsets.html" />
+    <link rel="next" title="8. Model Output:" href="model-output.html" />
+    <link rel="prev" title="6. Customizing CAM runs" href="customizing-compsets.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -32,10 +32,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="model-output.html" title="7. Model Output:"
+          <a href="model-output.html" title="8. Model Output:"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="customizing-compsets.html" title="5. Customizing CAM runs"
+          <a href="customizing-compsets.html" title="6. Customizing CAM runs"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li> 
@@ -45,32 +45,32 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">6. Input Datasets</a><ul>
-<li><a class="reference internal" href="#emissions">6.1. Emissions</a><ul>
-<li><a class="reference internal" href="#list-of-available-emissions-datasets">6.1.1. List of available emissions datasets</a></li>
-<li><a class="reference internal" href="#list-of-species-with-emissions-cam">6.1.2. List of species with emissions (CAM)</a></li>
-<li><a class="reference internal" href="#list-of-species-with-dry-and-wet-deposition-cam">6.1.3. List of species with dry and wet deposition (CAM)</a></li>
-<li><a class="reference internal" href="#list-of-species-with-emissions-camchem-waccm">6.1.4. List of species with emissions (CAMchem/WACCM)</a></li>
-<li><a class="reference internal" href="#list-of-species-with-dry-and-wet-deposition-camchem-waccm">6.1.5. List of species with dry and wet deposition (CAMChem/WACCM)</a></li>
-<li><a class="reference internal" href="#list-of-species-with-biogenic-emissions-camchem-waccm">6.1.6. List of species with biogenic emissions (CAMChem/WACCM)</a></li>
-<li><a class="reference internal" href="#waccm-x-emissions">6.1.7. WACCM-X emissions</a></li>
+<li><a class="reference internal" href="#">7. Input Datasets</a><ul>
+<li><a class="reference internal" href="#emissions">7.1. Emissions</a><ul>
+<li><a class="reference internal" href="#list-of-available-emissions-datasets">7.1.1. List of available emissions datasets</a></li>
+<li><a class="reference internal" href="#list-of-species-with-emissions-cam">7.1.2. List of species with emissions (CAM)</a></li>
+<li><a class="reference internal" href="#list-of-species-with-dry-and-wet-deposition-cam">7.1.3. List of species with dry and wet deposition (CAM)</a></li>
+<li><a class="reference internal" href="#list-of-species-with-emissions-camchem-waccm">7.1.4. List of species with emissions (CAMchem/WACCM)</a></li>
+<li><a class="reference internal" href="#list-of-species-with-dry-and-wet-deposition-camchem-waccm">7.1.5. List of species with dry and wet deposition (CAMChem/WACCM)</a></li>
+<li><a class="reference internal" href="#list-of-species-with-biogenic-emissions-camchem-waccm">7.1.6. List of species with biogenic emissions (CAMChem/WACCM)</a></li>
+<li><a class="reference internal" href="#waccm-x-emissions">7.1.7. WACCM-X emissions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lower-boundary-data-sets">6.2. Lower boundary data sets</a></li>
-<li><a class="reference internal" href="#soil-erodibility-files">6.3. Soil erodibility files</a></li>
-<li><a class="reference internal" href="#topography-files">6.4. Topography files</a></li>
-<li><a class="reference internal" href="#meteorological-data-sets">6.5. Meteorological data sets</a></li>
-<li><a class="reference internal" href="#solar-input-files">6.6. Solar input files</a><ul>
-<li><a class="reference internal" href="#solar-irradiance">6.6.1. Solar irradiance</a></li>
-<li><a class="reference internal" href="#waccm-solar-inputs">6.6.2. WACCM solar inputs</a></li>
-<li><a class="reference internal" href="#waccm-x-solar-inputs">6.6.3. WACCM-X solar inputs</a></li>
+<li><a class="reference internal" href="#lower-boundary-data-sets">7.2. Lower boundary data sets</a></li>
+<li><a class="reference internal" href="#soil-erodibility-files">7.3. Soil erodibility files</a></li>
+<li><a class="reference internal" href="#topography-files">7.4. Topography files</a></li>
+<li><a class="reference internal" href="#meteorological-data-sets">7.5. Meteorological data sets</a></li>
+<li><a class="reference internal" href="#solar-input-files">7.6. Solar input files</a><ul>
+<li><a class="reference internal" href="#solar-irradiance">7.6.1. Solar irradiance</a></li>
+<li><a class="reference internal" href="#waccm-solar-inputs">7.6.2. WACCM solar inputs</a></li>
+<li><a class="reference internal" href="#waccm-x-solar-inputs">7.6.3. WACCM-X solar inputs</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#additional-inputs-for-waccm-and-waccm-x">6.7. Additional inputs for WACCM and WACCM-X</a><ul>
-<li><a class="reference internal" href="#geomagnetic-coefficients">6.7.1. Geomagnetic coefficients</a></li>
-<li><a class="reference internal" href="#ion-drag">6.7.2. Ion drag</a></li>
-<li><a class="reference internal" href="#electrons">6.7.3. Electrons</a></li>
-<li><a class="reference internal" href="#upper-boundary-condition">6.7.4. Upper boundary condition</a></li>
+<li><a class="reference internal" href="#additional-inputs-for-waccm-and-waccm-x">7.7. Additional inputs for WACCM and WACCM-X</a><ul>
+<li><a class="reference internal" href="#geomagnetic-coefficients">7.7.1. Geomagnetic coefficients</a></li>
+<li><a class="reference internal" href="#ion-drag">7.7.2. Ion drag</a></li>
+<li><a class="reference internal" href="#electrons">7.7.3. Electrons</a></li>
+<li><a class="reference internal" href="#upper-boundary-condition">7.7.4. Upper boundary condition</a></li>
 </ul>
 </li>
 </ul>
@@ -79,10 +79,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="customizing-compsets.html"
-                        title="previous chapter">5. Customizing CAM runs</a></p>
+                        title="previous chapter">6. Customizing CAM runs</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="model-output.html"
-                        title="next chapter">7. Model Output:</a></p>
+                        title="next chapter">8. Model Output:</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -111,7 +111,7 @@
           <div class="body" role="main">
             
   <div class="section" id="input-datasets">
-<span id="id1"></span><h1>6. Input Datasets<a class="headerlink" href="#input-datasets" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>7. Input Datasets<a class="headerlink" href="#input-datasets" title="Permalink to this headline">¶</a></h1>
 <p>Input datasets are required to run the model and differ depending on the configuration
 used. Here we described data sets that are required for some or all of the CESM2
 configurations.</p>
@@ -123,30 +123,30 @@ with prescribed stratospheric aerosols require prescribed input dataset that are
 derived from full chemistry simulations. Additional dataset include sea-surface
 temperatures, and prescribed land data.</p>
 <div class="section" id="emissions">
-<h2>6.1. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h2>
-<p>All CAM, CAM-chem and WACCM configurations require surface emissions and / or external
-forcings (vertically distributed emissions), in all of these we place all biomass burning
-emissions at the surface, as well as anthropogenic emissions, besides sulfate. Aircraft
-and volcanic emissions are distributed with altitude. Different emission sectors are
-separted in these categories: anthropogenic (anthro), biomass burning (bb), biogenic (bg),
-volcanic source and others (soil, ocean etc.).</p>
+<h2>7.1. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h2>
+<p>All CAM, CAM-chem and WACCM configurations require surface emissions and, in most cases, external forcings
+(vertically distributed emissions). In the standard compsets all biomass burning emissions are at the surface.
+Anthropogenic emissions are mostly released at the surface, but some sectors of sulfate emissions are injected
+vertically. Aircraft and volcanic emissions are distributed with altitude.  The standard emission files are
+provided separately for each sector: anthropogenic (anthro), biomass burning (bb), biogenic (bg), volcanic
+source and others (soil, ocean etc.), for convenience and clarity.  CESM will read multiple emissions files
+for each compound (specified in the namelist) and sum them in the model.  There are no restrictions on the
+filenames or the variable names within the files.</p>
 <div class="section" id="list-of-available-emissions-datasets">
-<h3>6.1.1. List of available emissions datasets<a class="headerlink" href="#list-of-available-emissions-datasets" title="Permalink to this headline">¶</a></h3>
-<p>CESM2.0 default emissions are based on the CMIP6 inventories for anthropogenic and biomass
-burning emissions, provided by the Community Emissions Data System
-(CEDS, <a class="reference external" href="http://www.globalchange.umd.edu/ceds/ceds-cmip6-data/">http://www.globalchange.umd.edu/ceds/ceds-cmip6-data/</a>),
-original files are available at: <a class="reference external" href="https://esgf-node.llnl.gov/search/input4mips/">https://esgf-node.llnl.gov/search/input4mips/</a>.
-Additional emissions (soil, ocean) are from the POET inventory (<a class="reference external" href="http://eccad.aeris-data.fr/">http://eccad.aeris-data.fr/</a>).</p>
+<h3>7.1.1. List of available emissions datasets<a class="headerlink" href="#list-of-available-emissions-datasets" title="Permalink to this headline">¶</a></h3>
+<p>The default emissions for CESM2 are based on the CMIP6 inventories for anthropogenic and biomass burning emissions, provided by the Community Emissions Data System (CEDS, <a class="reference external" href="http://www.globalchange.umd.edu/ceds/ceds-cmip6-data/">http://www.globalchange.umd.edu/ceds/ceds-cmip6-data/</a>), original files are available at: <a class="reference external" href="https://esgf-node.llnl.gov/search/input4mips/">https://esgf-node.llnl.gov/search/input4mips/</a>. Additional emissions (soil, ocean) are from the POET inventory (<a class="reference external" href="http://eccad.aeris-data.fr/">http://eccad.aeris-data.fr/</a>).
+Continuous volcanic out‐gassing emissions of SO2, with 2.5% emitted as sulfate aerosols, are from the GEIA inventory (Andres &amp; Kasgnoc, <a class="reference external" href="https://doi.org/10.1029/98JD02091,1998">https://doi.org/10.1029/98JD02091,1998</a>). SO2 from eruptive volcanoes is specified as well, based on the database of Volcanic Emissions for Earth System Models, version 3.11 (VolcanEESM; Neely &amp; Schmidt, <a class="reference external" href="https://doi.org/10.5285/76ebdc0b-0eed-4f70-b89e-55e606bcd568">https://doi.org/10.5285/76ebdc0b-0eed-4f70-b89e-55e606bcd568</a>, 2016).
+It is straightforward to use different emissions inventories in CAM, CAM-chem or WACCM simulations by specifying different files (in the proper format) in the namelist.   A list of emissions inventories that have been used in CESM2 are at: <a class="reference external" href="https://wiki.ucar.edu/display/camchem/Emission+Inventories">https://wiki.ucar.edu/display/camchem/Emission+Inventories</a>.</p>
 </div>
 <div class="section" id="list-of-species-with-emissions-cam">
-<h3>6.1.2. List of species with emissions (CAM)<a class="headerlink" href="#list-of-species-with-emissions-cam" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.2. List of species with emissions (CAM)<a class="headerlink" href="#list-of-species-with-emissions-cam" title="Permalink to this headline">¶</a></h3>
 <p>Surface (anthro, bb): bc_a4 , pom_a4 , num_a4 (for bc_a4 and pom_a4), SO2</p>
 <p>Surface (anthro, bb, biogenic): SOAG</p>
 <p>Vertical (extfrc): SO2 (aircraft, contvolcano), so4_a1 (anthro-ene, contvolcano),
 so4_a2 (contvolcano), bc_a4 (aircraft), num_a1, num_a2, num_a4</p>
 </div>
 <div class="section" id="list-of-species-with-dry-and-wet-deposition-cam">
-<h3>6.1.3. List of species with dry and wet deposition (CAM)<a class="headerlink" href="#list-of-species-with-dry-and-wet-deposition-cam" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.3. List of species with dry and wet deposition (CAM)<a class="headerlink" href="#list-of-species-with-dry-and-wet-deposition-cam" title="Permalink to this headline">¶</a></h3>
 <p>Dry and wet deposition:</p>
 <p>Aerosols: bc_a1, bc_a4, dst_a1, dst_a2, dst_a3, ncl_a1, ncl_a2, ncl_a3,
 num_a1, num_a2, num_a3, num_a4, pom_a1, pom_a4, so4_a1, so4_a2, so4_a3,
@@ -154,7 +154,7 @@ soa_a1, soa_a2</p>
 <p>Gas-phase: H2O2, H2SO4, SO2</p>
 </div>
 <div class="section" id="list-of-species-with-emissions-camchem-waccm">
-<h3>6.1.4. List of species with emissions (CAMchem/WACCM)<a class="headerlink" href="#list-of-species-with-emissions-camchem-waccm" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.4. List of species with emissions (CAMchem/WACCM)<a class="headerlink" href="#list-of-species-with-emissions-camchem-waccm" title="Permalink to this headline">¶</a></h3>
 <p>Surface (anthro, bb, other): NO, NH3, CO, C2H4, C2H6, C3H6, C3H8</p>
 <p>Surface (anthro, bb): bc_a4, pom_a4, num_a4, SO2, C2H2, BIGALK, BIGENE, BENZENE, TOLUENE,
 XYLENES, CH3OH, C2H5OH, CH2O, CH3CHO, CH3COCH3, MEK, HCOOH, CH3COOH, HCN, CH3CN, IVOC,
@@ -164,7 +164,7 @@ so4_a1 (anthro-ene, contvolcano), so4_a2 (contvolcano), bc_a4 (aircraft), num_a1
 num_a4</p>
 </div>
 <div class="section" id="list-of-species-with-dry-and-wet-deposition-camchem-waccm">
-<h3>6.1.5. List of species with dry and wet deposition (CAMChem/WACCM)<a class="headerlink" href="#list-of-species-with-dry-and-wet-deposition-camchem-waccm" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.5. List of species with dry and wet deposition (CAMChem/WACCM)<a class="headerlink" href="#list-of-species-with-dry-and-wet-deposition-camchem-waccm" title="Permalink to this headline">¶</a></h3>
 <p>Species with dry deposition:</p>
 <p>Aerosols: bc_a1, bc_a4, dst_a1, dst_a2, dst_a3, ncl_a1, ncl_a2, ncl_a3,
 num_a1, num_a2, num_a3, num_a4, pom_a1, pom_a4, so4_a1, so4_a2, so4_a3,
@@ -194,7 +194,7 @@ NTERPOOH, ONITR, PHENOOH, POOH, ROOH, SO2, SOAG0, SOAG1, SOAG2, SOAG3, SOAG4, SV
 TERP2OOH, TERPNIT, TERPOOH, TERPROD1, TERPROD2, TOLOOH, XOOH, XYLENOOH, XYLOLOOH</p>
 </div>
 <div class="section" id="list-of-species-with-biogenic-emissions-camchem-waccm">
-<h3>6.1.6. List of species with biogenic emissions (CAMChem/WACCM)<a class="headerlink" href="#list-of-species-with-biogenic-emissions-camchem-waccm" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.6. List of species with biogenic emissions (CAMChem/WACCM)<a class="headerlink" href="#list-of-species-with-biogenic-emissions-camchem-waccm" title="Permalink to this headline">¶</a></h3>
 <p>Species with MEGAN emissions (CAM-chem (TS1) and WACCM (TSMLT)) are listed in drv_flds_in,
 and can be modified in user_nl_cam. Note, modifications may be required for other
 mechanisms), see
@@ -224,7 +224,7 @@ mechanisms), see
 </div>
 </div>
 <div class="section" id="waccm-x-emissions">
-<h3>6.1.7. WACCM-X emissions<a class="headerlink" href="#waccm-x-emissions" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.7. WACCM-X emissions<a class="headerlink" href="#waccm-x-emissions" title="Permalink to this headline">¶</a></h3>
 <p>WACCM-X uses emissions relevant to middle atmosphere (MA) chemistry, consistent with those
 provided for the REF-C1 experiment of the <a class="reference external" href="http://www.sparc-climate.org/fileadmin/customer/6_Publications/Newsletter_PDF/40_SPARCnewsletter_Jan2013_web.pdf">IGAC/SPARC Chemistry-Climate Model Initiative
 (CCMI)</a>
@@ -232,16 +232,15 @@ Community Simulations.</p>
 </div>
 </div>
 <div class="section" id="lower-boundary-data-sets">
-<h2>6.2. Lower boundary data sets<a class="headerlink" href="#lower-boundary-data-sets" title="Permalink to this headline">¶</a></h2>
-<p>For CESM2.0 we provide one lower boundary data set from 1750 to the end of 2015, that can
-be used for different horizontal resolutions. This data file includes of different
-long-lived greenhouse and other gases that are prescribed as concentrations at the surface.
-This file works for all CESM2 atmospheric configurations.</p>
-<p>flbc_file = ‘/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc’</p>
-<p>Additional lower boundary condition files for future CMIP6 pathways will be provided in CESM2.1</p>
+<h2>7.2. Lower boundary data sets<a class="headerlink" href="#lower-boundary-data-sets" title="Permalink to this headline">¶</a></h2>
+<p>In CESM2 a number of very long-lived chemical species have their mixing ratios specified at the surface (e.g., CO2, CH4, CFCs).
+The standard lower boundary condition file is provided for 1750 to 2015, and is suitable for various horizontal resolutions.
+This file works for all CESM2 atmospheric configurations.
+flbc_file = ‘/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc’
+Additional files are available for the SSP scenarios.</p>
 </div>
 <div class="section" id="soil-erodibility-files">
-<h2>6.3. Soil erodibility files<a class="headerlink" href="#soil-erodibility-files" title="Permalink to this headline">¶</a></h2>
+<h2>7.3. Soil erodibility files<a class="headerlink" href="#soil-erodibility-files" title="Permalink to this headline">¶</a></h2>
 <p>Soil erodibility maps provide a proxy for the relative ability of the soils in different
 regions to generate dust.  The maps are input as a netcdf file, with no time dependence,
 and are a unitles factor for each grid box, and are interpolated to the resolution of the
@@ -256,12 +255,12 @@ Albani et al., 2014.</p>
 soil_erod_file         = ‘/glade/p/cesmdata/cseg/inputdata/atm/cam/dst/dst_source2x2tunedcam6-2x2-04062017.nc’</p>
 </div>
 <div class="section" id="topography-files">
-<h2>6.4. Topography files<a class="headerlink" href="#topography-files" title="Permalink to this headline">¶</a></h2>
+<h2>7.4. Topography files<a class="headerlink" href="#topography-files" title="Permalink to this headline">¶</a></h2>
 <p>Topography files are generated with the NCAR Global Model Topography Generation Software for Unstructured Grids:</p>
 <p><a class="reference external" href="https://github.com/NCAR/Topo/tree/TopoCESM2">https://github.com/NCAR/Topo/tree/TopoCESM2</a></p>
 </div>
 <div class="section" id="meteorological-data-sets">
-<h2>6.5. Meteorological data sets<a class="headerlink" href="#meteorological-data-sets" title="Permalink to this headline">¶</a></h2>
+<h2>7.5. Meteorological data sets<a class="headerlink" href="#meteorological-data-sets" title="Permalink to this headline">¶</a></h2>
 <p>For specified dynamics model simulations, meteorolocial analysis from the  Goddard Earth
 Observing System Model, Version 5 (GEOS5) and the Modern-Era Retrospective analysis for
 Research and Applications, Version 2 (MERRA2) data have been prepared to run CESM and WRF
@@ -276,9 +275,9 @@ resolution): <a class="reference external" href="https://rda.ucar.edu/datasets/d
 HSI.</p>
 </div>
 <div class="section" id="solar-input-files">
-<h2>6.6. Solar input files<a class="headerlink" href="#solar-input-files" title="Permalink to this headline">¶</a></h2>
+<h2>7.6. Solar input files<a class="headerlink" href="#solar-input-files" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="solar-irradiance">
-<h3>6.6.1. Solar irradiance<a class="headerlink" href="#solar-irradiance" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.1. Solar irradiance<a class="headerlink" href="#solar-irradiance" title="Permalink to this headline">¶</a></h3>
 <p>CESM2 uses solar input files provided by <a class="reference external" href="http://solarisheppa.geomar.de/cmip6">CMIP6</a>:
 All versions of CESM2 use the <strong>solar_irrad_data_file</strong>, which provides the reconstructed
 spectral solar irradiance at 1 AU as the variable <em>ssi</em>, with units of
@@ -293,7 +292,7 @@ mW m <sup>-2</sup> nm <sup>-1</sup>.</p>
 </div>
 </div>
 <div class="section" id="waccm-solar-inputs">
-<h3>6.6.2. WACCM solar inputs<a class="headerlink" href="#waccm-solar-inputs" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.2. WACCM solar inputs<a class="headerlink" href="#waccm-solar-inputs" title="Permalink to this headline">¶</a></h3>
 <p><strong>WACCM</strong> uses 2 additional solar input files for upper-atmosphere processes:</p>
 <p><strong>solar_parms_data_file</strong>: geomagnetic parameters, including daily planetary Ap and Kp
 indices, and F10.7 solar radio flux</p>
@@ -320,7 +319,7 @@ period, so that WACCM points to the same file for each.</p>
 </div>
 </div>
 <div class="section" id="waccm-x-solar-inputs">
-<h3>6.6.3. WACCM-X solar inputs<a class="headerlink" href="#waccm-x-solar-inputs" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.3. WACCM-X solar inputs<a class="headerlink" href="#waccm-x-solar-inputs" title="Permalink to this headline">¶</a></h3>
 <p><strong>WACCM-X</strong> uses the Naval Research Laboratory (NRL) Version 1 reconstruction for solar
 irradiance (Lean, ref), rather than CMIP6. Instead of the epp_all_filepath, WACCM-X uses
 the <strong>epp_spe_filepath</strong>, which provides ion pair production rates just for solar proton
@@ -346,14 +345,14 @@ July 23, 2016.</p>
 </div>
 </div>
 <div class="section" id="additional-inputs-for-waccm-and-waccm-x">
-<h2>6.7. Additional inputs for WACCM and WACCM-X<a class="headerlink" href="#additional-inputs-for-waccm-and-waccm-x" title="Permalink to this headline">¶</a></h2>
+<h2>7.7. Additional inputs for WACCM and WACCM-X<a class="headerlink" href="#additional-inputs-for-waccm-and-waccm-x" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="geomagnetic-coefficients">
-<h3>6.7.1. Geomagnetic coefficients<a class="headerlink" href="#geomagnetic-coefficients" title="Permalink to this headline">¶</a></h3>
+<h3>7.7.1. Geomagnetic coefficients<a class="headerlink" href="#geomagnetic-coefficients" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div>igrf_geomag_coefs_file         = ‘$DIN_LOC_ROOT/atm/waccm/geomag/igrf_ceofs_c160412.nc’</div></blockquote>
 </div>
 <div class="section" id="ion-drag">
-<h3>6.7.2. Ion drag<a class="headerlink" href="#ion-drag" title="Permalink to this headline">¶</a></h3>
+<h3>7.7.2. Ion drag<a class="headerlink" href="#ion-drag" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>efield_hflux_file              = ‘$DIN_LOC_ROOT/atm/waccm/efld/coeff_hflux.dat’</p>
 <p>efield_lflux_file              = ‘$DIN_LOC_ROOT/atm/waccm/efld/coeff_lflux.dat’</p>
@@ -361,12 +360,12 @@ July 23, 2016.</p>
 </div></blockquote>
 </div>
 <div class="section" id="electrons">
-<h3>6.7.3. Electrons<a class="headerlink" href="#electrons" title="Permalink to this headline">¶</a></h3>
+<h3>7.7.3. Electrons<a class="headerlink" href="#electrons" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div>electron_file          = ‘$DIN_LOC_ROOT/inputdata/atm/waccm/phot/electron_121129.dat’</div></blockquote>
 </div>
 <div class="section" id="upper-boundary-condition">
-<h3>6.7.4. Upper boundary condition<a class="headerlink" href="#upper-boundary-condition" title="Permalink to this headline">¶</a></h3>
+<h3>7.7.4. Upper boundary condition<a class="headerlink" href="#upper-boundary-condition" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div>snoe_ubc_file          = ‘$DIN_LOC_ROOT/inputdata/atm/waccm/ub/snoe_eof.nc’</div></blockquote>
 </div>
@@ -386,10 +385,10 @@ July 23, 2016.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="model-output.html" title="7. Model Output:"
+          <a href="model-output.html" title="8. Model Output:"
              >next</a> |</li>
         <li class="right" >
-          <a href="customizing-compsets.html" title="5. Customizing CAM runs"
+          <a href="customizing-compsets.html" title="6. Customizing CAM runs"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li> 
