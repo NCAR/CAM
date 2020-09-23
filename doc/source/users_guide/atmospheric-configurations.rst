@@ -688,34 +688,47 @@ Another set of compsets which require a brief description are ones for Super-par
 -------------------------------------------------------------------------------
 CAM-chem tested compsets
 -------------------------------------------------------------------------------
-CAM-chem tested compsets in CESM2.0
-(CAM-chem scientifically supported compsets will be available in CESM2.1)
+CAM-chem tested compsets in CESM2.2:
 
-CAM-chem has a number of compsets/resolutions which are tested in CESM2.0, see Table.  
-All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. 
-Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 
-56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested 
-to run with 32 levels that are not availble at this point. Half-degree SD compsets use 
-1-degree emissions. Users have to change to half-degree emissions if desired. 
+In CESM2.2 new compsets have been included and existing ones have been slightly changed with
+regard to starting dates and available resolutions.  In particular, new resolutions for running the spectral element dynamical core have been
+added and new compsets that use meteorological nudging using MERRA2 on CESM model levels, as described in Section 9.6.
+Starting dates have been changed to start in 2010-2014 using default CMIP6 emissions, besides for the regional refined grid over CONUS.
+Other anthropogenic and biomass burning emissions are available on cheyenne covering different periods, see Section 6.1.1. New emission
+regridding tools are available here (https://github.com/NCAR/IPT).
+These compsets are functional releases.
 
-+--------------+-----------------------+-----------------------------------------+-------------+
-| Compset Name | tested resolution     |Description                              | Period      |
-+==============+=======================+=========================================+=============+
-| FCHIST       | f09_f09_mg17          | Historical CAM6-chem using 1 degree FV  | 1979 to 2015|
-|              |                       | dycore, using CMIP6 emissions, coupled  |             |
-|              |                       | to interactive land and MEGAN2.1        |             |
-+--------------+-----------------------+-----------------------------------------+-------------+
-| FCSD         | f09_f09_mg17          | Historical CAM6-chem 1deg compset using |             |
-|              |                       | MERRA2 analsysis with a 50-hour         | 1980 to 2015|
-|              |                       | relaxation. See details in the text     |             |
-+--------------+-----------------------+-----------------------------------------+-------------+
-| FCSD         | f05_f05_mg17          | Historical CAM6-chem half deg compset   | 1980 to 2015|
-|              |                       | using MERRA2 analysis                   |             |
-+--------------+-----------------------+-----------------------------------------+-------------+
-| FC2010climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 2010        |
-|              |                       | FV dycore, averaged SSTs, emissions, and|             |
-|              |                       | lower boundary conditions (2005-2015)   |             |
-+--------------+-----------------------+-----------------------------------------+-------------+
+
++--------------+------------------------------------+-----------------------------------------+-------------+
+| Compset Name | tested resolution                  |Description                              | Period      |
++==============+====================================+=========================================+=============+
+| FC2010climo  | f09_f09_mg17                       | Climatological CAM6-chem using TS1      | 2010        |
+|              | ne30_ne30_mg17                     | chemistry, 1 deg horizontal resolution, |             |
+|              | ne30pg3_ne30pg3_mg17               | different dycores, averaged SSTs, emis, |             |
+|              |                                    | lower boundary conditions (2005-2015)   |             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCHIST       | f09_f09_mg17                       | Historical CAM6-chem using TS1          | 2010-2014   |
+|              | ne30_ne30_mg17                     | chemistry, 1 deg horizontal resolution, |             |
+|              | ne30pg3_ne30pg3_mg17               | different dycores, CMIP6 emissions,     |             |
+|              |                                    | coupled to interactive land and MEGAN2.1|             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCnudged     | f09_f09_mg17                       | As FCHIST, but nudged to U,V,T from     | 2010-2014   |
+|              | ne30_ne30_mg17                     | MERRA2 analsysis with a 50-hours        |             |
+|              | ne30pg3_ne30pg3_mg17               | interpolated to CESM (32) model levels  |             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCts2nudged  | f09_f09_mg17                       | As FCnudged, but using TS2  chemistry   | 2010-2014   |
+|              | ne30_ne30_mg17                     |                                         |             |
+|              | ne30pg3_ne30pg3_mg17               |                                         |             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCnudged     | ne0CONUSne30x8_ne0CONUSne30x8_mt12 | As FCnudged for regional refined grid   | 2013        |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCts2nudged  | ne0CONUSne30x8_ne0CONUSne30x8_mt12 | As FCts2nudged for regional refined grid| 2013        |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCSD         | f09_f09_mg17                       | Historical CAM6-chem 1deg compset using |             |
+|              |                                    | MERRA2 analsysis with a 50-hour         | 1980 to 2015|
+|              |                                    | relaxation, using MERRA vertical levels |             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+
 
 
 
