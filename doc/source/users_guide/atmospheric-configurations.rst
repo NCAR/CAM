@@ -185,15 +185,18 @@ For more information on the CESM Simpler Models project see http://www.cesm.ucar
 +--------------+----------------------+-----------------------------------------+-------------+
 | Compset Name | supported resolution |Description                              | Period      |
 +==============+======================+=========================================+=============+
-| FDABIP04     | T42z30_T42_mg17,     | Generic adiabatic simple model          |             |
-|              | T85z30_T85_mg17,     |                                         |             |
+| FADIAB       | f09_f09_mg17         | Generic adiabatic configuration         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FDABIP04     | T42z30_T42_mg17,     | Specific adiabatic configuration,       |             |
+|              | T85z30_T85_mg17,     | Polvani et al. baroclinic wave          |             |
 |              | T85z60_T85_mg17      |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FSCAM        | T42_T42              | Single column CAM                       |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FHS94        | T42z30_T42_mg17,     | Held-Suarez simpler model               |             |
 |              | T85z30_T85_mg17,     |                                         |             |
-|              | T85z60_T85_mg17      |                                         |             |
+|              | T85z60_T85_mg17,     |                                         |             |
+|              | f09_f09_mg17         |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FTJ16        | f09_f09_mg17         | Moist Held-Suarez simpler model         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
@@ -208,7 +211,7 @@ For more information on the CESM Simpler Models project see http://www.cesm.ucar
 |              | f19_f19_mg17         |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 
-Note that FHS94, FTJ16, FKESSLER, and QPC6 compset's can be run  with  the FV, FV3,
+Note that FADIAB, FHS94, FTJ16, FKESSLER, and QPC6 compset's can be run  with  the FV, FV3,
 SE and SE-CSLAM dynamical cores using the "run-unsupported" flag
 
   % ./create_newcase --case ... --compset ... --run-unsupported
