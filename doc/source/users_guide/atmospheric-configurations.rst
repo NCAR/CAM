@@ -124,7 +124,7 @@ The **CONUS** variable resolution grid is a 1 degree horizontal resolution grid 
 a regional refinement of 1/8 degree resolution over the continential United States.
 
 
-.. image:: Grid_CONUS.png   
+.. image:: Grid_CONUS.jpg   
     :width: 350px
     :height: 350px
     :align: center
@@ -137,11 +137,11 @@ resolution over the broader Arctic region and the **ARCTICGRIS** grid which
 additionally refines a patch covering the Greenland with 1/8 degree resolution.
 
 
-.. |img1| image:: Grid_ARCTIC.png   
+.. |img1| image:: Grid_ARCTIC.jpg   
     :width: 350px
     :height: 350px
 
-.. |img2| image:: Grid_ARCTICGRIS.png   
+.. |img2| image:: Grid_ARCTICGRIS.jpg   
     :width: 350px                 
     :height: 350px                
 

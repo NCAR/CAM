@@ -15,7 +15,7 @@ When CAM is coupled to prognostic land, ocean, and sea ice models then we refer
 to it as a "fully coupled CESM simulation" which are implemented in the B compsets.
 
 To get started running CAM refer to the `CESM2 Quick Start Guide
-<http://escomp.github.io/cesm/release-cesm2>`_ and the 
+<https://escomp.github.io/CESM/versions/cesm2.2/html/quickstart.html>`_ and the 
 :ref:`Building and Running CAM within CESM <building-and-running-cam>` section of this User's Guide.
 Running CAM using the CESM scripts provides a high level of support for doing production runs of predefined experiments on supported platforms. This is the place to start for most users.
 
