@@ -49,7 +49,7 @@ The Bulk Aerosol Model
 
 CAM4-chem uses the bulk aerosol model discussed in :cite:`lamarque:05`
 and :cite:`emmons:10`. This model has a representation of aerosols
-based on the work by :cite:`{tie:02` and :cite:`tie:05`, i.e. sulfate
+based on the work by :cite:`tie:02` and :cite:`tie:05`, i.e. sulfate
 aerosol is formed by the oxidation of SO\ :math:`_{2}` in the gas
 phase (by reaction with the hydroxyl radical) and in the aqueous phase
 (by reaction with ozone and hydrogen peroxide).  Furthermore, the
@@ -456,7 +456,7 @@ spatial grid, of the following form:
    :label: solver1
 
    \frac{d\vec{y}}{dt} = \vec{P}(\vec{y}, t) - \vec{L}(\vec{y}, t) \cdot \vec{y}
-   
+
 
 .. math:: \vec y(t) = \{y_i(t)\} \quad i = 1, 2, \ldots, N
 
@@ -472,7 +472,7 @@ method:
    :label: solver2
 
    y_i^{n+1} = y_i^n + \Delta t \cdot f_i(t_{n}, y^{n})
-   
+
 
 in the case of species with long lifetimes and weak forcing terms
 (e.g., N\ :math:`_2`\ O), and a more robust implicit backward Euler
@@ -482,7 +482,7 @@ method:
    :label: solver3
 
    y_i^{n+1} = y_i^n + \Delta t\cdot f_i(t_{n+1}, y^{n+1})
-   
+
 
 for species that comprise a\`\`stiff system" with short lifetimes and
 strong forcings (e.g., OH). Here :math:`n` represents the time step
@@ -500,7 +500,7 @@ to these algebraic systems for equation :eq:`solver2`  is straightforward
    :label: solver4
 
    \vec{G}(\vec{y}^{\,\, n+1})=\vec{y}^{\,\, n+1}-\vec{y}^{\,\, n}- \Delta t\cdot\vec{f}(t_{n+1},\vec{y}^{\,\, n+1})=0
-   
+
 
 Here :math:`G` is an :math:`N`-valued, non-linear vector function,
 where :math:`N` equals the number of species solved via the implicit
@@ -510,7 +510,7 @@ Raphson iteration approach as shown below:
 .. math::
    :label: solver5
 
-   \vec{y}^{\,\, n+1}_{m+1} = \vec{y}^{\,\, n+1}_m - \vec{J} \cdot \vec{G}(\vec{y}^{\,\, n+1}_m); \; m=0,1,\ldots, M    
+   \vec{y}^{\,\, n+1}_{m+1} = \vec{y}^{\,\, n+1}_m - \vec{J} \cdot \vec{G}(\vec{y}^{\,\, n+1}_m); \; m=0,1,\ldots, M
 
 Where :math:`m` is the iteration index and has a maximum value of ten.
 The elements of the Jacobian matrix :math:`\vec J` are given by:
@@ -573,21 +573,21 @@ Emissions for CAM4 superfast chemistry
 LINOZ
 ~~~~~
 
-Linoz is linearized ozone chemistry for stratospheric 
-modeling :cite:`mclinden:00`. It calculates the net 
-production of ozone (i.e., production minus loss) as a 
-function of only three independent variables: local ozone 
-concentration, temperature, and overhead column ozone). A 
-zonal mean climatology for these three variables as well as 
-the other key chemical variables such a total odd-nitrogen 
-methane abundance is developed from satellite and other in 
-situ observations. A relatively complete photochemical box 
-model :cite:`prather:92` is used to integrate the radicals to a 
-steady state balance and then compute the net production of 
-ozone. Small perturbations about the chemical climatology 
-are used to calculate the coefficients of the first-order Taylor 
-series expansion of the net production in terms of local 
-ozone mixing ratio (f), temperature (T), and overhead 
+Linoz is linearized ozone chemistry for stratospheric
+modeling :cite:`mclinden:00`. It calculates the net
+production of ozone (i.e., production minus loss) as a
+function of only three independent variables: local ozone
+concentration, temperature, and overhead column ozone). A
+zonal mean climatology for these three variables as well as
+the other key chemical variables such a total odd-nitrogen
+methane abundance is developed from satellite and other in
+situ observations. A relatively complete photochemical box
+model :cite:`prather:92` is used to integrate the radicals to a
+steady state balance and then compute the net production of
+ozone. Small perturbations about the chemical climatology
+are used to calculate the coefficients of the first-order Taylor
+series expansion of the net production in terms of local
+ozone mixing ratio (f), temperature (T), and overhead
 column ozone (c).
 
 .. math::
@@ -648,7 +648,7 @@ coordinate is purely isobaric above 100 hPa, but is terrain following
 below that level. At any model grid point, the local pressure p is
 determined by
 
-.. math:: p(i,j,k) = A(k) \, p_0 + B(k) \, p_s(i,j) 
+.. math:: p(i,j,k) = A(k) \, p_0 + B(k) \, p_s(i,j)
 	  :label: eq:p
 
 where :math:`A` and :math:`B` are functions of model level, :math:`k`,
@@ -726,7 +726,7 @@ the divergence of diffusive fluxes:
    :label: eq:contz1
 
    \begin{aligned}
-   \frac{\partial }{\partial t} (u,v,q) 
+   \frac{\partial }{\partial t} (u,v,q)
    	&=& - \frac{1}{\rho} \frac{\partial}{\partial z} (F_u, F_v, F_q) \\
    \end{aligned}
 
@@ -735,7 +735,7 @@ the divergence of diffusive fluxes:
 
    \begin{aligned}
    \frac{\partial}{\partial t} s
-   	&=& - \frac{1}{\rho} \frac{\partial}{\partial z} F_H + D 
+   	&=& - \frac{1}{\rho} \frac{\partial}{\partial z} F_H + D
    \end{aligned}
 
 where :math:`s = c_p T + g z` is the dry static energy, :math:`z` is the
@@ -747,19 +747,19 @@ diffusive fluxes are defined as:
 .. math::
    :label: eq:fluxz1
 
-   F_{u,v} =-\rho K_m \frac{\partial}{\partial z}(u,v),  
+   F_{u,v} =-\rho K_m \frac{\partial}{\partial z}(u,v),
 
 .. math::
    :label: eq:fluxz2
 
    F_{H}   =-\rho K_H \frac{\partial s}{\partial z}
-   	    +\rho K_H^t\gamma_{H}                    , 
+   	    +\rho K_H^t\gamma_{H}                    ,
 
 .. math::
    :label: eq:fluxz3
 
    F_{q}  =-\rho K_q \frac{\partial q}{\partial z}
-   	    +\rho K_q^t\gamma_{q}  + {\rm sep-flux}  . 
+   	    +\rho K_q^t\gamma_{q}  + {\rm sep-flux}  .
 
 The viscosity :math:`K_m` and diffusivities :math:`K_{q,H}` are the
 sums of: turbulent components :math:`K_{m,q,H}^t`, which dominate below
@@ -771,8 +771,8 @@ kinetic energy dissipation is
 .. math::
    :label: eq:diss_heat
 
-   D \equiv -\frac{1}{\rho} \left( F_u\frac{\partial u}{\partial z} 
-                 +  F_v\frac{\partial v}{\partial z} \right). 
+   D \equiv -\frac{1}{\rho} \left( F_u\frac{\partial u}{\partial z}
+                 +  F_v\frac{\partial v}{\partial z} \right).
 
 The treatment of the turbulent diffusivities :math:`K_{m,q,H}^t`, the
 energy dissipation :math:`D` and the nonlocal transport terms
@@ -784,18 +784,18 @@ Molecular viscosity and diffusivity
 
 The empirical formula for the molecular kinematic viscosity is
 
-.. math:: K_m^m = 3.55\times 10^{-7} T^{2/3} / \rho, 
+.. math:: K_m^m = 3.55\times 10^{-7} T^{2/3} / \rho,
 	  :label: Kmm
 
 and the molecular diffusivity for heat is
 
-.. math:: K_H^m = P_r K_m^m,                         
+.. math:: K_H^m = P_r K_m^m,
 	  :label: Kmh
 
 where :math:`P_r` is the Prandtl number and we assume :math:`P_r=1` in
 |waccm|. The constituent diffusivities are
 
-.. math:: K_q^m = T^{1/2} M_w/ \rho,                 
+.. math:: K_q^m = T^{1/2} M_w/ \rho,
 	  :label: Kmq
 
 where :math:`M_w` is the molecular weight.
@@ -817,7 +817,7 @@ Discretization of the vertical diffusion equations
 In CAM4, as in previous version of the CCM, :eq:`eq:contz1` [eq:fluxz2])
 are cast in pressure coordinates, using
 
-.. math:: dp = -\rho g dz,   
+.. math:: dp = -\rho g dz,
 	  :label: eq:hydrostatic
 
 and discretized in a time-split form using an Euler backward time step.
@@ -852,12 +852,12 @@ nonlocal transport terms, the discrete forms of
 .. math::
    :label: eq:vduvq
 
-   \frac{\delta_n (u,v,q)^k}{\delta t} = g \frac{\delta^k F_{u,v,q}}{\delta^k p}    
+   \frac{\delta_n (u,v,q)^k}{\delta t} = g \frac{\delta^k F_{u,v,q}}{\delta^k p}
 
 .. math::
    :label: eq:vds
 
-   \frac{\delta_n s^k}{\delta t} = g \frac{\delta^k F_{H}}{\delta^k p} + D^k.  
+   \frac{\delta_n s^k}{\delta t} = g \frac{\delta^k F_{H}}{\delta^k p} + D^k.
 
 For interior interfaces, :math:`1\le k \le L-1`,
 
@@ -911,32 +911,32 @@ systems of the form
 .. math::
    :label: eq:tridiag1
 
-   -A^k \psi^{k+1}_{n+1} + B^k\psi^k_{n+1} -C^k\psi^{k-1}_{n+1} 
+   -A^k \psi^{k+1}_{n+1} + B^k\psi^k_{n+1} -C^k\psi^{k-1}_{n+1}
    	= \psi^k_{n\prime},
 
 where :math:`\psi_{n\prime}` indicates :math:`u`, :math:`v`, :math:`q`,
 or :math:`s` after updating from time :math:`n` values with the nonlocal
 and boundary fluxes. The super-diagonal (:math:`A^k`), diagonal
-(:math:`B^k`) and sub-diagonal (:math:`C^k`) elements of :eq:`eq:tridiag1` 
+(:math:`B^k`) and sub-diagonal (:math:`C^k`) elements of :eq:`eq:tridiag1`
 are:
 
 .. math::
 
    \begin{aligned}
-   A^k &=& \frac{1}{\delta^{k} p} 
+   A^k &=& \frac{1}{\delta^{k} p}
    	\frac{\delta t}{\delta^{k+}p}\left(g^2\rho^2 K\right)_n^{k+},\\
    B^k &=& 1 + A^k + C^k, \\
-   C^k &=& \frac{1}{\delta^{k} p} 
+   C^k &=& \frac{1}{\delta^{k} p}
    	\frac{\delta t}{\delta^{k-}p}\left(g^2\rho^2 K\right)_n^{k-}.\end{aligned}
 
 The solution of :eq:`eq:tridiag1`  has the form
 
-.. math:: \psi^k_{n+1} = E^k \psi^{k-1}_{n+1} + F^k,           
+.. math:: \psi^k_{n+1} = E^k \psi^{k-1}_{n+1} + F^k,
 	  :label: eq:tridiag2
 
 or,
 
-.. math:: \psi^{k+1}_{n+1} = E^{k+1} \psi^{k}_{n+1} + F^{k+1}. 
+.. math:: \psi^{k+1}_{n+1} = E^{k+1} \psi^{k}_{n+1} + F^{k+1}.
 	  :label: eq:tridiag3
 
 Substituting :eq:`eq:tridiag3`  into :eq:`eq:tridiag1` ,
@@ -944,21 +944,21 @@ Substituting :eq:`eq:tridiag3`  into :eq:`eq:tridiag1` ,
 .. math::
    :label: eq:tridiag4
 
-   \psi^{k}_{n+1} = \frac{C^k}{B^k - A^k E^{k+1}} \psi^{k-1}_{n+1} 
+   \psi^{k}_{n+1} = \frac{C^k}{B^k - A^k E^{k+1}} \psi^{k-1}_{n+1}
    	+ \frac{\psi^k_{n\prime} + A^k F^{k+1}}{B^k - A^k E^{k+1}}.
-   	
+
 
 Comparing :eq:`eq:tridiag2`  and :eq:`eq:tridiag4` , we find
 
 .. math::
    :label: eq:tridiag5
 
-   E^k = \frac{C^k} {B^k - A^k E^{k+1}}, \quad L>k>1,  
+   E^k = \frac{C^k} {B^k - A^k E^{k+1}}, \quad L>k>1,
 
 .. math::
    :label: eq:tridiag6
-	   
-   F^k = \frac{\psi^k_{n\prime} + A^k F^{k+1}}{B^k - A^k E^{k+1}}, \quad L>k>1 
+
+   F^k = \frac{\psi^k_{n\prime} + A^k F^{k+1}}{B^k - A^k E^{k+1}}, \quad L>k>1
 
 The terms :math:`E^k` and :math:`F^k` can be determined upward from
 :math:`k=L`, using the boundary conditions
@@ -977,7 +977,7 @@ used here is particularly convenient because the turbulent diffusivities
 for heat and all constituents are the same but their molecular
 diffusivities are not. Since the terms in :eq:`eq:tridiag5` and :eq:`eq:tridiag6`
 are determined from the bottom upward, it is only necessary to
-recalculate :math:`A^k`, :math:`C^k`, :math:`E^k` and :math:`1/({B^k - A^k E^{k+1}})` 
+recalculate :math:`A^k`, :math:`C^k`, :math:`E^k` and :math:`1/({B^k - A^k E^{k+1}})`
 for each constituent within the region where molecular
 diffusion is important.
 
@@ -991,17 +991,17 @@ transporting significant quantities of horizontal momentum between
 their source regions and regions where they are absorbed or
 dissipated.  Previous GCM results have shown that the large-scale
 momentum sinks resulting from breaking gravity waves play an important
-role in determining the structure of the large-scale flow. CAM4 
+role in determining the structure of the large-scale flow. CAM4
 incorporates a parameterization for a spectrum of vertically
 propagating internal gravity waves based on the work of
 :cite:`lindzen:81`, :cite:`holton:82`,
-:cite:`garcia-solomon:85` and 
+:cite:`garcia-solomon:85` and
 :cite:`mcfarlane:87`. The parameterization solves separately for a general
 spectrum of monochromatic waves and for a single stationary wave generated by
 flow over orography, following :cite:`mcfarlane:87`. The spectrum is omitted in
 the standard tropospheric version of CAM4, as in previous versions of the CCM.
 Here we describe the modified version of the gravity wave spectrum
-parameterization used in |waccm|. 
+parameterization used in |waccm|.
 
 Adiabatic inviscid formulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1013,20 +1013,20 @@ momentum, continuity and thermodynamic equations in a vertical plane:
 .. math::
    :label: eq:gw_mom
 
-   \left( \frac{\partial}{\partial t} + u\frac{\partial}{\partial x}\right)u 
-     = -\frac{\partial\Phi}{\partial x}\, ,  
+   \left( \frac{\partial}{\partial t} + u\frac{\partial}{\partial x}\right)u
+     = -\frac{\partial\Phi}{\partial x}\, ,
 
 .. math::
    :label: eq:gw_cont
 
    \frac{\partial u}{\partial x} + \frac{\partial W}{\partial Z} = 0\, ,
-                                             
+
 
 .. math::
    :label: eq:gw_therm
 
    \left( \frac{\partial}{\partial t} + u\frac{\partial}{\partial x}\right)
-   \ \frac{\partial\Phi}{\partial Z} + N^2 w = 0\, . 
+   \ \frac{\partial\Phi}{\partial Z} + N^2 w = 0\, .
 
 Where :math:`N` is the local Brunt-Väisällä frequency, and :math:`W` is
 the vertical velocity in log pressure height (:math:`Z`) coordinates.
@@ -1037,17 +1037,17 @@ perturbations :math:`u^\prime,w^\prime`, and combined to obtain:
 .. math::
    :label: eq:gw_lin
 
-   \left( \frac{\partial}{\partial t} + 
-     {\overline u}\frac{\partial}{\partial x}\right)^2 
-        \frac{\partial^2 w^\prime}{\partial Z^2} 
-      + N^2 \frac{\partial^2 w^\prime}{\partial x^2} = 0\, . 
+   \left( \frac{\partial}{\partial t} +
+     {\overline u}\frac{\partial}{\partial x}\right)^2
+        \frac{\partial^2 w^\prime}{\partial Z^2}
+      + N^2 \frac{\partial^2 w^\prime}{\partial x^2} = 0\, .
 
 Solutions to :eq:`eq:gw_lin`  are assumed to be of the form:
 
-.. math:: 
+.. math::
    :label: eq:gw_sol
 
-   w^\prime = {\hat w} \, e^{ik(x-ct)} \, e^{Z/2H} \, , 
+   w^\prime = {\hat w} \, e^{ik(x-ct)} \, e^{Z/2H} \, ,
 
 where :math:`H` is the scale height, :math:`k` is the horizontal
 wavenumber and :math:`c` is the phase speed of the wave. Substituting
@@ -1056,25 +1056,25 @@ wavenumber and :math:`c` is the phase speed of the wave. Substituting
 .. math::
    :label: eq:gw_what
 
-   -k^2 (\overline u -c)^2 
+   -k^2 (\overline u -c)^2
     \left( \frac{\partial}{\partial Z} + \frac{1}{2H} \right)^2{\hat w}
-    - k^2 N^2 {\hat w} = 0\, . 
+    - k^2 N^2 {\hat w} = 0\, .
 
 Neglecting :math:`\frac{1}{2H}` compared to
 :math:`\frac{\partial}{\partial Z}` in eq:`gw_what`, one
 obtains the final form of the two dimensional wave equation:
 
-.. math:: 
+.. math::
    :label: eq:gw_2d
 
-   \frac{d^2 {\hat w}}{d Z^2} + \lambda^2 {\hat w} = 0\, , 
+   \frac{d^2 {\hat w}}{d Z^2} + \lambda^2 {\hat w} = 0\, ,
 
 with the coefficient defined as:
 
-.. math:: 
+.. math::
    :label: eq:gw_lam
 
-   \lambda= \frac{N}{(\overline u -c)}\, . 
+   \lambda= \frac{N}{(\overline u -c)}\, .
 
 The WKB solution of :eq:`eq:gw_2d`  is:
 
@@ -1082,7 +1082,7 @@ The WKB solution of :eq:`eq:gw_2d`  is:
    :label: eq:gw_wkbsol
 
    {\hat w} = A \lambda^{-1/2}\exp\left(i\int_0^Z\lambda
-   dz^\prime\right)\, , 
+   dz^\prime\right)\, ,
 
 and the full solution, from :eq:`eq:gw_sol` , is:
 
@@ -1090,7 +1090,7 @@ and the full solution, from :eq:`eq:gw_sol` , is:
    :label: eq:gw_final
 
    w^\prime(Z,t) = A \lambda^{-1/2}\exp\left(i\int_0^Z\lambda
-   dz^\prime\right) \ e^{ik(x-ct)}\  e^{Z/2H} \, .  
+   dz^\prime\right) \ e^{ik(x-ct)}\  e^{Z/2H} \, .
 
 The constant :math:`A` is determined from the wave amplitude at the
 source (:math:`z=0`), The Reynolds stress associated with
@@ -1100,7 +1100,7 @@ eq:`eq:gw_final` is:
    :label: eq:gw_reyn
 
    \tau(Z) = \tau(0) = \rho\overline{ u^\prime  w^\prime} = -\frac{2}{k}
-   |A|^2\rho_0{\rm sgn}(\lambda)\, , 
+   |A|^2\rho_0{\rm sgn}(\lambda)\, ,
 
 and is conserved, while the momentum flux
 :math:`\overline{ u^\prime  w^\prime} = -(m/k)\ \overline{w^\prime w^\prime}`
@@ -1125,9 +1125,9 @@ Froude number (:math:`F_c`), or streamline slope.
 .. math::
    :label: eq:gw_satcond
 
-   |\rho\overline{ u^\prime  w^\prime}| 
+   |\rho\overline{ u^\prime  w^\prime}|
        \leq \tau^{*} = F_c^2\frac{k}{2}\rho \frac{|\overline{u}-c|^3}{N}
-     \, , 
+     \, ,
 
 where :math:`\tau^*` is the saturation stress and :math:`F_c^2=0.5`. In
 , :math:`F_c^2=1` and is omitted hereafter. Following (**???**), within
@@ -1167,8 +1167,8 @@ stress profile is given by:
    :label: eq:gw_taudamp
 
    \tau(Z) =  \tau(Z_t) \exp\left(-\frac{2}{H}\int_0^Z\lambda_i
-   dz^\prime\right) \, , 
-   
+   dz^\prime\right) \, ,
+
 
 where :math:`Z_t` denotes the top of the region, below :math:`Z`, not
 affected by thermal dissipation or molecular diffusion. The imaginary
@@ -1178,7 +1178,7 @@ part of the local vertical wavenumber, :math:`\lambda_i` is then:
    :label: eq:gw_lambdai
 
    \lambda_i = \frac{N^3 \ K_m^m}{2 k (\overline u -c)^4 } \, .
-   
+
 
 In |waccm|, (:eq:`eq:gw_taudamp` – :eq:`eq:gw_lambdai`) are only used
 within the domain where molecular diffusion is important (above
@@ -1204,8 +1204,8 @@ temperature and constituent perturbations. For potential temperature,
    :label: eq:gw_thetaprime
 
    \left( {\partial \over \partial t} + \overline u {\partial \over \partial x}
-   \right) \theta^\prime + w' {\partial \overline\theta \over \partial z} 
-   = -\delta \theta^\prime \, , 
+   \right) \theta^\prime + w' {\partial \overline\theta \over \partial z}
+   = -\delta \theta^\prime \, ,
 
 where :math:`\delta` is the dissipation rate implied by wave breaking,
 which depends on the wave’s group velocity, :math:`c_{gz}` (see :cite:`garcia:91`).
@@ -1213,7 +1213,7 @@ which depends on the wave’s group velocity, :math:`c_{gz}` (see :cite:`garcia:
 .. math::
    :label: eq:gw_dissip
 
-   \delta = {c_{gz} \over 2H} = k \ {(\overline u - c)^2 \over 2H N} 
+   \delta = {c_{gz} \over 2H} = k \ {(\overline u - c)^2 \over 2H N}
    \, .
 
 Substitution of :eq:`eq:gw_dissip`  into
@@ -1222,10 +1222,10 @@ Substitution of :eq:`eq:gw_dissip`  into
 .. math::
    :label: eq:gw_kzz
 
-   \overline{w^\prime \theta^\prime} 
-   = -\left[ {\delta \ \overline{w^\prime w^\prime} 
+   \overline{w^\prime \theta^\prime}
+   = -\left[ {\delta \ \overline{w^\prime w^\prime}
    \over k^2(\overline u - c)^2 + \delta^2} \right]
-   {\partial \overline\theta \over \partial z} \, .  
+   {\partial \overline\theta \over \partial z} \, .
 
 Similar expressions can be derived for the flux of chemical
 constituents, with mixing ratio substituted in place of potential
@@ -1255,7 +1255,7 @@ density is:
 
 .. math::
 
-   {\partial E' \over \partial t} 
+   {\partial E' \over \partial t}
    \simeq (\overline u-c) {1 \over c_{gz}}{\partial \tau \over \partial t}
    = (\overline u-c) {\partial \tau \over \partial Z} \ .
 
@@ -1265,9 +1265,9 @@ For a saturated wave, the stress divergence is given by
 .. math::
    :label: eq:gw_eprime
 
-   {\partial E' \over \partial t} = 
+   {\partial E' \over \partial t} =
    (\overline u - c) \ {\partial \, \tau^* \over \partial Z}
-   = - e \cdot \rho \ {k \, (U-c)^4 \over 2 N H} \ .       
+   = - e \cdot \rho \ {k \, (U-c)^4 \over 2 N H} \ .
 
 This energy loss by the wave represents a heat source for the
 background state, as does the change in the background kinetic energy
@@ -1276,10 +1276,10 @@ density implied by wave drag on the background flow:
 .. math::
    :label: eq:gw_kbar
 
-   {\partial \overline K \over \partial t} \equiv 
-   {\rho \over 2} {\partial \overline u^2 \over \partial t} = 
+   {\partial \overline K \over \partial t} \equiv
+   {\rho \over 2} {\partial \overline u^2 \over \partial t} =
    \overline u \ {\partial \, \tau^* \over \partial Z} =
-   -e \cdot \rho \ {k \, \overline u \, (\overline u-c)^3 \over 2 NH} \ , 
+   -e \cdot \rho \ {k \, \overline u \, (\overline u-c)^3 \over 2 NH} \ ,
 
 which follows directly from :eq:`eq:gw_utend` . The background
 heating rate, in K sec\ :math:`^{-1}`, is then:
@@ -1287,7 +1287,7 @@ heating rate, in K sec\ :math:`^{-1}`, is then:
 .. math::
 
    Q_{gw} = -{1 \over \rho\, c_p}
-   \left[{\partial \overline K \over \partial t} 
+   \left[{\partial \overline K \over \partial t}
    + {\partial E' \over \partial t} \right].
 
 Using :math:`(\ref{eq:gw_eprime})-(\ref{eq:gw_kbar})`, this heating
@@ -1296,10 +1296,10 @@ rate may be expressed as:
 .. math::
    :label: eq:gw_qgw
 
-   Q_{gw} = 
+   Q_{gw} =
      {1 \over \rho\, c_p} \ c \ {\partial \, \tau^* \over \partial Z} =
      {1 \over c_p} \left[ \ e  \cdot  {k \, c\,(c-\overline u)^3 \over 2 N H} \right] ,
-     
+
 
 where :math:`c_p` is the specific heat at constant pressure. In |waccm|,
 :math:`Q_{gw}` is calculated for each component of the gravity wave
@@ -1314,8 +1314,8 @@ For orographically generated waves, the source is taken from (**???**):
 .. math::
    :label: eq:oro_tau
 
-   \tau_g = |\rho\overline{ u^\prime  w^\prime}|_0 
-      = \frac{k}{2} h_0^2 \rho_0 N_0 \overline u_0\, , 
+   \tau_g = |\rho\overline{ u^\prime  w^\prime}|_0
+      = \frac{k}{2} h_0^2 \rho_0 N_0 \overline u_0\, ,
 
 where :math:`h_0` is the streamline displacement at the source level,
 and :math:`\rho_0`, :math:`N_0`, and :math:`\overline u_0` are also
@@ -1326,7 +1326,7 @@ displacement. An upper bound is used on the displacement (equivalent to
 defining a “separation streamline”) which corresponds to requiring that
 the wave not be supersaturated at the source level:
 
-.. math:: h_0=\min(2\sigma,  \frac{\overline u_0}{N_0})\, . 
+.. math:: h_0=\min(2\sigma,  \frac{\overline u_0}{N_0})\, .
 	  :label: eq:oro_h0
 
 The source level quantities :math:`\rho_0`, :math:`N_0`, and
@@ -1338,7 +1338,7 @@ mountain penetrates into the domain:
    :label: 4.e.18
 
    \psi_0 = \int_0^{2\sigma} \psi\rho dz, \qquad \psi \in \{\rho,N,
-   u, v\} \, . 
+   u, v\} \, .
 
 The source level wind vector :math:`(u_0,v_0)` determines the
 orientation of the coordinate system in
@@ -1380,7 +1380,7 @@ in phase speed:
    :label: eq:tau_s
 
    \tau_s (c)  = \tau_b
-      \exp\left[-\left( \frac{c - V_s}{c_w} \right)^2\right], 
+      \exp\left[-\left( \frac{c - V_s}{c_w} \right)^2\right],
 
 centered on the source wind, :math:`V_s = |{\bf V}_s|`, with width
 :math:`c_w=30` m/s. A range of phase speeds with specified width and
@@ -1389,7 +1389,7 @@ resolution is used:
 .. math::
    :label: eq:phase_s
 
-   c \in V_s + [\pm d_c, \pm 2d_c, ... \pm c_{max}]\, , 
+   c \in V_s + [\pm d_c, \pm 2d_c, ... \pm c_{max}]\, ,
 
 with :math:`d_c = 2.5` m s\ :math:`^{-1}` and :math:`c_{max} = 80` m
 s\ :math:`^{-1}`, giving 64 phase speeds. Note that :math:`c=V_s` is
@@ -1419,7 +1419,7 @@ nonlinear vertical diffusion. The interface Brunt-Väisällä frequency is
    :label: 4.e.25
 
    \left(N^{k+}\right)^2 = \frac{g^2}{T^{k+}} \left( \frac{1}{c_p}
-      - \rho^{k+} \frac{\delta^{k+} T}{\delta^{k+} p} \right) \, , 
+      - \rho^{k+} \frac{\delta^{k+} T}{\delta^{k+} p} \right) \, ,
 
 Where the interface density is:
 
@@ -1446,22 +1446,22 @@ interface :math:`k_s+1/2`:
    :label: 4.e.27
 
    \psi_0 = \sum_{k=k_s}^K \psi^k \delta^k p\, , \qquad \psi \in
-   \{\rho,N, u, v\} \, . 
+   \{\rho,N, u, v\} \, .
 
 The source level background wind is :math:`\overline u_0 =\sqrt(u_0^2 +
 v_0^2)`, the unit vector for the source wind is
 
-.. math:: 
+.. math::
    :label: 4.e.28
 
-   (x_0, y_0) = (u_0, v_0) /\overline u_0 \, , 
+   (x_0, y_0) = (u_0, v_0) /\overline u_0 \, ,
 
 and the projection of the midpoint winds onto the source wind is
 
-.. math:: 
+.. math::
    :label: 4.e.29
 
-   \overline u^k = u^k x_0 + v^k y_0 \, . 
+   \overline u^k = u^k x_0 + v^k y_0 \, .
 
 Assuming that :math:`\overline u_0 > 2` m s\ :math:`^{-1}` and
 :math:`2\sigma^h > 10` m, then the orographic source term,
@@ -1486,9 +1486,9 @@ stress is then determined from the stress on the interface below by:
 .. math::
    :label: eq:tau_km
 
-   \tau^{k-} = \min \left[ \left(\tau^*\right)^{k-}, 
+   \tau^{k-} = \min \left[ \left(\tau^*\right)^{k-},
       \tau^{k+}\exp\left( -2 \lambda_i \frac{R}{g} T^k \delta^k\ln p
-           \right) \right] \, . 
+           \right) \right] \, .
 
 Below the molecular diffusion domain, the exponential term in
 :eq:`eq:tau_km`  is omitted.
@@ -1500,20 +1500,20 @@ downward scan:
 .. math::
    :label: 4.e.35
 
-   \frac{\partial \overline u^k_\ell}{\partial t} = 
+   \frac{\partial \overline u^k_\ell}{\partial t} =
        g \frac{\delta^k\tau_\ell}{\delta^k p}
        < \left( \frac{\partial \overline u^k_\ell}{\partial t}\right)^{\rm max}
-       \, . 
+       \, .
 
 .. math::
    :label: 4.e.36
 
-   \left( \frac{\partial \overline u^k_\ell}{\partial t}\right)^{\rm max} 
+   \left( \frac{\partial \overline u^k_\ell}{\partial t}\right)^{\rm max}
      = \min\left[
        \frac{|c_\ell - \overline u^k_\ell|}{2 \delta t}\, ,
        500 {\rm ~m ~s^{-1}~ day^{-1}}
        \right]
-   \, . 
+   \, .
 
 The first bound on the forcing comes from requiring that the forcing
 not be large enough to push the wind more than half way towards a
@@ -1533,9 +1533,9 @@ in the layer:
 .. math::
    :label: 4.e.37
 
-   \tau^{k+}_\ell = \tau^{k-}_\ell + 
-      \frac{\partial \overline u^k}{\partial t}  
-      \frac{\delta^k p}{g} \, . 
+   \tau^{k+}_\ell = \tau^{k-}_\ell +
+      \frac{\partial \overline u^k}{\partial t}
+      \frac{\delta^k p}{g} \, .
 
 This has the effect of pushing some of the stress divergence into the
 layer below, a reasonable choice since the waves are propagating up from
@@ -1550,7 +1550,7 @@ source wind:
 
    \frac{\partial {\bf V}^k}{\partial t} =  (x_0, y_0) \times E \sum_\ell
          \frac{\partial \overline u^k_\ell}{\partial t}
-   \, . 
+   \, .
 
 In addition, the frictional heating implied by the momentum tendencies,
 :math:`\frac{1}{c_p} {\bf V}^k \cdot {\partial {\bf V}^k / \partial t}`,
@@ -1582,8 +1582,8 @@ In WACCM4 the effective roughness stress is expressed as:
 .. math::
    :label: tms
 
-   \tau = \rho \, C_d \, |{\bf V}| {\bf V} \, , 
-   
+   \tau = \rho \, C_d \, |{\bf V}| {\bf V} \, ,
+
 
 where :math:`\rho` is the density and :math:`C_d` is a turbulent drag
 coefficient,
@@ -1658,7 +1658,7 @@ and use new parameterizations above.
 
 The merged shortwave and longwave radiative heatings are determined from
 
-.. math:: Q = w_1 \, Q_{CAM3} + w_2 \, Q_{MLT},   
+.. math:: Q = w_1 \, Q_{CAM3} + w_2 \, Q_{MLT},
 	  :label: eq:rad_heat
 
 where :math:`w_1(z^*<z_b^*) = 1`, :math:`w_2(z^*>z_t^*) = 1` and
@@ -1712,7 +1712,7 @@ The irradiance of the :math:`j`\ th spectral interval is:
 
 .. math::
 
-   F_j = F_j^0 * \left\{ 1 + R_j*\left[\frac{(f10.7 + f10.7a)}{2}-F_{min}\right] 
+   F_j = F_j^0 * \left\{ 1 + R_j*\left[\frac{(f10.7 + f10.7a)}{2}-F_{min}\right]
     \right\}
 
 where :math:`F_{min}` = 80. :math:`F_j^0` and :math:`R_j` are taken from
@@ -1768,7 +1768,7 @@ thermalized:
 
 .. math::
 
-   Q_{EUV} = (\rho c_p)^{-1} \sum_{k} n_k \sum_{j} 
+   Q_{EUV} = (\rho c_p)^{-1} \sum_{k} n_k \sum_{j}
                \epsilon J_{k}(\lambda_j) \frac{hc}{\lambda_j},
 
 where :math:`\epsilon` = 0.05. Here :math:`\rho` is mass density,
@@ -1791,7 +1791,7 @@ defined as:
 
 .. math::
 
-   Q_{UV} = (\rho c_p)^{-1} \sum_{k} n_k \sum_{j} 
+   Q_{UV} = (\rho c_p)^{-1} \sum_{k} n_k \sum_{j}
                J_{k}(\lambda_j) \{ \frac{hc}{\lambda_j} -BDE_k \},
 
 where :math:`BDE` is the bond dissociation energy.
@@ -1916,7 +1916,7 @@ mass follows a lognormal size distribution taken from (**???**),
 
    N(r) = \frac{N_0}{r \sigma \sqrt{2\pi}}\exp\left[\frac{-\ln (r / r_0)^2}
    {2 \sigma ^2}\right]
-   
+
 
 where :math:`N` is the aerosol number density (particles
 cm\ :math:`^{-3}`); :math:`r` and :math:`r_0` are the particle radius
@@ -3247,7 +3247,7 @@ with the factor 10 to convert from [Pa] to :math:`[dyne/cm^2]`, and
    \sqrt{T_e}) + \\
    & 8.9 \times 10^{-11} N_O \sqrt{T_e} (1 + 5.7 \times 10^{-4} T_e)
    \end{split}\end{aligned}
-   
+
 The ratios :math:`r` between collision frequency :math:`\nu` and gyro
 frequency :math:`\Omega` are
 
@@ -3263,7 +3263,7 @@ with the gyro frequency for ions :math:`\Omega_i = e B/m_i` and for
 electrons :math:`\Omega_e=eB/m_e`. The Pedersen conductivity [ S/m] is
 
 .. math::
-     
+
    \begin{split}
    \sigma_P = &\frac{e}{B} [ N_{O^+} \frac{r_{O^+}}
    {1+r_{O^+}^2 } +
@@ -3327,7 +3327,7 @@ geographic direction by using the rotation matrix :math:`\mathbf{R}`
    \cos D & \sin D\\
    -\sin D & \cos D
    \end{pmatrix}\end{gathered}
-   
+
 Applying the rotation to the ion drag tensor
 :math:`\mathbf{R}\underline{\lambda}^{mag}\mathbf{R}^{-1}` leads to
 
@@ -3358,7 +3358,7 @@ force is
    \mathbf{a}_i = \frac{\mathbf{J}\times \mathbf{B}}{\rho} =
    \lambda_1 (\mathbf{v}_E - \mathbf{u}_{n\perp}) + \lambda_2
    \mathbf{\hat{b}}\times (\mathbf{v}_E - \mathbf{u}_{n\perp})\end{aligned}
-   
+
 with :math:`\mathbf{u}_{n\perp}` the neutral wind velocity
 perpendicular to the geomagnetic field and :math:`\mathbf{\hat{b}}`
 the unit vector of the geomagnetic field. The tendencies on the
@@ -3376,7 +3376,7 @@ For stability an implicit scheme is used with
    \begin{aligned}
    \frac{\mathbf{v}_{En}(t+\Delta t) - \mathbf{v}_{En}(t)}{\Delta t} =
    -\Lambda \mathbf{v}_{En}(t+\Delta t)\end{aligned}
-   
+
 which leads to
 
 .. math::
@@ -3384,7 +3384,7 @@ which leads to
    \begin{aligned}
    (\frac{1}{\Delta t} I + \Lambda)\mathbf{v}_{En}(t+\Delta t)  =
    \frac{1}{\Delta t}\mathbf{v}_{En}(t)\end{aligned}
-   
+
 with :math:`I` the unit matrix. Solving for
 :math:`\mathbf{v}_{En}(t+\Delta t)` gives
 
@@ -3393,7 +3393,7 @@ with :math:`I` the unit matrix. Solving for
    \begin{aligned}
    \mathbf{v}_{En}(t+\Delta t)  =
    \frac{1}{\Delta t}(\frac{1}{\Delta t} I + \Lambda)^{-1}\mathbf{v}_{En}(t)\end{aligned}
-   
+
 The tendencies are determined by
 
 .. math::
@@ -3418,15 +3418,15 @@ The tensor :math:`\frac{1}{\Delta t} I + \Lambda` is
    \frac{1}{\Delta t} + \lambda_{xx}& \lambda_{xy} \\
    \lambda_{yx} & \frac{1}{\Delta t } + \lambda_{yy}
    \end{pmatrix}\end{gathered}
-   
+
 .. math::
-      
+
    \begin{aligned}
    \frac{Det}{\Delta t} = \frac{1}{\Delta t} \frac{1}{\lambda_{11}^* \lambda_{22}^* - \lambda_{12}^* \lambda_{21}^*}\end{aligned}
-   
+
 The tendencies applied to the neutral winds with
 :math:`\mathbf{v}_{En}=(u_E- u_n, v_E - v_n)` gives
-      
+
 .. math::
 
    \begin{aligned}
@@ -3434,7 +3434,7 @@ The tendencies applied to the neutral winds with
    - \lambda_{22}^* (u_E- u_n) \right) + u_E - u_n \right] \\
      d_t v_i =& \frac{1}{\Delta t} \left[ \frac{Det}{\Delta t} \left( \lambda_{21}^* (u_E -u_n)
      - \lambda_{11}^* (v_E- v_n) \right) + v_E - v_n \right]\end{aligned}
-       
+
 The electromagnetic energy transfer to the ionosphere is
 
 .. math::
