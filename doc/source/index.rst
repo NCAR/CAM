@@ -13,17 +13,18 @@ The :ref:`CAM user's guide <users-guide>` is a basic guide in utilizing the CIME
 Table of contents
 -----------------
 
+   :ref:`CAM6 Scientific Summary <https://ncar.github.io/CAM/doc/build/html/cam6_scientific_summary/index.html>`_
+   :ref:`CAM5 Scientific Guide <https://ncar.github.io/CAM_SciDoc/doc/build/html/cam5_scientific_guide/index.html>`_
+
 .. toctree::
    :maxdepth: 1
 
    users_guide/index.rst
-   :ref:`CAM6 Scientific Summary <https://ncar.github.io/CAM/doc/build/html/cam6_scientific_summary/index.html>`_.
 
 .. toctree::
    :maxdepth: 1
 
    CAM6.0_users_guide/index.rst
-   :ref:`CAM5 Scientific Guide <https://ncar.github.io/CAM_SciDoc/doc/build/html/cam5_scientific_guide/index.html>`_.
 
 
 Indices and tables
