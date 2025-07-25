@@ -36,7 +36,7 @@
           <a href="model-output.html" title="8. Model Output:"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM7.0 User’s Guide – Under Construction</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Physics modifications via the namelist</a></li> 
       </ul>
     </div>  
@@ -769,7 +769,7 @@ compliment.</p></td>
 the model toward reanalyses values outside the CONUS region, while the model evolves freely
 in the interior.</p>
 <figure class="align-center">
-<img alt="../_images/Example_HorizontalProfile1.png" src="../_images/Example_HorizontalProfile1.png" />
+<img alt="../_images/Example_HorizontalProfile2.png" src="../_images/Example_HorizontalProfile2.png" />
 </figure>
 <p><strong>Surface Nudging of Q</strong></p>
 <p>Since the nudging tendencies are applied separately from the convective parameterizations,
@@ -785,7 +785,7 @@ window illustrate how to nudge only at the surface for a 32 level model.</p>
 </pre></div>
 </div>
 <figure class="align-center">
-<img alt="../_images/Example_VerticalProfile1.png" src="../_images/Example_VerticalProfile1.png" />
+<img alt="../_images/Example_VerticalProfile2.png" src="../_images/Example_VerticalProfile2.png" />
 </figure>
 </section>
 <section id="example-setting-up-and-running-a-nudging-experiment">
@@ -805,153 +805,139 @@ reanalysis data, begin by making a copy of the NEWGRID directory for your new gr
 </pre></div>
 </div>
 <p>Now edit your new script, and set the BATCH commands.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>#!/bin/csh</p>
-<p>#</p>
-<p>#SBATCH -J <strong>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</strong></p>
-<p>#SBATCH -n 1</p>
-<p>#SBATCH –ntasks-per-node=1</p>
-<p>#SBATCH -t 24:00:00</p>
-<p>#SBATCH -A <strong>Pxxxxxxx</strong></p>
-<p>#SBATCH -p dav</p>
-<p>#SBATCH -e <strong>Log.Gen_MERRA2_SAM01</strong>.err.%J</p>
-<p>#SBATCH -o <strong>Log.Gen_MERRA2_SAM01</strong>.out.%J</p>
-<p>#SBATCH –mail-type=ALL</p>
-<p>#SBATCH –mail-user= <strong>me&#64;ucar.edu</strong></p>
-<p>#———————————————————-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">#!/bin/csh</div>
+<div class="line">#</div>
+<div class="line">#SBATCH -J <strong>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</strong></div>
+<div class="line">#SBATCH -n 1</div>
+<div class="line">#SBATCH –ntasks-per-node=1</div>
+<div class="line">#SBATCH -t 24:00:00</div>
+<div class="line">#SBATCH -A <strong>Pxxxxxxx</strong></div>
+<div class="line">#SBATCH -p dav</div>
+<div class="line">#SBATCH -e <strong>Log.Gen_MERRA2_SAM01</strong>.err.%J</div>
+<div class="line">#SBATCH -o <strong>Log.Gen_MERRA2_SAM01</strong>.out.%J</div>
+<div class="line">#SBATCH –mail-type=ALL</div>
+<div class="line">#SBATCH –mail-user= <strong>me&#64;ucar.edu</strong></div>
+</div>
+</div></blockquote>
 <p>In the Configuration section, set the reference date corresponding to the first day
 of data you desire, then number of days of data to process from that date, and the
 path where you wish to have the data stored.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>#=============================================================</p>
-<p># CONFIGURATION SECTION:</p>
-<p>#=============================================================</p>
-<p># Set a REFERENCE (Starting) Date and the number of days to process</p>
-<p>#———————————————————————-</p>
-<p>set RUNNUM=01</p>
-<p>set REF_DATE=’<strong>20121201</strong>’</p>
-<p>set NUM_DAYS= <strong>400</strong></p>
-<p># Set INPUT/OUTPUT/TMP directories</p>
-<p>#——————————————————–</p>
-<p>set NAMELIST=’./Config/Config_makeIC-‘$RUNNUM’.nl’</p>
-<p>set MYLOGDIR=’./LOG/LOG_002.’$RUNNUM’/’</p>
-<p>set MYTMPDIR=’./TMP/TMP_002.’$RUNNUM’/’</p>
-<p>set MYOUTDIR=’<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/nudging/MERRA2/</strong>’</p>
-<p>set INPUTDIR=’/glade/collections/rda/data/ds313.3/orig_res/’</p>
-<p># Set ESMF options</p>
-<p>#—————————</p>
-<p>set ESMF_interp=’conserve’</p>
-<p>set ESMF_pole=’none’</p>
-<p>set ESMF_clean=’False’</p>
-<p>set ESMF_clean=’True’</p>
-</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<div><div class="line-block">
+<div class="line">#=============================================================</div>
+<div class="line"># CONFIGURATION SECTION:</div>
+<div class="line">#=============================================================</div>
+<div class="line"><br /></div>
+<div class="line"># Set a REFERENCE (Starting) Date and the number of days to process</div>
+<div class="line">#———————————————————————-</div>
+<div class="line">set RUNNUM=01</div>
+<div class="line">set REF_DATE=’<strong>20121201</strong>’</div>
+<div class="line">set NUM_DAYS= <strong>400</strong></div>
+<div class="line"><br /></div>
+<div class="line"># Set INPUT/OUTPUT/TMP directories</div>
+<div class="line">#——————————————————–</div>
+<div class="line">set NAMELIST=’./Config/Config_makeIC-‘$RUNNUM’.nl’</div>
+<div class="line">set MYLOGDIR=’./LOG/LOG_002.’$RUNNUM’/’</div>
+<div class="line">set MYTMPDIR=’./TMP/TMP_002.’$RUNNUM’/’</div>
+<div class="line">set MYOUTDIR=’<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/nudging/MERRA2/</strong>’</div>
+<div class="line">set INPUTDIR=’/glade/collections/rda/data/ds313.3/orig_res/’</div>
+<div class="line"><br /></div>
+<div class="line"># Set ESMF options</div>
+<div class="line">#—————————</div>
+<div class="line">set ESMF_interp=’conserve’</div>
+<div class="line">set ESMF_pole=’none’</div>
+<div class="line">set ESMF_clean=’False’</div>
+<div class="line">set ESMF_clean=’True’</div>
+</div>
+</div></blockquote>
 <p>For the processing options, set the <code class="docutils literal notranslate"><span class="pre">CASE</span></code> name. This is the root filename for your
 nudging data files. Note that some reanalysis datasets store winds in the form of
 vorticity and divergence values rather then U,V. It is important that the VORT_DIV_TO_UV
 flag is set to True for these datasets, this is a common source of processing errors.
 Finally, set the <code class="docutils literal notranslate"><span class="pre">fname_grid_info</span></code> value to point to a file containing the desired ouput
 grid, and set <code class="docutils literal notranslate"><span class="pre">fname_phis_output</span></code> to point to a file containing the model topography.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p># Set Processing options</p>
-<p>#————————————-</p>
-<p>set CASE   = ‘<strong>MERRA2_ne0np4.SAM01.ne30x4_L32</strong>’</p>
-<p>set DYCORE     = ‘se’</p>
-<p>set PRECISION = ‘float’</p>
-<p>set VORT_DIV_TO_UV = ‘False’</p>
-<p>set SST_MASK           = ‘False’</p>
-<p>set ICE_MASK           = ‘False’</p>
-<p>set OUTPUT_PHIS      = ‘True’</p>
-<p>set REGRID_ALL        = ‘False’</p>
-<p>set ADJUST_STATE_FROM_TOPO = ‘True’</p>
-<p>set MASS_FIX           = ‘True’</p>
-<p># Set files containing OUTPUT Grid structure and topography</p>
-<p>#————————————————————————————</p>
-<p>set fname_grid_info = ‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/inic/</strong>
-<strong>cami-mam4_0000-01-01_ne0np4.SAM01.ne30x4_L32_c200309.nc</strong>’</p>
-<p>set fname_phis_output = ‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/topo/</strong>
-<strong>topo_ne30np4.SAM01.ne30x4_blin_200309.nc</strong>’</p>
-<p>set ftype_phis_output = ‘SE_TOPOGRAPHY’</p>
-</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<div><div class="line-block">
+<div class="line"># Set Processing options</div>
+<div class="line">#————————————-</div>
+<div class="line">set CASE   = ‘<strong>MERRA2_ne0np4.SAM01.ne30x4_L32</strong>’</div>
+<div class="line">set DYCORE     = ‘se’</div>
+<div class="line">set PRECISION = ‘float’</div>
+<div class="line">set VORT_DIV_TO_UV = ‘False’</div>
+<div class="line">set SST_MASK           = ‘False’</div>
+<div class="line">set ICE_MASK           = ‘False’</div>
+<div class="line">set OUTPUT_PHIS      = ‘True’</div>
+<div class="line">set REGRID_ALL        = ‘False’</div>
+<div class="line">set ADJUST_STATE_FROM_TOPO = ‘True’</div>
+<div class="line">set MASS_FIX           = ‘True’</div>
+<div class="line"><br /></div>
+<div class="line"># Set files containing OUTPUT Grid structure and topography</div>
+<div class="line">#————————————————————————————</div>
+<div class="line">set fname_grid_info = \</div>
+<div class="line">‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/inic/cami-mam4_0000-01-01_ne0np4.SAM01.ne30x4_L32_c200309.nc</strong>’</div>
+<div class="line">set fname_phis_output = \</div>
+<div class="line">‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/topo/topo_ne30np4.SAM01.ne30x4_blin_200309.nc</strong>’</div>
+<div class="line">set ftype_phis_output = ‘SE_TOPOGRAPHY’</div>
+</div>
+</div></blockquote>
 <p>For MERRA2, the 8X time daily reanalysis data is stored in daily files with 8 time slices
 in each file. For ERAI data, on the other hand, the 4x times daily data are stored in
 6 hourly files with one time slice per file. The user must configure the script to accomodate
 these differences in the data formats, as well as specify a template for the file names.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p># <em>set hoursec = ( 00000 21600 43200 64800)</em></p>
-<p># <em>set hourstr = (   00    06    12    18  )</em></p>
-<p># <em>set fname[1] = “ei.oper.an.ml/YYYYMM/ei.oper.an.ml.regn128sc.YYYYMMDDHH”</em></p>
-<p># <em>set ftype[1] = “Era_Interim_627.0_sc”</em></p>
-<p># <em>set ftime[1] = “1X”</em></p>
-<p><strong>set hoursec = ( 00000 10800 21600 32400 43200 54000 64800 75600)</strong></p>
-<p><strong>set hourstr = (   00    03    06    09    12    15    18     21   )</strong></p>
-<p><strong>set fname[1] = “YYYY/MERRA2_orig_res_YYYYMMDD.nc”</strong></p>
-<p><strong>set ftype[1] = “MERRA2”</strong></p>
-<p><strong>set ftime[1] = “8X”</strong></p>
 <blockquote>
-<div><blockquote>
-<div><p>: :    : :     : :</p>
-<p>: :    : :     : :</p>
+<div><div class="line-block">
+<div class="line"># <em>set hoursec = ( 00000 21600 43200 64800)</em></div>
+<div class="line"># <em>set hourstr = (   00    06    12    18  )</em></div>
+<div class="line"># <em>set fname[1] = “ei.oper.an.ml/YYYYMM/ei.oper.an.ml.regn128sc.YYYYMMDDHH”</em></div>
+<div class="line"># <em>set ftype[1] = “Era_Interim_627.0_sc”</em></div>
+<div class="line"># <em>set ftime[1] = “1X”</em></div>
+<div class="line"><br /></div>
+<div class="line"><strong>set hoursec = ( 00000 10800 21600 32400 43200 54000 64800 75600)</strong></div>
+<div class="line"><strong>set hourstr = (   00    03    06    09    12    15    18     21   )</strong></div>
+<div class="line"><strong>set fname[1] = “YYYY/MERRA2_orig_res_YYYYMMDD.nc”</strong></div>
+<div class="line"><strong>set ftype[1] = “MERRA2”</strong></div>
+<div class="line"><strong>set ftime[1] = “8X”</strong></div>
+<div class="line-block">
+<div class="line-block">
+<div class="line">: :    : :     : :</div>
+<div class="line">: :    : :     : :</div>
+<div class="line"><br /></div>
+</div>
+<div class="line"># Loop over the hourly values (4X daily)</div>
+<div class="line">#========================================</div>
+</div>
+<div class="line">#  <em>foreach hnum ( 1 2 3 4 )</em></div>
+<div class="line-block">
+<div class="line"><strong>foreach hnum ( 1 2 3 4 5 6 7 8 )</strong></div>
+<div class="line-block">
+<div class="line">: :    : :     : :</div>
+<div class="line">: :    : :     : :</div>
+<div class="line"><br /></div>
+</div>
+<div class="line"># Set Values dependend upon $hnum, clean</div>
+<div class="line"># up TMP files at the end of each DAY</div>
+<div class="line">#———————————————————————-</div>
+<div class="line">set datestr = $Yearstr$Monstr$Daystr$hoursec[$hnum]</div>
+<div class="line">set LOGFILE = $MYLOGDIR’/LogNCL.’$Yearstr$Monstr$Daystr$hoursec[$hnum]</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">#  <em>if( $hnum == 4 ) then</em></div>
+<div class="line-block">
+<div class="line"><strong>if( $hnum == 8 ) then</strong></div>
+<div class="line-block">
+<div class="line">set TMP_clean   = ‘True’</div>
+</div>
+<div class="line">else</div>
+<div class="line-block">
+<div class="line">set TMP_clean   = ‘False’</div>
+</div>
+<div class="line">endif</div>
+</div>
+</div>
 </div></blockquote>
-<p># Loop over the hourly values (4X daily)</p>
-<p>#========================================</p>
-</div></blockquote>
-<p>#  <em>foreach hnum ( 1 2 3 4 )</em></p>
-<blockquote>
-<div><p><strong>foreach hnum ( 1 2 3 4 5 6 7 8 )</strong></p>
-<blockquote>
-<div><p>: :    : :     : :</p>
-<p>: :    : :     : :</p>
-</div></blockquote>
-<p># Set Values dependend upon $hnum, clean</p>
-<p># up TMP files at the end of each DAY</p>
-<p>#———————————————————————-</p>
-<p>set datestr = $Yearstr$Monstr$Daystr$hoursec[$hnum]</p>
-<p>set LOGFILE = $MYLOGDIR’/LogNCL.’$Yearstr$Monstr$Daystr$hoursec[$hnum]</p>
-</div></blockquote>
-<p>#  <em>if( $hnum == 4 ) then</em></p>
-<blockquote>
-<div><dl class="simple">
-<dt><strong>if( $hnum == 8 ) then</strong></dt><dd><p>set TMP_clean   = ‘True’</p>
-</dd>
-<dt>else</dt><dd><p>set TMP_clean   = ‘False’</p>
-</dd>
-</dl>
-<p>endif</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
 <p>The last modification that is needed for this example is to edit the file
 <strong>makeIC_se_002.ncl</strong>. At about line 430, the <code class="docutils literal notranslate"><span class="pre">dstGridName</span></code> variable has to be
 set to use the SCRIP file for your new grid.</p>
@@ -1031,12 +1017,10 @@ on 12/16/2012 and end on 4/5/2013.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>&amp;cam_initfiles_nl</p>
-<dl class="simple">
-<dt>bnd_topo       = ‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/</strong></dt><dd><p><strong>topo/topo_ne0np4.SAM01.ne30x4_blin_200708.nc</strong>’</p>
-</dd>
-<dt>ncdata=’<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/</strong></dt><dd><p><strong>nudging/MERRA2/MERRA2_ne0np4.SAM01.ne30x4_L32.2012-12-16-00000.nc</strong>’</p>
-</dd>
-</dl>
+<p>bnd_topo=’<strong>/path/to/my/repo/</strong>
+<strong>ne0np4.SAM01.ne30x4/topo/topo_ne0np4.SAM01.ne30x4_blin_200708.nc</strong>’</p>
+<p>ncdata=’<strong>/path/to/my/repo/</strong>
+<strong>ne0np4.SAM01.ne30x4/nudging/MERRA2/MERRA2_ne0np4.SAM01.ne30x4_L32.2012-12-16-00000.nc</strong>’</p>
 <p>/</p>
 <p>&amp;nudging_nl</p>
 <p>Nudge_Model        =  <strong>.true.</strong></p>
@@ -1175,7 +1159,7 @@ would contain only zeros.</p>
           <a href="model-output.html" title="8. Model Output:"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM7.0 User’s Guide – Under Construction</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Physics modifications via the namelist</a></li> 
       </ul>
     </div>

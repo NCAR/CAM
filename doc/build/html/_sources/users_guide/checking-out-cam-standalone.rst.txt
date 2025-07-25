@@ -73,9 +73,9 @@ For a description of the changes made to the working copy...
     % git diff  -- or -- git difftool
 
 
---------------------------------
+------------------------------------------------------------
 Useful documentation about CAM development and git resources
---------------------------------
+------------------------------------------------------------
 
 The `wiki page for CAM development <http://github.com/ESCOMP/CAM/wiki>`_ contains more detailed information. 
 

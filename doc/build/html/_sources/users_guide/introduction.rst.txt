@@ -30,9 +30,9 @@ Throughout this document, we will use the name CAM in a generic sense and direct
 It should be noted that in CAM6, we are unable to support reproducibility of CAM4 and CAM5 numerical results with what a user would get running those configurations in CESM1.2 or prior.
 This is due to many factors including code changes and namelist settings.  While a user is still able to set the "-phys" namelist setting to either cam4 or cam5, the results will differ with what a user would get using those settings in CESM1.2. Due to these changes, a number of compsets specific to CAM4 or CAM5 have been removed.  We recommend that if a user wants a pure CAM4 or CAM5 run, that they use CESM1.2 for those runs.  WACCM-X which utilizes CAM4 does not have this issue and it should be run using the CESM2 release of CAM.
 
------------------------
+---------------------------------
 What's new in the CAM6.3 release?
------------------------
+---------------------------------
 
 The CAM6.3 is a developmental release mostly centered around new dynamical core configurations and capabilities. New configurations/capabilities include:
 

@@ -36,7 +36,7 @@
           <a href="physics-modifications-via-the-namelist.html" title="9. Physics modifications via the namelist"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM7.0 User’s Guide – Under Construction</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span>Chemistry specific modifications</a></li> 
       </ul>
     </div>  
@@ -204,12 +204,12 @@ plus D-region ion chemistry</p></td>
 Sources can be either emissions (surface or vertical, see Section 6.1) or concentrations in form of lower boundary conditions.
 To add new emissions you have to copy the existing list of emisisons to your user_nl_cam file and add the additional species (See Section 5.2.1).</p>
 <p>To add new lower boundary conditions via namelist, you have to add an addition species to the flbc_list and modify the lbc_file:</p>
-<p>flbc_file              = ‘/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc’
-flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, ‘CFC113’, ‘CFC12’, ‘CH3BR’, ‘CH3CCL3’, ‘CH3CL’, ‘CH4’,</p>
-<blockquote>
-<div><p>‘CO2’, ‘H2’, ‘HCFC22’, ‘N2O’, ‘CFC114’, ‘CFC115’, ‘HCFC141B’, ‘HCFC142B’, ‘CH2BR2’, ‘CHBR3’,
-‘H2402’, ‘OCS’, ‘SF6’, ‘CFC11eq’</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flbc_file</span> <span class="o">=</span> <span class="s1">&#39;/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc&#39;</span>
+<span class="n">flbc_list</span> <span class="o">=</span> <span class="s1">&#39;CCL4&#39;</span><span class="p">,</span> <span class="s1">&#39;CF2CLBR&#39;</span><span class="p">,</span> <span class="s1">&#39;CF3BR&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC113&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC12&#39;</span><span class="p">,</span> <span class="s1">&#39;CH3BR&#39;</span><span class="p">,</span> <span class="s1">&#39;CH3CCL3&#39;</span><span class="p">,</span> <span class="s1">&#39;CH3CL&#39;</span><span class="p">,</span> <span class="s1">&#39;CH4&#39;</span><span class="p">,</span>
+<span class="s1">&#39;CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="s1">&#39;HCFC22&#39;</span><span class="p">,</span> <span class="s1">&#39;N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC114&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC115&#39;</span><span class="p">,</span> <span class="s1">&#39;HCFC141B&#39;</span><span class="p">,</span> <span class="s1">&#39;HCFC142B&#39;</span><span class="p">,</span> <span class="s1">&#39;CH2BR2&#39;</span><span class="p">,</span> <span class="s1">&#39;CHBR3&#39;</span><span class="p">,</span>
+<span class="s1">&#39;H2402&#39;</span><span class="p">,</span> <span class="s1">&#39;OCS&#39;</span><span class="p">,</span> <span class="s1">&#39;SF6&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC11eq&#39;</span>
+</pre></div>
+</div>
 </section>
 <section id="adding-species-and-changing-the-mechanism">
 <h2><span class="section-number">10.4. </span>Adding species and changing the mechanism<a class="headerlink" href="#adding-species-and-changing-the-mechanism" title="Link to this heading">¶</a></h2>
@@ -252,11 +252,12 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 <section id="running-with-interactiv-prescribed-biogenic-emissions">
 <h2><span class="section-number">10.7. </span>Running with interactiv / prescribed biogenic emissions<a class="headerlink" href="#running-with-interactiv-prescribed-biogenic-emissions" title="Link to this heading">¶</a></h2>
 <p>Running with interactive biogenic emissions:</p>
-<ul class="simple">
-<li><p>The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified:</p></li>
-</ul>
-<p>megan_factors_file = ‘/glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc’</p>
-<ul class="simple">
+<ul>
+<li><p>The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39;/glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc&#39;</span>
+</pre></div>
+</div>
+</li>
 <li><p>This file contains the emission factors at standard temperature and pressure for each compound for each plant functional type, as well as the other model parameters. The compound names are given in the variable “Comp_Name”. The default file works with 78 plant function types (PFTs).</p></li>
 <li><p>CLM/MEGAN-v2.1 includes an option for using a map of emission factors for isoprene. The map in the current release is out of date and SHOULD NOT BE USED.  Under megan_emis_nl, in drv_flds_on or user_nl_cam: megan_mapped_emisfctrs = .false.</p></li>
 </ul>
@@ -342,7 +343,7 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
           <a href="physics-modifications-via-the-namelist.html" title="9. Physics modifications via the namelist"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM7.0 User’s Guide – Under Construction</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span>Chemistry specific modifications</a></li> 
       </ul>
     </div>

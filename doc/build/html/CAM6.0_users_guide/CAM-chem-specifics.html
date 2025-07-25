@@ -248,16 +248,17 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 <section id="running-with-interactiv-prescribed-biogenic-emissions">
 <h2><span class="section-number">9.7. </span>Running with interactiv / prescribed biogenic emissions<a class="headerlink" href="#running-with-interactiv-prescribed-biogenic-emissions" title="Link to this heading">¶</a></h2>
 <p>Running with interactive biogenic emissions:</p>
-<ul class="simple">
-<li><p>The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified:</p></li>
-</ul>
-<p>megan_factors_file = ‘/glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc’</p>
-<ul class="simple">
+<ul>
+<li><p>The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39;/glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc&#39;</span>
+</pre></div>
+</div>
+</li>
 <li><p>This file contains the emission factors at standard temperature and pressure for each compound for each plant functional type, as well as the other model parameters. The compound names are given in the variable “Comp_Name”. The default file works with 78 plant function types (PFTs).</p></li>
 <li><p>CLM/MEGAN-v2.1 includes an option for using a map of emission factors for isoprene. The map in the current release is out of date and SHOULD NOT BE USED.  Under megan_emis_nl, in drv_flds_on or user_nl_cam: megan_mapped_emisfctrs = .false.</p></li>
 </ul>
 <p>Running with prescribed biogenic emissions:</p>
-<p>To turn run with prescribed biogenic emissions requires including those emissions in the namelist for surface emission files that are not indluced in the namelist by default. Additionally, one needs to turn off interactive biogenic emissions, if using a CAMchem or WACCM TSML compset:</p>
+<p>To turn run with prescribed biogenic emissions requires including those emissions in the namelist for surface emission files that are not included in the namelist by default. Additionally, one needs to turn off interactive biogenic emissions, if using a CAMchem or WACCM TSML compset:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">megan_emis_nl</span>
  <span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
  <span class="n">megan_specifier</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
