@@ -48,31 +48,65 @@
             
   <section id="atmospheric-configurations-compsets">
 <span id="ug70-atmospheric-configurations"></span><h1><span class="section-number">4. </span>Atmospheric configurations (compsets)<a class="headerlink" href="#atmospheric-configurations-compsets" title="Link to this heading">¶</a></h1>
-<p>There are a number of atmospheric models which can run within CESM.  While CAM is the basic atmospheric model within CESM, there are several models with significant extensions to CAM which may also be run within CESM.  The available atmospheric models in CESM2 are:</p>
+<p>There are a number of atmospheric models which can run within CESM.  While
+CAM is the basic atmospheric model within CESM, there are several models
+with significant extensions to CAM which may also be run within CESM.  The
+available atmospheric models in CESM2 are:</p>
 <ul class="simple">
 <li><p><strong>CAM</strong>:  Community Atmosphere Model</p></li>
 <li><p><strong>CAM-chem</strong>: Community Atmosphere Model with Chemistry</p></li>
 <li><p><strong>WACCM</strong>: Whole Atmosphere Community Climate Model</p></li>
-<li><p><strong>WACCM-X</strong>: Whole Atmosphere Community Climate Model with thermosphere and ionosphere extension</p></li>
+<li><p><strong>WACCM-X</strong>: Whole Atmosphere Community Climate Model with thermosphere
+and ionosphere extension</p></li>
 </ul>
-<p>Each of these models have a number of atmospheric configurations provided to run them.  These component sets known as <strong>compsets</strong> are used to supply both configure and namelist settings for predefined experiments.</p>
+<p>Each of these models have a number of atmospheric configurations provided
+to run them.  These component sets known as <strong>compsets</strong> are used to supply
+both configure and namelist settings for predefined experiments.</p>
 <p>The predefined compsets exist with one of three levels of support.</p>
 <ul class="simple">
-<li><p><strong>Scientifically supported</strong>:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.</p></li>
-<li><p><strong>Developmental support</strong>: Developmental configurations that are being evaluated. These are not fully scientifically supported in the sense of extensive tuning, testing and vetting.</p></li>
-<li><p><strong>Tested</strong>: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of “Tested” simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.</p></li>
-<li><p><strong>Unsupported</strong>:  These compsets are setup as a “convenience” for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the –run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.</p></li>
+<li><p><strong>Scientifically supported</strong>:  Specific compset/resolution pairs which
+have had significant, multi-year runs made and have been studied
+scientifically.  It is important to note that resolutions which are not
+listed, are not scientifically supported, have not had tunings performed
+and should not be used for scientific studies without careful examination
+of the results.</p></li>
+<li><p><strong>Developmental support</strong>: Developmental configurations that are being
+evaluated. These are not fully scientifically supported in the sense of
+extensive tuning, testing and vetting.</p></li>
+<li><p><strong>Tested</strong>: One or more tests for this compset have been made using at
+least one resolution.  Extensive scientific study has not been performed.
+The designation of “Tested” simply acknowledges that one or more
+compset/resolution pair(s) have been confirmed to run without crashing.
+No attempts have been made to validate the scientific quality of these
+runs and tunings have NOT been performed on them.</p></li>
+<li><p><strong>Unsupported</strong>:  These compsets are setup as a “convenience” for various
+reasons and they are not supported for science runs.  If a user decides
+to use one of these compsets, they must also supply the –run-unsupported
+flag to create_newcase.  These compsets may not even compile and run
+successfully as they have not been tested.</p></li>
 </ul>
 <p>CAM compsets include the F, P and Q compsets.</p>
 <ul class="simple">
-<li><p><strong>F</strong>: CAM standalone runs, using an active Atmosphere and Land with prescribed Sea-Surface Temperatures (SSTs) and sea-ice extent.</p></li>
+<li><p><strong>F</strong>: CAM standalone runs, using an active Atmosphere and Land with
+prescribed Sea-Surface Temperatures (SSTs) and sea-ice extent.</p></li>
 <li><p><strong>P</strong>: Parallel offline radiation tool (PORT)</p></li>
 <li><p><strong>Q</strong>: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)</p></li>
 </ul>
-<p>This chapter will discuss some of the atmospheric compsets in more detail, but a complete listing of all compsets is found at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">CESM2 Component Configurations (compsets)</a>.  The complete listing of grid resolutions can be found at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/grids.html">CESM2 Grid Resolutions</a>.</p>
+<p>This chapter will discuss some of the atmospheric compsets in more detail,
+but a complete listing of all compsets is found at <a class="reference external" href="https://docs.cesm.ucar.edu/models/cesm2/config/compsets.html">CESM2 Component
+Configurations (compsets)</a>.  The
+complete listing of grid resolutions can be found at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/grids.html">CESM2 Grid
+Resolutions</a>.</p>
 <section id="cam-scientifically-supported-compsets">
 <h2><span class="section-number">4.1. </span>CAM scientifically supported compsets<a class="headerlink" href="#cam-scientifically-supported-compsets" title="Link to this heading">¶</a></h2>
-<p>CAM has a number of compsets/resolutions which are supported scientifically.  These compsets are detailed in the following table.  A specific compset may be listed below, but unless the resolution is also listed, that compset/resolution combination is not scientifically supported.  Different resolutions exhibit different behavior and as a result require different tunings.  The scientifically supported designation is limited to the specific compset/resolution pairs listed in the following tables.</p>
+<p>CAM has a number of compsets/resolutions which are supported
+scientifically.  These compsets are detailed in the following table.  A
+specific compset may be listed below, but unless the resolution is also
+listed, that compset/resolution combination is not scientifically
+supported.  Different resolutions exhibit different behavior and as a
+result require different tunings.  The scientifically supported designation
+is limited to the specific compset/resolution pairs listed in the following
+tables.</p>
 <p><strong>Scientifically supported CAM compsets</strong></p>
 <table class="docutils align-default">
 <thead>
@@ -754,56 +788,11 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 </section>
 <section id="other-cam-compsets">
 <h2><span class="section-number">4.4. </span>Other CAM compsets<a class="headerlink" href="#other-cam-compsets" title="Link to this heading">¶</a></h2>
-<p>There are a number of other CAM compsets which have not been described in this document. The complete listing of all compsets is found <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">here</a>.  Users are cautioned about using compsets that are not scientifically supported or tested.  These compsets are not supported and users may encounter problems or get invalid results using them.</p>
-<section id="super-parameterized-cam-spcam">
-<h3><span class="section-number">4.4.1. </span>Super-parameterized CAM (SPCAM)<a class="headerlink" href="#super-parameterized-cam-spcam" title="Link to this heading">¶</a></h3>
-<p>Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.10.4) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation <a class="footnote-reference brackets" href="#id20" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. Four different compsets are provided. FSPCAMS uses one moment SAM microphysics, and is based on Khairoutdinov and Randall <a class="footnote-reference brackets" href="#id21" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>. FSPCAMM uses two moment microphysics from Morrison et al <a class="footnote-reference brackets" href="#id22" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, and its implementation is based on Wang et al. <a class="footnote-reference brackets" href="#id20" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>; <a class="footnote-reference brackets" href="#id23" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>; <a class="footnote-reference brackets" href="#id24" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>. FSPCAMCLBS and FSPCAMCLBM are the same as FSPCAMS and FSPCAMM respectivly, but are coupled with a higher-order turbulence closure scheme, CLUBB <a class="footnote-reference brackets" href="#id20" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.  In FSPCAMM ad FSPCAMCLBM, the Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) <a class="footnote-reference brackets" href="#id25" id="id17" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a> . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.  The performance of these four compsets as they existed in CAM5.2 has been documented in detail <a class="footnote-reference brackets" href="#id20" id="id18" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> and <a class="footnote-reference brackets" href="#id26" id="id19" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a>.</p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id20" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id10">1</a>,<a role="doc-backlink" href="#id13">2</a>,<a role="doc-backlink" href="#id16">3</a>,<a role="doc-backlink" href="#id18">4</a>)</span>
-<p>Wang, M., V. Larson, S. Ghan, M. Ovchinnikov, D. Schanen, H. Xiao, X. Liu, Z.  Guo, and P. Rasch (2015), A multiscale modeling framework model (superparameterized CAM5) with a higher-order turbulence closure: Model description and low-cloud simulations, Journal of Advances in Modeling Earth Systems, 7, <a class="reference external" href="https://doi.org/10.1002/2014MS000375">https://doi.org/10.1002/2014MS000375</a>.</p>
-</aside>
-<aside class="footnote brackets" id="id21" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">6</a><span class="fn-bracket">]</span></span>
-<p>Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.</p>
-</aside>
-<aside class="footnote brackets" id="id22" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">7</a><span class="fn-bracket">]</span></span>
-<p>Morrison, H., Curry, J. A., Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.</p>
-</aside>
-<aside class="footnote brackets" id="id23" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">8</a><span class="fn-bracket">]</span></span>
-<p>Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137–168, doi:10.5194/gmd-4-137-2011.</p>
-</aside>
-<aside class="footnote brackets" id="id24" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">9</a><span class="fn-bracket">]</span></span>
-<p>Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.</p>
-</aside>
-<aside class="footnote brackets" id="id25" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id17">10</a><span class="fn-bracket">]</span></span>
-<p>Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit- Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.</p>
-</aside>
-<aside class="footnote brackets" id="id26" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">11</a><span class="fn-bracket">]</span></span>
-<p>Zhang, K., Fu, R., Shaikh, M. J., Ghan, S., Wang, M., Leung, L. R., … Marengo, J. (2017). Inﬂuence of superparameterization and a higher-order turbulence closure on rainfall bias over Amazonia in Community Atmosphere Model version 5. Journal of Geophysical Research: Atmosphere s, 122, 9879-9902, <a class="reference external" href="https://doi.org/10.1002/2017JD026576">https://doi.org/10.1002/2017JD026576</a></p>
-</aside>
-</aside>
-<p><strong>SPCAM tested compsets</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>FSPCAMS: SPCAM using the single moment microphysics</p></li>
-<li><p>FSPCAMM: SPCAM using the double moment microphysics</p></li>
-</ul>
-</div></blockquote>
-<dl class="simple">
-<dt><strong>SPCAM run-unsupported compsets</strong></dt><dd><ul class="simple">
-<li><p>FSPCAMCLBS: SPCAM using the single moment microphysics and a custom version of CLUBB</p></li>
-<li><p>FSPCAMCLBM: SPCAM using the double moment microphysics and a custom version of CLUBB</p></li>
-</ul>
-</dd>
-</dl>
-</section>
+<p>There are a number of other CAM compsets which have not been described in
+this document. The complete listing of all compsets is found <a class="reference external" href="https://docs.cesm.ucar.edu/models/cesm2/config/compsets.html">here</a>.  Users
+are cautioned about using compsets that are not scientifically supported or
+tested.  These compsets are not supported and users may encounter problems
+or get invalid results using them.</p>
 </section>
 <section id="cam-chem-tested-compsets">
 <h2><span class="section-number">4.5. </span>CAM-chem tested compsets<a class="headerlink" href="#cam-chem-tested-compsets" title="Link to this heading">¶</a></h2>
@@ -1084,10 +1073,7 @@ above.</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-cam-compsets">4.4. Other CAM compsets</a><ul>
-<li><a class="reference internal" href="#super-parameterized-cam-spcam">4.4.1. Super-parameterized CAM (SPCAM)</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#other-cam-compsets">4.4. Other CAM compsets</a></li>
 <li><a class="reference internal" href="#cam-chem-tested-compsets">4.5. CAM-chem tested compsets</a></li>
 <li><a class="reference internal" href="#waccm-compsets">4.6. WACCM compsets</a><ul>
 <li><a class="reference internal" href="#scientifically-supported-waccm-atmosphere-compsets">4.6.1. Scientifically supported WACCM atmosphere compsets</a></li>

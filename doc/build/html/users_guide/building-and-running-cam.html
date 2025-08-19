@@ -50,11 +50,15 @@
 <span id="ug70-building-and-running-cam"></span><h1><span class="section-number">3. </span>Building and Running the atmospheric model within CESM<a class="headerlink" href="#building-and-running-the-atmospheric-model-within-cesm" title="Link to this heading">¶</a></h1>
 <p>If you need to install CESM, you will need to download it from a git
 repository.  Please refer to <a class="reference external" href="http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html">downloading CESM</a>.</p>
-<p>CAM runs are setup, built, and submitted via the CIME scripts.  These
-directions apply also to the CAM extension models of CAM-chem, WACCM and
-WACCM-X.  In all cases, the first step to making a run is to create a case
-using the CIME <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code> script, passing it a case name, compset, and
-model resolution.</p>
+<p>CESM runs are setup, built, and executed using the Common Infrastructure
+for Modeling the Earth (<a class="reference external" href="https://esmci.github.io/cime/versions/master/html/index.html">CIME</a>).  A
+general description of using CIME for a CESM run is found in the CESM
+<a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.2/html/quickstart.html">Quick Start</a>.
+In this section we provide some examples using the CIME scripts to run CAM
+standalone configurations.  These directions apply also to the CAM
+extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first
+step to making a run is to create a case using the CIME <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code>
+script, passing it a case name, compset, and model resolution.</p>
 <p>The case name is used as the name of the new directory which will contain
 all the information needed to configure, build, and run the case as well as
 serving as the case title of the CAM model run.</p>
@@ -106,7 +110,6 @@ configurations</span></a>.</p>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlquery</span> <span class="o">--</span><span class="n">listall</span>
 </pre></div>
 </div>
-<p>A summary description of the setup/build/submit process can be found at the <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.1/html/quickstart.html">CESM quick start</a>.</p>
 <p>Further, detailed information for each of the above steps can be found at:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/create-a-case.html">create_newcase</a></p></li>

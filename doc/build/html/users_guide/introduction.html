@@ -54,7 +54,8 @@ CESM-3.0.  It is the latest in a series of global atmosphere models whose
 development is guided by the <a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Atmosphere/">Atmosphere Model Working Group (AMWG)</a> of the <a class="reference external" href="http://www.cesm.ucar.edu/">Community
 Earth System Model (CESM)</a> project.  CAM can
 be run in many configurations within the CESM; it is the atmosphere
-component in the B, E, F, Q, and P compsets.  The term “standalone CAM” is
+component in the <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.2/html/cesm_configurations.html#cesm2-component-sets">B, E, F, Q, and P compsets</a>.
+The term “standalone CAM” is
 often used to refer to a compset which does not include prognostic ocean
 and sea ice models.  When one speaks of “doing CAM simulations” the
 implication is that it’s a standalone configuration that is being used.
@@ -112,13 +113,16 @@ WACCM-X.</p></li>
 <li><p>The vertical resolution for the low-top (about 40km) version of CAM has
 increase to 58 levels (from 32).</p></li>
 <li><p>The PUMAS microphysics code base replaces MG.  This adds missing
-processes and hydrometeor types.</p></li>
+processes and hydrometeor types.  PUMAS is GPU-enabled.</p></li>
 <li><p>Updated L-scale CLUBB code with prognostic momentum transport.</p></li>
 <li><p>The physics sequence was reordered moving the call to CLUBB to after
 returning from the coupler.  This alleviates spurious surface wind
 oscillations.</p></li>
-<li><p>The RRTMG-P radiation code replaces RRTMG.  The new code has improved
-algorithms and includes support for GPUs.</p></li>
+<li><p>The <a class="reference external" href="https://earth-system-radiation.github.io/rte-rrtmgp">RTE+RRTMGP</a>
+radiation code replaces RRTMG.  The new code has improved
+algorithms and gas optics.</p></li>
+<li><p>GPU support may be enabled via OpenACC directives in the PUMAS, CLUBB, and
+RTE-RRTMGP parameterizations.</p></li>
 <li><p>New gravity wave drag parameterization adds missing sources to improve
 high-top stratospheric wind biases.</p></li>
 <li><p>The topography software was updated to improve the ocean-atmosphere
@@ -155,7 +159,7 @@ incorporating regional inventories into global inventories.</p></li>
 <li><p>The CAMchem MPAS configuration uses a non-hydrostatic dynamical core to
 allow simulations at 5km horizontal resolution.</p></li>
 <li><p>TUV-x improves the representation of photochemical decomposition of
-reactive species generating different radicals (O1D, OH,
+reactive species generating different radicals (O<sup>1</sup>D, OH,
 Cl/Br/I atoms) as well as the penetration of downwelling radiation to
 the lower troposphere.  Also improves treatment of aerosols.</p></li>
 </ul>
@@ -166,6 +170,15 @@ the lower troposphere.  Also improves treatment of aerosols.</p></li>
 <li><p>Inline TUV-x to improve representation of photolysis and heating rates.</p></li>
 <li><p>Use SE dynamical core for both WACCM and WACCM-X to maintain consistency
 with CAM and enable high resolution simulations.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="features-removed-from-cam7-0-code-base">
+<h2><span class="section-number">1.2. </span>Features removed from CAM7.0 code base:<a class="headerlink" href="#features-removed-from-cam7-0-code-base" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>The Eulerian spectral dycore.</p></li>
+<li><p>The Super-parameterized CAM (SPCAM).</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -183,6 +196,7 @@ with CAM and enable high resolution simulations.</p></li>
     <ul>
 <li><a class="reference internal" href="#">1. Introduction</a><ul>
 <li><a class="reference internal" href="#what-s-new-in-the-cam7-0-release">1.1. What’s new in the CAM7.0 release?</a></li>
+<li><a class="reference internal" href="#features-removed-from-cam7-0-code-base">1.2. Features removed from CAM7.0 code base:</a></li>
 </ul>
 </li>
 </ul>
