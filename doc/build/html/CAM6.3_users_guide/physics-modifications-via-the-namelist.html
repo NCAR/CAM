@@ -1,53 +1,118 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en" data-content_root="../">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. Physics modifications via the namelist &mdash; camdoc  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
-    <title>9. Physics modifications via the namelist &#8212; camdoc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
-    
-    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/bizstyle.js"></script>
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Chemistry specific modifications" href="CAM-chem-specifics.html" />
-    <link rel="prev" title="8. Model Output:" href="model-output.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="Related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="CAM-chem-specifics.html" title="10. Chemistry specific modifications"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="model-output.html" title="8. Model Output:"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Physics modifications via the namelist</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="8. Model Output:" href="model-output.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            camdoc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../users_guide/index.html">CAM7.0 User’s Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CAM6.3 User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-help.html">2. Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running the atmospheric model within CESM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">5. User Defined Variable Resolution Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">6. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html">7. Input Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model-output.html">8. Model Output:</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9. Physics modifications via the namelist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#radiative-constituents">9.1. Radiative Constituents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#default-rad-climate-for-cam6-physics">9.1.1. Default rad_climate for cam6 physics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-modify-a-radiatively-active-gas">9.2. Example - Modify a radiatively active gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagnostic-radiative-forcing">9.3. Diagnostic radiative forcing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-aerosol-radiative-forcing">9.4. Example - Aerosol radiative forcing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-black-carbon-radiative-forcing">9.5. Example - Black carbon radiative forcing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nudging">9.6. Nudging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#target-data">9.6.1. Target Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">9.6.2. Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-values">9.6.3. Output Values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#namelist-values">9.6.4. Namelist Values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windowing-examples">9.6.5. Windowing Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-setting-up-and-running-a-nudging-experiment">9.6.6. EXAMPLE: Setting Up and Running A Nudging Experiment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html">10. Chemistry specific modifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checking-out-cam-standalone.html">11. Downloading CAM standalone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html">12. Appendices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">13. References</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CAM6.0_users_guide/index.html">CAM6 User’s Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">camdoc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">CAM6.3 User’s Guide</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9. </span>Physics modifications via the namelist</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/CAM6.3_users_guide/physics-modifications-via-the-namelist.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="physics-modifications-via-the-namelist">
-<h1><span class="section-number">9. </span>Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Link to this heading">¶</a></h1>
+<h1><span class="section-number">9. </span>Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Link to this heading"></a></h1>
 <p>This chapter contains a few examples of customizing
 CAM’s run time configuration. General instructions
 for modifying namelists using the user_nl_cam file were given
@@ -55,7 +120,7 @@ in <a class="reference internal" href="building-and-running-cam.html#ug63-buildi
 The examples below focus on some specific modifications that would
 be included in user_nl_cam.</p>
 <section id="radiative-constituents">
-<h2><span class="section-number">9.1. </span>Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Link to this heading"></a></h2>
 <p>The atmospheric constituents which impact the calculation of radiative
 fluxes and heating rates are referred to as radiative constituents. A
 single CAM run may potentially contain multiple sources of any given
@@ -74,7 +139,7 @@ default specification for the cam6 physics
 package. Following that are some examples of how to modify the
 default namelist settings.</p>
 <section id="default-rad-climate-for-cam6-physics">
-<span id="ug63-def-rad-clim"></span><h3><span class="section-number">9.1.1. </span>Default rad_climate for cam6 physics<a class="headerlink" href="#default-rad-climate-for-cam6-physics" title="Link to this heading">¶</a></h3>
+<span id="ug63-def-rad-clim"></span><h3><span class="section-number">9.1.1. </span>Default rad_climate for cam6 physics<a class="headerlink" href="#default-rad-climate-for-cam6-physics" title="Link to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics package uses prescribed gases (except for water
 vapor), prognostic modal aerosols, and prescribed bulk
 aerosols. <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> is the namelist variable which holds the
@@ -215,7 +280,7 @@ definition of the mode continues in the next string.</p>
 </section>
 </section>
 <section id="example-modify-a-radiatively-active-gas">
-<h2><span class="section-number">9.2. </span>Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Link to this heading"></a></h2>
 <p>Suppose that we wish to modify the distribution of water vapor that is
 seen by the radiation calculations. More specifically, consider
 modifying just the stratospheric part of the water vapor distribution
@@ -258,7 +323,7 @@ since the new constituent is not advected, even though it is derived
 in part from the constituent <code class="docutils literal notranslate"><span class="pre">Q</span></code> which is advected.</p>
 </section>
 <section id="diagnostic-radiative-forcing">
-<h2><span class="section-number">9.3. </span>Diagnostic radiative forcing<a class="headerlink" href="#diagnostic-radiative-forcing" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Diagnostic radiative forcing<a class="headerlink" href="#diagnostic-radiative-forcing" title="Link to this heading"></a></h2>
 <p>There are several namelist variables available for online radiative forcing
 calculations with the physics packages that use the RRTMG radiation
 package.  Namelist variables are available for ten radiative forcing
@@ -278,7 +343,7 @@ PORT configuration of CAM which is documented <a class="reference external" href
 calculations with the <code class="docutils literal notranslate"><span class="pre">cam5</span></code> and <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics.</p>
 </section>
 <section id="example-aerosol-radiative-forcing">
-<h2><span class="section-number">9.4. </span>Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.4. </span>Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Link to this heading"></a></h2>
 <p>To compute the total aerosol radiative forcing we need a diagnostic
 calculation in which all the aerosols have been removed. To do this we
 start from the default setting for the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable, use
@@ -292,7 +357,7 @@ would be done by adding the following to <code class="docutils literal notransla
 </div>
 </section>
 <section id="example-black-carbon-radiative-forcing">
-<h2><span class="section-number">9.5. </span>Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5. </span>Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Link to this heading"></a></h2>
 <p>To compute the radiative forcing of a single aerosol specie we need a
 diagnostic calculation in which that specie has been removed from all modes
 that contain it. This is a bit more complicated that the previous example
@@ -365,7 +430,7 @@ is run with modal_strat_sulfate set to true.  This option is not used with
 <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics, but it is used with WACCM.</p>
 </section>
 <section id="nudging">
-<h2><span class="section-number">9.6. </span>Nudging<a class="headerlink" href="#nudging" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.6. </span>Nudging<a class="headerlink" href="#nudging" title="Link to this heading"></a></h2>
 <p>Nudging augments the physics tendencies for the prognostic variables [U,V,T,Q]
 in order to drive the model solution toward some prescribed target states which
 are avaiable at a set of discrete target times. In general there are three
@@ -384,7 +449,7 @@ biases, which are in turn used to diagnose deficiencies in physics
 parameterizations.</p></li>
 </ul>
 <section id="target-data">
-<h3><span class="section-number">9.6.1. </span>Target Data<a class="headerlink" href="#target-data" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.6.1. </span>Target Data<a class="headerlink" href="#target-data" title="Link to this heading"></a></h3>
 <p>Typically the target states are derived from available reanalyses products, however
 a variety of other derived target states are possible. The only requirement is that
 the [U,V,T,Q] target values must be pre-processed onto the current model grid and
@@ -472,7 +537,7 @@ run in this manner must comment out the WRAPIT command in the script and run it 
 create the library prior to submitting the processing scripts.</p>
 </section>
 <section id="implementation">
-<h3><span class="section-number">9.6.2. </span>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.6.2. </span>Implementation<a class="headerlink" href="#implementation" title="Link to this heading"></a></h3>
 <p>Nudging is implemented as a relaxation tendency between the current model state and
 a desired target state.</p>
 <div class="math">
@@ -515,13 +580,13 @@ each dycore.</p></li>
 </ul>
 </section>
 <section id="output-values">
-<h3><span class="section-number">9.6.3. </span>Output Values<a class="headerlink" href="#output-values" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.6.3. </span>Output Values<a class="headerlink" href="#output-values" title="Link to this heading"></a></h3>
 <p>The nudging module provides the following history file outputs:</p>
 <p>The applied nudging tendencies: <strong>Nudge_U, Nudge_V, Nudge_T, Nudge_Q</strong></p>
 <p>The nudging target values: <strong>Target_U, Target_V, Target_T, Target_Q</strong></p>
 </section>
 <section id="namelist-values">
-<h3><span class="section-number">9.6.4. </span>Namelist Values<a class="headerlink" href="#namelist-values" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.6.4. </span>Namelist Values<a class="headerlink" href="#namelist-values" title="Link to this heading"></a></h3>
 <p>A template for the <code class="docutils literal notranslate"><span class="pre">&amp;nudging_nl</span></code> namelist variables can be found in the
 <code class="docutils literal notranslate"><span class="pre">components/cam/tools/nudging/</span></code> directory. The following table lists the variables in the namelist
 and describes their usage.</p>
@@ -753,7 +818,7 @@ compliment.</p></td>
 </table>
 </section>
 <section id="windowing-examples">
-<h3><span class="section-number">9.6.5. </span>Windowing Examples<a class="headerlink" href="#windowing-examples" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.6.5. </span>Windowing Examples<a class="headerlink" href="#windowing-examples" title="Link to this heading"></a></h3>
 <p><strong>Conus Horizontal Window</strong></p>
 <p>This example uses the Horizontal window variables to create a CONUS window for nudging:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Nudge_Hwin_lat0    =45.0&#39;</span>
@@ -789,7 +854,7 @@ window illustrate how to nudge only at the surface for a 32 level model.</p>
 </figure>
 </section>
 <section id="example-setting-up-and-running-a-nudging-experiment">
-<h3><span class="section-number">9.6.6. </span>EXAMPLE: Setting Up and Running A Nudging Experiment<a class="headerlink" href="#example-setting-up-and-running-a-nudging-experiment" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.6.6. </span>EXAMPLE: Setting Up and Running A Nudging Experiment<a class="headerlink" href="#example-setting-up-and-running-a-nudging-experiment" title="Link to this heading"></a></h3>
 <p>In order to set up and run a physics-side nudging experiment, the user must first
 generate a set of target data to nudge toward. Once the data has been prepared, then
 after the desired case has been created, the nudging is applied by setting the
@@ -806,7 +871,7 @@ reanalysis data, begin by making a copy of the NEWGRID directory for your new gr
 </div>
 <p>Now edit your new script, and set the BATCH commands.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/csh</span>
 <span class="c1">#</span>
 <span class="hll"><span class="c1">#SBATCH -J Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span>
@@ -826,7 +891,7 @@ reanalysis data, begin by making a copy of the NEWGRID directory for your new gr
 of data you desire, then number of days of data to process from that date, and the
 path where you wish to have the data stored.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#=============================================================
 # CONFIGURATION SECTION:
 #=============================================================
@@ -861,7 +926,7 @@ flag is set to True for these datasets, this is a common source of processing er
 Finally, set the <code class="docutils literal notranslate"><span class="pre">fname_grid_info</span></code> value to point to a file containing the desired ouput
 grid, and set <code class="docutils literal notranslate"><span class="pre">fname_phis_output</span></code> to point to a file containing the model topography.</p>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set Processing options</span>
 <span class="c1">#-------------------------------------</span>
 <span class="hll"><span class="nb">set</span> <span class="n">CASE</span>   <span class="o">=</span> <span class="s1">&#39;MERRA2_ne0np4.SAM01.ne30x4_L32&#39;</span>
@@ -890,7 +955,7 @@ in each file. For ERAI data, on the other hand, the 4x times daily data are stor
 6 hourly files with one time slice per file. The user must configure the script to accomodate
 these differences in the data formats, as well as specify a template for the file names.</p>
 <div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># set hoursec = ( 00000 21600 43200 64800)
 # set hourstr = (   00    06    12    18  )
 # set fname[1] = &quot;ei.oper.an.ml/YYYYMM/ei.oper.an.ml.regn128sc.YYYYMMDDHH&quot;
@@ -931,7 +996,7 @@ endif
 <strong>makeIC_se_002.ncl</strong>. At about line 430, the <code class="docutils literal notranslate"><span class="pre">dstGridName</span></code> variable has to be
 set to use the SCRIP file for your new grid.</p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">makeIC_se_002.ncl</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">makeIC_se_002.ncl</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span><span class="o">*****************************************************************</span>
 <span class="p">;</span> <span class="n">WORK</span> <span class="n">AROUND</span><span class="p">:</span> <span class="n">the</span> <span class="s1">&#39;unstructured_to_ESMF&#39;</span> <span class="n">routine</span> <span class="ow">is</span>
 <span class="p">;</span>           <span class="ow">not</span> <span class="n">good</span> <span class="k">for</span> <span class="n">non</span><span class="o">-</span><span class="n">graphic</span> <span class="n">interpolation</span><span class="o">.</span>
@@ -1067,89 +1132,34 @@ would contain only zeros.</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="Main">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">9. Physics modifications via the namelist</a><ul>
-<li><a class="reference internal" href="#radiative-constituents">9.1. Radiative Constituents</a><ul>
-<li><a class="reference internal" href="#default-rad-climate-for-cam6-physics">9.1.1. Default rad_climate for cam6 physics</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#example-modify-a-radiatively-active-gas">9.2. Example - Modify a radiatively active gas</a></li>
-<li><a class="reference internal" href="#diagnostic-radiative-forcing">9.3. Diagnostic radiative forcing</a></li>
-<li><a class="reference internal" href="#example-aerosol-radiative-forcing">9.4. Example - Aerosol radiative forcing</a></li>
-<li><a class="reference internal" href="#example-black-carbon-radiative-forcing">9.5. Example - Black carbon radiative forcing</a></li>
-<li><a class="reference internal" href="#nudging">9.6. Nudging</a><ul>
-<li><a class="reference internal" href="#target-data">9.6.1. Target Data</a></li>
-<li><a class="reference internal" href="#implementation">9.6.2. Implementation</a></li>
-<li><a class="reference internal" href="#output-values">9.6.3. Output Values</a></li>
-<li><a class="reference internal" href="#namelist-values">9.6.4. Namelist Values</a></li>
-<li><a class="reference internal" href="#windowing-examples">9.6.5. Windowing Examples</a></li>
-<li><a class="reference internal" href="#example-setting-up-and-running-a-nudging-experiment">9.6.6. EXAMPLE: Setting Up and Running A Nudging Experiment</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="model-output.html" class="btn btn-neutral float-left" title="8. Model Output:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CAM-chem-specifics.html" class="btn btn-neutral float-right" title="10. Chemistry specific modifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025 UCAR.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="model-output.html"
-                          title="previous chapter"><span class="section-number">8. </span>Model Output:</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="CAM-chem-specifics.html"
-                          title="next chapter"><span class="section-number">10. </span>Chemistry specific modifications</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/CAM6.3_users_guide/physics-modifications-via-the-namelist.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="Related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="CAM-chem-specifics.html" title="10. Chemistry specific modifications"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="model-output.html" title="8. Model Output:"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Physics modifications via the namelist</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2017 UCAR.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

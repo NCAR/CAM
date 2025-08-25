@@ -1,56 +1,110 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en" data-content_root="../">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. Chemistry specific modifications &mdash; camdoc  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
-    <title>9. Chemistry specific modifications &#8212; camdoc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
-    
-    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/bizstyle.js"></script>
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Downloading CAM standalone" href="checking-out-cam-standalone.html" />
-    <link rel="prev" title="8. Physics modifications via the namelist" href="physics-modifications-via-the-namelist.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="Related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="checking-out-cam-standalone.html" title="10. Downloading CAM standalone"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="physics-modifications-via-the-namelist.html" title="8. Physics modifications via the namelist"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User’s Guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Chemistry specific modifications</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="8. Physics modifications via the namelist" href="physics-modifications-via-the-namelist.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            camdoc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../users_guide/index.html">CAM7.0 User’s Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CAM6.3_users_guide/index.html">CAM6.3 User’s Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CAM6 User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-help.html">2. Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running the atmospheric model within CESM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">5. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html">6. Input Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model-output.html">7. Model Output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html">8. Physics modifications via the namelist</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9. Chemistry specific modifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chemical-mechanisms">9.1. Chemical mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifications-of-the-chemical-mechanisms">9.2. Modifications of the Chemical Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-emissions-and-lower-boundary-conditions">9.3. Adding emissions and lower boundary conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-species-and-changing-the-mechanism">9.4. Adding species and changing the mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-with-prognostic-fire-emissions">9.5. Running with prognostic fire emissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-with-fixed-land-data">9.6. Running with fixed land data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-with-interactiv-prescribed-biogenic-emissions">9.7. Running with interactiv / prescribed biogenic emissions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checking-out-cam-standalone.html">10. Downloading CAM standalone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html">11. Appendices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">12. References</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">camdoc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">CAM6 User’s Guide</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9. </span>Chemistry specific modifications</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/CAM6.0_users_guide/CAM-chem-specifics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="chemistry-specific-modifications">
-<span id="cam-chem-specifics"></span><h1><span class="section-number">9. </span>Chemistry specific modifications<a class="headerlink" href="#chemistry-specific-modifications" title="Link to this heading">¶</a></h1>
+<span id="cam-chem-specifics"></span><h1><span class="section-number">9. </span>Chemistry specific modifications<a class="headerlink" href="#chemistry-specific-modifications" title="Link to this heading"></a></h1>
 <p>CESM2.0 supports one standard mechanisms for CAM, CAM-chem, and WACCM (see details in the cam6_scientific_guide). Here, we describe details on how the chemical mechanism is compiled and how to perform modifications of chemistry in the model, including adding or removing chemical and aerosol species, which requires changing the chemical mechanism and if applicable changes to wet and dry deposition.  Additional changes may be required in the namelist, e.g., adding our removing output, changing deposition species etc., as described in Section 5.2.  Furthermore, code changes may be required, depending of the specifics of the changes.</p>
 <section id="chemical-mechanisms">
-<span id="id1"></span><h2><span class="section-number">9.1. </span>Chemical mechanisms<a class="headerlink" href="#chemical-mechanisms" title="Link to this heading">¶</a></h2>
+<span id="id1"></span><h2><span class="section-number">9.1. </span>Chemical mechanisms<a class="headerlink" href="#chemical-mechanisms" title="Link to this heading"></a></h2>
 <p>CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (<a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf">http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf</a>). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/.</p>
 <table class="docutils align-default">
 <thead>
@@ -188,7 +242,7 @@ plus D-region ion chemistry</p></td>
 </table>
 </section>
 <section id="modifications-of-the-chemical-mechanisms">
-<h2><span class="section-number">9.2. </span>Modifications of the Chemical Mechanisms<a class="headerlink" href="#modifications-of-the-chemical-mechanisms" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Modifications of the Chemical Mechanisms<a class="headerlink" href="#modifications-of-the-chemical-mechanisms" title="Link to this heading"></a></h2>
 <p>To modify the chemical mechanism, including changing reaction rates requires the following steps:</p>
 <ul class="simple">
 <li><p>Check out an existing compset that you would like to modify and compile and build your case</p></li>
@@ -199,7 +253,7 @@ plus D-region ion chemistry</p></td>
 </ul>
 </section>
 <section id="adding-emissions-and-lower-boundary-conditions">
-<h2><span class="section-number">9.3. </span>Adding emissions and lower boundary conditions<a class="headerlink" href="#adding-emissions-and-lower-boundary-conditions" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Adding emissions and lower boundary conditions<a class="headerlink" href="#adding-emissions-and-lower-boundary-conditions" title="Link to this heading"></a></h2>
 <p>Adding new chemical or aerosol species requires to include their sources (emissions) and sinks (deposition, see below).
 Sources can be either emissions (surface or vertical, see Section 6.1) or concentrations in form of lower boundary conditions.
 To add new emissions you have to copy the existing list of emisisons to your user_nl_cam file and add the additional species (See Section 5.2.1).</p>
@@ -208,7 +262,7 @@ To add new emissions you have to copy the existing list of emisisons to your use
 flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, ‘CFC113’, ‘CFC12’, ‘CH3BR’, ‘CH3CCL3’, ‘CH3CL’, ‘CH4’, ‘CO2’, ‘H2’, ‘HCFC22’, ‘N2O’, ‘CFC114’, ‘CFC115’, ‘HCFC141B’, ‘HCFC142B’, ‘CH2BR2’, ‘CHBR3’, ‘H2402’, ‘OCS’, ‘SF6’, ‘CFC11eq’</p>
 </section>
 <section id="adding-species-and-changing-the-mechanism">
-<h2><span class="section-number">9.4. </span>Adding species and changing the mechanism<a class="headerlink" href="#adding-species-and-changing-the-mechanism" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.4. </span>Adding species and changing the mechanism<a class="headerlink" href="#adding-species-and-changing-the-mechanism" title="Link to this heading"></a></h2>
 <p>The addition of species with dry and wet deposition requires code changes. This requires to add information of the Henry’s law coefficient:</p>
 <ul>
 <li><p>Copy $CCSMROOT/cime/src/drivers/mct/shr/seq_drydep_mod.F90 in to your  $CASEROOTSourceMods/src.share directory and modify the following. You can also map the new new species to deposit with the same rates as a species already undergoing wet deposition and therefore skip this step.</p>
@@ -239,14 +293,14 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 </ul>
 </section>
 <section id="running-with-prognostic-fire-emissions">
-<h2><span class="section-number">9.5. </span>Running with prognostic fire emissions<a class="headerlink" href="#running-with-prognostic-fire-emissions" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5. </span>Running with prognostic fire emissions<a class="headerlink" href="#running-with-prognostic-fire-emissions" title="Link to this heading"></a></h2>
 <p>This option will be added in CESM2.1</p>
 </section>
 <section id="running-with-fixed-land-data">
-<h2><span class="section-number">9.6. </span>Running with fixed land data<a class="headerlink" href="#running-with-fixed-land-data" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.6. </span>Running with fixed land data<a class="headerlink" href="#running-with-fixed-land-data" title="Link to this heading"></a></h2>
 </section>
 <section id="running-with-interactiv-prescribed-biogenic-emissions">
-<h2><span class="section-number">9.7. </span>Running with interactiv / prescribed biogenic emissions<a class="headerlink" href="#running-with-interactiv-prescribed-biogenic-emissions" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.7. </span>Running with interactiv / prescribed biogenic emissions<a class="headerlink" href="#running-with-interactiv-prescribed-biogenic-emissions" title="Link to this heading"></a></h2>
 <p>Running with interactive biogenic emissions:</p>
 <ul>
 <li><p>The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified:</p>
@@ -273,79 +327,34 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="Main">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">9. Chemistry specific modifications</a><ul>
-<li><a class="reference internal" href="#chemical-mechanisms">9.1. Chemical mechanisms</a></li>
-<li><a class="reference internal" href="#modifications-of-the-chemical-mechanisms">9.2. Modifications of the Chemical Mechanisms</a></li>
-<li><a class="reference internal" href="#adding-emissions-and-lower-boundary-conditions">9.3. Adding emissions and lower boundary conditions</a></li>
-<li><a class="reference internal" href="#adding-species-and-changing-the-mechanism">9.4. Adding species and changing the mechanism</a></li>
-<li><a class="reference internal" href="#running-with-prognostic-fire-emissions">9.5. Running with prognostic fire emissions</a></li>
-<li><a class="reference internal" href="#running-with-fixed-land-data">9.6. Running with fixed land data</a></li>
-<li><a class="reference internal" href="#running-with-interactiv-prescribed-biogenic-emissions">9.7. Running with interactiv / prescribed biogenic emissions</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="physics-modifications-via-the-namelist.html" class="btn btn-neutral float-left" title="8. Physics modifications via the namelist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="checking-out-cam-standalone.html" class="btn btn-neutral float-right" title="10. Downloading CAM standalone" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025 UCAR.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="physics-modifications-via-the-namelist.html"
-                          title="previous chapter"><span class="section-number">8. </span>Physics modifications via the namelist</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="checking-out-cam-standalone.html"
-                          title="next chapter"><span class="section-number">10. </span>Downloading CAM standalone</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/CAM6.0_users_guide/CAM-chem-specifics.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="Related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="checking-out-cam-standalone.html" title="10. Downloading CAM standalone"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="physics-modifications-via-the-namelist.html" title="8. Physics modifications via the namelist"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User’s Guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Chemistry specific modifications</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2017 UCAR.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
