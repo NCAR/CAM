@@ -291,6 +291,77 @@ interval midpoint for time averaged data.
  feature has been turned off by default in CAM7.  That allows all files for
  a stream to contain the same number of valid time samples.
 
+---------------------------------
+Enabling GEOS-Chem History Fields
+---------------------------------
+
+TODO: in progress
+
+From Haipeng:
+
+For GEOS-Chem specific diagnostics (known as “History diagnostics” in
+GEOS-Chem), the diagnostic needs to be enabled in both HISTORY.rc and
+user_nl_cam. Once the diagnostic is enabled in HISTORY.rc, it will be
+visible in the “master field list” in the atm.log. A list of available
+History diagnostics in GEOS-Chem are available at
+https://geos-chem.readthedocs.io/en/14.3.0/gcclassic-user-guide/diag-outputs-hist.html.
+Note “collections” are irrelevant for GEOS-Chem within CESM, as which
+history tape the files are written to are controlled by user_nl_cam.
+
+Example (PM10): To get PM10 diagnostics, open HISTORY.rc and add “PM10”
+to any enabled collection (or enable any new collection). Then, add
+“PM10” to the desired fincl tape in user_nl_cam.
+
+Wildcards (e.g., ?ADV?, ?RXN?) are not supported in GEOS-Chem within
+CESM. The actual entries have to be manually enumerated, e.g., Jval_NO2,
+Jval_PAN.
+
+Example (reaction rate): Reaction rate diagnostics are named
+RxnRate_EQNNN where NNN is the reaction number. First, open
+src/geoschem/geoschem_src/KPP/fullchem/gckpp_Monitor.F90, to look up
+the reaction number for the reaction rate that needs to be output. e.g.,
+O3 + NO --> NO2 + O2 has a comment “index 13”. Add “RxnRate_EQ013” to
+any enabled collection in HISTORY.rc, then add “RxnRate_EQ013” to the
+desired fincl tape in user_nl_cam.
+
+From config file:
+
+This HISTORY.rc file is specific for running GEOS-Chem within the
+Community Earth System Model (CESM)
+
+There are two steps to configure GEOS-Chem "History" diagnostics in CESM:
+
+1) Uncomment the names of the diagnostics you wish to output in this file.
+   Make sure the collections they are included in are also uncommented in the
+   COLLECTIONS list at the top of the file.
+
+2) Write the names of the diagnostics you wish to output into the 'finclX'
+   namelist variable in CESM case file 'user_nl_cam'. Use that file instead
+   of this one to configure averaging/instantaneous, frequency, duration,
+   and other collection features in the same way as other CESM outputs.
+
+Important notes:
+
+1) Collection name, frequency, duration, and mode in this file are ignored.
+   CESM diagnostic collections and their attributes must be specified in
+   file 'user_nl_cam' within the CESM case directory.
+
+2) Mixing ratio diagnostics are always available without using this file.
+   For example, you may output ozone mixing ratio by specifying
+   'O3' in CESM file 'user_nl_cam' rather than 'SpeciesConcVV_O3'.
+   The SpeciesConc collection is therefore excluded. Note that the CESM
+   mixing ratio diagnostics are computed from State_Chm%Species(N)%Conc
+   rather than State_Diag%SpeciesConc.
+
+3) Diagnostic name wildcards (e.g. ?ADV?) are NOT available for use in CESM.
+   All diagnostic tags, such as 'O2' in 'JVAL_O2', must be written out
+   explicitly.
+
+4) Many physical/chemical processes in CESM are handled outside of GEOS-Chem,
+   such as wet deposition and advection. GEOS-Chem diagnostics computed in
+   those components are therefore not available and are excluded in this file.
+
+
 ======================================
 Analyzing and Visualizing Model Output
 ======================================

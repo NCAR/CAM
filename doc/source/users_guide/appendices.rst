@@ -426,3 +426,49 @@ Follow link for a searchable (or browsable) page containing all
 `CAM namelist variables
 <http://www.cesm.ucar.edu/models/cesm2/settings/2.2.0/cam_nml.html>`__.
 
+===================
+GEOS-Chem Resources
+===================
+
+GEOS-Chem is a global 3-D chemical transport model for atmospheric
+composition driven by assimilated meteorological observations from
+the NASA Goddard Earth Observing System (GEOS). It is included within
+CEMS3 for usage of its chemistry component as an alternative to
+CAM-chem in CESM3. GEOS-Chem chemistry uses external packages Cloud-J
+photolysis and HETP aerosol thermodynamics.
+
+GEOS-Chem, Cloud-J, and HETP are externally developed software packages
+maintained by the GEOS-Chem Support Team at Harvard University.
+Follow the links for more information about these projects.
+
+* `GEOS-Chem in CESM wiki page<https://wiki.ucar.edu/spaces/camchem/pages/586743903/Using+GEOS-Chem+in+CESM>`__
+
+* `GEOS-Chem website<http://geos-chem.org>`__
+
+* `GEOS-Chem User Manual<https://geos-chem.readthedocs.io/en/stable/>`__
+
+* `GEOS-Chem on GitHub<https://github.com/geoschem/geos-chem>`__
+
+* `Cloud-J on GitHub<https://github.com/geoschem/cloud-j>`__
+
+* `HETP on GitHub<https://github.com/geoschem/HETerogeneous-vectorized-or-Parallel>`__
+
+===============
+HEMCO Resources
+===============
+
+HEMCO is a software component for computing emissions from a set of
+configurable sources, regions, and species. It is used for emissions
+handling in GEOS-Chem chemistry and optionally in CAM-chem in CESM3.
+See the links for more information about HEMCO.
+
+* `HEMCO in CESM wiki page<https://wiki.ucar.edu/spaces/camchem/pages/509871715/HEMCO>`__
+
+* `HEMCO User Manual<https://hemco.readthedocs.io/en/stable/>`__
+
+* `HEMCO on GitHub<https://github.com/geoschem/hemco>`__
+
+
+
+
+

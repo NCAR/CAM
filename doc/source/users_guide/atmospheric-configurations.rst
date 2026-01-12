@@ -11,7 +11,8 @@ with significant extensions to CAM which may also be run within CESM.  The
 available atmospheric models in CESM3 are:
 
 * **CAM**:  Community Atmosphere Model
-* **CAM-chem**: Community Atmosphere Model with Chemistry  
+* **CAM-chem**: Community Atmosphere Model with Chemistry
+* **CESM-GC**: CAM using GEOS-Chem Chemistry
 * **WACCM**: Whole Atmosphere Community Climate Model
 * **WACCM-X**: Whole Atmosphere Community Climate Model with thermosphere
   and ionosphere extension
@@ -310,6 +311,77 @@ grids and time periods:
   * f09_f09_mg17
 
   * 1980-2015
+
+================
+CESM-GC compsets
+================
+
+All CESM-GC compsets are analogous to compsets available using
+CAM-chem with the following distinguishing characteristics:
+
+* Dry deposition is handled similarly to CAM-chem but with GEOS-Chem
+  computing dry deposition velocities over land. Wet deposition uses
+  the Neu wet deposition scheme also similarly to CAM-chem.
+
+* File-based emissions are handled exclusively by HEMCO; the CAM-chem
+  approach of using srf_emis_specifier and ext_frc_specifier are not
+  supported. 
+
+* State-based emissions: Lightning NOx uses the CAM-chem parameterization.
+  Biogenic emissions via MEGAN are handled via the land model and are the
+  same as CAM-chem but mapped to GEOS-Chem species. Sea salt and dust
+  emissions are via the aerosol and land model and handled the same as
+  CAM-chem. GEOS-Chem implementations of other emissions such as seaflux
+  and inorganic iodine are via HEMCO.
+
+* Aerosol processes are modeled by MAM4 with GEOS-Chem only modifying the
+  bulk masses of each aerosol species proportionally to their existing
+  masses per mode. Aerosol nucleation uses the SO2 + OH reaction in
+  GEOS-Chem to provide the gas-phase H2SO4 production rate.
+
+Compsets for CAM using GEOS-Chem chemistry are currently classified as
+**Unsupported** due to ongoing study of the new feature. However,
+published scientific study using them has been performed and short tests
+are done regularly. 
+  
+* **FC2000climo_GC**
+
+  * Climatological CAM6-chem using GEOS-Chem chemistry, 1 deg horizontal
+    resolution, different dycores, averaged SSTs, emis, lower boundary
+    conditions (2005-2015)
+
+  * f09_f09_mg17, f19_f19_mg17
+
+  * 2000
+
+* **FC2010climo_GC**
+
+  * Climatological CAM6-chem using GEOS-Chem chemistry, 1 deg horizontal
+    resolution, different dycores, averaged SSTs, emis, lower boundary
+    conditions (2005-2015)
+
+  * f09_f09_mg17, f19_f19_mg17
+
+  * 2010
+
+* **FCHIST_GC**
+
+  * Historical CAM6-chem using GEOS-Chem chemistry, 1 deg horizontal resolution,
+    different dycores, CMIP6 emissions, coupled to interactive land and
+    MEGAN2.1
+              
+  * f09_f09_mg17, f19_f19_mg17
+
+  * 2010-2014
+
+* **FCnudged_GC**
+
+  * As FCHIST_GC, but nudged to U,V,T from MERRA2 analsysis with a 50-hours
+    interpolated to CAM6 (32) model levels
+
+  * f09_f09_mg17, f19_f19_mg17
+
+  * 2010-2014
 
 ==============
 WACCM compsets

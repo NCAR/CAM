@@ -138,6 +138,14 @@ A detailed explanation of controlling CAM's output can be found at
   the namelist may be modified for a new run before calling ``case.submit``
   again.
 
+=========================
+Using GEOS-Chem Chemistry
+=========================
+
+Todo:
+Add information about additional configure files beyond the namelists,
+along with links to the GEOS-Chem ReadTheDocs about these files.
+
 ========
 Examples
 ========

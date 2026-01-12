@@ -39,7 +39,7 @@ datasets.
 Emissions
 =========
 
-All CAM, CAM-chem and WACCM configurations require surface emissions and,
+All CAM, CAM-chem, CESM-GC, and WACCM configurations require surface emissions and,
 in most cases, external forcings (vertically distributed emissions). In the
 standard compsets all biomass burning emissions are at the surface.
 Anthropogenic emissions are mostly released at the surface, but some
@@ -80,6 +80,13 @@ format) in the namelist.  A list of emissions inventories that have been
 used by CESM are `here
 <https://wiki.ucar.edu/display/camchem/Emission+Inventories>`__.
 
+Specifying emissions is different when using HEMCO for emissions handling.
+HEMCO is an option in CAM-chem, and is required for CESM-GC. Emissions
+sources, update frequency, and other configurable options are specified
+in the HEMCO configuration file specified in the namelist. For CESM-GC
+this file is copied from the GEOS-Chem source code to the case directory
+where it can be edited prior to run submission.
+
 ----------------------------
 Species with emissions (CAM)
 ----------------------------
@@ -111,9 +118,11 @@ Species with dry and wet deposition (CAM)
 
     H2O2, H2SO4, SO2
 
---------------------------------------
-Species with emissions (CAMchem/WACCM)
---------------------------------------
+--------------------------------
+Species with emissions (CESM-GC)
+--------------------------------
+
+TODO: edit this for GEOS-Chem
 
 * Surface (anthro, bb, other)::
 
@@ -131,9 +140,11 @@ Species with emissions (CAMchem/WACCM)
     (anthro-ene, contvolcano), so4_a2 (contvolcano), bc_a4 (aircraft),
     num_a1, num_a2, num_a4
 
----------------------------------------------------
-Species with dry and wet deposition (CAMChem/WACCM) 
----------------------------------------------------
+---------------------------------------------
+Species with dry and wet deposition (CESM-GC) 
+---------------------------------------------
+
+TODO: edit this for GEOS-Chem
 
 **Species with dry deposition**
 
@@ -157,6 +168,8 @@ Species with dry and wet deposition (CAMChem/WACCM)
 
 **Species with wet deposition**
 
+TODO: edit this for GEOS-Chem
+
 * Aerosols::
 
     bc_a1, bc_a4, dst_a1, dst_a2, dst_a3, ncl_a1, ncl_a2, ncl_a3, num_a1,
@@ -176,9 +189,11 @@ Species with dry and wet deposition (CAMChem/WACCM)
     SOAG3, SOAG4, SVOC, TERP2OOH, TERPNIT, TERPOOH, TERPROD1, TERPROD2,
     TOLOOH, XOOH, XYLENOOH, XYLOLOOH
 
------------------------------------------------
-Species with biogenic emissions (CAMChem/WACCM) 
------------------------------------------------
+-----------------------------------------
+Species with biogenic emissions (CESM-GC) 
+-----------------------------------------
+
+TODO: edit this for GEOS-Chem
 
 Species with MEGAN emissions (CAM-chem (TS1) and WACCM (TSMLT)) are listed
 in ``drv_flds_in``, and can be modified in ``user_nl_cam``::
