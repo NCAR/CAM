@@ -12,7 +12,7 @@ available atmospheric models in CESM3 are:
 
 * **CAM**:  Community Atmosphere Model
 * **CAM-chem**: Community Atmosphere Model with Chemistry
-* **CESM-GC**: CAM using GEOS-Chem Chemistry
+* **CAM-GC**: CAM using GEOS-Chem Chemistry
 * **WACCM**: Whole Atmosphere Community Climate Model
 * **WACCM-X**: Whole Atmosphere Community Climate Model with thermosphere
   and ionosphere extension
@@ -313,10 +313,10 @@ grids and time periods:
   * 1980-2015
 
 ================
-CESM-GC compsets
+CAM-GC compsets
 ================
 
-All CESM-GC compsets are analogous to compsets available using
+All CAM-GC compsets are analogous to compsets available using
 CAM-chem with the following distinguishing characteristics:
 
 * Dry deposition is handled similarly to CAM-chem but with GEOS-Chem
@@ -376,10 +376,9 @@ are done regularly.
 
 * **FCnudged_GC**
 
-  * As FCHIST_GC, but nudged to U,V,T from MERRA2 analsysis with a 50-hours
-    interpolated to CAM6 (32) model levels
+  * As FCHIST_GC, but nudged to U,V,T from MERRA2 analysis with a 50-hours relaxation time interpolated to CAM6 (32) model levels
 
-  * f09_f09_mg17, f19_f19_mg17
+  * f09_f09_mg17, f19_f19_mg17, ne30_ne30_mg17
 
   * 2010-2014
 

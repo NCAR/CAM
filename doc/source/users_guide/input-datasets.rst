@@ -39,7 +39,7 @@ datasets.
 Emissions
 =========
 
-All CAM, CAM-chem, CESM-GC, and WACCM configurations require surface emissions and,
+All CAM, CAM-chem, CAM-GC, and WACCM configurations require surface emissions and,
 in most cases, external forcings (vertically distributed emissions). In the
 standard compsets all biomass burning emissions are at the surface.
 Anthropogenic emissions are mostly released at the surface, but some
@@ -81,11 +81,13 @@ used by CESM are `here
 <https://wiki.ucar.edu/display/camchem/Emission+Inventories>`__.
 
 Specifying emissions is different when using HEMCO for emissions handling.
-HEMCO is an option in CAM-chem, and is required for CESM-GC. Emissions
+HEMCO is an optional emissions option for CAM-chem, and is a required emissions option for CAM-GC. Emissions
 sources, update frequency, and other configurable options are specified
-in the HEMCO configuration file specified in the namelist. For CESM-GC
-this file is copied from the GEOS-Chem source code to the case directory
-where it can be edited prior to run submission.
+in the HEMCO configuration file specified in the namelist. 
+
+When running CAM-GC this file is copied from the GEOS-Chem 
+source code to the case directory where it can be edited 
+prior to run submission.
 
 ----------------------------
 Species with emissions (CAM)

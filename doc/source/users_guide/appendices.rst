@@ -430,10 +430,10 @@ Follow link for a searchable (or browsable) page containing all
 GEOS-Chem Resources
 ===================
 
-GEOS-Chem is a global 3-D chemical transport model for atmospheric
-composition driven by assimilated meteorological observations from
-the NASA Goddard Earth Observing System (GEOS). It is included within
-CEMS3 for usage of its chemistry component as an alternative to
+GEOS-Chem is a global 3-D model of atmospheric chemistry driven by
+meteorological input from the Goddard Earth Observing System (GEOS)
+of the NASA Global Modeling and Assimilation Office. It is included
+within CESM3 for usage of its chemistry component as an alternative to
 CAM-chem in CESM3. GEOS-Chem chemistry uses external packages Cloud-J
 photolysis and HETP aerosol thermodynamics.
 
