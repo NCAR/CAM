@@ -426,20 +426,21 @@ Follow link for a searchable (or browsable) page containing all
 `CAM namelist variables
 <http://www.cesm.ucar.edu/models/cesm2/settings/2.2.0/cam_nml.html>`__.
 
-===================
-GEOS-Chem Resources
-===================
+==============================
+GEOS-Chem Resources for CAM-GC
+==============================
 
 GEOS-Chem is a global 3-D model of atmospheric chemistry driven by
 meteorological input from the Goddard Earth Observing System (GEOS)
 of the NASA Global Modeling and Assimilation Office. It is included
 within CESM3 for usage of its chemistry component as an alternative to
-CAM-chem in CESM3. GEOS-Chem chemistry uses external packages Cloud-J
-photolysis and HETP aerosol thermodynamics.
+CAM-chem. The CAM configuration using GEOS-Chem chemistry is referred
+to as CAM-GC.
 
-GEOS-Chem, Cloud-J, and HETP are externally developed software packages
-maintained by the GEOS-Chem Support Team at Harvard University.
-Follow the links for more information about these projects.
+GEOS-Chem chemistry uses external packages for Cloud-J photolysis and
+HETP aerosol thermodynamics. GEOS-Chem, Cloud-J, and HETP are all
+externally developed software packages maintained by the GEOS-Chem
+Support Team. Follow the links for more information about these projects.
 
 * `GEOS-Chem in CESM wiki page<https://wiki.ucar.edu/spaces/camchem/pages/586743903/Using+GEOS-Chem+in+CESM>`__
 

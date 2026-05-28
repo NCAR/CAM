@@ -135,7 +135,7 @@ Species with emissions (CAM-GC)
 The list of species with emissions in CAM-GC is configured in the HEMCO configuration file (``HEMCO_Config.rc``).
 
 --------------------------------------
-Species with emissions (CAMchem/WACCM)
+Species with emissions (CAM-chem/WACCM)
 --------------------------------------
 
 * Surface (anthro, bb, other)::
@@ -186,8 +186,6 @@ Species with dry and wet deposition (CAMChem/WACCM)
 
 **Species with wet deposition**
 
-TODO: edit this for GEOS-Chem
-
 * Aerosols::
 
     bc_a1, bc_a4, dst_a1, dst_a2, dst_a3, ncl_a1, ncl_a2, ncl_a3, num_a1,
@@ -208,44 +206,15 @@ TODO: edit this for GEOS-Chem
     TOLOOH, XOOH, XYLENOOH, XYLOLOOH
 
 -----------------------------------------
-Species with biogenic emissions (CESM-GC) 
+Species with biogenic emissions (CAM-GC)
 -----------------------------------------
 
-TODO: edit this for GEOS-Chem
-
-Species with MEGAN emissions (CAM-chem (TS1) and WACCM (TSMLT)) are listed
-in ``drv_flds_in``, and can be modified in ``user_nl_cam``::
-
-  megan_specifier = 'ISOP = isoprene',
-      'MTERP = pinene_a + carene_3 + thujene_a + 2met_styrene + cymene_p +
-               cymene_o + terpinolene + bornene + fenchene_a + ocimene_al +
-               pinene_b + sabinene + camphene + limonene + phellandrene_a +
-               terpinene_g + terpinene_a + phellandrene_b + myrcene +
-               ocimene_t_b + ocimene_c_b', 
-      'BCARY = caryophyllene_b + bergamotene_a + bisabolene_b +
-               farnescene_b + humulene_a', 
-      'CH3OH = methanol', 
-      'C2H5OH = ethanol', 
-      'CH2O = formaldehyde',
-      'CH3CHO = acetaldehyde', 
-      'CH3COOH = acetic_acid', 
-      'CH3COCH3 = acetone',
-      'HCOOH = formic_acid', 
-      'HCN = hydrogen_cyanide', 
-      'CO = carbon_monoxide',
-      'C2H6 = ethane', 
-      'C2H4 = ethene', 
-      'C3H8 = propane', 
-      'C3H6 = propene',
-      'BIGALK = pentane + hexane + heptane + tricyclene', 
-      'BIGENE = butene',
-      'TOLUENE = toluene'
-
-.. note::
-
-  Modifications may be required for other mechanisms, see :ref:`Running
-  with interactive / prescribed biogenic emissions
-  <ug70-interactive-prescribed-biogenic-emissions>`.
+Biogenic emissions for CAM-GC use the same MEGAN coupling through CLM
+as CAM-chem. The mapping from MEGAN species to GEOS-Chem species differs
+from that used by CAM-chem TS1, as the species names in GEOS-Chem are
+different. The list of compounds passed from CLM to CAM is set by
+``megan_specifier`` in ``build-namelist`` (search for ``geoschem``
+in the file to view the list).
 
 -----------------
 WACCM-X emissions
