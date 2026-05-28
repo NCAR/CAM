@@ -312,12 +312,15 @@ grids and time periods:
 
   * 1980-2015
 
+.. _ug70-cam-gc-compsets:
+
 ================
 CAM-GC compsets
 ================
 
-All CAM-GC compsets are analogous to compsets available using
-CAM-chem with the following distinguishing characteristics:
+CAM-GC compsets pair CAM6 physics with GEOS-Chem chemistry and are
+analogous to the CAM-chem compsets above, with the following
+distinguishing characteristics:
 
 * Dry deposition is handled similarly to CAM-chem but with GEOS-Chem
   computing dry deposition velocities over land. Wet deposition uses

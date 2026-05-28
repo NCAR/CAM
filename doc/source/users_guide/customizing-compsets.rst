@@ -138,14 +138,55 @@ A detailed explanation of controlling CAM's output can be found at
   the namelist may be modified for a new run before calling ``case.submit``
   again.
 
+.. _ug70-using-geos-chem:
+
 =========================
 Using GEOS-Chem Chemistry
 =========================
 
-Todo:
-Add information about additional configure files beyond the namelists,
-along with links to the GEOS-Chem ReadTheDocs about these files.
+GEOS-Chem chemistry is selected by using one of the ``*_GC`` compsets
+(see :ref:`CAM-GC compsets <ug70-cam-gc-compsets>`).  In
+addition to ``user_nl_cam``, GEOS-Chem is configured by a small set of
+GEOS-Chem-specific configuration files that are copied to the run directory. These files are read directly by GEOS-Chem at run time, and should be edited directly in the case directory to avoid being overwritten.
 
+The relevant files are:
+
+* ``geoschem_config.yml`` -- the main configuration file for GEOS-Chem chemistry. See the `GEOS-Chem User Manual
+ <https://geos-chem.readthedocs.io/en/stable/>`__ for details.
+
+* ``HEMCO_Config.rc`` -- emissions configuration read by HEMCO.  All
+  file-based emissions (anthropogenic, biomass burning, biogenic
+  overrides, etc.), regional masks, and scale factors are configured
+  here. CAM-chem options ``srf_emis_specifier`` and
+  ``ext_frc_specifier`` are not used in CAM-GC.  See the `HEMCO User
+  Manual <https://hemco.readthedocs.io/en/stable/>`__.
+
+* ``HEMCO_Diagn.rc`` -- currently unused by CAM-GC.
+
+* ``HISTORY.rc`` -- enables GEOS-Chem "History" diagnostics
+  (e.g., reaction rates, photolysis rates, deposition fluxes).  Note
+  that this file by itself does not produce output; the corresponding
+  field name must also be added to a ``finclX`` list in
+  ``user_nl_cam``.  See :ref:`Enabling GEOS-Chem History Fields
+  <ug70-geos-chem-history>` for details.
+
+* ``species_database.yml`` -- per-species physical and chemical
+  properties (molecular weight, Henry's law constants, deposition
+  parameters, etc.). This file is rarely edited but is a good reference for the properties of GEOS-Chem chemical species.
+
+.. note::
+
+   The chemical mechanism in CAM-GC is the GEOS-Chem ``fullchem`` KPP
+   mechanism.  The list of reactions and their indices can be found in
+   ``$COMP_ROOT_DIR_ATM/src/chemistry/geoschem/geoschem_src/KPP/fullchem/fullchem.eqn``.
+   Modifying the mechanism requires re-running KPP from the
+   GEOS-Chem source.
+
+GEOS-Chem-related namelist variables in ``user_nl_cam`` are limited to
+high-level toggles and to the ``finclX`` lists that route GEOS-Chem to CAM history streams.  In particular, the ``hemco_config_file``
+namelist variable used by CAM-chem-HEMCO to point at a
+user-supplied HEMCO configuration does not apply to CAM-GC: the run
+directory copy of ``HEMCO_Config.rc`` is always used.
 ========
 Examples
 ========

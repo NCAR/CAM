@@ -291,77 +291,70 @@ interval midpoint for time averaged data.
  feature has been turned off by default in CAM7.  That allows all files for
  a stream to contain the same number of valid time samples.
 
+.. _ug70-geos-chem-history:
+
 ---------------------------------
 Enabling GEOS-Chem History Fields
 ---------------------------------
 
-TODO: in progress
+CAM-GC provides two classes of GEOS-Chem output through CAM's standard
+history mechanism:
 
-From Haipeng:
+* **Mixing ratio diagnostics** for every advected species are always
+  available without further configuration.  Add the species short name
+  (e.g., ``O3``) to a ``finclX`` list in ``user_nl_cam``, just as for
+  any other CAM tracer.
 
-For GEOS-Chem specific diagnostics (known as “History diagnostics” in
-GEOS-Chem), the diagnostic needs to be enabled in both HISTORY.rc and
-user_nl_cam. Once the diagnostic is enabled in HISTORY.rc, it will be
-visible in the “master field list” in the atm.log. A list of available
-History diagnostics in GEOS-Chem are available at
-https://geos-chem.readthedocs.io/en/14.3.0/gcclassic-user-guide/diag-outputs-hist.html.
-Note “collections” are irrelevant for GEOS-Chem within CESM, as which
-history tape the files are written to are controlled by user_nl_cam.
+* **GEOS-Chem "History" diagnostics** (reaction rates, photolysis
+  rates, etc.) require two steps to enable:
 
-Example (PM10): To get PM10 diagnostics, open HISTORY.rc and add “PM10”
-to any enabled collection (or enable any new collection). Then, add
-“PM10” to the desired fincl tape in user_nl_cam.
+  1. Add the diagnostic name to the appropriate collection in
+     ``HISTORY.rc`` in the run directory.  The collection itself must
+     also be uncommented in the ``COLLECTIONS`` list at the top of the
+     file.  The list of available diagnostics is given in the
+     `GEOS-Chem History diagnostics reference
+     <https://geos-chem.readthedocs.io/en/stable/gcclassic-user-guide/diag-outputs-hist.html>`__.
 
-Wildcards (e.g., ?ADV?, ?RXN?) are not supported in GEOS-Chem within
-CESM. The actual entries have to be manually enumerated, e.g., Jval_NO2,
-Jval_PAN.
+  2. Add the same diagnostic name to a ``finclX`` list in
+     ``user_nl_cam``.  CESM controls which history tape the field is
+     written to, the averaging mode, output frequency, and file
+     duration; the corresponding settings inside ``HISTORY.rc``
+     (collection name, frequency, duration, mode) are ignored when
+     GEOS-Chem is driven by CESM.
 
-Example (reaction rate): Reaction rate diagnostics are named
-RxnRate_EQNNN where NNN is the reaction number. First, open
-src/geoschem/geoschem_src/KPP/fullchem/gckpp_Monitor.F90, to look up
-the reaction number for the reaction rate that needs to be output. e.g.,
-O3 + NO --> NO2 + O2 has a comment “index 13”. Add “RxnRate_EQ013” to
-any enabled collection in HISTORY.rc, then add “RxnRate_EQ013” to the
-desired fincl tape in user_nl_cam.
+After a successful build, every diagnostic enabled in ``HISTORY.rc``
+will appear in the *Master Field List* section of ``atm.log`` and may
+be referenced from ``finclX``.
 
-From config file:
+.. note::
 
-This HISTORY.rc file is specific for running GEOS-Chem within the
-Community Earth System Model (CESM)
+   Diagnostic name wildcards used in standalone GEOS-Chem (e.g.,
+   ``?ADV?``, ``?RXN?``) are **not** supported in CAM-GC.  Every field
+   must be enumerated explicitly, e.g., ``Jval_NO2``, ``Jval_PAN``.
 
-There are two steps to configure GEOS-Chem "History" diagnostics in CESM:
+.. note::
 
-1) Uncomment the names of the diagnostics you wish to output in this file.
-   Make sure the collections they are included in are also uncommented in the
-   COLLECTIONS list at the top of the file.
+   Some GEOS-Chem History diagnostics are computed by GEOS-Chem
+   components that are not active in CAM-GC (for example, advection
+   and wet deposition are handled by CAM rather than GEOS-Chem).  Such
+   diagnostics are excluded from the default ``HISTORY.rc`` and are
+   not available in CAM-GC.
 
-2) Write the names of the diagnostics you wish to output into the 'finclX'
-   namelist variable in CESM case file 'user_nl_cam'. Use that file instead
-   of this one to configure averaging/instantaneous, frequency, duration,
-   and other collection features in the same way as other CESM outputs.
+**Example: PM10**
 
-Important notes:
+To request PM10, uncomment ``PM10`` in any active collection in
+``HISTORY.rc``, then add ``PM10`` to the desired ``finclX`` in
+``user_nl_cam``.
 
-1) Collection name, frequency, duration, and mode in this file are ignored.
-   CESM diagnostic collections and their attributes must be specified in
-   file 'user_nl_cam' within the CESM case directory.
+**Example: Reaction rates**
 
-2) Mixing ratio diagnostics are always available without using this file.
-   For example, you may output ozone mixing ratio by specifying
-   'O3' in CESM file 'user_nl_cam' rather than 'SpeciesConcVV_O3'.
-   The SpeciesConc collection is therefore excluded. Note that the CESM
-   mixing ratio diagnostics are computed from State_Chm%Species(N)%Conc
-   rather than State_Diag%SpeciesConc.
-
-3) Diagnostic name wildcards (e.g. ?ADV?) are NOT available for use in CESM.
-   All diagnostic tags, such as 'O2' in 'JVAL_O2', must be written out
-   explicitly.
-
-4) Many physical/chemical processes in CESM are handled outside of GEOS-Chem,
-   such as wet deposition and advection. GEOS-Chem diagnostics computed in
-   those components are therefore not available and are excluded in this file.
-
-
+Reaction rate diagnostics are named ``RxnRate_EQNNN`` where ``NNN`` is
+the three-digit KPP reaction index.  To look up an index, open
+``CAM/src/chemistry/geoschem/geoschem_src/KPP/fullchem/gckpp_Monitor.F90``;
+each reaction is annotated with an ``index`` comment.  For example,
+the reaction ``O3 + NO -> NO2 + O2`` is index 13, so add
+``RxnRate_EQ013`` to a collection in ``HISTORY.rc`` and to the desired
+``finclX`` in ``user_nl_cam``.
 ======================================
 Analyzing and Visualizing Model Output
 ======================================
