@@ -5,3 +5,5 @@
 doc/_build
 doc/_publish
 
+__pycache__
+
