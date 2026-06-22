@@ -3,9 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-###################
-CAM7.0 User's Guide
-###################
+.. _users-guide:
+
+#####################################
+CAM6 User's Guide
+#####################################
 
 .. toctree::
    :maxdepth: 4
@@ -14,9 +16,8 @@ CAM7.0 User's Guide
    introduction.rst
    getting-help.rst
    building-and-running-cam.rst
-   customizing-compsets.rst
    atmospheric-configurations.rst
-   variable-resolution-configurations.rst
+   customizing-compsets.rst
    input-datasets.rst
    model-output.rst
    physics-modifications-via-the-namelist.rst
