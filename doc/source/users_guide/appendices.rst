@@ -1,5 +1,3 @@
-.. _appendices:
-
 ***************
 Appendices
 ***************
@@ -8,7 +6,7 @@ Appendices
 The configure utility
 ======================
 
-.. _arguments-to-configure:
+.. _ug63-arguments-to-configure:
 
 ----------------------------------------------
 Arguments to configure
@@ -381,5 +379,5 @@ CAM Namelist variables
 
 Follow link for a searchable (or browsable) page containing all 
 `CAM namelist variables
-<http://www.cesm.ucar.edu/models/cesm2/settings/current/cam_nml.html>`_
+<http://www.cesm.ucar.edu/models/cesm2/settings/2.2.0/cam_nml.html>`_
 

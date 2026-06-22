@@ -1,5 +1,3 @@
-.. _input-datasets:
-
 ***************************
 Input Datasets
 ***************************
@@ -19,23 +17,22 @@ temperatures, and prescribed land data.
 ------------------------------
 Emissions
 ------------------------------
-
-All CAM, CAM-chem and WACCM configurations require surface emissions and / or external 
-forcings (vertically distributed emissions), in all of these we place all biomass burning 
-emissions at the surface, as well as anthropogenic emissions, besides sulfate. Aircraft 
-and volcanic emissions are distributed with altitude. Different emission sectors are 
-separted in these categories: anthropogenic (anthro), biomass burning (bb), biogenic (bg), 
-volcanic source and others (soil, ocean etc.). 
+All CAM, CAM-chem and WACCM configurations require surface emissions and, in most cases, external forcings
+(vertically distributed emissions). In the standard compsets all biomass burning emissions are at the surface.
+Anthropogenic emissions are mostly released at the surface, but some sectors of sulfate emissions are injected
+vertically. Aircraft and volcanic emissions are distributed with altitude.  The standard emission files are
+provided separately for each sector: anthropogenic (anthro), biomass burning (bb), biogenic (bg), volcanic
+source and others (soil, ocean etc.), for convenience and clarity.  CESM will read multiple emissions files
+for each compound (specified in the namelist) and sum them in the model.  There are no restrictions on the
+filenames or the variable names within the files.
 
 ================================================
 List of available emissions datasets
 ================================================
 
-CESM2.0 default emissions are based on the CMIP6 inventories for anthropogenic and biomass 
-burning emissions, provided by the Community Emissions Data System 
-(CEDS, http://www.globalchange.umd.edu/ceds/ceds-cmip6-data/), 
-original files are available at: https://esgf-node.llnl.gov/search/input4mips/.  
-Additional emissions (soil, ocean) are from the POET inventory (http://eccad.aeris-data.fr/).
+The default emissions for CESM2 are based on the CMIP6 inventories for anthropogenic and biomass burning emissions, provided by the Community Emissions Data System (CEDS, http://www.globalchange.umd.edu/ceds/ceds-cmip6-data/), original files are available at: https://esgf-node.llnl.gov/search/input4mips/. Additional emissions (soil, ocean) are from the POET inventory (http://eccad.aeris-data.fr/).
+Continuous volcanic out‐gassing emissions of SO2, with 2.5% emitted as sulfate aerosols, are from the GEIA inventory (Andres & Kasgnoc, https://doi.org/10.1029/98JD02091, 1998). SO2 from eruptive volcanoes is specified as well, based on the database of Volcanic Emissions for Earth System Models, version 3.11 (VolcanEESM; Neely & Schmidt, https://doi.org/10.5285/76ebdc0b-0eed-4f70-b89e-55e606bcd568, 2016).
+It is straightforward to use different emissions inventories in CAM, CAM-chem or WACCM simulations by specifying different files (in the proper format) in the namelist.   A list of emissions inventories that have been used in CESM2 are at: https://wiki.ucar.edu/display/camchem/Emission+Inventories.
 
 ================================================
 List of species with emissions (CAM)
@@ -153,14 +150,11 @@ Community Simulations.
 Lower boundary data sets
 ------------------------------
 
-For CESM2.0 we provide one lower boundary data set from 1750 to the end of 2015, that can 
-be used for different horizontal resolutions. This data file includes of different 
-long-lived greenhouse and other gases that are prescribed as concentrations at the surface. 
+In CESM2 a number of very long-lived chemical species have their mixing ratios specified at the surface (e.g., CO2, CH4, CFCs).
+The standard lower boundary condition file is provided for 1750 to 2015, and is suitable for various horizontal resolutions.
 This file works for all CESM2 atmospheric configurations.
-
 flbc_file = ‘/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc’
-
-Additional lower boundary condition files for future CMIP6 pathways will be provided in CESM2.1
+Additional files are available for the SSP scenarios.
 
 ------------------------------
 Soil erodibility files
@@ -184,6 +178,12 @@ soil_erod_file         = '/glade/p/cesmdata/cseg/inputdata/atm/cam/dst/dst_sourc
 ------------------------------
 Topography files
 ------------------------------
+
+Topography files are generated with the NCAR Global Model Topography Generation Software for Unstructured Grids:
+
+https://github.com/NCAR/Topo/tree/TopoCESM2
+
+.. _ug63-meteorological-datasets:
 
 ------------------------------
 Meteorological data sets

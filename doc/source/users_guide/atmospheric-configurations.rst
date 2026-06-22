@@ -1,4 +1,4 @@
-.. _atmospheric-configurations:
+.. _ug63-atmospheric-configurations:
  
 
 **************************************
@@ -17,6 +17,7 @@ Each of these models have a number of atmospheric configurations provided to run
 The predefined compsets exist with one of three levels of support.
 
 - **Scientifically supported**:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.
+- **Developmental support**: Developmental configurations that are being evaluated. These are not fully scientifically supported in the sense of extensive tuning, testing and vetting. 
 - **Tested**: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of "Tested" simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.
 - **Unsupported**:  These compsets are setup as a "convenience" for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the --run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.
 
@@ -59,7 +60,7 @@ To run the FHIST compset, and create a case called fhist, simply run the followi
 To run the F2000climo compset, and create a case called f_present_day, simply run the following commands::
 
   % cd cime/scripts
-  % ./create_newcase --case f_present_day --compset FHIST --res f09_f09_mg17 
+  % ./create_newcase --case f_present_day --compset F2000climo --res f09_f09_mg17 
   % cd f_present_day
   % ./case.setup
   % ./case.build
@@ -75,30 +76,136 @@ The rationale behind this is that due to changes in code and namelist settings, 
 It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
 
 -------------------------------------------------------------------------------
+CAM developmental compsets
+-------------------------------------------------------------------------------
+
+The CAM6.3 has a number of developmental compsets that are being evaluated for candidate CESM3 applications. They currently require the "run-unsupported" flag
+
+  % ./create_newcase --case ... --compset ... --run-unsupported
+
+**Uniform resolution developmental CAM compsets**
+
++------------------------+-------------------------------------------+-------------------------------------+
+| Resolution             | Description                               | Compsets                            |
++========================+===========================================+=====================================+
+| ne30_ne30_mg17         | Approximately 1 degree CAM-SE             | F2000climo, F1850, FHIST, FHIST_BGC |
+|                        |                                           |                                     |
++------------------------+-------------------------------------------+-------------------------------------+
+| ne30pg3_ne30pg3_mg17   | Approximately 1 degree CAM-SE-CSLAM       | F2000climo, F1850, FHIST, FHIST_BGC,|
+|                        |                                           | B1850                               |
+|                        |                                           |                                     |
++------------------------+-------------------------------------------+-------------------------------------+
+| ne30pg2_ne30pg2_mg17   | Approximately 1 degree CAM-SE-CSLAM       | F2000climo, F1850, FHIST, FHIST_BGC |
+|                        | with a lower resolution physics grid      |                                     |
+|                        | (approximately 1.5 degrees)               |                                     |
++------------------------+-------------------------------------------+-------------------------------------+
+| ne120pg3_ne120pg3_mt13 | Approximately 1/4 degree CAM-SE-CSLAM     | F2000climo, F1850                   |
+|                        |                                           |                                     |
++------------------------+-------------------------------------------+-------------------------------------+
+| ne120pg2_ne120pg2_mt12 | Approximately 1/4 degree CAM-SE-CSLAM     | F2000climo, F1850                   |
+|                        | with a lower resolution physics grid      |                                     |
+|                        | (approximately 3/8 degree)                |                                     |
++------------------------+-------------------------------------------+-------------------------------------+
+| C96_C96_mg17           | Approximately 1 degree CAM-FV3            | F2000climo, F1850, FHIST, FHIST_BGC,|
+|                        |                                           | B1850                               |
++------------------------+-------------------------------------------+-------------------------------------+
+
+In physics grid (pg) configurations using CAM-SE-CSLAM each element is divided in 3x3 (pg3) or
+2x2 (pg2) quasi-uniform resolution physics columns. The pg3 and pg2 configurations are documented in 
+`Herrington et al. (2019a) <https://journals.ametsoc.org/mwr/article/147/1/69/103200/Physics-Dynamics-Coupling-with-Element-Based-High>`_
+and `Herrington et al. (2019b) <https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019MS001684>`_, respectively.
+
+
+**Variable resolution developmental CAM compsets**
+
+*CONUS Grid*
+
+The **CONUS** variable resolution grid is a 1 degree horizontal resolution grid with 
+a regional refinement of 1/8 degree resolution over the continential United States.
+
+
+.. image:: Grid_CONUS.jpg   
+    :width: 350px
+    :height: 350px
+    :align: center
+
+*ARCTIC Grids*
+
+Two variable resolution grids are available for the Artic region. The **ARCTIC** grid, 
+which is a 1 degree horizontal resolution grid with regional refinement of 1/4 degree 
+resolution over the broader Arctic region and the **ARCTICGRIS** grid which 
+additionally refines a patch covering the Greenland with 1/8 degree resolution.
+
+
+.. |img1| image:: Grid_ARCTIC.jpg   
+    :width: 350px
+    :height: 350px
+
+.. |img2| image:: Grid_ARCTICGRIS.jpg   
+    :width: 350px                 
+    :height: 350px                
+
++--------+--------+
+| |img1| | |img2| |
++--------+--------+
+
++-----------------------------------------------+---------------------------------+--------------------+
+| Resolution                                    | Description                     | Compsets           |
++===============================================+=================================+====================+
+| ne0CONUSne30x8_ne0CONUSne30x8_mt12            | Approximately 1/4 degree        | F2000climo, F1850, |
+|                                               | resolution over the Contiguous  | FHIST, FHIST_BGC   |
+|                                               | United States and approximately |                    |
+|                                               | 1 degree elsewhere              |                    |
++-----------------------------------------------+---------------------------------+--------------------+
+| ne0ARCTICne30x4_ne0ARCTICne30x4_mt12          | Approximately 1/4 degree        | F2000climo, F1850, |
+|                                               | resolution over Greenland and   | FHIST, FHIST_BGC   |
+|                                               | approximately 1 degree elsewhere|                    |  
++-----------------------------------------------+---------------------------------+--------------------+
+| ne0ARCTICGRISne30x8_ne0ARCTICGRISne30x8_mt12  | Approximately 1/8 degree        | F2000climo, F1850, |
+|                                               | resolution over Greenland,      | FHIST, FHIST_BGC   |
+|                                               | otherwise identical to the      |                    |
+|                                               | ne0ARCTICne30x4 grid elsewhere  |                    |
++-----------------------------------------------+---------------------------------+--------------------+
+
+-------------------------------------------------------------------------------
 CAM Simple Models
 -------------------------------------------------------------------------------
 
 There are several simpler configurations in which CAM can be run.  These include:
- - Generic adiabatic simple model (FDABIP04)
+ - Generic adiabatic configuration (FADIAB)
+ - Specific adiabatic configuration (FDABIP04)
+ - Baroclinic wave with Kessler microphysics and terminator chemistry (FKESSLER)
  - Held-Suarez simple model (FHS94)
+ - Moist Held-Suarez simple model (FTJ16)
  - Aquaplanet (QP and QS compsets)
  - PORT - Parallel Offline Radiation Tool (P compsets)
  - SCAM - single column model (FSCAM compset)
 
+For more information on the CESM Simpler Models project see http://www.cesm.ucar.edu/models/simpler-models/
+   
 **Scientifically supported CAM simpler model compsets**
 
 +--------------+----------------------+-----------------------------------------+-------------+
 | Compset Name | supported resolution |Description                              | Period      |
 +==============+======================+=========================================+=============+
-| FDABIP04     | T42z30_T42_mg17,     | Generic adiabatic simple model          |             |
-|              | T85z30_T85_mg17,     |                                         |             |
+| FADIAB       | f09_f09_mg17         | Generic adiabatic configuration         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FDABIP04     | T42z30_T42_mg17,     | Specific adiabatic configuration,       |             |
+|              | T85z30_T85_mg17,     | Polvani et al. baroclinic wave          |             |
 |              | T85z60_T85_mg17      |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FSCAM        | T42_T42              | Single column CAM                       |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FHS94        | T42z30_T42_mg17,     | Held-Suarez simpler model               |             |
 |              | T85z30_T85_mg17,     |                                         |             |
-|              | T85z60_T85_mg17      |                                         |             |
+|              | T85z60_T85_mg17,     |                                         |             |
+|              | f09_f09_mg17         |                                         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FTJ16        | f09_f09_mg17         | Moist Held-Suarez simpler model         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FKESSLER     | f09_f09_mg17,        | Ulrich et al. baroclinic wave with      |             |
+|              | ne30_ne30_mg17,      | Kessler microphysics and terminator     |             |
+|              | ne30pg3_ne30_pg3_mg17| chemistry                               |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | QPC6         | f09_f09_mg17,        | Prescribed SST Aquaplanet using CAM6    | 2000 to 2015|
 |              | f19_f19_mg17         |                                         |             |
@@ -106,6 +213,11 @@ There are several simpler configurations in which CAM can be run.  These include
 | QSC6         | f09_f09_mg17,        | Slab-Ocean Aquaplanet using CAM6        | 2000 to 2015|
 |              | f19_f19_mg17         |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
+
+Note that FADIAB, FHS94, FTJ16, FKESSLER, and QPC6 compset's can be run  with  the FV, FV3,
+SE and SE-CSLAM dynamical cores using the "run-unsupported" flag
+
+  % ./create_newcase --case ... --compset ... --run-unsupported
 
 
 ====================================================================================
@@ -582,34 +694,47 @@ Another set of compsets which require a brief description are ones for Super-par
 -------------------------------------------------------------------------------
 CAM-chem tested compsets
 -------------------------------------------------------------------------------
-CAM-chem tested compsets in CESM2.0
-(CAM-chem scientifically supported compsets will be available in CESM2.1)
+CAM-chem tested compsets in CESM2.2:
 
-CAM-chem has a number of compsets/resolutions which are tested in CESM2.0, see Table.  
-All available compsets use observed SSTs and sea-ice values and CMIP6 emissions until 2015. 
-Specified dynamics compsets are nudged to winds, temperature and surface fluxes and run on 
-56 levels, aligned with the MERRA2 vertical levels. Additional SD configurations are tested 
-to run with 32 levels that are not availble at this point. Half-degree SD compsets use 
-1-degree emissions. Users have to change to half-degree emissions if desired. 
+In CESM2.2 new compsets have been included and existing ones have been slightly changed with
+regard to starting dates and available resolutions.  In particular, new resolutions for running the spectral element dynamical core have been
+added and new compsets that use meteorological nudging using MERRA2 on CESM model levels, as described in Section 9.6.
+Starting dates have been changed to start in 2010-2014 using default CMIP6 emissions, besides for the regional refined grid over CONUS.
+Other anthropogenic and biomass burning emissions are available on cheyenne covering different periods, see Section 6.1.1. New emission
+regridding tools are available here (https://github.com/NCAR/IPT).
+These compsets are functional releases.
 
-+--------------+-----------------------+-----------------------------------------+-------------+
-| Compset Name | tested resolution     |Description                              | Period      |
-+==============+=======================+=========================================+=============+
-| FCHIST       | f09_f09_mg17          | Historical CAM6-chem using 1 degree FV  | 1979 to 2015|
-|              |                       | dycore, using CMIP6 emissions, coupled  |             |
-|              |                       | to interactive land and MEGAN2.1        |             |
-+--------------+-----------------------+-----------------------------------------+-------------+
-| FCSD         | f09_f09_mg17          | Historical CAM6-chem 1deg compset using |             |
-|              |                       | MERRA2 analsysis with a 50-hour         | 1980 to 2015|
-|              |                       | relaxation. See details in the text     |             |
-+--------------+-----------------------+-----------------------------------------+-------------+
-| FCSD         | f05_f05_mg17          | Historical CAM6-chem half deg compset   | 1980 to 2015|
-|              |                       | using MERRA2 analysis                   |             |
-+--------------+-----------------------+-----------------------------------------+-------------+
-| FC2010climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 2010        |
-|              |                       | FV dycore, averaged SSTs, emissions, and|             |
-|              |                       | lower boundary conditions (2005-2015)   |             |
-+--------------+-----------------------+-----------------------------------------+-------------+
+
++--------------+------------------------------------+-----------------------------------------+-------------+
+| Compset Name | tested resolution                  |Description                              | Period      |
++==============+====================================+=========================================+=============+
+| FC2010climo  | f09_f09_mg17                       | Climatological CAM6-chem using TS1      | 2010        |
+|              | ne30_ne30_mg17                     | chemistry, 1 deg horizontal resolution, |             |
+|              | ne30pg3_ne30pg3_mg17               | different dycores, averaged SSTs, emis, |             |
+|              |                                    | lower boundary conditions (2005-2015)   |             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCHIST       | f09_f09_mg17                       | Historical CAM6-chem using TS1          | 2010-2014   |
+|              | ne30_ne30_mg17                     | chemistry, 1 deg horizontal resolution, |             |
+|              | ne30pg3_ne30pg3_mg17               | different dycores, CMIP6 emissions,     |             |
+|              |                                    | coupled to interactive land and MEGAN2.1|             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCnudged     | f09_f09_mg17                       | As FCHIST, but nudged to U,V,T from     | 2010-2014   |
+|              | ne30_ne30_mg17                     | MERRA2 analsysis with a 50-hours        |             |
+|              | ne30pg3_ne30pg3_mg17               | interpolated to CESM (32) model levels  |             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCts2nudged  | f09_f09_mg17                       | As FCnudged, but using TS2  chemistry   | 2010-2014   |
+|              | ne30_ne30_mg17                     |                                         |             |
+|              | ne30pg3_ne30pg3_mg17               |                                         |             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCnudged     | ne0CONUSne30x8_ne0CONUSne30x8_mt12 | As FCnudged for regional refined grid   | 2013        |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCts2nudged  | ne0CONUSne30x8_ne0CONUSne30x8_mt12 | As FCts2nudged for regional refined grid| 2013        |
++--------------+------------------------------------+-----------------------------------------+-------------+
+| FCSD         | f09_f09_mg17                       | Historical CAM6-chem 1deg compset using |             |
+|              |                                    | MERRA2 analsysis with a 50-hour         | 1980 to 2015|
+|              |                                    | relaxation, using MERRA vertical levels |             |
++--------------+------------------------------------+-----------------------------------------+-------------+
+
 
 
 
@@ -622,7 +747,7 @@ Scientifically supported WACCM atmosphere compsets
 ========================================================
 
 Scientifically supported WACCM atmosphere configurations for CESM2.0 use TSMLT1 chemistry 
-(see :ref:`chemical mechanisms <chemical-mechanisms>` ) and 
+(see :ref:`chemical mechanisms <ug63-chemical-mechanisms>` ) and 
 0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17). 
 Additional scientifically validated configurations will be available in CESM2.1.
 
@@ -661,7 +786,7 @@ Tested WACCM atmosphere compsets
 
 Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and 
 middle atmosphere plus D-region (MAD) chemistry (see 
-:ref:`chemical mechanisms <chemical-mechanisms>` ) and 
+:ref:`chemical mechanisms <ug63-chemical-mechanisms>` ) and 
 0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).
 
 +---------+------------+-----------------------------------------+-------------+
