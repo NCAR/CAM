@@ -12,7 +12,7 @@ else
 
     # Make sure the submodule is checked out. For now, we assume the repo is using git-fleximod to
     # manage submodules.
-    "$(git rev-parse --show-toplevel)"/bin/git-fleximod update doc-builder
+    git submodule update
 fi
 
 # Check if --verbose or -V was passed
