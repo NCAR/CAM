@@ -89,7 +89,7 @@ Modifying CAM's compiled codebase (configuration)
   default parameters passed to configure.  Some examples of modifiable
   options include changing the physics version (cam4, cam5, cam6) or
   enabling the COSP simulator package, etc...  The list of possible options
-  are detailed at :ref:`arguments to configure<arguments-to-configure>`.
+  are detailed at :ref:`arguments to configure<ug63-arguments-to-configure>`.
   It is important to note that CAM compsets already have this variable set
   and that a user will most likely want to append flags as opposed to
   replacing them.  If the append flag is not used, this variable is reset
