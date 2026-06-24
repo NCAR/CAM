@@ -1,15 +1,21 @@
 **********************************************************
-Chemistry specific modifications 
+CAM-chem specific modifications
 **********************************************************
 
 Several standard chemistry mechanisms are supported for CAM, CAM-chem, and
-WACCM.  Here, we describe details on how the chemical mechanism is compiled
+WACCM. Here, we describe details on how the chemical mechanism is compiled
 and how to perform modifications of chemistry in the model, including
 adding or removing chemical and aerosol species, which requires changing
-the chemical mechanism and if applicable changes to wet and dry deposition.
+the chemical mechanism and, if applicable, changes to wet and dry deposition.
 Additional changes may be required in the namelist, e.g., adding or
-removing output, changing deposition species etc.  Furthermore, code
-changes may be required, depending of the specifics of the changes.
+removing output, changing deposition species etc.  Code changes may also
+be required, depending of the specifics of the changes.
+
+Please note that this chapter does not cover modifications for CAM-GC
+which uses the Kinetic Pre-Processor (KPP) for its chemical mechanism.
+For information about the GEOS-Chem chemical mechanism see the
+GEOS-Chem resources listed in the :doc:`Appendices <appendices>`
+chapter of this guide.
 
 .. _ug70-chemical-mechanisms:
 

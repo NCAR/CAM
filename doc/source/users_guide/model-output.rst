@@ -291,6 +291,71 @@ interval midpoint for time averaged data.
  feature has been turned off by default in CAM7.  That allows all files for
  a stream to contain the same number of valid time samples.
 
+.. _ug70-geos-chem-history:
+
+---------------------------------
+Enabling GEOS-Chem History Fields
+---------------------------------
+
+CAM-GC provides two classes of GEOS-Chem output through CAM's standard
+history mechanism:
+
+* **Mixing ratio diagnostics** for every advected species are always
+  available without further configuration.  Add the species short name
+  (e.g., ``O3``) to a ``finclX`` list in ``user_nl_cam``, just as for
+  any other CAM tracer.
+
+* **GEOS-Chem "History" diagnostics** (reaction rates, photolysis
+  rates, etc.) require two steps to enable:
+
+  1. Add the diagnostic name to the appropriate collection in
+     ``HISTORY.rc`` in the run directory.  The collection itself must
+     also be uncommented in the ``COLLECTIONS`` list at the top of the
+     file.  The list of available diagnostics is given in the
+     `GEOS-Chem History diagnostics reference
+     <https://geos-chem.readthedocs.io/en/stable/gcclassic-user-guide/diag-outputs-hist.html>`__.
+
+  2. Add the same diagnostic name to a ``finclX`` list in
+     ``user_nl_cam``.  CESM controls which history tape the field is
+     written to, the averaging mode, output frequency, and file
+     duration; the corresponding settings inside ``HISTORY.rc``
+     (collection name, frequency, duration, mode) are ignored when
+     GEOS-Chem is driven by CESM.
+
+After a successful build, every diagnostic enabled in ``HISTORY.rc``
+will appear in the *Master Field List* section of ``atm.log`` and may
+be referenced from ``finclX``.
+
+.. note::
+
+   Diagnostic name wildcards used in standalone GEOS-Chem (e.g.,
+   ``?ADV?``, ``?RXN?``) are **not** supported in CAM-GC.  Every field
+   must be enumerated explicitly, e.g., ``Jval_NO2``, ``Jval_PAN``.
+
+.. note::
+
+   Some GEOS-Chem History diagnostics are computed by GEOS-Chem
+   components that are not active in CAM-GC (for example, advection
+   and wet deposition are handled by CAM rather than GEOS-Chem).  Such
+   diagnostics are excluded from the default ``HISTORY.rc`` and are
+   not available in CAM-GC.
+
+**Example: PM10**
+
+To request PM10, uncomment ``PM10`` in any active collection in
+``HISTORY.rc``, then add ``PM10`` to the desired ``finclX`` in
+``user_nl_cam``.
+
+**Example: Reaction rates**
+
+Reaction rate diagnostics are named ``RxnRate_EQNNN`` where ``NNN`` is
+the three-digit KPP reaction index.  To look up an index, open
+``CAM/src/chemistry/geoschem/geoschem_src/KPP/fullchem/gckpp_Monitor.F90``;
+each reaction is annotated with an ``index`` comment.  For example,
+the reaction ``O3 + NO -> NO2 + O2`` is index 13, so add
+``RxnRate_EQ013`` to a collection in ``HISTORY.rc`` and to the desired
+``finclX`` in ``user_nl_cam``.
+
 ======================================
 Analyzing and Visualizing Model Output
 ======================================
