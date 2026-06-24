@@ -187,6 +187,7 @@ high-level toggles and to the ``finclX`` lists that route GEOS-Chem to CAM histo
 namelist variable used by CAM-chem-HEMCO to point at a
 user-supplied HEMCO configuration does not apply to CAM-GC: the run
 directory copy of ``HEMCO_Config.rc`` is always used.
+
 ========
 Examples
 ========

@@ -355,6 +355,7 @@ each reaction is annotated with an ``index`` comment.  For example,
 the reaction ``O3 + NO -> NO2 + O2`` is index 13, so add
 ``RxnRate_EQ013`` to a collection in ``HISTORY.rc`` and to the desired
 ``finclX`` in ``user_nl_cam``.
+
 ======================================
 Analyzing and Visualizing Model Output
 ======================================

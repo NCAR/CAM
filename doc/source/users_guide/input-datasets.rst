@@ -205,6 +205,44 @@ Species with dry and wet deposition (CAMChem/WACCM)
     SOAG3, SOAG4, SVOC, TERP2OOH, TERPNIT, TERPOOH, TERPROD1, TERPROD2,
     TOLOOH, XOOH, XYLENOOH, XYLOLOOH
 
+-----------------------------------------------
+Species with biogenic emissions (CAMChem/WACCM) 
+-----------------------------------------------
+
+Species with MEGAN emissions (CAM-chem (TS1) and WACCM (TSMLT)) are listed
+in ``drv_flds_in``, and can be modified in ``user_nl_cam``::
+
+  megan_specifier = 'ISOP = isoprene',
+      'MTERP = pinene_a + carene_3 + thujene_a + 2met_styrene + cymene_p +
+               cymene_o + terpinolene + bornene + fenchene_a + ocimene_al +
+               pinene_b + sabinene + camphene + limonene + phellandrene_a +
+               terpinene_g + terpinene_a + phellandrene_b + myrcene +
+               ocimene_t_b + ocimene_c_b', 
+      'BCARY = caryophyllene_b + bergamotene_a + bisabolene_b +
+               farnescene_b + humulene_a', 
+      'CH3OH = methanol', 
+      'C2H5OH = ethanol', 
+      'CH2O = formaldehyde',
+      'CH3CHO = acetaldehyde', 
+      'CH3COOH = acetic_acid', 
+      'CH3COCH3 = acetone',
+      'HCOOH = formic_acid', 
+      'HCN = hydrogen_cyanide', 
+      'CO = carbon_monoxide',
+      'C2H6 = ethane', 
+      'C2H4 = ethene', 
+      'C3H8 = propane', 
+      'C3H6 = propene',
+      'BIGALK = pentane + hexane + heptane + tricyclene', 
+      'BIGENE = butene',
+      'TOLUENE = toluene'
+
+.. note::
+
+  Modifications may be required for other mechanisms, see :ref:`Running
+  with interactive / prescribed biogenic emissions
+  <ug70-interactive-prescribed-biogenic-emissions>`.
+
 -----------------------------------------
 Species with biogenic emissions (CAM-GC)
 -----------------------------------------

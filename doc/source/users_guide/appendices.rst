@@ -442,17 +442,17 @@ HETP aerosol thermodynamics. GEOS-Chem, Cloud-J, and HETP are all
 externally developed software packages maintained by the GEOS-Chem
 Support Team. Follow the links for more information about these projects.
 
-* `GEOS-Chem in CESM wiki page<https://wiki.ucar.edu/spaces/camchem/pages/586743903/Using+GEOS-Chem+in+CESM>`__
+* `GEOS-Chem in CESM wiki page <https://wiki.ucar.edu/spaces/camchem/pages/586743903/Using+GEOS-Chem+in+CESM>`__
 
-* `GEOS-Chem website<http://geos-chem.org>`__
+* `GEOS-Chem website <http://geos-chem.org>`__
 
-* `GEOS-Chem User Manual<https://geos-chem.readthedocs.io/en/stable/>`__
+* `GEOS-Chem User Manual <https://geos-chem.readthedocs.io/en/stable/>`__
 
-* `GEOS-Chem on GitHub<https://github.com/geoschem/geos-chem>`__
+* `GEOS-Chem on GitHub <https://github.com/geoschem/geos-chem>`__
 
-* `Cloud-J on GitHub<https://github.com/geoschem/cloud-j>`__
+* `Cloud-J on GitHub <https://github.com/geoschem/cloud-j>`__
 
-* `HETP on GitHub<https://github.com/geoschem/HETerogeneous-vectorized-or-Parallel>`__
+* `HETP on GitHub <https://github.com/geoschem/HETerogeneous-vectorized-or-Parallel>`__
 
 ===============
 HEMCO Resources
@@ -463,11 +463,11 @@ configurable sources, regions, and species. It is used for emissions
 handling in GEOS-Chem chemistry and optionally in CAM-chem in CESM3.
 See the links for more information about HEMCO.
 
-* `HEMCO in CESM wiki page<https://wiki.ucar.edu/spaces/camchem/pages/509871715/HEMCO>`__
+* `HEMCO in CESM wiki page <https://wiki.ucar.edu/spaces/camchem/pages/509871715/HEMCO>`__
 
-* `HEMCO User Manual<https://hemco.readthedocs.io/en/stable/>`__
+* `HEMCO User Manual <https://hemco.readthedocs.io/en/stable/>`__
 
-* `HEMCO on GitHub<https://github.com/geoschem/hemco>`__
+* `HEMCO on GitHub <https://github.com/geoschem/hemco>`__
 
 
 
