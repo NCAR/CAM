@@ -57,7 +57,10 @@ jobs:
         id: build-docs
         run: |
           [[ -e doc ]] && cd doc
-          ./build_docs_to_publish -d --site-root https://ncar.github.io/cam --verbose
+          # Get the documentation landing page
+          site_root="https://${GITHUB_REPOSITORY%/*}.github.io/${GITHUB_REPOSITORY#*/}"
+          # Build the docs
+          ./build_docs_to_publish -d --site-root "${site_root}" --verbose
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@0252fc4ba7626f0298f0cf00902a25c6afc77fa8  # v3
