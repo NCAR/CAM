@@ -40,4 +40,5 @@ jobs:
           mkdir -p build-logs
           [[ -e doc ]] && cd doc
           git fetch
-          PYTHONUNBUFFERED=1 ./build_docs_to_publish -r ${PWD}/_build -d --verbose --site-root "$PWD/_publish"
+          site_root="https://${GITHUB_REPOSITORY%/*}.github.io/${GITHUB_REPOSITORY#*/}"
+          PYTHONUNBUFFERED=1 ./build_docs_to_publish -r ${PWD}/_build -d --verbose --site-root "${site_root}"
