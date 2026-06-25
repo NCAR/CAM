@@ -9,11 +9,15 @@ on:
         default: false
 
 
-# By default, this workflow will only get contents:read permissions. However, if the calling
-# workflow has other permissions, this workflow will inherit them. This means that the calling
-# workflow needs to have pages:write and id-token:write permissions if deploy is true.
+# Permissions are the INTERSECTION of what the caller grants and what is declared here; a
+# reusable workflow does NOT inherit broader permissions from its caller. We declare the write
+# scopes the deploy steps need, but they're only effective if the caller also grants them. So a
+# caller that invokes with deploy:true should grant pages:write and id-token:write, while a
+# caller that invokes with deploy:false can grant only contents:read to withhold them.
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 jobs:
 
