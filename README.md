@@ -9,7 +9,9 @@ For CAM release code and public (AMWG) development, see the [ESCOMP/CAM](https:/
 1. If you have not already done so, create a fork of this repository (note that you will likely need to rename the fork because CAM will probably be taken by your fork of ESCOMP/CAM)
 1. Clone your forked repository.
 1. Either sync your fork to the latest from NCAR (you'll want the latest for the guide/branch you're updating!), or add NCAR as a remote.
-1. Branch off of the guide you are updating. This will most likely be `main` (if you're updating the latest development guide. But will be `cam6-users-guide` for CAM6, for example. If you've synced your fork and wish to create a branch off of main (latest development) called `doc-updates`, the commands are below:
+1. Branch off of the guide you are updating. The source branch will most likely be `main` (if you're updating the latest development guide), but will be `cam6-users-guide` for CAM6, for example.
+
+If you've synced your fork and wish to create a branch off of main (latest development) called `doc-updates`, the commands are below:
 ```
 git branch doc-updates main
 git checkout doc-updates
