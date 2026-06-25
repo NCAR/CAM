@@ -8,7 +8,7 @@ For CAM release code and public (AMWG) development, see the [ESCOMP/CAM](https:/
 ## Setup
 1. If you have not already done so, create a fork of this repository (note that you will likely need to rename the fork because CAM will probably be taken by your fork of ESCOMP/CAM)
 1. Clone your forked repository.
-1. Either sync your fork to the latest from NCAR, or add NCAR as a remote.
+1. Either sync your fork to the latest from NCAR (you'll want the latest for the guide/branch you're updating!), or add NCAR as a remote.
 1. Branch off of the guide you are updating. This will most likely be `main` (if you're updating the latest development guide. But will be `cam6-users-guide` for CAM6, for example. If you've synced your fork and wish to create a branch off of main (latest development) called `doc-updates`, the commands are below:
 ```
 git branch doc-updates main
@@ -17,7 +17,7 @@ git submodule update --init (initializes the doc-builder submodule)
 ```
 
 ## Make & commit changes
-1. Modify the files you wish to modify (all sources files live in `doc/source/users_guide`)
+1. Modify the files you wish to modify (all source files live in `doc/source/users_guide`)
 2. Commit the changes to your fork.
 ```
 git add <file changed>
@@ -53,4 +53,4 @@ git commit -m 'update doc-builder submodule'
 git push origin <branch name>
 ```
 
-Then create a PR to the branch in question. Note that you will have to do this for all branches/versions!
+Then create a PR to the branch in question.
