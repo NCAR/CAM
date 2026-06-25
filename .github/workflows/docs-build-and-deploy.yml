@@ -7,6 +7,7 @@ on:
     # And specifically, only when a file in the doc/ directory is updated.
     paths:
       - 'doc/**'
+      - '.github/workflows/docs-build-and-deploy.yml'
     # And also make sure to add any files that you "include" in your docs that live outside doc/
 
   # Allows you to run this workflow manually from the Actions tab
