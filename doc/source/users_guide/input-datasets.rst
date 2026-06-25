@@ -39,7 +39,7 @@ datasets.
 Emissions
 =========
 
-All CAM, CAM-chem and WACCM configurations require surface emissions and,
+All CAM, CAM-chem, CAM-GC, and WACCM configurations require surface emissions and,
 in most cases, external forcings (vertically distributed emissions). In the
 standard compsets all biomass burning emissions are at the surface.
 Anthropogenic emissions are mostly released at the surface, but some
@@ -80,6 +80,23 @@ format) in the namelist.  A list of emissions inventories that have been
 used by CESM are `here
 <https://wiki.ucar.edu/display/camchem/Emission+Inventories>`__.
 
+Specifying emissions is different when using HEMCO for emissions handling.
+HEMCO is an optional emissions option for CAM-chem, and is a required emissions option for CAM-GC. Emissions
+sources, update frequency, and other configurable options are specified
+in the HEMCO configuration file rather than being specified in the namelist.
+
+For CAM-chem, the path to this file is set
+by the namelist variable ``hemco_config_file``.  For CAM-GC, a default
+``HEMCO_Config.rc`` is automatically copied from the case directory to the run directory and is always read from there; it may be edited in the run
+directory prior to ``case.submit``.  See :ref:`Using GEOS-Chem Chemistry
+<ug70-using-geos-chem>` for the full set of configuration files copied
+to the run directory, and the `HEMCO User Manual
+<https://hemco.readthedocs.io/en/stable/>`__ for the file format.
+
+When running CAM-GC this file is copied from the GEOS-Chem 
+source code to the case directory where it can be edited 
+prior to run submission.
+
 ----------------------------
 Species with emissions (CAM)
 ----------------------------
@@ -111,8 +128,14 @@ Species with dry and wet deposition (CAM)
 
     H2O2, H2SO4, SO2
 
+--------------------------------
+Species with emissions (CAM-GC)
+--------------------------------
+
+The list of species with emissions in CAM-GC is configured in the HEMCO configuration file (``HEMCO_Config.rc``).
+
 --------------------------------------
-Species with emissions (CAMchem/WACCM)
+Species with emissions (CAM-chem/WACCM)
 --------------------------------------
 
 * Surface (anthro, bb, other)::
@@ -130,6 +153,12 @@ Species with emissions (CAMchem/WACCM)
     NO2 (aircraft), SO2 (aircraft, contvolcano, erupting volcanoes), so4_a1
     (anthro-ene, contvolcano), so4_a2 (contvolcano), bc_a4 (aircraft),
     num_a1, num_a2, num_a4
+
+---------------------------------------------
+Species with dry and wet deposition (CAM-GC) 
+---------------------------------------------
+
+List of GEOS-Chem species with dry and wet deposition follow a similar pattern with CAM-chem but with GEOS-Chem-specific lists. See ``CAM/bld/namelist_files/`` for ``geoschem_master_gas_drydep_list.xml``, ``geoschem_master_aer_drydep_list.xml``, ``geoschem_master_gas_wetdep_list.xml``, ``geoschem_master_aer_wetdep_list.xml``
 
 ---------------------------------------------------
 Species with dry and wet deposition (CAMChem/WACCM) 
@@ -213,6 +242,17 @@ in ``drv_flds_in``, and can be modified in ``user_nl_cam``::
   Modifications may be required for other mechanisms, see :ref:`Running
   with interactive / prescribed biogenic emissions
   <ug70-interactive-prescribed-biogenic-emissions>`.
+
+-----------------------------------------
+Species with biogenic emissions (CAM-GC)
+-----------------------------------------
+
+Biogenic emissions for CAM-GC use the same MEGAN coupling through CLM
+as CAM-chem. The mapping from MEGAN species to GEOS-Chem species differs
+from that used by CAM-chem TS1, as the species names in GEOS-Chem are
+different. The list of compounds passed from CLM to CAM is set by
+``megan_specifier`` in ``build-namelist`` (search for ``geoschem``
+in the file to view the list).
 
 -----------------
 WACCM-X emissions

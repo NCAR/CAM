@@ -134,7 +134,10 @@ New chemistry features:
  - Option to use CARMA, a comprehesive sectional aerosol model as an
    alternative to the default modal aerosol model.
 
- - GEOS-Chem is an alternative chemistry module.
+ - Option to use GEOS-Chem, a NOx-Ox-hydrocarbons-aerosols-halogens
+   chemistry mechanism generated using the Kinetic Pre-Processor (KPP)
+   and using Cloud-J photolysis and HETP aerosol thermodynamics, as
+   an alternative to the MOZART series of chemical mechanisms.
 
  - Alternative emissions from HEMCO which allows online regridding and
    incorporating regional inventories into global inventories.
