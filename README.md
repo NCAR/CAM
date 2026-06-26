@@ -1,6 +1,6 @@
 # Welcome to the CAM Development Repository
 
-This is the repository for CAM documentation. The latest released version of the docs is [v6.3](https://ncar.github.io/cam/cam6.3-users-guide/index.html).
+This is the repository for CAM documentation. The latest released version of the docs is [v6.3](https://ncar.github.io/CAM/cam6.3-users-guide/index.html).
 
 For CAM release code and public (AMWG) development, see the [ESCOMP/CAM](https://github.com/ESCOMP/CAM) repository.
 
